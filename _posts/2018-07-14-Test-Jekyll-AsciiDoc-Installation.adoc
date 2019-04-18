@@ -1,0 +1,30 @@
+= Test Jekyll-AsciiDoc Installation
+John Kirch <jrkirch@pm.me>
+:layout: post
+:experimental: true
+
+== New Section
+
+. Start of enumerated list
+* Start of unordered list
+* Another bulleted item
+. Test for source code syntax highlighting
++
+[source,php]
+----
+<?php
+require_once 'Core.php';
+$production = false;
+$core_object = new Core();
+echo "Hello World<br />\n";
+?>
+----
++
+. Test admonitions
++
+[WARNING]
+====
+If you don`'t see an icon on the left, it didn`'t work!
+====
++
+. End of tests.

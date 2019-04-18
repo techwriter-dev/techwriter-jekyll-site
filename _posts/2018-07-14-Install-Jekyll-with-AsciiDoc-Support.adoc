@@ -1,0 +1,168 @@
+= Installing Jekyll with AsciiDoc Support on Unbuntu Server 18.04 LTS
+
+. Ensure that Ubuntu`'s software repositories are up to date
++
+[source,terminal]
+----
+$ sudo apt-get update
+----
++
+. Install essential software development tools
++
+[source,terminal]
+----
+$ sudo apt install build-essential
+----
++
+. Install Ruby and its development tools
++
+[source,terminal]
+----
+$ sudo apt-get install ruby ruby-dev
+----
++
+. Install AsciiDoctor
++
+[source,termninal]
+----
+$ sudo gem install asciidoctor
+----
++
+. Install Jekyll and Bundler
++
+[source,terminal]
+----
+$ sudo gem install jekyll bundler
+----
++
+. Create a Jekyll site using a name of your choice, e.g. `my-static-site`
++
+[source,terminal]
+----
+$ jekyll new my-static-site
+$ cd my-static-site
+----
++
+. Edit the new site`'s Gemfile for adding the `jekyll-asciidoc` plugin
++
+[source,terminal]
+----
+# If you have any plugins, put them here!
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-asciidoc"
+  gem "coderay"
+end
+----
++
+. Edit the `_config.yml` file and add the following lines to configure `asciidoctor` to use `coderay` for syntax highlighting of source code, scripts, and shell commands
++
+[source,yml]
+----
+  asciidoctor:
+    attributes:
+      idprefix: _
+      icons: font
+      source-highlighter: coderay
+      coderay-css: style
+----
++
+. Use Ruby `bundle` to install the new dependencies
++
+[source,terminal]
+----
+$ bundle install
+----
++
+. Rebuild the site now that all dependencies have been installed
++
+[source,terminal]
+----
+$ bundle exec jekyll build
+----
++
+. Now the default CSS stylesheet has been generated, it needs the styles for the various admonition icons and access to Font Awesome, from which these icons are generated. First we need a copy of `_site/assets/main.css` because anything in the `_site` branch of the Jekyll ecosystem will eventually get destroyed and recreated each time you rebuild the site using `bundle exec jekyll build` after adding or editing your content.
++
+[source,terminal]
+----
+$ mkdir assets
+$ cp _site/assets/main.css assets/.
+----
++
+. Now that you have a new `assets` directory where you can add media, style sheets and other web assets that will not be overwritten or deleted by the build process, add this single line of code for the remote Font Awesome CSS styles and fonts to the top of the `main.css` file.
++
+[source,terminal]
+----
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css');
+----
++
+. According to the https://github.com/asciidoctor/jekyll-asciidoc#adding-supplemental-assets[Jekyll-AsciiDoc] documentation (see the *Font-based Admonition and Inline Icons* section), "`you need to add the following CSS rules`" for the admonition icons to appear. Placce them at the end of the `main.css` file.
++
+[source,css]
+----
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+----
++
+. Test the syntax highlighting of source code and admonition icon functionality by creating a test post (create a new file under `_posts`)
++
+[source,asciidoc]
+----
+= Test Jekyll-AsciiDoc Installation
+John Doe <johndoe@pm.me>
+:layout: post
+:experimental: true
+
+== New Section
+
+. Start of enumerated list
+* First item of a bulleted list
+* Another bulleted item
+. Test for source code syntax highlighting
++
+[source,php]
+\----
+<?php
+require_once 'Core.php';
+$production = false;
+$core_object = new Core();
+echo "Hello World<br />\n";
+?>
+\----
++
+. Test admonitions
++
+[WARNING]
+====
+If you don`'t see an icon on the left, it didn`'t work!
+====
++
+. End of tests.
+----
++
+. Install any new plugins, rebuild the site, and start the Jekyll web server
++
+[source,terminal]
+----
+$ bundle install
+$ bundle exec jekyll build
+$ bundle exec jekyll serve
+----
++
+[WARNING]
+====
+If you are installing Jekyll on a remote host, start the Jekyll site with the IP address of your remote host, or better yet, have it listen on all available IP addresses of that host by appending `--host=0.0.0.0` to the `serve` action:  `bundle exec jekyll serve --host=0.0.0.0`
+====
++
+. View your new Jekyll static site in a web browser: http://localhost:4000[http://localhost:4000]
++
+[TIP]
+====
+Replace _localhost_ with the hostname or domain name of your remote server if your Jekyll installation is not on your local workstation.
+====

@@ -1,0 +1,33 @@
+= Tools
+John Kirch <jrkirch@pm.me>
+:imagesdir: assets
+:experimental: true
+
+
+
+https://git-scm.com/[image:Git-logo_255x107.png[]]
+
+Long before Git became mainstream, most software developers worked with https://en.wikipedia.org/wiki/Concurrent_Versions_System[CVS]. By the early 21^st^ century _SVN_, now known as https://subversion.apache.org/[Apache Subversion], was dominant until April 2005 when Git, and 12 days later, Mercurial with a very similar feature set, emerged as a completely new, _distributed_ RCS systems.
+Suddenly branching and merging were no longer painful processes and there was no "`central authority!`"
+Everyone could live in their own little world of code, happily committing code changes offline while riding BART on the way into San Francisco every morning.
+It was a major paradigm shift.
+
+As a software developer, team lead and manager of our small software team I switched us over to Git in 2012 and never looked back. Coupled with the value added by GitHub, integrating technical writing projects into a private Git repository hosted by GitHub where team access can be easily administered, this platform has become the norm for many technical writing teams.
+
+
+http://asciidoc.org/[image:AsciiDoc_255x75.png[]]
+
+While `AsciiDoc` is not an application, it is a markup language that is supported by a new generation of _agile_ technical writers who espouse a concept of focusing on the _writing process_ instead of getting dragged down a rabbit hole by the distractions of formatting icons, buttons, check boxes, and menus for formatting. This widespread markup language provides more formatting and functionality than `Markdown`, but is much easier to use than
+
+https://en.wikipedia.org/wiki/LaTeX#Typesetting_system[image:LaTeX_255x106.png[]]
+
+
+
+image:Atom_255x53.png[]
+
+_A hackable text editor for the 21st Century_
+
+
+
+
+image:Jekyll_253x118.png[]

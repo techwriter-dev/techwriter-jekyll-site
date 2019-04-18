@@ -1,0 +1,45 @@
+= Methodology
+John Kirch <jrkirch@pm.me>
+:imagesdir: assets
+:experimental: true
+
+== The emergence of a new genreation with a new way of tacking software documentation
+
+The new generation of technical writers is quite often embedded in a team of software developers and QA engineers who espouse agile project management methodologies like Scrum or Kanban and are keen on distributed revision control management systems like Git or Mercurial. These technical writers usually some software coding experience or have taken some computer science classes. Many of them have degrees in literature or one of the humanities. This is what they do full-time. Their employers really value well-written technical documentation and consequently unlike many large corporations in retail or other non-tech industries, do not consider documentation an afterthought, a responsibility to be dumped on software developers who notoriously hate documenting their APIs.
+
+== Why do software developers hate documenting their code?
+
+video::ftnVllssoI8[youtube]
+Around 4 minutes into
+
+== The Opposing Methodologies: Old School versus New School
+In the world of technical writing in 2019 there are two competing methodologies which have diametrically opposed ideas about how to achieve the same goal: producing quality, technical documentation.
+Statistics are hard to get on which of these two philosophies is most popular with technical writers:
+
+. *Old School*: The mindset of this group is that costly, proprietary, anti-markup, DTP-style, https://en.wikipedia.org/wiki/WYSIWYG[WYSIWYG] applications that have been retooled to add client-server architecture, and collaborative functionality are the only tools needed to produce quality documentation.
+Oddly enough, this group is the least likely to hire full-time, technical writers to produce that product.
++
+Adode InDesign is a classic example of a revamped DTP application that is geared more towards typography for high gloss brochures rather than functional API documentation to be made available to customers seeking timely information via the web. How many software developers document their APIs know or care about https://en.wikipedia.org/wiki/Recto_and_verso[recto versus verso], have a clue about https://en.wikipedia.org/wiki/Kerning[kerning] or what a https://en.wikipedia.org/wiki/Typographic_ligature[ligature] is?
++
+A similar application would be Microsoft Publisher, however, the shop that skimps on full-time technical writers is not likely to pay for Microsoft Publisher when they can use Microsoft Word documents instead.
+For this kind of shop, Word documents are likely to shared via any of the Microsoft collaborative ecosystems: Teams, SharePoint, etc.
++
+Other applications or SaaS offerings like Confluence by Atlassian are designed to be used as internal tools for cross-team collaboration where neither printed matter, e-books, nor downloadable PDFs are the primary medium of consumption. Confluence has the following https://en.wikipedia.org/wiki/Confluence_(software)#Limitations[limitations]:
+
+* Two pages cannot have the same title within the same namespace, even if they have different parents.
+This could prove awkward if Confluence is intended for documentation having repetitive titles.
+* There is no standard way of adding captions to images, there are only workarounds.
+* There are certain bugs in editing that makes it very unreliable tool.
+If you refresh during editing your data will be lost. Subheadings of level 3 are impossible to edit using the local edit button.
+
+. *New School*: The lean, markup-up based, text-only approach, that allows technical writers to focus on what technical writers do: write documentation! The new philosophy is a _radical departure_ from _Old School_ tools that force writers to break their concentration on creating content by having to grab for a mouse to highlight text for formatting and then search through dozens of formatting icons on multiple rows with confusing menus in an attempt to find the right type of formatting needed.
+
+
+image:Atom_255x53.png[]
+
+_A hackable text editor for the 21st Century_
+
+
+
+
+image:Jekyll_253x118.png[]

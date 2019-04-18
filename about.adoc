@@ -1,0 +1,10 @@
+= About
+:page-layout: page
+:uri-asciidoctor: http://asciidoctor.org
+
+== Purpose of this Site
+
+The domain name was chosen, `TechWriter.Dev`, was carefully chosen to evoke an image of the unification of the two professions, _technical writing_ and _software development_. Fortunately for me, fashion often repeats itself decades later. Skinny jeans worn never below the ankle are once again in fashion. Likewise, the link:methodology.html[methodology] of lightweight markup with a text editor instead of cumbersome,  DTP-style, https://en.wikipedia.org/wiki/WYSIWYG[WYSIWYG] applications has come full circle since I was working as a copy editor at a German univserity in the late 1980s early 1990s.
+
+
+With over 30 years of industry experience in academia (both in the U.S. and Germany), construction project management, IT, oil and gas exploration (R&D), quality assurance, software development, state government, and TEFL, prospective documentation projects in these fields can be executed with a high degree of competency.
