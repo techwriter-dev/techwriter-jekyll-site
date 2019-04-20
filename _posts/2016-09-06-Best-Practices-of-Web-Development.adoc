@@ -36,38 +36,37 @@ Files are simply containers.
 They have whatever you put in them, be it binary data, or a special kind of binary
 data, that we have come to call _text:_
 
-
-[quote,  'https://stackoverflow.com/questions/2014069/windows-1252-to-utf-8-encoding/2014167#2014167[Kleiba]', responding on Stack Overflow to a question about Windows encoded (windows-1252) files needing to be converted to UTF-8 ]
+[quote,  Kleiba, "responding on Stack Overflow to a question about Windows encoded (windows-1252) files needing to be converted to UTF-8" ]
 ____
 There`'s no general way to tell if a file is encoded with a specific encoding.
-Remember that an encoding is nothing more but an "`agreement`" how the bits in a file should be mapped to characters.
+Remember that an encoding is nothing more but an "`agreement`" how the bits in a file should be mapped to characters.  <<kleiba>>
 ____
 
 
-[quote, Skeet]
+[quote, Jon Skeet]
 ____
 In theory, I believe any file is a valid Windows-1252 file, as it maps
 every possible byte to a character.
-Now there are certainly characteristics which would strongly suggest that it`'s UTF-8 — if it starts with the UTF-8 BOM, for example — but they wouldn`'t be definitive.
+Now there are certainly characteristics which would strongly suggest that it`'s UTF-8 — if it starts with the UTF-8 BOM, for example — but they wouldn`'t be definitive.<<skeet>>
 ____
 
 
-Typically, character encoding is of little concern to developers until strange character groups like â€™ or â€œ start appearing on web pages.
+Typically, character encoding is of little concern to developers until strange character groups like `â€™` or `â€œ` start appearing on web pages.
 Leo Notenboom, with "`an 18 year career as a programmer at Microsoft,`" knows this problem all too well.
-Using the first example above, â€™, he explains the process of how this happens, and identifies the two most likely culprits responsible for such a mess: 1) email clients, and 2)
-Microsoft Word. link:#notenboom[[Notenboom]].
+Using the first example above, ``â€™`, he explains the process of how this happens, and identifies the two most likely culprits responsible for such a mess: 1) email clients, and 2)
+Microsoft Word. <<notenboom>>
 He is correct in saying that the _right single quote_, a three-byte character in UTF-8 (Hex: E2 80 99) when misinterpreted as another (non UTF-8, single byte) encoding scheme, will be interpreted as three separate characters: "`0xE28099 breaks down as 0xE2 (â), 0x80 (€) and 0x99 (™),`" however, reader "`bob,`" points out that Notenboom`'s reference to http://en.wikipedia.org/wiki/ISO/IEC_8859-1[ISO-8859-1] is not quite on the mark:
 
-[quote, Notenboom]]
+[quote, Notenboom]
 ____
-â€™ is not the result of interpreting UTF-8 as ISO-8859-1, but as Windows-1252.
-Just because € doesn`'t exist in iso-8859-1 charset !
-And the charset where 0x80 = € and 0x99 = ™ is windows-1252.
+`â€™` is not the result of interpreting UTF-8 as ISO-8859-1, but as Windows-1252.
+Just because `€` doesn`'t exist in iso-8859-1 charset!
+And the charset where 0x80 = `€` and 0x99 = `™` is windows-1252. <<notenboom>>
 ____
 
 Indeed, http://en.wikipedia.org/wiki/ISO/IEC_8859-1[ISO-8859-1] has no mappings at all between Hex 7F and 9F, however, http://en.wikipedia.org/wiki/Code_page_1252[*Windows*-1252] maps perfectly to 0x80 (€) and 0x99 (™) in this triplet.
 
-Even the best configured server will not be able to turn garbled data from a web client into good data in the backend.
+Even the best configured server will not be able to turn garbled data from a web client into good data in the back end.
 This type of user-initiated problem will have to be tackled in code in two different situations:
 
 * *Damaged already occurred* to due to **Windows**-1252 mis-decoding and
@@ -79,7 +78,7 @@ demonstrate how the text column(s) can be easily repaired:
 ----
 UPDATE rfi_response SET response = REPLACE(response, 'â€œ', '“');
 UPDATE rfi_response SET response = REPLACE(response, 'â€', '”');
-UPDATE rfi_response SET response = REPLACE(response, 'â€™', '`'');
+UPDATE rfi_response SET response = REPLACE(response, 'â€™', '`');
 UPDATE rfi_response SET response = REPLACE(response, 'â€˜', '‘');
 UPDATE rfi_response SET response = REPLACE(response, 'â€”', '–');
 UPDATE rfi_response SET response = REPLACE(response, 'â€“', '—');
@@ -101,7 +100,7 @@ This becomes especially important for processing POSTed data from input types li
 
 === UTF-8 is the Answer
 
-[quote,Harold]
+[quote, Harold, IBM Developer]
 ____
 Universality is the first and most compelling reason to choose UTF-8.
 It can handle pretty much every script in use on the planet today.
@@ -119,7 +118,7 @@ byte of a UTF-8 stream or sequence is unambiguous. In UTF-8, you always
 know where you are – that is, given a single byte you can immediately
 determine whether it`'s a single-byte character, the first byte of a
 two-byte character, the second byte of a two-byte character, or the
-second or third or fourth byte of a three- or four-byte character.
+second or third or fourth byte of a three- or four-byte character. <<harold>>
 ____
 
 == Database Design
@@ -350,11 +349,8 @@ Also, "`Where should my PHP scripts be stored within the filesystem?`"
 === Categories
 
 Some of the questions above can only be answered within the context of
-__code purpose__. Once we establish the various categories of PHP
-scripts, how we name them, where they should be placed within the
-servers filesystem and whether or not they need user authentication
-access control placed on them makes the answering these question very
-simple. Basically we have:
+_code purpose_.
+Once we establish the various categories of PHP scripts, how we name them, where they should be placed within the server`'s file system and whether or not they need special access permissions leads us to establish these basic categories:
 
 * *CSS*
 .  Site specific themes
@@ -436,32 +432,10 @@ Configure your editor or http://en.wikipedia.org/wiki/Integrated_development_env
 
 * **UNIX line endings**: `\n`, _not_ Windows `\r\n`.
 * **Indentation**: The debate over (hard) `TABS` versus _soft tabs_ (4
-spaces), is anything but new. Each has its pros and cons. But, to be
-more mainstream and "compatible" with the majority of web development
-teams and the languages they typically use, _soft tabs_ seems to get the
-popular vote. Consequently, we are not writing any new code with __hard
-tabs__.
+spaces), is anything but new. Each has its pros and cons. But, to be more mainstream and "compatible" with the majority of web development teams and the languages they typically use, _soft tabs_ seems to get the popular vote. Consequently, all new code should contain only _soft tabs_.
 * **Display Whitespace**: In
 https://www.jetbrains.com/phpstorm/documentation/[PhpStorm] this can be
-turned on via [File] [Settings] [Editor] [General] [Appearance]. +
- Trailing whitespace is like an unmade bed. When other seasoned
-developers see sloppiness like 23 characters of mixed tabs and spaces at
-the end of a line of code, rest assured, they're probably not going to
-be browsing any of your public code on GitHub for much longer. Disregard
-for details is a red flag for people like Linus Torvalds and evokes an
-image of someone who is lazy and has a "I don't care. I can't be
-bothered! It's good enough for government work." attitude. +
- Imagine a hiring manager who has decades of coding experience who looks
-at a candidate A`'s GitHub repository and sees convoluted code that could be
-done in half the number of lines, and on top of that, has heaps of
-trailing whitespace with a mixture of soft/hard tabs and hardly a
-comment to be found. That same manager then clones Candidate B's GitHub
-repository with very terse code and not a single space at the end of any line.
-On top of that, Candidate B's code is properly indented to display block
-structures and contains copious, informative comments with professional
-diction devoid of typographical errors. Which of these two candidates
-will have their name stricken from the _Candidates to Phone Screen_
-list?
+turned on via [File] [Settings] [Editor] [General] [Appearance]. Trailing whitespace is like an unmade bed. If your IDE has setting to automatically remove trailing whitespace, make sure it is activated.
 * **Encoding**: `UTF-8`, _not_ `ISO-8859-1`, and most certainly never
 `Windows-1252`
 
@@ -1064,12 +1038,18 @@ Although the two conflicting blocks of code appear to have been resolved, the fa
 == Database Revision Control
 
 In his blog, http://blog.codinghorror.com/[_Coding Horror_], Jeff Atwood writes,
-"`When I ask development teams whether their database is under version control, I usually get blank stares.…
+
+[quote]
+____
+When I ask development teams whether their database is under version control, I usually get blank stares.…
+
 When it comes to version control, the database is often a second or even third-class citizen.…
-I don`'t know how you can call yourself a software engineer and maintain a straight face when your database isn`'t under exactly the same rigorous level of source control as the rest of your code.`"link:#atwood[[Atwood]]
+
+I don`'t know how you can call yourself a software engineer and maintain a straight face when your database isn`'t under exactly the same rigorous level of source control as the rest of your code. <<atwood>>
+____
 
 Atwood`'s co-author, Scott Allen, asserts there are three rules for
-successfully working with databases link:#allen2008Jan[[Allen08Jan]]:
+successfully working with databases <<allen-1>>
 
 . Never use a shared database server for development work.
 . Always Have a Single, Authoritative Source For Your Schema.
@@ -1412,7 +1392,7 @@ The stakeholder role is part of scrum, but stakeholders are not part of the scru
 It is common practice, however, that software development organizations using scrum will assign a specific role or function to each member of the _development team_ usually dependent on each individuals area of technical expertise.
 Scrum "`development teams are cross-functional, with all of the skills as a team necessary to create a product increment.`" #wikipedia:scrum[[wikipedia:scrum]]
 
-==== QA Analyst within Scrum
+=== QA Analyst within Scrum
 
 As defined by agile/scrum methodology in the previous section, the
 entire responsibility of QA and testing in general does not fall
@@ -1541,20 +1521,15 @@ assume anything is clear. Always assume you will need to state the
 obvious.
 * *New Features (stories) need Tasks!* unless they are so simple or
 specific that a only a single task can be written.
-* *Every Ticket needs _clear_ Aceptance Criteria* written for it, placed
-in the ticket description field (normally at the end of the description)
-with an appropriate heading. Here is a example taken from a ticket in
-Pivotal Tracker:
+* *Every Ticket needs _clear_ Aceptance Criteria* written for it, placed in the ticket description field (normally at the end of the description) with an appropriate heading.
+Here is a example taken from a ticket in Pivotal Tracker:
 +
-_________________________________________________
-_Acceptance Criteria: +
- In addition to the functional requirements stated above, it is
-important that the display function always return some text, since every
-page has to have content without any blanks/missing text, and there will
-be times when a translation is not yet available, the method with need
-to account for that and failover to en_US in such a case._
-_________________________________________________
-
+''''
+*Acceptance Criteria:* +
+In addition to the functional requirements stated above, it is
+important that the display function always return some text, since every page has to have content without any blanks/missing text, and there will be times when a translation is not yet available, the method with need to account for that and failover to en_US in such a case.
++
+''''
 
 [WARNING]
 ====
@@ -1574,6 +1549,7 @@ scenario might look like this:
 '''
 
 ==== Sample Test Scenario
+
  . Navigate to test page http://test.cpmtoolbox.com/projects/10852/mto,
 logged in as username: `richardburton`
 +
@@ -1581,26 +1557,19 @@ logged in as username: `richardburton`
 ====
 Make sure you list a working, live URL in every Test Scenario, and that the URL is pointing to the *Test Environment*, _not_ your sandbox!
 ====
++
 . Navigate to the _Invited Vendors:_ section +
 . Click on the _Invite OFI Vendors_ link +
 . An "`OFI Vendor List`" modal should appear containing a list of vendors
 with a checkbox next to each one. If not, terminate test and report
 FAILED.
-. Check one of the vendors and then click on kbd:[Invite]
+. Check one of the vendors and then click on kbd:[Invite].
 . The modal should disappear and the page should show a message in
-read text should appear above the table: "`You have successfully invited 1 vendor(s).`"
-If not, terminate test and report FAILED on step 6.
-. In the "`Vendor Name`" column you should be able to find the newly
-invited vendor`'s name listed. If not, terminate test and report FAILED
-on step 7.
-. In the "`Date Invited`" column you should be able to find today`'s date
-listed on the same row as the name of the newly invited vendor. If not,
-terminate test and report FAILED on step 8.
-. If "`Date Invited`" is in a format inappropriate for the locale of the
-user, e.g. user`'s language is en_US and the date is not in mm/dd/yyyy
-format, terminate test and report FAILED on step 9.
-. In the "`Invited By`" column you should be able to find "`Richard Burton`" listed on the same row as the name of the newly invited vendor.
-If not, terminate test and report FAILED on step 10.
+read text should appear above the table: "`You have successfully invited 1 vendor(s).`" If not, terminate test and report FAILED on step 6.
+. In the "`Vendor Name`" column you should be able to find the newly invited vendor`'s name listed. If not, terminate test and report FAILED on step 7.
+. In the "`Date Invited`" column you should be able to find today`'s date listed on the same row as the name of the newly invited vendor. If not, terminate test and report FAILED on step 8.
+. If "`Date Invited`" is in a format inappropriate for the locale of the user, e.g. user`'s language is en_US and the date is not in _mm/dd/yyyy_ format, terminate test and report FAILED on step 9.
+. In the "`Invited By`" column you should be able to find "`Richard Burton`" listed on the same row as the name of the newly invited vendor. If not, terminate test and report FAILED on step 10.
 . Report PASSED test.
 
 ''''
@@ -1632,117 +1601,96 @@ The button should then change back to kbd:[Finish] i.e. the next _pending_ statu
  The Finished state indicates that the work for the story has been completed and is awaiting delivery.
  For instance, the current story my pair and I are working is completed.
  We`'ve run the tests, verified the functionality locally, and committed the code. The work is done. +
- Pushing the_ kbd:[Deliver] button happens after we`'ve deployed the new code to a demo, staging, or other suitable verification/test environment.
- This is the trigger for the client, or QA team, to know that the feature is ready for them to perform their acceptance testing. link:#pivotal2011[[PivotalLabs]]
+ Pushing the kbd:[Deliver] button happens after we`'ve deployed the new code to a demo, staging, or other suitable verification/test environment.
+ This is the trigger for the client, or QA team, to know that the feature is ready for them to perform their acceptance testing._ link:#pivotal2011[[PivotalLabs]]
 
-== References
-
-* Allen, K. Scott (Jan08):
+[bibliography]
+* [[[allen-1,1]]] Allen, K. Scott.
 http://odetocode.com/blogs/scott/archive/2008/01/30/three-rules-for-database-work.aspx[Three
-Rules for Database Work]. http://odetocode.com/[Ode to Code], 31 Jan
+Rules for Database Work]. http://odetocode.com/[_Ode to Code_], 31 Jan
 2008.
-* Allen, K. Scott (Feb08):
-http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-change-scripts.aspx[Versioning
-Databases – Change Scripts]. http://odetocode.com/[Ode to Code], 2 Feb
+* [[[allen-2,2]]] Allen, K. Scott (Feb08). http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-change-scripts.aspx[Versioning
+Databases – Change Scripts]. http://odetocode.com/[_Ode to Code_], 2 Feb
 2008.
-* Atwood, Jeff:
+* [[[atwood,3]]] Atwood, Jeff.
 http://blog.codinghorror.com/get-your-database-under-version-control/[Get
-Your Database Under Version Control].
-http://blog.codinghorror.com/[Coding Horror], 2 Feb 2008.
-* Bergmann, Sebastian: http://phpunit.de/[PHPUnit].
+Your Database Under Version Control]. http://blog.codinghorror.com/[_Coding Horror_], 2 Feb 2008.
+* [[[bergmann,4]]] Bergmann, Sebastian: http://phpunit.de/[PHPUnit].
 http://phpunit.de/getting-started.html[Getting Started with PHPUnit].
 Siegburg, Germany, 2014.
-* Brendel, William: Best answer to
+* [[[brendel,5]]] Brendel, William: Best answer to
 http://stackoverflow.com/questions/436615/when-should-one-use-html-entities[When
 Should One Use HTML Entities] on http://stackoverflow.com/[Stack
 Overflow],12 Jan 2009.
-* Cabal, Alex: https://phpbestpractices.org/[PHP Best Practices – A
+* [[[cabal,6]]] Cabal, Alex: https://phpbestpractices.org/[PHP Best Practices – A
 short, practical guide for common and confusing PHP tasks]. 30 Apr 2013,
 revised 3 Jul 2014
-* Cohen, Mike:
+* [[[cohen,7]]] Cohen, Mike:
 http://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid[The
 Forgotten Layer of the Test Automation Pyramid].
 http://www.mountaingoatsoftware.com/blog/[Mountain Goat Software –
 Blog], 17 Dec 2009.
-* Harold, Elliotte Rusty:
-http://www.ibm.com/developerworks/library/x-utf8/[Encode your XML
-documents in UTF-8].
-http://www.ibm.com/developerworks/[developerWorks®],
-http://www.ibm.com/us/en/[IBM], 30 Aug 2005.
-* Hasija, Priyanka: http://www.infoq.com/articles/experience-qa-scrum[My
-Experience as a QA in Scrum]. http://www.infoq.com/[InfoQ], 17 Jul 2012.
-* Hayes, Jay:
+* [[[harold,8]]] Harold, Elliotte Rusty:
+http://www.ibm.com/developerworks/library/x-utf8/["`Encode your XML
+documents in UTF-8.`"] _IBM Developer_, 30 Aug 2005.
+* [[[hasija,9]]] Hasija, Priyanka: http://www.infoq.com/articles/experience-qa-scrum[My
+Experience as a QA in Scrum]. _InfoQ_, 17 Jul 2012.
+* [[[hayes,10]]] Hayes, Jay:
 http://www.bignerdranch.com/blog/small-distinct-commits-say-you-care/[Small,
-Distinct Commits Say You Care]. http://www.bignerdranch.com/blog/[Big
-Nerd Ranch – Blog], 25 Sep 2013.
-* van Heesch, Dimitri:
+Distinct Commits Say You Care]. _Big
+Nerd Ranch – Blog_, 25 Sep 2013.
+* [[[heesch,11]]] van Heesch, Dimitri:
 http://www.stack.nl/~dimitri/doxygen/manual/index.html[Doxygen Manual].
 http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html[Documenting
 the Code]. 3 May 2014.
-* Hock-Chuan, Chua:
+* [[[hock,12]]] Hock-Chuan, Chua:
 http://www.ntu.edu.sg/home/ehchua/programming/sql/MySQL_Intermediate.html[Database
 Programming – An Intermediate MySQL Tutorial].
 http://www.ntu.edu.sg/home/ehchua/programming/index.html[Programming
 Notes]. Nanyang Technological University, Singapore, 29 Oct 2012.
-* HTML Purifier: http://htmlpurifier.org/docs/enduser-utf8.html[UTF-8 –
+* [[[htmlpurifier,13]]] HTML Purifier: http://htmlpurifier.org/docs/enduser-utf8.html[UTF-8 –
 The Secret of Character Encoding].
 http://htmlpurifier.org/docs/index.html[HTML Purifier Documentation].
-* Kleiba: Answers to
+* [[[kleiba,14]]] Kleiba: Answers to
 http://stackoverflow.com/questions/2014069/windows-1252-to-utf-8-encoding[Windows-1252
 to UTF-8 encoding] asked by Sam on http://stackoverflow.com/[Stack
 Overflow], 6 Jan 2010.
-* Lockhart, Josh:
+* [[[lockhart,15]]] Lockhart, Josh.
 http://programming.oreilly.com/2014/03/the-new-php.html[The new PHP –
 PHP`'s experiencing a renaissance, with improvements and new standards].
-http://radar.oreilly.com/[Radar], http://oreilly.com/[O`'Reilly Media], 4
+http://radar.oreilly.com/[_Radar_], http://oreilly.com/[O`'Reilly Media], 4
 Mar 2014.
-* Naberezny, Mike and Matthew Weier O`'Phinney:
-http://mikenaberezny.com/2008/09/16/php-developer-best-practices/[PHP
-Developer Best Practices]. A Presentation at Zend/ Php Conference 15-18
+* [[[naberenzy,16]]] Naberezny, Mike and Matthew Weier O`'Phinney.
+http://mikenaberezny.com/2008/09/16/php-developer-best-practices/["`PHP Developer Best Practices`""].
+A Presentation at Zend/ Php Conference 15-18
 September 2008.
 http://mikenaberezny.com/talks/zendcon08/php-developer-best-practices.pdf[The
-slides in PDF format]. Zend, 15 Sep 2008.
-* Notenboom, Leo:
-http://ask-leo.com/why_do_i_get_odd_characters_instead_of_quotes_in_my_documents.html[Why
-do I get odd characters instead of quotes in my documents?]
-link:[AskLeo!] 13 Sep 2009.
-* Pivotal Labs:
-http://community.pivotaltracker.com/pivotal/topics/whats_the_difference_between_finish_and_deliver[_What`'s
-the difference between "`Finish`" and "`Deliver`"?_]
-http://community.pivotaltracker.com/pivotal[Pivotal Labs Community], 29
-Jun 2011.
-* Rutter, Thomas: Best answer to
-http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci[What`'s
-the difference between utf8_general_ci and utf8_unicode_ci] asked by
-KahWee Teng on http://stackoverflow.com/[Stack Overflow], 20 Apr 2009.
-* Scholtz, Bauke: Best resolution to
+slides in PDF format]. _Zend_, 15 Sep 2008.
+* [[[notenboom,17]]] Notenboom, Leo.
+http://ask-leo.com/why_do_i_get_odd_characters_instead_of_quotes_in_my_documents.html["`Why do I get odd characters instead of quotes in my documents?`"]
+_AskLeo!_ 13 Sep 2009.
+* [[[pivotal,18]]] Pivotal Labs.
+http://community.pivotaltracker.com/pivotal/topics/whats_the_difference_between_finish_and_deliver["`What`'s the difference between _Finish_ and _Deliver?_`"] _Pivotal Labs Community_, 29 Jun 2011.
+* [[[rutter,19]]] Rutter, Thomas. Best answer to
+http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci["`What`'s the difference between utf8_general_ci and utf8_unicode_ci`"] asked by
+KahWee Teng on _Stack Overflow_, 20 Apr 2009.
+* [[[scholtz,20]]] Scholtz, Bauke.
+Best resolution to
 http://stackoverflow.com/questions/2477452/%C3%A2%E2%82%AC%E2%84%A2-showing-on-page-instead-of[â€™
-showing on page instead of `'] asked by Jitendra Vyas on
-http://stackoverflow.com/[Stack Overflow], 19 Mar 2010.
-* Sen, Anith:
-https://www.simple-talk.com/sql/database-administration/five-simple--database-design-errors-you-should-avoid/[5
-Simple Database Design Errors You Should Avoid].
-https://www.simple-talk.com/[simple talk], 16 Oct 2009.
-* Skeet, Jon: Answers to
-http://stackoverflow.com/questions/2014069/windows-1252-to-utf-8-encoding[Windows-1252
-to UTF-8 encoding] asked by Sam on http://stackoverflow.com/[Stack
+showing on page instead of `'] asked by Jitendra Vyas on _Stack Overflow_, 19 Mar 2010.
+* [[[sen,21]]] Sen, Anith.
+https://www.simple-talk.com/sql/database-administration/five-simple--database-design-errors-you-should-avoid/["`5 Simple Database Design Errors You Should Avoid`"]. _simple talk_, 16 Oct 2009.
+* [[[skeet,22]]] Skeet, Jon: Answers to
+http://stackoverflow.com/questions/2014069/windows-1252-to-utf-8-encoding["`Windows-1252
+to UTF-8 encoding`"] asked by user "`Sam`" on http://stackoverflow.com/[Stack
 Overflow], 6 Jan 2010.
-* Spooner, Chris:
-http://line25.com/articles/10-html-entity-crimes-you-really-shouldnt-commit[10
-HTML Entity Crimes You Really Shouldn`'t Commit].
-http://line25.com/[Line25], 20 Jun 2011.
-* Tasker, Ben:
-http://www.bentasker.co.uk/documentation/development-programming/172-linking-a-git-repo-with-pivotal-tracker[Linking
-a Git repository with Pivotal Tracker].
-http://www.bentasker.co.uk/[BenTasker.co.uk], 25 Jan 2013.
-* Watkins, Warren:
-http://warrenwatkins.com/2014/11/09/efficient-acceptance-tests-are-all-thats-required/[Efficient
-acceptance tests are all that`'s required].
-http://warrenwatkins.com/[Warren Watkins] [Blog], 9 Nov 2014.
-* Wikipedia:
-http://en.wikipedia.org/wiki/Scrum_%28software_development%29#Development_team[Scrum
-(software development)].
-
-link:/static/html/bestpractices.html[Best Practices of Web Development]
-by http://www.linkedin.com/pub/john-kirch/4/586/747/[John Kirch], last
-updated 28 July 2014.
+* [[[spooner,23]]] Spooner, Chris.
+http://line25.com/articles/10-html-entity-crimes-you-really-shouldnt-commit["`10
+HTML Entity Crimes You Really Shouldn`'t Commit.`"] _Line25_, 20 Jun 2011.
+* [[[tasker,24]]] Tasker, Ben.
+http://www.bentasker.co.uk/documentation/development-programming/172-linking-a-git-repo-with-pivotal-tracker["`Linking a Git repository with Pivotal Tracker`"].
+BenTasker.co.uk, 25 Jan 2013.
+* [[[watkins,25]]] Watkins, Warren.
+http://warrenwatkins.com/2014/11/09/efficient-acceptance-tests-are-all-thats-required/["`Efficient acceptance tests are all that`'s required.`"] WarrenWatkins.com, 9 Nov 2014.
+* [[[wikipedia,26]]] Wikipedia.
+http://en.wikipedia.org/wiki/Scrum_%28software_development%29#Development_team["`Scrum.`" (software development)]
