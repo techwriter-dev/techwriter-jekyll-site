@@ -1,0 +1,23 @@
+= Creating a Bibliography based on the Chicago Manual of Style
+John Kirch <jrkirch@pm.me>
+:imagesdir: assets
+:layout: post
+:toc: left
+:icons: font
+:experimental: true
+
+
+
+==  14.86: Italics versus quotation marks for titles of cited works
+
+[cols=3*]
+|===
+| Italics | Quotations Marks | No Formatting
+
+| Titles of books, newspapers, blogs, movies, paintings, video games, and other types of works | Titles of articles in newspapers, journals, or blogs; the name of a poem in an anthology  | A book series or a website
+|===
+
+== Bibliography
+[bibliography]
+* Jhang, Ji Hoon, and John G. Lynch Jr. "`Pardon the Interruption: Goal Proximity, Perceived Spare Time, and Impatience.`" _Journal of Consumer Research_ 41, no. 5 (February 2015): 1267–83.
+* Sandberg, Sheryl. _Lean In: Women, Work, and the Will to Lead._ New York: Alfred A. Knopf, 2013.
