@@ -1,0 +1,66 @@
+= Adding LaTeX Support to AsciiDoc and Jekyll on Ubuntu
+John Kirch <jrkirch@pm.me>
+:layout: post
+:imagesdir: assets
+:icons: font
+:stem: latexmath
+
+. Ensure that Ubuntu`'s software repositories are up to date
++
+[source,terminal]
+----
+$ sudo apt update
+----
++
+. Install the complete TeX package
++
+[source,terminal]
+----
+$ sudo apt install texlive-full
+----
++
+. Install the Asciidoctor LaTeX Plugin
++
+[source,terminal]
+----
+$ sudo gem install asciidoctor-latex --pre
+----
++
+. Create a new document and set the `stem` variable to `latexmath` to ensure that _LaTeX_ is the interpreter for all Stem blocks in this document.
++
+[source,terminal]
+----
+:stem: latexmath
+----
++
+. If you followed the recommendation in a previous post, link:/2018/07/15/Customize-the-Jekyll-Footer.html[Customize the Jekyll Footer], then adding the following remote reference to `MathJax.js` at the top your _custom_ `_includes/footer.html` file is trivial.
+Otherwise, follow the link for details on how to set up this footer override.
++
+[source,html]
+._includes/footer.html
+----
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+----
++
+. Create a Stem block with your TeX equation or other LaTeX-specific text. Remember to use the `++++` delimiter to enclose mutliple lines of LaTeX content.
++
+[source,termninal]
+----
+[stem]
+++++
+$y = \int_0^\infty \gamma^2 \cos(x) dx$
+++++
+----
++
+. View your new Jekyll static site in a web browser: http://localhost:4000[http://localhost:4000]
++
+[TIP]
+====
+Replace _localhost_ with the hostname or domain name of your remote server if your Jekyll installation is not on your local workstation.
+====
+. The rendered equation in the example should look like this.
+
+[stem]
+++++
+y = \int_0^\infty \gamma^2 \cos(x) dx
+++++

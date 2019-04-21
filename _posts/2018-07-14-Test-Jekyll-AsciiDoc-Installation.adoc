@@ -1,7 +1,9 @@
 = Test Jekyll-AsciiDoc Installation
 John Kirch <jrkirch@pm.me>
 :layout: post
-:experimental: true
+:imagesdir: /assets
+:icons: font
+:stem: latexmath
 
 == New Section
 
@@ -26,5 +28,25 @@ echo "Hello World<br />\n";
 ====
 If you don`'t see an icon on the left, it didn`'t work!
 ====
++
+. Test _LaTeX_ support if applicable.
+Guide: link:/2019-03-07-Adding-LaTeX-Support-to-AsciiDoc-and-Jekyll.html[Adding _LaTeX_ Support to AsciiDoc and Jekyll]
++
+[source,terminal]
+----
+y = \int_0^\infty \gamma^2 \cos(x) dx
+----
++
+[stem]
+++++
+y = \int_0^\infty \gamma^2 \cos(x) dx
+++++
++
+[WARNING]
+====
+If there is not an equation above that closely resembles the `png` image below, then _LaTeX_ support is not installed or broken.
+====
++
+image::LaTeX_Sample.png[]
 +
 . End of tests.

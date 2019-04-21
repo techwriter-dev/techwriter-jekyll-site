@@ -1,0 +1,83 @@
+= Customize the Jekyll Footer
+John Kirch <jrkirch@pm.me>
+:layout: post
+:toc: left
+:icons: font
+:experimental: true
+
+The default Jekyll installation has a disappointing footer section.
+My site`'s name was duplicated in the footer and my email address was exposed to the entire world.
+Tweaking the text of my email (replacing `@` with `[at]`) was not very elegant.
+The `mailto:` hyperlink still opened up a mail client with an invalid email address.
+Replacing the `@` in my email address was even worse; it created a line break for the image no matter how I tweaked the formatting.
+
+The most elegant solution seemed to be the built-in Jekyll support for social media services.
+This also did not function as documented, perhaps because Jekyll`'s default _minima_ theme is not the same version as used in the documentation of the social media configuration.
+
+In my case, I only wanted a single social media provider, LinkedIn.
+The best and easiest solution was to override the default footer file by copying it and customizing it.
+
+. Create an `_includes` directory in the Jekyll site`'s top-level directory.
++
+[source,terminal]
+----
+$ cd /opt/git/my-static-site
+$ mkdir _includes
+----
++
+. Clone the Jekyll _minima_ theme from GitHub.
++
+[source,terminal]
+----
+$ cd /opt/git
+$ git clone https://github.com/jekyll/minima.git
+----
++
+. Copy the original _minima_ theme `footer.html` to the newly created `_includes` directory.
++
+[source,terminal]
+----
+$ cd /opt/git/my-static-site
+$ cp /opt/git/minima/_includes/footer.html _includes/.
+----
++
+. Edit the file.
++
+[source,terminal]
+----
+$ atom _includes/footer.html
+----
++
+. Replace the the entire `<ul>` block with this:
++
+[source,javascript]
+----
+<ul class="contact-list">
+  <li class="p-name">
+    {%- if site.email -%}
+    <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+    {%- endif -%}
+    {%- if site.linkedin_username -%}
+    <li><a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
+      <svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">{{site.author}}</span></a></li>
+    {%- else -%}
+      {{ site.author | escape }}
+    {%- endif -%}
+</ul>
+----
++
+. In the `_config.yml` configuration file, comment out the `email` variable and add a LinkedIn `username` definition.
++
+[source,yml]
+----
+#email: jekyll-fu@email.com
+linkedin_username: johndoe-7891234
+----
++
+. Rebuild the site and start the Jekyll web server.
++
+[source,terminal]
+----
+$ bundle exec jekyll build
+$ bundle exec jekyll serve
+----
