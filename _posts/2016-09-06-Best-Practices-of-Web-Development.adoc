@@ -1604,11 +1604,11 @@ The button should then change back to kbd:[Finish] i.e. the next _pending_ statu
  Pushing the kbd:[Deliver] button happens after we`'ve deployed the new code to a demo, staging, or other suitable verification/test environment.
  This is the trigger for the client, or QA team, to know that the feature is ready for them to perform their acceptance testing._ link:#pivotal2011[[PivotalLabs]]
 
+== References
 [bibliography]
 * [[[allen-1,1]]] Allen, K. Scott.
 http://odetocode.com/blogs/scott/archive/2008/01/30/three-rules-for-database-work.aspx[Three
-Rules for Database Work]. http://odetocode.com/[_Ode to Code_], 31 Jan
-2008.
+Rules for Database Work]. http://odetocode.com/[_Ode to Code_], 31 Jan 2008.
 * [[[allen-2,2]]] Allen, K. Scott (Feb08). http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-change-scripts.aspx[Versioning
 Databases – Change Scripts]. http://odetocode.com/[_Ode to Code_], 2 Feb
 2008.
