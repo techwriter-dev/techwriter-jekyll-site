@@ -4,7 +4,7 @@
 +
 [source,terminal]
 ----
-$ sudo apt-get update
+$ sudo apt update
 ----
 +
 . Install essential software development tools
@@ -18,7 +18,7 @@ $ sudo apt install build-essential
 +
 [source,terminal]
 ----
-$ sudo apt-get install ruby ruby-dev
+$ sudo apt install ruby ruby-dev
 ----
 +
 . Install AsciiDoctor
@@ -127,14 +127,14 @@ John Doe <johndoe@pm.me>
 . Test for source code syntax highlighting
 +
 [source,php]
-\----
+ ----
 <?php
 require_once 'Core.php';
 $production = false;
 $core_object = new Core();
 echo "Hello World<br />\n";
 ?>
-\----
+ ----
 +
 . Test admonitions
 +
