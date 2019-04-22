@@ -1,20 +1,42 @@
 = Methodology
 John Kirch <jrkirch@pm.me>
+:layout: post
 :imagesdir: assets
 :experimental: true
 
-== The emergence of a new genreation with a new way of tacking software documentation
+== The Changing Landscape of Technical Writing
 
-The new generation of technical writers is quite often embedded in a team of software developers and QA engineers who espouse agile project management methodologies like Scrum or Kanban and are keen on distributed revision control management systems like Git or Mercurial. These technical writers usually some software coding experience or have taken some computer science classes. Many of them have degrees in literature or one of the humanities. This is what they do full-time. Their employers really value well-written technical documentation and consequently unlike many large corporations in retail or other non-tech industries, do not consider documentation an afterthought, a responsibility to be dumped on software developers who notoriously hate documenting their APIs.
+The new generation of technical writers is quite often embedded in a team of software developers and QA engineers who espouse agile project management methodologies like Scrum or Kanban and are keen on distributed revision control management systems like Git or Mercurial.
+These technical writers usually some software coding experience or have taken some computer science classes.
+Many of them have degrees in literature or one of the humanities.
+This is what they do full-time.
+Their employers really value well-written technical documentation and consequently unlike many large corporations in retail or other non-tech industries, do not consider documentation an afterthought, a responsibility to be dumped on software developers who notoriously hate documenting their APIs.
 
 == Why do software developers hate documenting their code?
 
+[.text-center]
 video::ftnVllssoI8[youtube]
-Around 4 minutes into
+Around 4 minutes into this presentation, Mason Egger explains why: "`Most developers don`'t dislike writing documentation. What they dislike is the workflow.`"
+
+* A developer has to switch tools when they want to document something (outside of in-code documentation).
+* This context-switch makes them reluctant to write docs, so the task gets pushed off to the very end.
 
 == The Opposing Methodologies: Old School versus New School
 In the world of technical writing in 2019 there are two competing methodologies which have diametrically opposed ideas about how to achieve the same goal: producing quality, technical documentation.
 Statistics are hard to get on which of these two philosophies is most popular with technical writers:
+
+. *New School*: The lean, markup-based, text-only approach, that allows technical writers to focus on what technical writers do: write documentation! The new philosophy is a _radical departure_ from _Old School_ tools that force writers to break their concentration on creating content by having to grab for a mouse to highlight text for formatting and then search through dozens of formatting icons on multiple rows with confusing menus in an attempt to find the right type of formatting needed.
++
+[.text-center]
+video::NmyvIB7zL8o[youtube,'align=center,title-align=center']
++
+The new crop of technical writers who openly promote this workflow of creating plain-text content using a standardized markup language like AsciiDoc (or reStructedText, Markdown, LaTeX, etc.), and then committing each revision this content to a source code control system like Git, where colleagues can view the differences with the previous version, provide comments, suggestions, and collaborate. Compare this to link:tools.html[my preferred set of tools].
++
+It is true that most of the _New School_ technical writers work mainly on software documentation (more back-end, like APIs, than front-end), however, there is nothing preventing this workflow using these tools from being deployed on projects in other industries. I used LaTeX, used mainly for texts with a main focus on higher mathematics, to produce a entire book in a series on (German language) Swabian Literature.
++
+At the end of the day, being able to automatically _compile_ the markup into high performance, hugely scalable, static html sites for either internal collaboration or for final public-facing consumption is a huge win over the _Old School_ approach.
++
+With little or no effort the markup files can be exported as PDFs or practically any other format that might be needed for post-processing or print publishing.
 
 . *Old School*: The mindset of this group is that costly, proprietary, anti-markup, DTP-style, https://en.wikipedia.org/wiki/WYSIWYG[WYSIWYG] applications that have been retooled to add client-server architecture, and collaborative functionality are the only tools needed to produce quality documentation.
 Oddly enough, this group is the least likely to hire full-time, technical writers to produce that product.
@@ -31,15 +53,3 @@ This could prove awkward if Confluence is intended for documentation having repe
 * There is no standard way of adding captions to images, there are only workarounds.
 * There are certain bugs in editing that makes it very unreliable tool.
 If you refresh during editing your data will be lost. Subheadings of level 3 are impossible to edit using the local edit button.
-
-. *New School*: The lean, markup-up based, text-only approach, that allows technical writers to focus on what technical writers do: write documentation! The new philosophy is a _radical departure_ from _Old School_ tools that force writers to break their concentration on creating content by having to grab for a mouse to highlight text for formatting and then search through dozens of formatting icons on multiple rows with confusing menus in an attempt to find the right type of formatting needed.
-
-
-image:Atom_255x53.png[]
-
-_A hackable text editor for the 21st Century_
-
-
-
-
-image:Jekyll_253x118.png[]

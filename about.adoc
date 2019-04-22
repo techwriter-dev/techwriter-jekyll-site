@@ -4,7 +4,15 @@
 
 == Purpose of this Site
 
-The domain name was chosen, `TechWriter.Dev`, was carefully chosen to evoke an image of the unification of the two professions, _technical writing_ and _software development_. Fortunately for me, fashion often repeats itself decades later. Skinny jeans worn never below the ankle are once again in fashion. Likewise, the link:methodology.html[methodology] of lightweight markup with a text editor instead of cumbersome,  DTP-style, https://en.wikipedia.org/wiki/WYSIWYG[WYSIWYG] applications has come full circle since I was working as a copy editor at a German univserity in the late 1980s early 1990s.
+=== The Audience
+The domain name, TechWriter.Dev, was chosen with the intention of evoking a close connection between the two professions, _technical writing_ and _software development_.
+As history repeats itself, what was once out of fashion becomes in fashion again, as we witness a new trend of tech-savvy technical writers using lightweight markup with a text editor treating documentation like code. This is in stark contrast to an early 21st century trend of embracing overly complex,  DTP-style, https://en.wikipedia.org/wiki/WYSIWYG[WYSIWYG] applications. This new _agile_ trend brings me back full circle to my hybrid role of copy editor, translator, and LaTeX "`typesetter`" while a graduate student at the Univerisität Siegen, Germany in the late 1980`'s and early 1990`'s.
 
+=== Technical Resources
+Fellow professionals who find themselves anywhere on the spectrum between "`technical writer`" and "`software developer`" will find examples of how I found my way in this brave new world of "`treating documentation like code.`"
+I am currently in the process of adding "`How-To`'s`" for all the technical situations I have found myself in over the years.
 
-With over 30 years of industry experience in academia (both in the U.S. and Germany), construction project management, IT, oil and gas exploration (R&D), quality assurance, software development, state government, and TEFL, prospective documentation projects in these fields can be executed with a high degree of competency.
+The bulk of my future posts will be centered around my specific area of expertise: using MongoDB in a PHP environment and migrating highly normalized relational data with complex joins to more sane, single-collection, single-query, MongoDB document scehmas with multi-dimensional, nested arrays that perfectly match the real world model: what application developers still have to create in their applciation code manually (with the realtional model), because SQL cannot natively deliver tree-like data structures.
+
+=== In Case Your Company`'s Needs Match My Experience and Skills
+Any company seeking my services as a technical writer will find find alongside my link:CV.html[résumé] a limited but ever-increasing portfolio of my work.
