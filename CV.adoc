@@ -4,20 +4,20 @@ Created with Asciidoctor PDF
 v1.0.4, 2019-04-08
 
 == Experience Synopsis
-With almost 40 years of experience in various IT roles requiring excellent analytical skills I have demonstrated time and time again the importance of focusing on my clients`'/employers`' goals (never losing track of "`the big picture`") and how to best achieve those goals _in addition to_ following process and completing tasks on a storyboard.
+With almost 40 years of experience in various IT roles requiring excellent analytical skills I have a proven track record of focusing on my clients`'/employers`' goals (never losing track of "`the big picture`") and how to best achieve those goals _in addition to_ following process and completing tasks on a storyboard.
 
-My industry experience embodies two major areas of expertise:
+Major areas of expertise:
 
 . *Language*, both natural and machine/programming languages, their grammar, syntax, morphology, and semantics.
 * English and German composition, e.g. as in my roles where the focus was on the creation of publications and technical documentation.
 * Using programming languages to store/retrieve/display/analyze data for human consumption.
-* Being one of the few remaining Americans who know what a relative pronoun is and when to use it. Having excellent command of English grammar rules such that I would never utter such a linguistic atrocity as, "`Reach out to Bob and *_I_* if you need anything`", when logic dictates that if it is incorrect to say, "`Reach out to *_I_* if you need anything`", then using the _accusative_ case of the 1^st^ person singular pronoun _me_, instead of the _nominative_ case _I_, is correct.
+* Being one of the few remaining Americans who know what a relative pronoun is and when to use it. Having excellent command of English grammar rules such that I cringe every time I hear the nominative case (_I_) misused for the objective case (_me_), e.g. _The test would be simple for **you or I**._ 
+(_Chicago Manual of Style 17_, https://www.chicagomanualofstyle.org/book/ed17/part2/ch05/psec037.html[ 5.37: Nominative case misused for objective ])
 . *Logic* and sound reasoning embodied in an *analytical thought* process. Analytical thinking has been associated with https://blog.mindvalley.com/analytical-thinking-skills/[a number of different skills], some of which are:
 * _Problem solving:_ I have never encountered a software bug or design issue that I could not solve.
 * _Creativity:_ The analytical mind quite often thinks in visual terms. Being able to recognize patterns in anything and everything allows me to quickly visualize data and create database schemata that most accurately mimic the structure found in real life.
-* _Organization:_ The logical grouping of different but related topics when writing a paper, article or documentation necessitates organizing the structure of any document first as an outline. I am not sure how any successful writer can start writing without this essential road map.
-* _Communication:_ Getting a _clear, concise and unambiguous_ message across to readers using the meta-language particular to the subject matter, if applicable, is the first and foremost goal of any analytically oriented writer. It`'s not about what _I_ like to read or what _I_ think sounds best; it`'s about meeting the needs and expectations of my target audience.
-
+* _Organization:_ The logical grouping of different but related topics when writing a paper, article or documentation necessitates organizing the structure of any document first as an outline.
+* _Communication:_ Getting a _clear, concise and unambiguous_ message across to readers using terse language and terminology appropriate to the subject matter, is the primary goal of any analytically oriented technical writer.
 
 == Professional Experience
 
@@ -25,32 +25,31 @@ My industry experience embodies two major areas of expertise:
 (100% remote since January 2015)
 
 ==== Software Engineer III (Jul 2016 - Feb 2019)
-* Oversee the technical design of new web applications within the scope of an Agile Development environment.
-* Provide technical guidance and training to web application developers.
-* Design data models for new and existing web applications.
-* Extend existing APIs and create new APIs to facilitate rapid application development.
-* Review code and provide feedback for application developers.
-* Create training materials for application developers in the form of videos and online documentation that provides real life code samples along with the results of those code examples in real time.
-* Create migration scripts for migrating highly normalized relational data to NoSQL (MongoDB) for certain web applications that have historically suffered under the relational data model.
-* Administer AWS instances, S3 data, and disaster recovery strategies.
-* Plan and administer server configurations for both database and web servers.
-* Design, deploy and monitor our own security model at the network, host, server and application levels.
-* Write and maintain shell scripts for automated deployment of new features to our production, staging, training, and multiple test environments when specific Git branches`' commits are pushed to specific repositories.
-* Create a comprehensive set of technical documentation targeted at our developers for the Materials and Visual Merchandise Procurement tool within our suite of web applications.
+* Oversaw the technical design of new web applications within the scope of an Agile Development environment.
+* Provided technical guidance and training to web application developers.
+* Designed data models for new and existing web applications.
+* Extended existing APIs and created new APIs to facilitate rapid application development.
+* Reviewed code and provided feedback for application developers.
+* Created training materials for application developers in the form of videos and online documentation that provided real life code samples along with the results of those code examples in real time.
+* Created migration scripts for migrating highly normalized relational data to NoSQL (MongoDB) for certain web applications that have historically suffered under the relational data model.
+* Administered AWS instances, S3 data, and disaster recovery strategies.
+* Planned and administered server configurations for both database and web servers.
+* Designed, deployed and monitored our own security model at the network, host, server and application levels.
+* Wrote and maintained shell scripts for automated deployment of new features to our production, staging, training, and multiple test environments when specific Git branches`' commits are pushed to specific repositories.
+* Created a comprehensive set of technical documentation targeted at our developers for the Materials and Visual Merchandise Procurement tool within our suite of web applications.
 
 ==== Manager / Technical Lead (Oct 2011 - Jul 2016)
-* Manage a team of web developers and function as the Product Owner within the scope of Scrum.
-* Meet with stakeholders and assist them in composing new user stories and prioritizing them.
-* Create and maintain a custom object-oriented PHP framework that will ensure backwards compatibility with our legacy
-suite of web applications.
+* Managed a team of web developers and function as the Product Owner within the scope of Scrum.
+* Met with stakeholders and assisted them in composing new user stories and prioritizing them.
+* Created and maintained a custom object-oriented PHP framework that will ensure backwards compatibility with our legacy suite of web applications.
 * Use `doxygen` to create API documentation of our PHP code.
-* Create a "`Best Practices`" online web document for our developers to reference.
-* Mentor my team of web developers in best coding practices, database design, (AWS) cloud-based system administration, and getting the best out of `Git`.
+* Created a "`Best Practices`" online web document for our developers to reference.
+* Mentored my team of web developers in best coding practices, database design, (AWS) cloud-based system administration, and getting the best out of `Git`.
 
 ==== Web Developer / Technical Lead (Jan 2010 - Oct 2011)
 * Senior web architect for a large, in-house B2B suite of web applications linking suppliers, consolidators, architects, and general contractors with our construction project management staff to manage the construction operations of 1,500+ stores in the US and Canada.
-* Develop a complex set of tools supporting project-role authentication, bid analysis, workflow (multi-tier approval process), revision control of submitted forms during the approval process, document management and more.
-* Provide over 1,300 registered users with the best web experience possible.
+* Developed a complex set of tools supporting project-role authentication, bid analysis, workflow (multi-tier approval process), revision control of submitted forms during the approval process, document management and more.
+* Provided over 1,300 registered users with the best web experience possible.
 
 ==== Web Developer Consultant (Ascent Services) (Jul 2009 - Jan 2010)
 * Maintained and developed new web applications.
@@ -66,24 +65,24 @@ suite of web applications.
 
 
 === Copy Editor at Al-Adly Publications (Jun 2005 - May 2006)
-* Proofread and edit various publications.
-* Provide consulting and technical support for the publication process.
+* Copy editor for various publications.
+* Provided consulting and technical support for the publication process.
 
 === Applications Specialist at the University of Texas at Austin, Germanic Studies, Austin, TX (Jan 2002 - Oct 2004)
 * System Administration of a departmental web server.
 * Developed and maintained custom web applications for two separate web sites:
 ** An internal site for staff to reconcile around 50 financial accounts
 ** A public site to provide details for current classes: Abstract, Syllabus, Reading Lists, etc.
-* Provide desktop support to faculty and staff.
+* Provided desktop support to faculty and staff.
 
 === System QA Engineer at Vignette (now OpenText), Austin, TX (Jan 2001 - Apr 2001)
-* Build configurations for QA testing.
-* Maintain a custom PHP web application for providing metrics on QA test results.
+* Built configurations for QA testing.
+* Maintained a custom PHP web application for providing metrics on QA test results.
 
 === Support Engineer at Tivoli/IBM, Austin, TX (Jan 1998 - Dec 2001)
-* Provide level 2 customer support for the Tivoli Enterprise Console.
-* Build similar server configurations on AIX, HP-UX, and Solaris platforms to replicate customer configurations as closely as possible.
-* Maintain a team web site for managing a knowledge base of support-centric issues.
+* Provided level 2 customer support for the Tivoli Enterprise Console.
+* Built similar server configurations on AIX, HP-UX, and Solaris platforms to replicate customer configurations as closely as possible.
+* Designed and maintained a team web site for managing a knowledge base of support-centric issues.
 
 === UNIX (Solaris) Consultant at the Texas Department of Human Services, Austin, TX (Sep 1997 - Jan 1998)
 * Worked through two consulting agencies (Applied Information Sciences, Inc. and GeoLogics Corporation)
@@ -96,8 +95,8 @@ suite of web applications.
 *Acquired by Cincinnati Bell Inc in 1999, then Broadwing Corporation in 2004, and then Level 3 Communications in 2007.
 
 === Student Assistant, Fachbereich 3 (Humanities), Universität Siegen, Siegen, Germany -- (1988 - 1993)
-* Translate German correspondence into English for https://de.wikipedia.org/wiki/Helmut_Kreuzer[Professor Helmut Kreuzer].
-* Proofread and edit English language abstracts and articles.
+* Translated German correspondence into English for https://de.wikipedia.org/wiki/Helmut_Kreuzer[Professor Helmut Kreuzer].
+* Proofread and edited English language abstracts and articles.
 * Typeset an entire publication using https://en.wikipedia.org/wiki/LaTeX[`LaTeX`], https://www.booklooker.de/B%C3%BCcher/Hartmut-Hrsg-Froeschle+Suevica-Band-6-Beitr%C3%A4ge-zur-schw%C3%A4bischen-Literatur-und-Geistesgeschichte/id/A024nT0z01ZZw[_Suevica: Band 6 -- Beiträge zur schwäbischen Literatur- und Geistesgeschichte_, Hartmut Fröschle (Hrsg.), Stuttgart, Hans-Dieter Heinz Akademischer Verlag, 1991.]
 
 === R&D FORTRAN Programmer at Chevron Geosciences Company, Houston, TX (Dec 1979 - Dec 1984)
