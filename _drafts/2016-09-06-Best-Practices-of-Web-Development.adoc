@@ -3,29 +3,33 @@ John Kirch <jrkirch@pm.me>
 :layout: post
 :toc: left
 :icons: font
+:imagesdir: /assets
 :experimental: true
 
 == Who Needs This?
 
 The short answer: basically anyone who writes code.
-Best practices are not just for software developers who work in collaborative team environments, they`'re also for the"`lone wolf`" who works in his/her solitary silo.
-It`'s all about establishing habits which lead to a higher level of order, consistency, orientation, and better understanding of what has been done in the code or design of data structures.
+Best practices are not just for software developers who work in collaborative team environments.
+Even those working in their solitary silos can benefit from establishing consistency in their code and workflow.
+Being able to showcase a portfolio of consistent coding style and explain with confidence each stage of the software development process to a prospective client or hiring manager will certainly evoke an image of efficiency and professionalism.
+Not having to "`figure things out`" again when starting each new project is a huge boost to overall productivity.
 
-In the world of software development, the last thing anyone wants is inconsistency in code/data design, sparse documentation, or practices that lead to loss or corruption of code and/or data.
-Most of what is contained here has been debated and refined over decades by software engineers of the highest caliber.
+Inconsistent coding styles and naming conventions, lack of documentation and established processes are the hallmark of amateurs.
+Most of the topics in this guide have been debated for decades by software engineers of the highest caliber.
 If they invested the time to contemplate such matters, then you can rest assured these are not trivial issues.
 Just ask yourself these questions:
 
-* Have you ever had to go back and modify your code written over a year ago and found yourself trying desperately to understand what you had written?
+* Have you ever had to go back and modify your code a year later only to find yourself trying to understand what you wrote or why you wrote it?
 * Do you ever wonder why your co-developers don`'t name variables or classes in a way that makes sense to you?
-* Did you ever discover after spending hours or days writing some really clever code, that someone else had already written it, and their code was a lot tighter and easier to read?
+* Did you ever discover after spending hours or days writing some really clever code, that someone else had already written it, and their code was really terse and easier to read?
 * When you sit down to code some new feature, do you plan it out in tasks and document the procedural flow along with the data structures that will be needed? Or do you just start writing code and let it grow organically?
 * Is your code well organized and maintainable?
+* Do you write unit tests for your new methods before you write the methods?
 * Do you have automated tests for your software?
 
 It should be obvious from these questions what the right answers are.
-Unfortunately, all of us at some time or another have to admit that we got most of these wrong. The goal of this document is to give you the basics for improving your focus on coding (instead of formatting), consistency, code readability, collaboration, and ease of maintenance by your co-developers.
-
+Unfortunately, all of us at one time or another are guilty of not taking the time to write tests or document our code.
+The goal of this document is to give you the basics for improving your focus on planning your code writing, consistency in how you write your code, and increasing your code readability, which should ease the burden of future code maintenance for both you and your co-developers.
 
 == Character Encoding
 
@@ -42,7 +46,6 @@ There`'s no general way to tell if a file is encoded with a specific encoding.
 Remember that an encoding is nothing more but an "`agreement`" how the bits in a file should be mapped to characters.  <<kleiba>>
 ____
 
-
 [quote, Jon Skeet]
 ____
 In theory, I believe any file is a valid Windows-1252 file, as it maps
@@ -53,9 +56,8 @@ ____
 
 Typically, character encoding is of little concern to developers until strange character groups like `â€™` or `â€œ` start appearing on web pages.
 Leo Notenboom, with "`an 18 year career as a programmer at Microsoft,`" knows this problem all too well.
-Using the first example above, ``â€™`, he explains the process of how this happens, and identifies the two most likely culprits responsible for such a mess: 1) email clients, and 2)
-Microsoft Word. <<notenboom>>
-He is correct in saying that the _right single quote_, a three-byte character in UTF-8 (Hex: E2 80 99) when misinterpreted as another (non UTF-8, single byte) encoding scheme, will be interpreted as three separate characters: "`0xE28099 breaks down as 0xE2 (â), 0x80 (€) and 0x99 (™),`" however, reader "`bob,`" points out that Notenboom`'s reference to http://en.wikipedia.org/wiki/ISO/IEC_8859-1[ISO-8859-1] is not quite on the mark:
+Using the first example above, ``â€™`, he explains the process of how this happens, and identifies the two most likely culprits responsible for such a mess: 1) email clients, and 2) Microsoft Word. <<notenboom>>
+He is correct in saying that the _right single quote_, a three-byte character in UTF-8 (Hex: E2 80 99) when misinterpreted as another (non UTF-8, single byte) encoding scheme, will be interpreted as three separate characters: "`0xE28099 breaks down as 0xE2 (â), 0x80 (€) and 0x99 (™),`" however, a contributor with the username of "`bob,`" points out that Notenboom`'s reference to http://en.wikipedia.org/wiki/ISO/IEC_8859-1[ISO-8859-1] is not quite on the mark:
 
 [quote, Notenboom]
 ____
@@ -69,10 +71,8 @@ Indeed, http://en.wikipedia.org/wiki/ISO/IEC_8859-1[ISO-8859-1] has no mappings 
 Even the best configured server will not be able to turn garbled data from a web client into good data in the back end.
 This type of user-initiated problem will have to be tackled in code in two different situations:
 
-* *Damaged already occurred* to due to **Windows**-1252 mis-decoding and
-stored incorrectly in the database. If only a few tables exhibit the
-problem, the following set of `UPDATE` statements in this example
-demonstrate how the text column(s) can be easily repaired:
+* *Damaged already occurred* to due to **Windows**-1252 mis-decoding and stored incorrectly in the database.
+If only a few tables exhibit the problem, the following set of `UPDATE` statements in this example demonstrate how the text column(s) can be easily repaired:
 
 [source,sql]
 ----
@@ -86,17 +86,13 @@ UPDATE rfi_response SET response = REPLACE(response, 'â€¢', '•');
 UPDATE rfi_response SET response = REPLACE(response, 'â€¦', '…');
 ----
 
-* **Preventative Measures**, such as filtering all text data coming in
-from client browsers with our `prepPreDB` method defined in the `View`
-class will keep such mis-decoded mishaps out of the database:
+* **Preventative Measures**, such as filtering all text data coming in from client browsers with our `prepPreDB` method defined in the `View` class will keep such mis-decoded mishaps out of the database:
 
 //code,brush:php;first-line:128;
 [source,php]
 public function prepPreDB($string)
 
-
-This becomes especially important for processing POSTed data from input types like `<textarea>` where users are most likely to copy from Microsoft Office products like Outlook or Word and paste the text into the text input area.
-
+This becomes especially important for processing form data sent via `POST` from input types like `<textarea>` where users are most likely to copy from Microsoft Office products like Outlook or Word and paste the text into the form.
 
 === UTF-8 is the Answer
 
@@ -105,61 +101,42 @@ ____
 Universality is the first and most compelling reason to choose UTF-8.
 It can handle pretty much every script in use on the planet today.
 
-The real kicker is that by design, UTF-8 is a much more robust and easily
-interpretable format than any other text encoding designed before or
-since. First, unlike UTF-16, UTF-8 has no endianness issues. Big-endian
-and little-endian UTF-8 are identical, because UTF-8 is defined in terms
-of 8-bit bytes rather than 16-bit words. UTF-8 has no ambiguity about
-byte order that must be resolved with a byte order mark or other
-heuristics.
+The real kicker is that by design, UTF-8 is a much more robust and easily interpretable format than any other text encoding designed before or since.
+First, unlike UTF-16, UTF-8 has no endianness issues.
+Big-endian and little-endian UTF-8 are identical, because UTF-8 is defined in terms of 8-bit bytes rather than 16-bit words.
+UTF-8 has no ambiguity about byte order that must be resolved with a byte order mark or other heuristics.
 
-An even more important characteristic of UTF-8 is statelessness. Each
-byte of a UTF-8 stream or sequence is unambiguous. In UTF-8, you always
-know where you are – that is, given a single byte you can immediately
-determine whether it`'s a single-byte character, the first byte of a
-two-byte character, the second byte of a two-byte character, or the
-second or third or fourth byte of a three- or four-byte character. <<harold>>
+An even more important characteristic of UTF-8 is statelessness.
+Each byte of a UTF-8 stream or sequence is unambiguous.
+In UTF-8, you always know where you are -- that is, given a single byte you can immediately determine whether it`'s a single-byte character, the first byte of a two-byte character, the second byte of a two-byte character, or the second or third or fourth byte of a three- or four-byte character. <<harold>>
 ____
 
 == Database Design
 
-* *Database Table names* are _singular_ (not plural) and are all
+* Database Table names are _singular_ (not plural) and are all
 lowercase with underscores, e.g. `acl_attribute_set`
-* The *first column* of each database table should be named `id` and be
-defined as `unsigned NOT NULL AUTO_INCREMENT`. Additionally, it should
-be defined as a `PRIMARY KEY`.
-* Create new tables with `Storage Engine: InnoDB` and
-`Collation: utf8_unicode_ci`.
-* Create _every_ table with a `PRIMARY KEY`. Without it, the PHP
-Framework does not work as well. Having a `PRIMARY KEY` just makes life
-easier when debugging.
-* When creating `INT, SMALLINT` or `TINYINT` columns, change
-`Attributes` to `UNSIGNED`.
-* If the maximum value of an `INT` column will never exceed 65,000,
-change the column type to `SMALLINT`. If it will never exceed 255, then
-change it to `TINYINT`.
-* Design columns functioning as `FOREIGN KEYS` (usually type `INT`) to
-be `NULL` if there is a possibility that some rows in the table will not
-have a match on any `PRIMARY KEY` column value of the foreign (joined)
-table, since `FOREIGN KEY` constraints will never allow a value of 0
-(the default value when inserting a new row with no value specified for
-a column of type `INT` and `NOT NULL`).
-* For columns functioning as a flag for "`either/or`" cases like
-`yes/no, true/false,                     active/inactive, open/closed`,
-etc. define them as `TINYINT` and use 1 or 0 instead.
-* For short lookup tables, consider not creating a separate table at all
-if there is little possibility of the contents ever changing _and_ the
-lookup values will _not_ be used by any other tables. If these criteria
-match, then set them up as a column of type `ENUM`, e.g.
-`'Open','Investigating','Resolved','Workaround Found',                     'Resolution Not Possible','Closed'`.
+* The first column of each database table should be named `id` and be
+defined as `unsigned NOT NULL AUTO_INCREMENT`.
+Additionally, it should be defined as a `PRIMARY KEY`.
+* Create new tables with `Storage Engine: InnoDB` and `Collation: utf8_unicode_ci`.
+* Create _every_ table with a `PRIMARY KEY`.
+Without it, our in-house PHP Framework does not work as well.
+Having a `PRIMARY KEY` just makes life easier when debugging.
+* When creating `INT, SMALLINT` or `TINYINT` columns, change `Attributes` to `UNSIGNED`.
+* If the maximum value of an `INT` column will never exceed 65,000, change the MySQL column type to `SMALLINT`.
+If it will never exceed 255, then change it to `TINYINT`.
+* Design columns functioning as `FOREIGN KEYS` (usually type `INT`) to be `NULL` if there is a possibility that some rows in the table will not have a match on any `PRIMARY KEY` column value of the foreign (joined) table, since `FOREIGN KEY` constraints will never allow a value of 0 (the default value when inserting a new row with no value specified for a column of type `INT` and `NOT NULL`).
+* For columns functioning as a flag for "`either/or`" cases like `yes/no, true/false, active/inactive, open/closed`, etc., define them as `TINYINT` and use 1 or 0 instead.
+* For short lookup tables, consider not creating a separate table at all if there is little possibility of the contents ever changing _and_ the lookup values will _not_ be used by any other tables.
+If these criteria match, then set them up as a column of type `ENUM`, e.g., `"Open","Investigating","Resolved","Workaround Found","Resolution Not Possible","Closed"`.
 
 
 == Document Your Code!
 
 === API Documentation
 
-* All code should be thoroughly documented _before_ it is written. The
-standard commenting style recognized by *Doxygen* should be used, e.g.
+* All code should be thoroughly documented _before_ it is written.
+The standard commenting style recognized by *Doxygen* should be used, e.g.
 
 [source,php]
 ----
@@ -230,7 +207,9 @@ class Oasys extends Core {
         $join_tables = $this->boolval($join_tables);
 ----
 
-To see how these comments were rendered into beautiful documentation, see our API Documentation for the http://w3.cpmtoolbox.com/api_docs/html/classOasys.html[Oasys class], then scroll down to the sections on *Detailed Description* and **Constructor & Destructor Documentation**.
+These comments above are rendered by `doxygen` into beautiful documentation as seen here:
+
+image:DoxygenSampleOutput.png[]
 
 === Application Flow Documentation
 
@@ -451,7 +430,7 @@ The reasons listed are as follows:
 
 [quote,Brendel]
 ____
-As long as your page`'s encoding is properly set to UTF-8, you should use the actual character instead of an HTML entity.
+As long as your page`'s encoding is properly set to UTF-8, you should use the actual character instead of an HTML entity. <<brendel>>
 ____
 
 === Includes
@@ -1618,10 +1597,9 @@ Your Database Under Version Control]. http://blog.codinghorror.com/[_Coding Horr
 * [[[bergmann,4]]] Bergmann, Sebastian: http://phpunit.de/[PHPUnit].
 http://phpunit.de/getting-started.html[Getting Started with PHPUnit].
 Siegburg, Germany, 2014.
-* [[[brendel,5]]] Brendel, William: Best answer to
-http://stackoverflow.com/questions/436615/when-should-one-use-html-entities[When
-Should One Use HTML Entities] on http://stackoverflow.com/[Stack
-Overflow],12 Jan 2009.
+* [[[brendel,5]]] Brendel, William. Best answer to
+http://stackoverflow.com/questions/436615/when-should-one-use-html-entities[When Should One Use HTML Entities]
+on StackOverflow, 12 Jan 2009.
 * [[[cabal,6]]] Cabal, Alex: https://phpbestpractices.org/[PHP Best Practices – A
 short, practical guide for common and confusing PHP tasks]. 30 Apr 2013,
 revised 3 Jul 2014
