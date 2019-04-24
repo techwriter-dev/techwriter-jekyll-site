@@ -18,9 +18,9 @@ title: TechWriter / Developer
 linkedin_username: john-kirch-7475864
 #email: techwriter.dev@pm.me
 description: >- # this means to ignore newlines until "baseurl:"
- Where software development and technical writing come together.
+ Where software development and technical writing come together. Documentation should be treated like source code by writing plain-text markup in a code editor and tracking changes in Git. Preferred tools are AsciiDoc or LaTeX, Atom, and Jekyll.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://localhost" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://techwriter.dev" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 # github_username:  jekyll
 

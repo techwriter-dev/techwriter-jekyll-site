@@ -22,7 +22,7 @@ Around 4 minutes into this presentation, Mason Egger explains why: "`Most develo
 * This context-switch makes them reluctant to write docs, so the task gets pushed off to the very end.
 
 Google adopted a radically new approach to producing their engineering documentation around 2015.
-Riona MacNamara, who is a staff technical writer at Google and leads their Documentation Infrastructure team provides some history of their `g3doc` project and how it transformed their engineering documentation in her 2016 presentation, https://www.usenix.org/conference/srecon16europe/program/presentation/macnamara[The Knowledge: Towards a Culture of Engineering Documentation].
+Riona MacNamara, who is a staff technical writer at Google and leads their Documentation Infrastructure team provides some history of their *g3doc* project and how it transformed their engineering documentation in her 2016 presentation, https://www.usenix.org/conference/srecon16europe/program/presentation/macnamara[The Knowledge: Towards a Culture of Engineering Documentation].
 By getting the technical writing team to work more as peers with the software developers and not alienate them with special documentation writing software, the developers soon were documenting their code in Markdown and having fun doing it, because they could use the same tools they use for writing code.
 
 == The Opposing Methodologies: Old School versus New School
