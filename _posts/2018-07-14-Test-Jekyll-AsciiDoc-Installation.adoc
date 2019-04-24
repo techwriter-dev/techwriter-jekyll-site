@@ -30,7 +30,7 @@ If you don`'t see an icon on the left, it didn`'t work!
 ====
 +
 . Test _LaTeX_ support if applicable.
-Guide: link:/2019-03-07-Adding-LaTeX-Support-to-AsciiDoc-and-Jekyll.html[Adding _LaTeX_ Support to AsciiDoc and Jekyll]
+Guide: link:/2019/03/07/Adding-LaTeX-Support-to-AsciiDoc-and-Jekyll.html[Adding _LaTeX_ Support to AsciiDoc and Jekyll]
 +
 [source,terminal]
 ----
