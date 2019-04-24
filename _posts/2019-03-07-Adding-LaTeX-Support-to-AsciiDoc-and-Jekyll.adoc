@@ -39,7 +39,7 @@ Otherwise, follow the link for details on how to set up this footer override.
 [source,html]
 ._includes/footer.html
 ----
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"> </script>
 ----
 +
 . Create a Stem block with your TeX equation or other LaTeX-specific text. Remember to use the `++++` delimiter to enclose mutliple lines of LaTeX content.
