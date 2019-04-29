@@ -4,6 +4,7 @@ John Kirch <jrkirch@pm.me>
 :toc: left
 :icons: font
 :imagesdir: /assets
+:sectlinks: true
 :experimental: true
 
 == Who Needs This?
@@ -277,7 +278,7 @@ foreach ($change_orders as $co_id) {
     // $co = new Change_Order($co_id);
     $co = new $project->child_class($co_id);
 
-    // IF this Change Order Number is in our list of interesting Change Odrers then show it
+    // IF this Change Order Number is in our list of interesting Change Orders then show it
     // See lines 52,53
     if (in_array($co->number,$co_numbers)) {
 
@@ -389,18 +390,17 @@ public function getMostRecent($where=null) {
 * *File names* containing PHP Classes following the same pattern as the class name, `MaterialOrder.php`
 * Try to have only **one PHP Class per file**, unless the classes form a
 semantic group that are usually used frequently used together by
-application code or have strong dependencies on each other
+application code or have strong dependencies on each other.
 * *PHP application script filenames* are all lowercase with underscores,
 for instance, `finalize_bid.php`
-* *PHP variable names* follow the same rules as PHP application script filenames: are all lowercase with underscores, for example, `$parent_id_column`
-* Use lowercase forms of *reserved keywords* unless PHP documentation uses caps, for example, `true | false | null | self  `
-however *constants* are usually in caps: `ENT_QUOTES  | PREG_SET_ORDER `
+* *PHP variable names* follow the same rules as PHP application script filenames: are all lowercase with underscores, for example,on PHP cla `$parent_id_column`
+* Use lowercase forms of *reserved keywords* unless PHP documentation uses caps, for example, `true | false | null | self` however *constants* are usually in caps: `ENT_QUOTES  | PREG_SET_ORDER`
 
 === File Locations
 
-* PHP Back-end libraries: __docroot__`/lib/`
-* PHP Front-end scripts: __docroot__`/projects/module/`
-* PHP Unit Tests: __docroot__`/lib/unit/`
+* PHP Back-end libraries: _docroot_``/lib/``
+* PHP Front-end scripts: _docroot_``/projects/module/``
+* PHP Unit Tests: _docroot_``/lib/unit/``
 
 === Editor/IDE Settings
 
@@ -442,7 +442,7 @@ Second, note that they are PHP statements (not functions), and you do not need t
 
 What is CCV?
 Just another example of America`'s love of three-letter acronyms.
-Actually, for lack of a better label, **C**ontent/**C**ontext **V**alidation of class method arguments is an attempt prevent developers from passing incorrect arguments that could otherwise return invalid results or a `FATAL ERROR`.
+Actually, for lack of a better label, **C**ontent/**C**ontext **V**alidation of class method arguments is an attempt prevent developers from passing incorrect arguments that could otherwise return invalid results or a fatal error.
 It should always be employed when an argument requires an `OBJECT` instead of a string, especially if there is a risk of ambiguity in the variable type, like `$user` (id, name, or object?) or, for instance, `$date_onsite_planned` (string, integer, DateTime object, or CustomDateTime object?).
 
 Some of the built-in PHP functions can be employed with some degree of success:
@@ -632,7 +632,7 @@ public function duplicates($rec_to_add)
 
 These methods require you to set certain public and/or protected
 variable names in the PHP class defining the MySQL table in order to
-function properly. The most commonly used special purposed, DB-centric
+function properly. The most commonly used special purposed, database-centric
 PHP variables are:
 
 `$id`, `$active`, `$pk`, `$table`, `$index_column`, `$name_column`, `$shortname_column`, `$active_column`,                         `$has_active_column`, `$modified_column`, `$delimiter`, `$join_tables`, `$parent_fk_colmn`, `$child_class`,
@@ -726,7 +726,7 @@ function __construct($id=null) {
 }
 ----
 
-* In the case of table with a _unique_ name column, the protected or public variable `$name_column` should be set to the name of that column in the schema, and the following boiler plate `__construct` method should include the `ELSEIF` block which facilitates the optional instantiation of an object using a value in that name column:
+* In the case of table with a _unique_ name column, the protected or public variable `$name_column` should be set to the name of that column in the schema, and the following boiler plate `__construct` method should include the `elseif` block which facilitates the optional instantiation of an object using a value in that name column:
 
 [source,php]
 ----
@@ -836,13 +836,12 @@ Do a `git add  <__name of altered file__>` for each and every file you have alte
  `git cherry-pick <__SHA1 hash__>` +
 * *Make a backup copy of your working branch.*
 Never trust the integrity of the de facto "`central Git repository`" (usually called _origin_).
-This is not because Git might mangle or lose your code, rather it is solely due to human error, like pushing untested code into the parentrepository, that you need to be cautious.
+Git cannot mangle or lose your code, but humans can make mistakes when using Git, like pushing untested code to the central repository, so you need to be cautious.
 This is actually the very reason we switched to Git.
-At least we have enough copies of working branches in our 7 or 8 repositories that recovery is almost always an easy task.
-Not so with a non-distributed, "`Central Repository`" architecture like Subversion (SVN).
+At least we have enough copies of working branches in our 7 or 8 repositories that recovery is always an easy task.
+With a non-distributed, "`Central Repository`" architecture like Subversion (SVN), such a human error can have catastrophic consequences.
 At any rate, once you have your branch in a good working state, make a backup of that branch with some name you will remember, like _my_prod_ or maybe _prod_stable_: + `git branch -f prod_stable`
-* *Do only* `git pull` *and hit* kbd:[Return] now that our Git configs have been rewritten to _always_ pull from the correct remote branch
-_automatically_.
+* *Do only* `git pull` *and hit* kbd:[Return] now that our Git `config` files in our sandboxes have been rewritten to _always_ pull from the correct remote branch _automatically_.
 *Do not specify the remote repository and branch.*
 This is dangerous and very prone to user error:
 
@@ -887,13 +886,13 @@ If one ever has to back out of a code update because it is not working as planne
 * Before you commit changes, _know_ what you are really committing: `git diff`
 * Always perform a `git pull` _before_ your `git push all`
 * Try to maintain a consistent, preventative workflow, for example:
++
 .  Check out your `prod` branch
 .  Fix some bug in the code based on a bug report in Pivotal Tracker
 .  Test your bug fix thoroughly
 .  Commit and push your changes to the central Git repository for someone
 else to QA:
-
-
++
 [source,terminal]
 ----
 git branch                  # to verify you are on the correct branch, in this case "prod"
@@ -908,7 +907,7 @@ git push all
 * *Merge Conflicts* and How to resolve them +
 +
 Git inserts 3 lines of demarcation in each source code file, in which the changelog has found conflicts that cannot be resolved by standard logic. In these cases human intervention is required.
-
++
 [source,terminal]
 ----
 <<<<<<< HEAD:mergetest
@@ -923,18 +922,18 @@ Git inserts 3 lines of demarcation in each source code file, in which the change
     $debug = true;
 >>>>>>> 4e2b407f501b68f8588aa645acafffa0224b9b78:mergetest
 ----
-
++
 `<<<<<<<` indicates the start of the lines that had a merge conflict. This first block of code is from the file (usually labeled HEAD) that you were trying to merge the changes into.
 `=======` Indicates the break point used for comparison. It separates the changes that have been committed (the first block of code above this double-line) from the changes coming from the merge (the second block of code below this double-line) to visually see the differences.
 `>>>>>>` Indicates the end of the block of code that had a merge conflict. Conflicts can only be resolved by manually editing the file. This is typically accomplished by choosing one of the two code blocks to keep and discarding the other one.
-
++
 [IMPORTANT]
 ====
 The three lines inserted by Git `<<<<<<<`, `=======`, and `>>>>>>` must be removed or you will be pushing broken code to team members, or even worse, to the live, production site!
 ====
-
++
 The easiest way to check for any remaining lines of merge conflict demarcation is to leverage git grep:
-
++
 [source,terminal]
 ----
 $ git grep -nI '<<<<<'
@@ -942,9 +941,9 @@ $ git grep -nI '>>>>>'
 test.php:187:>>>>>>> 16153ab7cee2bfcd73023caae4e00ffa21868c5c
 test.php:403:>>>>>>> 16153ab7cee2bfcd73023caae4e00ffa21868c5c
 ----
-
++
 In this example, it becomes readily apparent that the PHP script file test.php had two different merge conflicts.
-Although the two conflicting blocks of code appear to have been resolved, the failure to remove the third line of merge conflict demarcation in both cases will result in a FATAL syntax error should this web page be visited.
+Although the two conflicting blocks of code appear to have been resolved, the failure to remove the third line of merge conflict demarcation in both cases will result in a fatal syntax error if the web page is accessed.
 
 == Database Revision Control
 
@@ -1146,7 +1145,7 @@ If these steps were followed correctly, an new SQL file named
 === Adding the DBRC Scripts to Git
 
 Moving forward with the examples above, four new scripts have been
-created and need to be tracked by git.
+created and need to be tracked by Git.
 
 [source,terminal]
 ----
@@ -1166,8 +1165,8 @@ $ git commit -m 'Updated i18n.sh to include convert_users_to_utf8.sql and create
  1 file changed, 8 insertions(+), 6 deletions(-)
  rewrite i18n.sh (78%)
 $ git add create_i18n_tables.sql
-$ git commit -m 'Updated i18n tables to include new content Casey added for recent testing'
-[master 0cd7646] Updated i18n tables to include new content Casey added for recent testing
+$ git commit -m 'Updated i18n tables to include new content db_named_foo added for recent testing'
+[master 0cd7646] Updated i18n tables to include new content db_named_foo added for recent testing
  1 file changed, 18 insertions(+), 3 deletions(-)
 $ git push origin master
 Counting objects: 15, done.
@@ -1182,7 +1181,7 @@ To /opt/git/sql.git
 
 === Deploying and Implementing the DBRC Scripts
 
-. *Pull the latest changes from our de facto _central_"`sql`" Git Repository*
+. *Pull the latest changes from our de facto "`central`" _sql_ Git repository*
 +
 [source,terminal]
 ----
@@ -1279,7 +1278,7 @@ Scrum "`development teams are cross-functional, with all of the skills as a team
 === QA Analyst within Scrum
 
 As defined by agile/scrum methodology in the previous section, the entire responsibility of QA and testing in general does not fall entirely on the QA analyst.
-In fact, due to the highly collaborative requirements of scrum, the QA analyst should have less work to do in the trenches since a good deal of testing should have already been performed by the developers, especially regarding link:#unit_testing[unit testing].
+In fact, due to the highly collaborative requirements of scrum, the QA analyst should have less work to do in the trenches since a good deal of testing should have already been performed by the developers, especially regarding link:#_unit-testing[unit testing].
 Also the application and UI testing should also have been thoroughly performed by the developers prior to handing the product off to the QA analyst for testing.
 
 Scrum does, however, place some extra responsibilities on the QA analyst not normally found in non-agile methodologies: the need to fully understand the business rules and functional requirements -- both of which comprise the _acceptance criteria_ -- which necessitates collaborating with the product owner, who typically has a good understanding of the business rules, and with the developer(s), who normally will be scoping out these product requirements in terms of functional requirements within the scope of database structures and code changes:
@@ -1388,7 +1387,7 @@ A typical test scenario might look like this:
 
 '''
 
-==== Sample Test Scenario
+=== Sample Test Scenario
 
  . Navigate to test page http://test.our-domain-name.com/projects/10852/mto,
 logged in as username: `richardburton`
@@ -1488,12 +1487,10 @@ http://stackoverflow.com/questions/2014069/windows-1252-to-utf-8-encoding[Window
 * [[[lockhart,15]]] Lockhart, Josh.
 http://programming.oreilly.com/2014/03/the-new-php.html[The new PHP –
 PHP`'s experiencing a renaissance, with improvements and new standards].
-http://radar.oreilly.com/[_Radar_, http://oreilly.com/[O`'Reilly Media], 4
+https://www.oreilly.com/ideas/[_Ideas_], http://oreilly.com/[O`'Reilly Media], 4
 Mar 2014.
-* [[[naberenzy,16]]] Naberezny, Mike and Matthew Weier O`'Phinney.
-http://mikenaberezny.com/2008/09/16/php-developer-best-practices/[PHP Developer Best Practices].
-A Presentation at Zend/ Php Conference 15-18
-September 2008.
+* [[[naberezny,16]]] Naberezny, Mike and Matthew Weier O`'Phinney.
+http://mikenaberezny.com/2008/09/16/php-developer-best-practices/[PHP Developer Best Practices]. Presented at ZendCon 2008, 15-18 Sep 2008.
 http://mikenaberezny.com/talks/zendcon08/php-developer-best-practices.pdf[The
 slides in PDF format]. _Zend_, 15 Sep 2008.
 * [[[notenboom,17]]] Notenboom, Leo.
