@@ -1,4 +1,4 @@
-= Installing Jekyll with AsciiDoc Support on Unbuntu Server 18.04 LTS
+= Installing Jekyll with AsciiDoc Support on Ubuntu Server 18.04 LTS
 
 . Ensure that Ubuntu`'s software repositories are up to date
 +
