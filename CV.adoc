@@ -1,17 +1,18 @@
 = Curriculum Vitae
 :page-layout: page
+:sectlinks: true
 Created with Asciidoctor PDF
-v1.0.4, 2019-04-08
+v1.0.5, 2019-04-08
 
 == Experience Synopsis
-With almost 40 years of experience in various IT roles requiring excellent analytical skills I have a proven track record of focusing on my clients`'/employers`' goals (never losing track of "`the big picture`") and how to best achieve those goals _in addition to_ following process and completing tasks on a storyboard.
+With almost 40 years of experience in various IT roles requiring excellent analytical skills I have a proven track record of focusing on my employers`' goals and how to best achieve those goals _in addition to_ following process and completing tasks on a storyboard.
 
 Major areas of expertise:
 
 . *Language*, both natural and machine/programming languages, their grammar, syntax, morphology, and semantics.
-* English and German composition, e.g. as in my roles where the focus was on the creation of publications and technical documentation.
+* English and German composition, especially in my roles where the focus was on the creation of publications and technical documentation.
 * Using programming languages to store/retrieve/display/analyze data for human consumption.
-* Being one of the few remaining Americans who know what a relative pronoun is and when to use it. Having excellent command of English grammar rules such that I cringe every time I hear the nominative case (_I_) misused for the objective case (_me_), e.g. _The test would be simple for **you or I**._
+* Being one of the few remaining Americans who know what a relative pronoun is and when to use it. Having excellent command of English grammar rules such that I cringe every time I hear the nominative case (_I_) misused for the objective case (_me_), for example, _The test would be simple for **you or I**._
 (_Chicago Manual of Style 17_, https://www.chicagomanualofstyle.org/book/ed17/part2/ch05/psec037.html[ 5.37: Nominative case misused for objective ])
 . *Logic* and sound reasoning embodied in an *analytical thought* process. Analytical thinking has been associated with https://blog.mindvalley.com/analytical-thinking-skills/[a number of different skills], some of which are:
 * _Problem solving:_ I have never encountered a software bug or design issue that I could not solve.
@@ -22,7 +23,10 @@ Major areas of expertise:
 == Professional Experience
 
 === Gap Inc, Corporate Headquarters, San Francisco, CA. (Jul 2009 - Feb 2019) +
-(100% remote since January 2015)
+
+*(100% remote since January 2015)*
+
+Despite having four different titles/positions and nine different supervisors over my almost 10 year career at Gap Inc, there was one constant: I never stopped writing web application code for the "`CPM Toolbox,`" an integrated suite of web applications for managing construction projects. Nothing confirms my contributions to this project better than this link:/assets/GitHubCommits_CPM-Toolbox_20090726-20190222.png[GitHub graph].
 
 ==== Software Engineer III (Jul 2016 - Feb 2019)
 * Oversaw the technical design of new web applications within the scope of an Agile Development environment.
@@ -43,7 +47,7 @@ Major areas of expertise:
 * Met with stakeholders and assisted them in composing new user stories and prioritizing them.
 * Created and maintained a custom object-oriented PHP framework that will ensure backwards compatibility with our legacy suite of web applications.
 * Use `doxygen` to create API documentation of our PHP code.
-* Created a "`Best Practices`" online web document for our developers to reference.
+* Created a "`Best Practices of Web Development`" link:/2016/09/06/Best-Practices-of-Web-Development.html[document] for our developers to reference.
 * Mentored my team of web developers in best coding practices, database design, (AWS) cloud-based system administration, and getting the best out of `Git`.
 
 ==== Web Developer / Technical Lead (Jan 2010 - Oct 2011)
@@ -87,7 +91,7 @@ Major areas of expertise:
 === UNIX (Solaris) Consultant at the Texas Department of Human Services, Austin, TX (Sep 1997 - Jan 1998)
 * Worked through two consulting agencies (https://www.appliedis.com/[Applied Information Sciences, Inc.] and https://www.geologics.com/[GeoLogics Corporation])
 * For GeoLogics I was part of a team that was deploying https://en.wikipedia.org/wiki/CA_Harvest_Software_Change_Manager[CCC/Harvest] (was later acquired by CA), an SCM client/server system that was to be used in preparation for the Y2K event.
-* For Applied Information Sciences I single-handedly wrote a scheduler in `sybperl` to automate the execution of several `sybperl` scripts that needed to run at various times of the month (some by specific weekdays, others by day of the month) many of which with dependencies, e.g. script _y_ is only launched on successful completion of script _x_, otherwise run script _z_, etc. No test environment was available. This had to be developed in the production environment. If it did not work, thousands of Texans on welfare would not receive their benefits. It worked the first time without any complications.
+* For Applied Information Sciences I single-handedly wrote a scheduler in `sybperl` to automate the execution of several `sybperl` scripts that needed to run at various times of the month (some by specific weekdays, others by day of the month) many of which with dependencies, for example, script _y_ is only launched on successful completion of script _x_, otherwise run script _z_, etc. No test environment was available. This had to be developed in the production environment. If it did not work, thousands of Texans on welfare would not receive their benefits. It worked the first time without any complications.
 
 === Desktop Support Specialist at IXC Communications*, Austin, TX (Dec 1996 - May 1997)
 * Provided support to over 100 users on Windows NT, Solaris, and Novell networks.
@@ -105,7 +109,7 @@ Major areas of expertise:
 * Served as a FORTRAN programmer in R&D for testing new algorithms where I worked closely with Chevron's Chief Geophysicist, Roger Judson.
 
 === Summer Internship at Fairfield Industries, 10052 Harwin Dr, Houston, TX (Jun 1979 - Nov 1979)
-* This internship was offered to me when I was touring the various Houston-based oil exploration companies, i.e. the SEG Special Award I received at the 28^th^ International Science and Engineering Fair.
+* This internship was offered to me while I was touring the various Houston-based oil exploration companies as part of the link:#_honors-and-awards[SEG Special Award] I received at the 28^th^ International Science and Engineering Fair.
 * Coded geometry for 1/4 millisecond, high resolution, marine seismic data.
 
 == Education, Training and Certifications
@@ -119,15 +123,15 @@ Major areas of expertise:
 The popularity of the online version, from which the _AUUGN_ print edition was derived, was so enormous that volunteers translated it into Chinese, Croatian, Czech, French, German, Indonesia, Japanese, Korean, Portuguese, Russian, and Spanish.
 * Zalan, S.E., Roger Judson, and John Kirch. "`Optimal Use of Iterative Stacking.`" Paper presented at the Intercompany Geophysical Conference by Chevron Geosciences Company, Incline Village, NV, October 21–26, 1984.
 
-== Honors & Awards
+== Honors and Awards
 * **One year, Full Stipendium from the https://en.wikipedia.org/wiki/German_Academic_Exchange_Service[DAAD]** for participating in a **Masters Program at the Universität Siegen, Germany** +
 Only two recipients were chosen each year based on academic excellence within the German Studies Department at the University of Houston. The official letter from the Universität Siegen is dated May 14, 1986.
 * **29^th^ International Science & Engineering Fair, Anaheim, CA. May 1978** +
 ** **Special Award** from the **AAPG** (American Association of Petroleum Geologists) +
 Received full tuition and travel expenses paid for attending the https://fieldcamp.missouri.edu/camp-history[University of Missouri Geology Field Camp at the Branson Field Laboratory], located in the Shoshone National Forest near Lander, Wyoming.
-** ** Special Award** from the **SEG** (Society of Exploration Geophysicists) +
-One of only two recipients awarded a 5-day tour of various Seismic Exploration Companies in Houston, including Fairfield Industries, specializing in high resolution offshore oil exploration.
+** ** Special Award** from the https://seg.org[SEG] +
+One of only two recipients awarded a 5-day tour of various seismic exploration companies in Houston, including Fairfield Industries, specializing in high resolution offshore oil exploration.
 Was offered a summer internship at Fairfield Industries.
 * **28^th^ International Science & Engineering Fair, Cleveland, OH. May 1977** +
-**Special Award** from the **SEG** (Society of Exploration Geophysicists) +
-One of only two recipients awarded a 5-day tour of various Seismic Exploration Companies in Houston, including Seiscom-Delta Corporation and a chance to spend an afternoon with https://en.wikipedia.org/wiki/Robert_E%2E_Sheriff[Robert E. Sheriff] who inscribed to me a copy of his https://library.seg.org/doi/book/10.1190/1.9781560802969[_Encyclopedic Dictionary of Exploration Geophysics_], Society of Exploration Geophysicists, 1973.
+**Special Award** from the https://seg.org[SEG] +
+One of only two recipients awarded a 5-day tour of various seismic exploration companies in Houston, including Seiscom-Delta Corporation and a chance to spend an afternoon with https://en.wikipedia.org/wiki/Robert_E%2E_Sheriff[Robert E. Sheriff] who inscribed to me a copy of his https://library.seg.org/doi/book/10.1190/1.9781560802969[_Encyclopedic Dictionary of Exploration Geophysics_], Society of Exploration Geophysicists, 1973.

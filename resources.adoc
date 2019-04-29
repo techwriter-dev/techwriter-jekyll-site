@@ -1,0 +1,34 @@
+= Resources
+:page-layout: page
+:stem: latexmath
+
+== Technical Writing
+
+* https://asciidoctor.org/[Asciidoctor]: A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, DocBook and more.
+** https://asciidoctor.org/docs/asciidoc-writers-guide/[AsciiDoc Writer’s Guide]
+** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
+* http://www.favicomatic.com/[Favi-o-Matic]: The ultimate favicon generator
+* https://www.amazon.com/Modern-Technical-Writing-Introduction-Documentation-ebook/dp/B01A2QL9SS?SubscriptionId=AKIAILSHYYTFIVPWUY6Q&tag=duckduckgo-ffab-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=B01A2QL9SS#reader_B01A2QL9S[Modern Technical Writing] by Andrew Etter
+* https://www.thenotboringtechwriter.com[The Not-Boring Tech Writer]
+* http://www.writethedocs.org[Write the Docs]: A global community of people who care about documentation.
+
+== Application Development using MongoDB with PHP
+
+The is some history to be mentioned regarding PHP`'s support for MongoDB.
+Since I started using MongoDB with PHP back in 2013, there was the introduction of a new MongoDB driver that was meant to replace the  the older PHP extension http://php.net/manual/en/book.mongo.php[Mongo] which I had been using extensively.
+This PHP extension is now deprecated and does not support any version of PHP past version 5.6.
+Because the new and improved http://php.net/manual/en/set.mongodb.php[MongoDB driver for PHP] has almost nothing in common with its predecessor, anyone with older PHP code needed to learn a new set of PHP classes and refactor all of their legacy code. The new PHP MongoDB Library is now on https://github.com/mongodb/mongo-php-library[GitHub] and there is https://docs.mongodb.com/php-library/current/[a separate set of official documentation] on the MongoDB site.
+There is also a link to the https://derickrethans.nl/new-drivers.html[history] of the legacy drivers/extension and how/why the new drivers/extension evolved to be so different from its predecessor.
+
+* http://php.net[The Official PHP Website] - If you are not visiting this at least once a week, you should be.
+* https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/[Install MongoDB Community Edition on Ubuntu]
+* The https://github.com/mongodb/mongo-php-library[MongoDB PHP Library] on GitHub with additional https://docs.mongodb.com/php-library/current/[documentation] on the MongoDB website
+* https://studio3t.com[Studio 3T - The GUI for MongoDB] there's no better client for MongoDB than this one.
+  https://studio3t.com/knowledge-base/articles/explore-mongodb-arrays-fields/"[Explore nested arrays and fields]
+* https://docs.mongodb.com/manual/reference/operator/[Operators], which are essential for both native and PHP-based queries
+* MongoDB Manual: https://docs.mongodb.com/manual/indexes/[Indexes], without them some queries are not possible
+* MongoDB Manual: https://docs.mongodb.com/manual/core/gridfs/[GridFS], built-in file and document storage that can be used to stream any type of media, even website images
+* https://www.slideshare.net/spf13/mongodb-for-genealogy[MongoDB for Genealogy] +
+  Wouldn`'t a _relational_ database be better for managing relationships between relatives? Think again!
+* https://youtu.be/owjOpCa5UWg[City of Chicago's GIANT idea using MongoDB]
+* Dataversity: https://youtu.be/e15qwfP29Hg[Using MongoDB for Geo Searches for Healthcare Pricing Data] (YouTube video)
