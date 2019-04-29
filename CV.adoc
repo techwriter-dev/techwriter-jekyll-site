@@ -109,7 +109,7 @@ Despite having four different titles/positions and nine different supervisors ov
 * Served as a FORTRAN programmer in R&D for testing new algorithms where I worked closely with Chevron's Chief Geophysicist, Roger Judson.
 
 === Summer Internship at Fairfield Industries, 10052 Harwin Dr, Houston, TX (Jun 1979 - Nov 1979)
-* This internship was offered to me while I was touring the various Houston-based oil exploration companies as part of the link:#_honors-and-awards[SEG Special Award] I received at the 28^th^ International Science and Engineering Fair.
+* This internship was offered to me while I was touring the various Houston-based oil exploration companies as part of the link:#_honors-and-awards[SEG Special Award] I received at the 29^th^ International Science and Engineering Fair.
 * Coded geometry for 1/4 millisecond, high resolution, marine seismic data.
 
 == Education, Training and Certifications
