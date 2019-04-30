@@ -1,11 +1,14 @@
 = Best Practices of Web Development
-John Kirch <jrkirch@pm.me>
+John Kirch <techwriter.dev@pm.me>
 :layout: post
-:toc: left
 :icons: font
-:imagesdir: /assets
+:imagesdir: assets
 :sectlinks: true
 :experimental: true
+:toc: left
+// Uncomment the next 2 lines when exporting to PDF
+// :source-highlighter: rouge
+// :imagesdir: ../assets
 
 == Who Needs This?
 
@@ -1507,11 +1510,10 @@ showing on page instead of `'] asked by Jitendra Vyas on Stack Overflow, 19 Mar 
 * [[[sen,21]]] Sen, Anith.
 https://www.simple-talk.com/sql/database-administration/five-simple--database-design-errors-you-should-avoid/[5 Simple Database Design Errors You Should Avoid]. _simple talk_, 16 Oct 2009.
 * [[[skeet,22]]] Skeet, Jon: Answers to
-http://stackoverflow.com/questions/2014069/windows-1252-to-utf-8-encoding["`Windows-1252
-to UTF-8 encoding`"] asked by user "`Sam`" on Stack Overflow, 6 Jan 2010.
+http://stackoverflow.com/questions/2014069/windows-1252-to-utf-8-encoding[Windows-1252 to UTF-8 encoding] asked by user "`Sam`" on Stack Overflow, 6 Jan 2010.
 * [[[spooner,23]]] Spooner, Chris.
-http://line25.com/articles/10-html-entity-crimes-you-really-shouldnt-commit["`10
-HTML Entity Crimes You Really Shouldn`'t Commit.`"] Line25, 20 Jun 2011.
+http://line25.com/articles/10-html-entity-crimes-you-really-shouldnt-commit[10
+HTML Entity Crimes You Really Shouldn`'t Commit]. Line25, 20 Jun 2011.
 * [[[tasker,24]]] Tasker, Ben.
 http://www.bentasker.co.uk/documentation/development-programming/172-linking-a-git-repo-with-pivotal-tracker[Linking a Git repository with Pivotal Tracker].
 BenTasker.co.uk, 25 Jan 2013.
