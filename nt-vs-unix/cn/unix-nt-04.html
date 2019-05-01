@@ -1,0 +1,180 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+   <META NAME="description" CONTENT="UNIX versus Windows NT -Information every manager should know when planning a corporate network or the purchase of server hardware.">
+   <META NAME="keywords" CONTENT="NT vs UNIX, UNIX vs NT, NT vs. UNIX,UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail,exchange server, microsoft, smp, aix, hp-ux, digital unix, solaris,freebsd, bsdi, linux, windows nt, corporate network, mail servers,operating systems, cost effective solutions, mission criticaloperations, sendmail, apache, iis, system administration, microsoft">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [tw] (Win95; I) [Netscape]">
+   <TITLE>當Microsoft Windows NT Server 4.0 對上 UNIX</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" leftmargin="50" TEXT=#0000FF>
+<CENTER><A HREF=http://www.okstation.com><IMG SRC=okstation-roadsign.gif border=0></A></CENTER>
+<HR>
+<CENTER>
+<A HREF=unix-nt-03.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-05.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+<A NAME="web"></A>
+<CENTER><H2>網站伺服器</H2></CENTER>
+Internet上的血脈就是Web.它是大眾所看到的一張臉. 如果您的站很慢, 
+並受技術問題所折磨,  或無法讀取,  這肯定會有負面效應.
+既然大部份大公司都使用UNIX,  他們自然會走向如Apache或Netsacpe-Enterprise
+這一類的網頁伺服器.
+
+<P><B><A HREF="http://www.apache.org/">Apache</A></B>
+目前只考慮使用UNIX(譯注: Apache Server目前有
+<a href=http://www.apache.org/docs/windows.html>NT版本</a>,  不過,  Apache組織說,  到NT的路還很長.)
+它是免費的, 而且目前統治著Internet的世界. 網路上大約超過<I>一半</I>的網頁伺服器都是用Apache
+HTTP Server. (see <B><A HREF="http://www.netcraft.co.uk/Survey/">the Netcraft
+Web Server Survey</A></B>). 微軟的IIS Web server還不到其四分一.
+<P>Apache目前在以下單位使用
+<A HREF="http://java.sun.com/">Javasoft</A>,  <A HREF="http://www.fbi.gov/">The
+FBI</A>,  <A HREF="http://www.ft.com/">Financial Times</A>,  <A HREF="http://www.imdb.com/">The
+Movies Database</A>,  <A HREF="http://www.w3.org/">W3 Consortium</A>,  <A HREF="http://www.royal.gov.uk/">The
+Royal Family</A>,  <A HREF="http://www.lib.ox.ac.uk/">Oxford University
+Libraries Automation Service</A>,  <A HREF="http://www.mit.edu/">M.I.T.</A>,
+<A HREF="http://www.harvard.edu/">Harvard University</A>,  and the <A HREF="http://www.utexas.edu/">University
+of Texas at Austin</A>.
+<P>Netcraft也提到"虛擬主機公司 <A HREF="http://www.rapidsite.com/">Rapidsite</A>在本次調查排名第五.
+他們的主機系統,  使用了personalised版本的Apache,  支撐著44, 280網域名稱在 39, 905不同的IP位址.
+這是一項成就,  並可能是世界上最大的虛擬主機系統." 您將會回想以在本文速度表現一節
+<A HREF="#KickAss">UNIX-Apache的婚姻令NT-IIS羞愧不堪</A>. 不只是因為Apache快, 而且它是免費的.
+
+<P><A HREF="http://www.ibm.com/">IBM</A>現在成為Apache的後台:
+<BLOCKQUOTE>
+<B>IBM與Apache聯盟</B><BR>
+"IBM將會運送Apache HTTP server成為IBM WebSphere Application Server的一個套件,
+協助目前Apache使用者來進展其e-business解決方案.
+做為WebSphere Application Server的一個套件,
+IBM將會提供商業級, 企業級的支援在Apache HTTP Server上.
+
+此外, IBM將會全程參與Apache HTTP Server開發計畫, 提供一個共同開發的服務,
+並且會貢獻力量來提昇Apache HTTP Server的全方位能力, 並維持其免費的原則. <BR>
+<A HREF="http://www.ibm.com/News/1998/06/223.phtml">
+IBM helps companies turn simple web sites into powerful e-business solutions</A>,
+IBM News, 22 June, 1998.
+</BLOCKQUOTE>
+
+<P>對大多數需要建全的網頁伺服器的公司來說,  Netscape-Enterprise是個很好的選擇.
+雖然它不是像Apache一樣免費的,  他也可以滿足您絕大多數的需求. Netscape-Enterprise在下列公司使用
+as <A HREF="http://www.bmw.de/">BMW</A>,  <A HREF="http://www.dilbert.com/">Dilbert</A>, 
+<A HREF="http://www.sgi.com/">Silicon Graphics</A>,  <A HREF="http://www.shell.com/">Shell</A>, 
+<A HREF="http://www.sun.com">Sun Microsystems</A>,  <A HREF="http://www.sybase.com/">Sybase</A>, 
+<A HREF="http://www.ferrari.it/">Ferrari</A> and <A HREF="http://www.vatican.va/">The
+Vatican</A>.
+
+<P>微軟的IIS是很少一開始就會在你的NT上的. 它沒有任何特別或獨特的品質的功能.
+它在速度, 使用率及可處理同時瀏覽者的數量上都遠遠略於其它的網頁伺服器. 它現在在以下公司使用<A HREF="http://www.compaq.com/">Compaq</A>, 
+<A HREF="http://www.nasdaq.com/">Nasdaq</A>,  <A HREF="http://www.nfl.com/">The
+National Football League</A>,  <A HREF="http://www.exxon.com/">Exxon</A>, 
+and <A HREF="http://shop.tesco.co.uk/">Tesco</A>.
+<P>既然Microsoft在廉價的PC上有許多的成功, 
+如. <A HREF="http://www.intel.com/">Intel</A>-based 的機器,  你可能會想這個微軟的最大夥伴也跑IIS吧.
+嘿嘿, 猜看看! <B><A HREF="http://www.intel.com/">www.intel.com</A> runs
+<A HREF="http://home.netscape.com/comprod/server_central/product/fast_track/fast_track_data.html">Netscape
+FastTrack Server</A></B>.
+
+<P><A NAME="win95"></A>對Windows 95及NT使用者來說, 最平常去取得免費軟體及共享軟體的地方應該是<B><A HREF="http://www.windows95.com">www.windows95.com</A></B>.
+由於其高度被瀏覽率, 它需要一個建全的系統及良好的網頁伺服器.
+<P>既然在該站提供所有軟體都歸微軟所有, 那麼他們的站應當也該是以微軟軟體為基礎.
+有人會假設是NT+IIS, 這對微軟倒是滿合理的解決方案. 看看這裡<A HREF="http://www.windows95.com/about/faq.html">a
+quote from one of their own Web pages</A>:
+<BLOCKQUOTE><B>Windows95.com使用什麼硬體及軟體?</B>
+<BLOCKQUOTE>我們使用Pentium Pro, BSDI UNIX作業系統及Apache網站伺服器. 我們的主機透過許多條T3的線連到Internet上.</BLOCKQUOTE>
+</BLOCKQUOTE>
+註: 該說明是取自February 1998. 他們最近改名, 從from Windows95.com到WinFiles.com
+雖然他們還是用windows95.com這個名字. 這項改變在March 1998進行的.　　
+<HR -1><A NAME="mta"></A>
+<CENTER><H2>郵件伺服器(MTAs)</H2></CENTER>
+本節是我在UseNet上擷取下來的, 標題為 "Sendmail versus Microsoft Exchange
+Server."
+
+<P>在主題的同時,  Exchange是NT環境下的郵件伺服器的主流.
+<P>Sendmail是UNIX的標準課題.
+它有超級難以設定的名聲 (譯注:曾有人說, 如果你還沒動過Sendmail, 那肯定不是UNIX管理者.
+我個人完全認同, 真是超級難設定.).
+
+<P>但一般的設定卻可是大大可辯論上一番. Exchange則還有其它的相關課題與其關聯.
+雖然Exchange有一些Sendmail沒有的功能,  但其缺乏建全的系統及 在處理大量郵件的能力上可有著與其外觀不同的可笑速度表現.
+
+<P>一家大公司的經理說 -- 該公司有"超過20,000 IT使用者" -- 決定移植到Microsoft
+Exchange Server. 該決定可能會造成任何除了"成功的故事"以外的任何結果. "移植到Exchange的工作, 已經完成了一半了"
+不過三百萬元也己經耗去在達成這個目標上.
+
+<P>To find out more about this "major problem with 12,000 users and hundreds
+of servers, " see the <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>'s
+<B><A HREF="http://www.aberdeen.com/research/comp/onsite/case2/body.htm">Case
+Study: Horns of a Dilemma</A></B>.　<A NAME="mta-views"></A>
+<H3>Microsoft Exchange對上Sendmail: 其他MIS專家的觀點</H3>
+<B>Billy Bob Thornton writes:</B>
+<BLOCKQUOTE>使用Exchange有個好處, 就是每次你一連上網路, 每個鏈結都要付錢給微軟.(per-seat
+charge). 你可以使用這樣的系統, Sun Ultra 1 ($7K ballpark)及Solaris Internet
+Mail Server (comes bundled with Solaris 2.6) 及擁有POP及IMAP給好幾千人來使用.
+有個人告訴我, 使用NT, 你需要兩倍的價格才能達到.</BLOCKQUOTE>
+<B>Brad Van Orden,  System/Network Consultant,  writes:</B>
+<BLOCKQUOTE>. . . 就像我以前說過的,  既使不管其表面的價格如何,  Exchange也會花去你更多的錢.你必須要有個人來管理這套東西.
+如果你使用UNIX Sendmail, 一旦你設定sendmail.cf正確了, 您在管理上唯一需要做的事,
+是去增加或移除"使用者別名". 這是最大的不同點了.</BLOCKQUOTE>
+<B>Tom Moore of Dayton,  Ohio writes:</B>
+<BLOCKQUOTE>趨勢似乎是我們需要"傀儡"來當系統管理者. 我才讀過一篇關於網頁伺服器的文章, 當今天Apache明顯的是主流的時候,
+說它沒有GUI界面, 因而需要一個有經驗的管理者, 而不適合於公司團體使用,  好像是不太對勁.
+這推論好像是說idiot+GUI=Every is right.
+
+<P>同樣的"邏輯"也可運用到sendmail vs MS Exchange. sendmail需要設定text
+configuration file, 因此需要有經驗的管理者. Exchange有GUI所以不需要. 我有在這兩個系統上工作的經驗, 
+我才不信這一套鬼扯. 兩者的設定都同樣簡單, 兩者都需要同樣的管理經驗來處理更複雜的事務.
+當你處理複雜的事, 諸如Anti-SPAM, 使用Exchange就毫無對策.</BLOCKQUOTE>
+<B>有些讀者可能覺得這樣比較不公平:</B>
+<BLOCKQUOTE>"拿Exchange跟其它MTA來比是最佳的誤導. Exchange不該被標記為MTA;
+它是公司的訊息主機."</BLOCKQUOTE>
+MS Exchange確實有些在其它MTA找不到的功能, 但, 本篇的論點是, 什麼樣的訊息系統
+是含在其對映的作業系統內. UNIX是Sendmail,  Windows NT是全然沒有. 不論如何, 如何你使用M$解決方案, 您可要耗在Exchange
+Server上好一陣子.
+
+<P>Microsoft Exchange Server可不是唯一的訊息伺服器以提供這樣的功能. 看看IMAP4:
+<TABLE BORDER >
+<TR>
+<TH></TH>
+
+<TH><A HREF="http://www.lotus.com/home.nsf/tabs/domino/">Lotus Domino 4.6a</A>　</TH>
+
+<TH>Microsoft Exchange Server 5.0　　　
+<BR>Enterprise Edition　</TH>
+
+<TH><A HREF="http://search.netscape.com/comprod/server_central/">Netscape
+Suitespot Server 3.5　</A></TH>
+</TR>
+
+<TR>
+<TD>Platforms Supported:　</TD>
+
+<TD>AIX,  HP-UX,  Netware,  OS/2,  OS/400,  Solaris,  S/390,  Windows NT,  Windows
+95　</TD>
+
+<TD>Windows NT Server　</TD>
+
+<TD>AIX,  Digital UNIX,  HP-UX,  IRIX,  Solaris,  Windows NT　</TD>
+</TR>
+
+<TR>
+<TD>Cost of server and 50 client licenses　</TD>
+
+<TD ALIGN=CENTER>$4, 240</TD>
+
+<TD ALIGN=CENTER>$4, 859</TD>
+
+<TD ALIGN=CENTER>$4, 100</TD>
+</TR>
+</TABLE>
+詳細價格比較見<B><A HREF="http://search.netscape.com/comprod/server_central/product/pricing/comparison.html">link</A></B>
+<hr>
+<CENTER>
+<A HREF=unix-nt-03.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-05.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+</BODY>
+</HTML>
+

@@ -1,0 +1,2365 @@
+<HTML>
+<HEAD>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="유닉스 대 윈도 엔티 -
+경영자가 회사 네트웍를 계획하거나 서버 하드웨어를 구입할 때 반드시
+알아야 할 정보.">
+
+<meta name="keywords" content="엔티 대 유닉스, 유닉스 대 엔티,
+, IIS, 아파치, 센드메일, 익스체인지 서버, 마이크로소프트, smp,
+aix, hp-ux, 디지탈 유닉스, 솔라리스,
+freebsd, bsdi, 리눅스, 윈도 엔티, 회사 네트웍, 메일 서버,
+운영체제, 실제 솔루션 비용, 미션 크리티컬 작동,
+시스템 관리, 마이크로소프트">
+
+<TITLE>마이크로소프트 윈도 엔티 서버 4.0 대 유닉스</TITLE>
+</HEAD>
+
+<body bgcolor=white>
+<div style='margin-left:10%;max-width:80%'>
+<center>
+
+<p>
+Korean
+
+&nbsp; &nbsp; &nbsp;
+
+<A HREF="/nt-vs-unix/cn/">
+Chinese</A>
+
+&nbsp; &nbsp; &nbsp;
+
+Croatian
+
+&nbsp; &nbsp; &nbsp;
+
+
+
+<A HREF="/nt-vs-unix/cz.html">
+Czech</A>
+
+&nbsp; &nbsp; &nbsp;
+
+<A HREF="/nt-vs-unix/de.html">
+German</A>
+
+&nbsp; &nbsp; &nbsp;
+
+<A HREF="/nt-vs-unix/jp.html">
+Japanese</A>
+
+&nbsp; &nbsp; &nbsp;
+
+<A HREF="/nt-vs-unix/pt.html">
+Portuguese</A>
+
+&nbsp; &nbsp; &nbsp;
+
+<A HREF="/nt-vs-unix/ru.html">
+Russian</A>
+
+&nbsp; &nbsp; &nbsp;
+
+Spanish
+
+<HR>
+
+<B>Mirror of this Article</B>
+
+</CENTER>
+
+<HR>
+
+<H1>마이크로소프트 윈도 엔티 서버 4.0 대 유닉스</h1>
+
+
+<h3>저자 John Kirch, 네트웍 컨설턴트 및 MCP (윈도 NT)</h3>
+<P><I>원문 마지막 갱신: 1998년 7월 17일</I><BR>
+<I>번역문 마지막 갱신: 1998년 7월 21일</I>
+
+<BR>
+
+<a href="/nt-vs-unix/en.html">원문 : Microsoft Windows NT Server 4.0 versus UNIX</a>
+<BR>
+<h2 align=center>요약</h2>
+
+<P>전세계의 IT 경영자들은 마이크로소프트 윈도 NT 서버로 가야할 지, 또는
+유닉스 운영체제 중의 하나를 선택해야 할지 갈림길에 직면해 있다.  잘 알려져있다
+시피 유닉스는 하나의 단일한 운영체제가 아니다.  유닉스는 AIX, BSDI, Digital 유닉스,
+FreeBSD, HP-UX, IRIX, Linux, NetBSD, OpenBSD, Pyramid, SCO, Solaris, SunOS 등을
+비롯한 무수히 많은 운영체제를 함께 아우르는 운영체제의 집합을 일컫는다.
+윈도 NT 서버의 인기는 높아져가고 있지만, 여러분의 MIS 작업 생산성도 또한
+높아지고 있을까?  매우 중요한 문제의 하나로, 여러분이 회사의 경영자 입장에서
+마이크로소프트 솔루션을 선택한다면 회사의 이윤이 증대할 것인가?
+
+<P>기본적으로 어느게 가격이 저렴할까?  하드웨어 비용, 소프트웨어 라이센스,
+기술 지원 계약, 업그레이드/서비스 패키지 가격, 하드웨어 업그레이드 비용,
+매 시간별 다운 시간에 상응하는 눈에 보이지 않는 손실 비용, 운영체제 이전에
+따른 하드웨어 플랫폼/운영체제의 제품 결점으로 인한 유실된 데이터의
+복구/재생산에 들어가는 인적 비용, 시스템 관리를 위한 인적 비용,
+당신의 결정에 따라 회사의 전체 예산 관리에 기여를 하느냐 마느냐가 달려있다.
+그냥 보아넘길 문제가 아니다.
+
+<P>경영자의 입장에서 돈이 가장 기본적인 문제이기는 하지만, 좀더 복합적인 요소에
+대해 이제부터 이야기하겠다.  기술적으로 뛰어난 서버 하드웨어와 운영체제의
+짝짓기는 장기 관점으로 볼 때 좀 더 저렴할 수도 있다.  유닉스는 서버환경에서
+성능, 신뢰성, 보안 면에서 오랜 자취를 가져온 기술적으로 우수하며 성숙한
+운영체제 그룹이다.  지난 30년간 지속된 개발은 자신이 하는 일에 자부심을 느끼는
+지원자들이 많은 부분을 수행해왔으며 운영체제 그룹을 만들어왔다.  이 운영체제는
+극도로 강력한 멀티 프로세서 서버 하드웨어 제작사들이 그들의 필요성에 의해
+만들었지만, 이들의 뛰어난 성능은 아직 인텔 하드웨어에 아직 비견할 바가 아니다.
+아울러 이들의 작품은 오늘날 컴퓨팅 요구를 만족시킬 뿐만 아니라 미래의 요구까지도
+충족시키는 경우가 많다.
+
+<P>윈도 NT 서버 4.0이 기업환경에 지속적으로 존재하는 이유는 심리학이나 마케팅에
+있어 다루어 볼만한 주제이지만 정보 기술과 관련된 기사는 아니다.  기술적인 관점으
+볼 때, 윈도 NT 서버 4.0은 어떤 유닉스 운영체제와도 비교할 바가 못된다.  상용 운영~
+아닌 BSD 부류나 리눅스에도 역시 마찬가지이다.  경영자는 15년동안 관련 산업에서
+경험을 쌓아온 시스템 관리자의 해박한 기술적인 지식을 가지기를 원치 않는다.
+사실을 알지 못함에 있어서 부끄러움도 없을 뿐 아니라 그러한 사실에 무지하기까지
+하다는 것은 결국 당신의 최종 고용주 뿐만 아니라 모든 고객들과 돈에 대해서까지도
+그러한 관점을 가지게 되는 것이다.  이 기사의 목적은 당신에게 이러한 사실을
+알려줌으로써 이것이 사실이며 이론의 여지가 없다는 것을 알려주기 위한 데 있다.
+
+<P>다음 기사는 정보 기술 산업에서 필자의 경험에서 나온 것이다.  필자는 1979년부터
+체브론 게오사이언즈 사에서 처음으로 관련 업무를 시작하였으며, 대략 150여 개의
+다른 기술 관련 기사, 화이트 페이퍼, 시행 개략을 작성했다.  이 싯점에서 필자는
+어느 회사의 제품도 선전할 생각이 없으며, 당신이 유닉스를 선택하더라도 필자의
+고용주에 어떠한 이익도 없다는 것을 밝힌다.  필자의 목적은 시스템 관리자들의
+무거운 짐을 조금이나마 들어주고, 좀 더 효율적이며 경제적인 컴퓨팅 월드 와이드를
+선전하며, 공명정대하며 다양한 소프트웨어 벤더 공동체를 복돋워주기 위한 것이다.
+
+<HR>
+
+<TABLE>
+<TR>
+<TD valign=top>
+
+<h2> 차례</h2>
+
+<ul>
+	<li><a href="#intro">들어가는 말</a>
+	<li><a href="#os">운영체제</a>
+	<ul>
+		<li><a href="#costs">제품 가격 및 라이센스 문제</a>
+		<li><a href="#functionality">기능면</a>
+		<li><a href="#reliability">신뢰성</a>
+		<li><a href="#management">시스템 관리</a>
+		<li><a href="#performance">성능면</a>
+		<li><a href="#security">보안성</a>
+	</ul>
+	<li><a href="#misconceptions">몇 가지 잘못된 생각</a>
+	<li><a href="#views">다른 MIS 전문가들의 관점</a>
+	<ul>
+		<li><a href="http://www.kirch.net/unix-nt/feedback/">
+		본 기사 독자들의 반응</a>
+		</li>
+	</ul>
+	<li><a href="#web">웹서버</a>
+	<li><a href="#mta">메일서버 (MTAs)</a>
+	<ul>
+		<li><a href="#mta-views">마이크로소프트 익스체인지 대 센드메일: 다른 MIS 전문가의 관점</a></li>
+	</ul>
+	<li><a href="#conclusion">결론</a>
+	<li><a href="#compare">리눅스와 엔티 서버 4.0 훑어보기</a>
+	<li><a href="#bigguys">어떤 관련 주요 회사가 있나?</a>
+	<li><a href="#links">관련 링크</a>
+	<li><a href="legal.html">포기와 기타 법적 정보</a>
+	<li><a href="#acknowledgments">감사의 말</a>
+</ul>
+
+
+<td valign=top>
+
+<h2>본 기사의 하이라이트</h2>
+
+<ul>
+	<li><a href="#ms-solaris">왜 마이크로소프트는 엔티 대신 솔라리스를 사용하나?</a>
+	<li><a href="#graphs">그림으로 보는 운영체제 비교</a>
+	<li><a href="#stability">안정성이 가장 중요한 문제로 부각할 때 어느 운영체제가 가장 적합할까?</a>
+	<li><a href="#win95">windows95.com에 대한 잘 알려지지 않은 사실</a>
+	<li><a href="#KickAss">하나의 프로세서를 탑재한 유닉스 PC가 듀얼 프로세서 NT 머신보다 우수하다
+	<li><a href="#cisco">시스코(Cisco)가 리눅스에서 윈도 NT로 바꾼다?</a>
+	<li><a href="#usps">리눅스와 미국 우체국 서비스</a>
+	<li><a href="#web">웹서버 소프트웨어: 로얄 패밀리(Royal Family)와 FBI, 모두 가지고 있는게 무엇일까?</a>
+	<li><a href="#gui">몇 가지 유닉스를 보여주십시오. 어떤 것인지 알고 싶습니다.</a>
+	<li><a href="http://www.kirch.net/cgi-bin/siteinfo">그런 사이트들은 어떤 일을 하고 있습니까?</a>
+	<li><a href="http://www.kirch.net/unix-nt/vendors.html">
+	리눅스/FreeBSD를 어디서 구할 수 있습니까?<br>
+	리눅스/FreeBSD를 미리 설치한 워크스테이션과 서버를 어디서 구입할 수 있습니까?<br>
+	<B>리눅스/FreeBSD와 가까운 회사</b></a>
+	<li><a href="http://consult.cyrius.com/">
+		<b> 전세계 범위의 리눅스 컨설팅</b></a>
+</ul>
+</tr>
+</table>
+<p>
+<HR>
+
+<H2><A NAME="intro">들어가는 말</A></H2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+시스템, 네트웍 관리를 위한 높은 수준의 교육을 받지 못한 관리자들에게 있어
+서버 플랫폼 선택은 매우 어려운 문제라 하지 않을 수 없다.  이 글에서는
+마이크로소프트 윈도 NT 와 폭넓은 상용/비상용 유닉스를 비교할 것이다.
+주요 비교 촛점은 기능성, 안정성, 시스템 관리성, 성능에 맞춰져 있다.  이 글은
+서버에 관한 것이지 워크스테이션에 관한 것이 아니다.  제품 가격, 번들
+소프트웨어의 수량과 품질과 같은 다른 고려 요소와 각 OS에 대하여 흔히
+통용되고 있는 오해에 관한 설명을 적음으로써 각 제품에 대하여 좀 더 자세히
+살펴볼 수 있도록 할 것이다.  비교 자료는 여러 곳에서 모았다.
+화이트 페이퍼, 서드 파티들의 분석 자료, 기술 잡지의 기사, 그리고
+마이크로소프트 윈도 NT와 유닉스 OS 모두에 대하여 실전에서 다루고 있는
+IT 전문가들의 경험을 들 수 있다.
+
+<p>이 기사는 지속적인 갱신 작업중에 있다는 것을 고려해주기 바란다.  이
+프로젝트에 어떠한 형태로든 참여를 바라는 사람은 모두 환영하며 필자에게
+<a href="mailto:john@kirch.net"> <B>전자우편</B></A>을 보내주기 바란다.
+건설적인 내용이나 비평 모두 좋다.
+
+
+<h2><a name="os">운영체제</a></h2>
+
+<h3><a name="costs">제품 가격과 라이센스 문제</a></h3>
+
+<P>전체적인 그림을 고려해 볼 때 운영체계 자체의 비용은 미미한 것이라는
+사실에 대부분의 관리자들이 동의하리라 생각한다.
+윈도 서버 4.0이 일부 상용 유닉스보다 비싼 것은 사실이지만 무역 쇼 등에 가면
+매우 저렴한 가격으로 쉽게 구할 수 있다. ( 5 명 사용자용 NT 4.0 서버의 경우
+809 달러, 10 명 사용자용은 1129 달러, 윈도 NT 서버 엔터프라이즈 판 25 명
+사용자용은 3999 달러, 출처 :
+<A HREF="http://www.microsoft.com/NTServer/Basics/Pricing/RetailPrice.asp">
+마이크로소프트</a> 사)
+정말 NT 서버가 제 값어치를 하는가?
+<A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub6.html">
+NT의 거짓말: 여섯번째 거짓말 - NT 서버는 제값 한다</a></b>를 보기 바란다.
+
+한가지 짚고 넘어갈 점은 명색이 네트웍 운영체제이며 이 정도의 가격에
+텔넷 서버, SMTP 서버(e-mail), 디스크 쿼타, 뉴스 서버, 또는 적어도 고객이 만족할
+만한 제대로된 DNS 서버하나 없다는 점이다(많은 NT 관리자들은 억지로라도 다른
+서드 파티 솔루션을 채택하여 추가적인 마이크로소프트 제품과 서드 파티 솔루션의
+구입에 따른 NT 솔루션의 최종 가격은 거의 4,000 달러에 육박한다는 점이다.
+(<a href="http://www.bsdi.com/white-papers/compare">BSDI 자료 참조</a></b>)
+
+인포월드(InfoWorld)에서 수석 분석가로 일하고 있으며 데이터베이스 기술과
+애플리케이션 디자인, 개발, 인트라넷과 기타 네트웍 전개 분야 전문가인
+Maggie Biggs 씨는 NT 4.0 과 레드햇 사의 상용 리눅스(겨우 49.95 달러 밖에
+하지 않는다)를 비교하는 기사에서 쓸만한 윈도 NT 4.0 해결책에 드는
+비용을 4,636 달러라고 평가하고 있다.
+
+여기서 성공적인 마케팅은 고객 자신이 원하는 기능을 고려하는 등의 판단 기준을
+어지럽힐 수 있다는 점을 알 수 있을 것이다.
+
+<P>소비자들은 예산상의 이유로 인해 대부분의 상용 유닉스가 요구하는
+비싼 하드웨어 구입에 비용을 지불하려고 하지 않기 때문에 주로 NT를 선택해왔다.
+하지만 더욱 중요한 점은 다운 시간과 같은 여러 다른 요소에 따른 시스템 관리,
+전화 지원 호출, 비신뢰성으로 인한 데이터 유실 등과 같은 전체 소요 비용이다.
+티펫 스튜디오 사는 영화 <I>Starship Trooper</I>에서 그래픽을 맡은 회사인데, 오스카의
+최우수 특별 효과상 후보에 올랐다.  이 회사는 130대의 SGI
+(<a href="http://www.sgi.com/">실리콘그래픽스 사</a>) 머신에
+
+<A HREF="http://www.sgi.com/origin/products/irix.html">IRIX</a>
+를 사용한다.  SGI는 매우 뛰어난 유닉스 운영체제이다.  티펫사의 스튜디오
+효과 관리자는 왜 그들이 NT 솔루션 대신 IRIX를 사용하는지를 이렇게 설명한다.
+
+<BLOCKQUOTE>
+"'SGI는 처리 능력에 비해 저렴하다,'고 티펫의 스튜디오 효과 관리자인
+Jeff Stringer는 말한다.  'NT 시스템 관리자를 모두 고용해야 할 것을 생각하면 NT 시스템 관리비용은
+매우 비싼 편이다.'"
+
+<P>"고용 문제는 작은 스튜디오에 있어서는 특히 중요한 문제이다.  대형 스튜디오와는
+달리 티펫(영화 Starship Troopers에서 인간성을 위협하는 버그를 디자인한 회사)은
+작은 가게이다."
+
+<P>-- Greg Lindsay,
+<A HREF="http://cgi.pathfinder.com/netly/article/0,2334,13125,00.html">
+Oscar Tech</A>, 1998년 2월 27일, The Netly News
+</BLOCKQUOTE>
+
+
+<P>비용 문제를 심각하게 고려해야 하는 소비자에게 있어서는
+<b><a href="http://www.linux.org">리눅스</a></b>,
+또는
+<B><A HREF="http://www.freebsd.org">FreeBSD</A></B>,
+<B><A HREF="http://www.netbsd.org/">NetBSD</A></B>,
+<B><A HREF="http://www.openbsd.org/">OpenBSD</A></B>
+
+가 적격이다.  비용이 <I>전혀 들지 않으면서도</I> 상용 유닉스 시스템 만큼
+아니 어느 경우에는 그 이상의 안정성과 풍부한 기능을 제공하고 있다.
+어떤 독자는 리눅스를 언급하게 되면 이 글의 신뢰성을 해칠 것이라고 말해 왔다.
+필자는 그렇게 생각하지 않는다.
+
+예를 들어
+<B><A HREF="http://www.techweb.com/wire/story/TWB19980402S0013">
+'안드레슨이 모질라-리눅스 연합이 윈도에게 타격을 줄 것이라고 전망하고 있다'
+</a></b>
+라는 기사 등을 보면 이미 리눅스가
+상업 환경에서 세력을 넓혀 가고 있음을 분명하게 알 수 있다.
+( 이 분야에 생소한 사람을 위해서 설명하자면 모질라는 네스케이프/커뮤니케이터의
+이름이며 마크 안드레슨은 네스케이프 상의 공동 창립자이며 제품 담당 부사장이다. )
+주목할 만한 최근의 소식을 언급하자면
+<A HREF="http://www.sun.com/">썬 마이크로시스템즈 사</A>와 <A
+HREF="http://www.li.org/">국제 리눅스 협회(Linux International)</A>와의 협력관계
+를 들 수 있다.
+(<A HREF="http://slashdot.org/">Slashdot</A>:
+<B><A HREF="http://slashdot.org/articles/9804211730214.shtml">
+Sun Joins Linux International</A></B>, 21 May 1998) &nbsp;
+
+최근 <a href="http://wwww.corel.com">코렐</a> 사의 행보는 리눅스와 특별한
+관계를 보여주고 있다.
+
+<BLOCKQUOTE>
+". . . <A HREF="http://www.corel.com/">코렐</A>은 이미 리눅스에 기반한 네트웍
+컴퓨터 제작 계획을 발표했다,  아울러 다음 달에 자사의 웹 사이트에 프리 리눅스 기반
+개발 툴을 올려 둘 것이라고 말했다.  하나의 큰 소프트웨어 회사가 리눅스 오픈 소스
+운동 지원에 동참한 셈이다."<BR>
+-- Erich Luening,
+<B><A HREF="http://www.news.com/News/Item/0,4,21929,00.html">
+코렐이 리눅스 진영에 합류하다</A></B>, <A HREF="http://www.news.com">CNET News.Com</A>, 1998년 5월 8일.
+</BLOCKQUOTE>
+
+<P>전통적으로 큰 회사들은 공짜로 주어지는 모든 것은 가치가 없다는 잘못된 생각
+때문에 프리 소프트웨어를 멀리 해 왔다.  하지만 몇몇 기업에서는 비용 효과적인
+운영체계를 사용하는 경향이 생겨났다.  휴렛-팩커드 사는 새로운 PA-RISC 프로세서
+ 아키텍쳐 개발을 위해 자사의 HP-UX 유닉스 운영체계 대신 리눅스를 사용하고 있다.
+ (<A HREF="http://www.ssc.com/lj/issue44/2355.html">
+ 전체 기사</A>)
+
+슐럼버거(Schlumberger) 사는 리눅스를 사용하는 원격 전화 솔루션을 판매할 것이다.
+(<A HREF="http://www.ssc.com/lj/">
+리눅스 저널</A>, 1997년 11월 통산 43호 83쪽-84쪽)
+
+<B><a href="http://www.sun.com/">썬월드 온라인(SunWorld On-Line)</a></b>은
+ <B><A HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">
+ 리눅스가 기업 환경에 등장하다</a></b>라는 기사에서
+ 리눅스에 대하여 매우 긍정적인 기사를 쓰고 있다는 사실도 흥미로운 예이다.
+상업적 환경에서조차 자유롭게 사용할 수 있기 때문에 많은 ISP들이 리눅스 또는
+FreeBSD를 사용하고 있다.  NetBSD는 실제로 어디에서든지 돌아간다: DEC alpha,
+Motorola 68k (Amiga, Atari, Mac, MVME, Sharp, Sun3), PowerPC,
+Intel, DEC VAX, Acorn RISC, MIPS (Sony NEWS, DECstation) 등이 그 예이다.
+OpenBSD는 특히 정확성과 보안성에서 뛰어나다.  이 둘 중 리눅스는
+여러분이 알고 있는 거의 모든 하드웨어, 예를 들어 썬, 인텔, DEC 알파, 파워PC,
+파워맥 등에서 모두 돌아가기 때문에 더욱 인기있다.  현재 리눅스는 시장에서
+가장 빠르게 성장하고 있는 운영체계일 것이다.
+
+자세한 정보는 <A HREF="http://www.linuxresources.com/">리눅스 자원</a>
+또는 <A HREF="http://www.redhat.com">레드햇 소프트웨어</a> 사를 참고하기 바란다. </B>
+
+<P><I>NC 월드</I>의 편집장이며 <I>인포월드</I>와 <I>NT 월드 일본판</I>의
+칼럼니스트인 니콜라스
+패트렐리(Nicholas Petreley) 씨는 IT 분야에서 리눅스와 FreeBSD가 떠오르는 것에
+대하여 다음처럼 설명하고 있다.
+
+<BLOCKQUOTE>
+"어제의 대학생들은 리눅스와 FreeBSD를 통해 유닉스에 대한 전문 경험을 가지고
+있다.  오늘날 그들은 IT 분야에서 일하며 그 중 많은 사람들이 마이크로소프트
+사와 윈도 NT에 대하여 적대적이다.  결과적으로 리눅스, BSD, 솔라리스,
+그리고 다른 모든 유닉스는 IT 분야에서 공공연하게 또는 은밀하게 자기 활로를
+개척해 나가고 있다."
+
+<P>"예를 들어 여러분이 작업 중에 연결하고 있는 것이 NT 서버라고 확신하는가?
+많은 기업의 IT 관리자들은 NT 서비스를 제공하는 유닉스 서버를 은밀하게 설치해
+두곤 한다.  왜 그런 위험한 짓을 하는가?  리눅스와 FreeBSD는 무료이며 NT 서비스를
+제공하는 소프트웨어인 SAMBA 또한 무료이다.  따라서 IS 부서는 돈을 절약할 수
+있다.  또한 거의 다운되지 않기 때문에 사람들의 불평이 없으며 따라서 상급자들이
+사실은 뒤에서 유닉스가 일을 처리해주고 있다는 사실조차 알기 힘들다."
+
+<P>"윈도 NT보다 더 안정적인 서버들이기 때문에 불평하는 사람들이 거의 없다.
+리눅스, FreeBSD, BSDI 유닉스는 낮은 사양의 하드웨어에서 윈도 NT를 능가하며
+높은 사양의 하드웨어에서는 NT 만큼 아니 더 이상의 성능을 발휘한다.  확장성에
+있어서 인텔 플랫폼의 유닉스이 꾸준히 따라잡고 있으며 사용할 수 있는 프로세서
+수와 사용 효율도 NT를 능가한다."
+
+<P> -- Nicholas Petreley,
+<A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">
+새로운 유닉스가 NT의 궤도를 바꾸고 있다 : 유닉스의 새로운 부흥이 NT의 앞길을
+수정하도록 위협하고 있다</a>,
+<A HREF="http://www.ncworldmag.com/ncworld/"><i>NC 월드</i></a>
+의 1998년 4월 기사
+
+</BLOCKQUOTE>
+
+<A HREF="http://www.economist.com/">이코노미스트</a> 조차 리눅스가 주가를 올리고
+있다고 보고하고 있다.
+
+<BLOCKQUOTE>
+잘 알려진 데이터베이스 공급업체인 오라클도 자사의 일부 소프트웨어를 리눅스용
+으로 공급할 계획을 가지고 있다. . . . 이러한 지원이 없더라도 리눅스는 지금까지
+성공을 구가해왔다.  정말 짧은 세월동안 리눅스가 해커의 장난감에서 기술적으로
+윈도 NT에 비해 우수한 소프트웨어로 발전해왔다는 것은 의심의 여지가 없다.
+<BR>
+-- Stephen Morley, <B>
+<A HREF="http://www.economist.com/editorial/freeforall/current/index_wb9493.html">
+해커의 반란</A></B>,
+<A HREF="http://www.economist.com/">이코노미스트</A>,
+1998년 7월 11일-17일.
+</BLOCKQUOTE>
+
+<h3><a name="functionality">기능성</a></h3>
+
+윈도 NT 서버와 유닉스 서버로부터 여러분은 어떤 것을 기대하고 있는가?
+NT는 매우 다양한 종류의 컴퓨터들과 연결할 수 있다.  유닉스 또한 마찬가지이다.
+NT는 중요한 자료를 안전하게 보관할 수 있으며 인증되지 않은 사용자가 네트웍에
+접속하는 것을 막을 수 있다.  유닉스 또한 마찬가지이다.  기본적으로 두 운영체계는
+네트웍 환경에서 운영체계로서 가져야 할 기본적인 기능을 만족하고 있다.
+간단히 말해 유닉스는 NT가 할 수 있는 일은 물론이며 그 이상의 것을 해낸다.
+
+<P>NT가 종종 '다중 사용자' 운영체계라고 불리는데 이는 잘못된 사실이다.
+NT 서버는 사용자를 인증한다.  하지만 일단 사용자가 NT 네트웍에 로그온하기만
+하면 그는 모든 파일과 프린터에 접근할 수 있다.  NT 사용자는 NT 서버 상의
+어떤 프로그램을 실행할 수 없다. ( 서버 하드웨어의 고속 프로세서의 능력을
+활용하기 위해 )  NT 사용자는 두 개의 구성 부분 즉 클라이언트/서버로 이뤄진
+특별한 애플리케이션만을 실행할 수 있을 뿐이다.  반면 유닉스 서버에 사용자가
+로그인하면 그는 모든 애플리케이션을 실행할 수 있다. ( 물론 그런 권한이 부여된
+상태일 때만 ) 따라서 자기가 사용 중인 워크스테이션으로부터 부하를 분산시킬 수
+있게 된다.  그래픽 프로그램마저도 실행할 수 있는데 왜냐하면 X 서버는 거의
+모든 유닉스 운영체계에서 표준적인 시스템이기 때문이다.
+
+<P>대부분의 업무에 대하여 전자우편은 빼놓을 수 없는 통신 수단이다.  대부분의
+기업들이 내부/외부 전자우편 시스템을 운영하고 있다.  윈도 NT의 경우 여러분은
+전자우편 서버를 운영하기 위해 별도의 소프트웨어 패키지를 구입해야 한다.
+유닉스 운영체계에서는
+<b><A HREF="http://www.sendmail.org">센드메일(sendmail)</a></b>이라는
+프로그램이 함께 온다.  이것 말고도
+유닉스에서 사용할 수 있는 다른 메일 서버 소프트웨어 패키지(<i>MTA</i>,
+메일 전송 에이전트)가 많지만 가장 널리 사용되고 있는 소프트웨어이며 게다가
+무료이다.  몇몇 유닉스 관리자들은 센드메일보다 설정이 쉽기 때문에
+<B><A HREF="http://www.exim.org/">exim </a></b>
+또는
+<B><A HREF="http://www.qmail.org/">qmail</a></b> 을 선택하기도 한다.
+많은 NT 기반의 기업들은 MTA로
+<B><A HREF="http://www.microsoft.com/exchange/default.asp">
+마이크로소프트 익스체인지 서버(Microsoft Exchange Server)</a></b>를
+사용하고 있다.  접속 제한이 있기
+때문에 기업 환경에서 사용할 수 있는 매우 비싼 해결책이다.   <b>마이크로소프트
+익스체인지 서버 엔터프라이즈 판 - 25 클라이언트 접속 라이센스의 경우 3,549
+달러가 든다.</b>  직원이 25명보다 많은 경우에는 <b>50 클라이언트 접근 라이센스의
+같은 패키지가 4,859 달러나 한다.</b>
+(출처 : <b><A HREF="http://www.microsoft.com/exchange/guide/erp.asp?A=2&">
+마이크로소프트</a></b>)
+이 글의 후반부의 <A HREF="#mta">메일 서버(MTA)</a>라는
+제목의 섹션에서 두 메일 서버 소프트웨어 패키지에 대한 기본 비교를 행할 것이다.
+
+<P>마이크로소프트 사가 NT를 유닉스, 노벨과 같은 다른 네트웍 운영체계를 대체할
+수 있는 시스템이라고 말하기 때문에 사람들은 NT가 파일과 프린터 서비스와 같은
+기본 작업에 필요한 모든 도구를 지니고 있다고 생각한다.  실전 경험을 가지고
+있는 시스템/네트웍 관리자들은 파일 서버를 만들거나 새로운 네트웍 사용자를
+추가할 때 고려해야 할 두 가지 중요 문제를 잘 알고 있다.  : 패스워드, 파일
+허가권과 같은 보안 문제와 사용자 또는 그룹의 디스크 사용을 제한하는 쿼타(quota)
+문제가 바로 그것이다.  NT 에서는 기본적인 패스워드 보안을 제공하고 있지만
+NTFS라는 그들의 독점적인 파일 시스템을 사용할 때는 파일 수준의 보안만을
+제공할 뿐이다.  몇몇 MIS 부서에서는 이 파일 시스템을 사용하길 꺼려한다.
+왜냐하면 NTFS를 사용할 때 디스크 복구가 힘들어지기 때문이다.  NTFS로 포맷된
+드라이브는 DOS에서 읽을 수 없다고들 생각하고 있다.  Rune Knapstad 씨가 알려온
+바에 의하자면
+<A HREF="http://www.sysinternals.com/ntfs20.htm">NTFSDOS</a>
+라는 DOS 유틸리티를 사용하여 NTFS 파티션을 마운트할 수
+있다고 한다.  재미있는 사실은 이 프로그램이 마이크로소프트 사 제품이 아닌
+서드 파티의 제품이라는 것이다.  <b>하지만 무엇보다도 중요한 문제는 사용자가
+디스크를 마음대로 사용하지 못하도록 제한하는 기능을 NT가 갖고 있지 않다는
+것이다!</b>  반면 유닉스와 노벨은 정말로 기본적인 제어를 할 수 있는 소프트웨어를
+제공하고 있다.  하지만 마이크로소프트 사는 NT 서버 5.0 (아직 발표되지 않음)에서
+'디스크 쿼타와 같은 새로운(?) 저장매체 관리 기능'을 제공하겠다고 발표한 바
+있다.  (  <A HREF="http://www.microsoft.com/corpinfo/press/1997/sept97/winnt5pr.htm">
+200,000 이 넘는 개발자들에게 윈도 NT 5.0 베타를 전달하다</a>라는
+그들의 발표 내용을 참고하자.)
+
+<P>마이크로소프트 운영체제 슈트에서 또하나의 디스크 관련 결점은 '드라이브 문자'
+라는 낡은 개념을 사용하고 있다는 것이다.  즉, 드라이브 C:, 드라이브 D: 와 같은
+것을 말한다.  이러한 개념은 관리자나 사용자 할 것 없이 모두 같은 수준의
+하드웨어에 특수한 제한을 부과한다.  다시 말해,
+클라이언트/서버 환경에서 네트웍를 통해 자원을 공유할 때 파일 시스템은
+사람에게 상호 조직 체계를 보여주는 의미있는 것이어야 하지만, 마이크로소프트
+운영체제 슈트의 개념에서는 그렇지 못하며 아주 온당치 못한 처사이다.  유닉스에서는
+공유할 네트웍 파일 시스템을 디렉토리 구조 어디에라도 마운트할 수 있다. 아울러
+서로 다른 머신이라 하더라도 네트웍 공유를 통해 다중 디스크 드라이브를 가져다
+붙일 수 있기 때문에, 관리자는 언제든지 사용자들이 잘 알고 있는 이미 존재하는
+디렉토리 위주로 관리할 수 있으며, 서버상에서 사용가능한 디스크 공간을 확대할 수
+있으며, 이러한 시스템의 변화는 사용자에게 있어 투명성을 가져다 준다.
+유닉스와 윈도 운영체제 사이의 이러한 하나의 차이점은 각자의 설계자의 원래의
+목적을 드러낸다고 볼 수 있다.  유닉스는 애초부터 전문 용도에 적합하도록
+클라이언트/서버 운영체제를 고려해왔지만, 윈도와 그의 형제들은 DOS로부터
+기원하였으며, 결코 클라이언트/서버 환경에서 경쟁자가 될 수 없으며,
+서버에서는 더욱 그렇다.  이 주제에 대한 좀더 자세한 정보는 다음의 니콜라스
+페트렐리(Nicholas Petreley)의 기사를 보기 바란다.
+<B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/np102896.htm">
+PC 운영체제를 유닉스처럼 작동하게 만들려면 한참 걸릴 것이다
+</A></B>
+
+<p>유닉스 운영체제는 이와는 많이 다르다.  유닉스는 Bourne 쉘, Korn 쉘, C 쉘,
+Perl 등과 같은 스크립트 언어를 갖추고 있으며, cron 설비를 사용하면 정해진 시간
+간격(매분, 매시, 매주, 매달 등)으로 일거리를 수행할 수 있도록 계획을 짤 수 있다.
+cron을 이용한 작업 계획은 고도로 세심하게 구성할 수 있으며, 활용성은 무궁무진하다.
+고수준 스크립트 언어와 cron을 합치면 시스템 관리에 있어 강력한 자원으로 된다.
+마이크로소프트 NT 4.0에는 이러한 것이 없다.  유닉스 시스템 관리의 훌륭한 점은
+이러한 도구를 사용하면 사이트의 요구에 대한 처리를 자동화하고 주문형으로  할 수
+있다는 것이다.  이러한 잇점은 전직원에 대한 비용을 감소시키는 효과를 가져온다.
+어느 독자는, NT도 스케줄러와 at 명령을 가지고 있으며, Perl도 NT 에서
+사용가능하다고 지적했다.  그렇다.  이게 사실이긴 하지만, NT의 제한된 cmd.exe
+스크립팅 환경과 스케줄러 및 at 명령어와의 조합은 필자가 앞서 언급한 유닉스 도구가
+공급하는 기능에 비하면 아주 초보적인 수준이다.  자동화 작업을 수행할 때의
+잇점은, 스크립트와 작업 단위,실행 파일이 사람의 간섭을 받지 않고 수행될 때
+진정 발생한다.  NT가 GUI 환경에서 수행되기 때문에, 관리자와의 많은 상호작용을
+요구한다.  실제로, 대부분의 현장에서 수행하는 자동화 작업의
+성격은 사이트마다 다른 루틴을 가지고 있기 때문에, 해당 사이트의 시스템 관리자가
+프로그래밍을 해야 한다.  필자의 관련 산업 경험에 비춰보면, NT서버에 Perl이
+설치된 사이트는 정말 드물었으며, Perl에 대해 알고 있는 NT 관리자도 거의 없었다.
+NT용의 저렴한 하드웨어를 구입하고 난 후에 해야 할 일은 값싼 NT 관리자를 모집하여
+뽑는 고용 연습이다.  NT 관리자인 여러분이 해야 할 일은 찍고 클릭하는 것 뿐이다!
+
+<P>요약하자면 여러분이 NT 네트웍에 로그온하면 할 수 있는 일은 파일을 읽고
+프린트하는 것 뿐이다.  유닉스에서는 유닉스 서버에 로그인하면 마치 그 기계 앞에서
+<I>키보드와 마우스를 사용</I>하는 것처럼 모든 프로그램을 실행할 수 있다!
+NT를 가지고 즉시 메일 서버를
+만들 수 있다고 생각해서는 안된다.  마이크로소프트 익스체인지 서버와 같은
+값비싼 메일 서버 소프트웨어를 별도로 구입해야 한다.  만약 NT 서버를 파일
+서버로 사용하려 할 때는(여러분이 이것 말고 다른 것을 할 수 있다고 생각하는가?)
+접속한 사용자들이 디스크를 모두 채움으로써 서버를 다운시키는 것을 막을 방법이
+없다는 사실을 알아두기 바란다.
+
+<P>다운 시간을 야기하지 않고서도 서버를 쉽게 설정할 수 있는가의 문제는
+기능성의 관점에서 또 다른 문제이다.
+
+<BLOCKQUOTE>
+"몇몇 유닉스(예를 들어 리눅스)에서는 동적 장치 모듈 기능을 지원하고 있다.
+여러분은 리눅스로 부팅하고 난 그 상태에서도 하드웨어/소프트웨어에 대한
+재설정을 할 수 있다는 것을 뜻한다.  예를 들어 여러분은 SCSI 카드 지원이 없는
+상태로 리눅스를 부팅할 수 있다.  그리고 나서 백업을 위해 광학 디스크와 같은
+SCSI 장치를 사용하고 싶을 때는 SCSI 카드에 해당하는 기능을 적재시키기만 하면
+된다.  일을 마치고 나서는 SCSI 드라이버를 내려 놓을 수 있다.  사운드 카드,
+네트웍 카드 그리고 심지어 HPFS, FAT, VFAT, 기타 파일 시스템(NTFS는
+개발 버전에 포함되어 있다) 드라이버를 원할 때 적재하거나 해제시킬 수 있다."
+
+<P>"적재 가능 모듈 지원을 하는 유닉스 시스템은 모든 설정을 재설정하더라도
+시스템을 재시작할 필요가 없기 때문에 서버 환경에 가장 적합하다."
+
+<P>"윈도 NT에는 털끝 만큼도 따라오지 못하고 있다.  윈도 NT에 아주 사소한
+설정 변화만 주어도 새로운 설정 내용이 적용되기 위해서는 시스템을 리부팅해야
+한다.  기본 게이트웨이 IP 주소를 바꿔보자.  여러분은 리부팅해야 한다.
+다이얼업 PPP 접속에 사용하는 모뎀 타입을 바꾸어도 리부팅해야 한다.
+유닉스에는 이런 불편함이 아예 없다."
+
+<P>-- Nicholas Petreley,
+<A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">
+새로운 유닉스가 NT의 궤도를 바꾸고 있다 : 유닉스의 새로운 부흥이 NT의 앞길을 수정하도록 위협하고 있다</a>,
+<A HREF="http://www.ncworldmag.com/ncworld/">
+<i>NC 월드</i></a>의 1998년 4월 기사
+</BLOCKQUOTE>
+
+<P>더 복잡한 네트워킹 기능 면에 있어 마이크로소프트 사의 NT 서버 4.0
+엔터프라이즈 판은 이미 기능적으로 성숙한 상용 유닉스 운영체계 앞에 명함도
+내밀 수 없다.  네트웍 성능에 핵심적인 것인 아닐지라도 유닉스 시스템에는
+이미 64 비트 컴퓨팅 환경이 구축되어 있는 상태이다(NT는 32 비트 운영체계이다).
+D.H. Brown Associates 사가 다음과 같은 분석 결과를 내놓았다.
+( 디지탈 사 사이트의
+<A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+AIX 4.3 Leaps To 64-Bits In Dead Heat With Digital 유닉스 4.0</a>
+이라는 제목의 페이지에서 발췌한 내용 다음에 테이블과 3 개의 그래프가
+그들의 보고 내용이다. )
+
+<BLOCKQUOTE>
+AIX 4.3 은 폭넓은 TCP/IP 확장 기능과 노츠 서버를 번들로 제공함으로써
+인터넷/인트라넷 네트웍 기능 면에서 선두를 달리고 있다.  강력한 네트웍
+보안 기능을 가지고 있으며 브라우저는 물론이며 내비케이터 골드와 같은 웹 저작
+도구, 그리고 탄탄한 기능의 TCP/IP 확장 기능을 가진 디지탈 유닉스가 두번째이다.
+하지만 디지탈 유닉스는 CacheFS, AutoFS와 같은 진보된 NFS 기능을 갖추지 못하고
+있다.  CacheFS, AutoFS를 번들하고 거의 디지탈 유닉스 수준의 네트웍 보안 기능을
+갖춘 IRIX 6.4 가 세번째 자리를 차지한다.  하지만 IRIX에는 네트웍 시간 기능
+(NTP)와 IPv6, IPSec와 같은 TCP/IP 기능이 결여되어 있다.  NFS 기능을 잘 지원하고
+기능적으로 두번째 서열 정도인 TCP/IP 확장 기능들을 제공하고 있는 썬이 그
+뒤를 따르고 있다.  하지만 썬의 경우 네스케이프, 마이크로소프트 또는 아파치와
+같은 웹 서버가 아닌 자사의 웹 서버를 사용하고 있으며 웹 저작 도구, 노벨 사의
+NDS 디렉토리 서비스와 같은 중요 서비스를 지원하지 않는다.  HP는 HP-UX를 통해
+강력한 인터넷 지원을 제공한다.  인터넷 프로토콜과 네트웍 보안 면에서는 진보된
+면을 보여주지만 NFS 기능에서는 뒤쳐지고 있다.  AIX와 함께 HP-UX는 NDS를
+잘 지원하고 있다.  반면 마이크로소프트 NT 4.0 은 대체로 '좋음' 정도의
+인터넷/인트라넷 기능을 제공하고 있다.  디렉토리 서비스를 제대로 지원하지
+못하고 있으며 네트웍 보안이 열악하고 NFS, TCP/IP 확장 기능이 거의 없기 때문에
+선두의 유닉스로부터 한참 뒤지고 있다.  마이크로소프트 사는 번들되어 제공되고
+있는 웹 서버와 자바 가상 머신만을 강조하고 있다.
+</BLOCKQUOTE>
+
+<!--- 도표, 그림 부분 -->
+
+<center>
+<BR>
+
+          <TABLE BORDER="1">
+               <TR><TD WIDTH="226"></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">HP-UX
+                    11.0</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Solaris
+                    2.6</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">AIX
+                    4.3</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Irix
+                    6.4</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Digital
+                    유닉스 4.0d</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">NTS
+                    4.0/EE</FONT></CENTER> </TD>
+               </TR>
+               <TR><TD WIDTH="226"><B><FONT SIZE="2" COLOR="#000000">Extension</FONT></B>
+                    </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"> </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IPSec</FONT></I>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IPv6</FONT></I>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">RSVP</FONT></I>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Partial</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IP
+                    Multiplexing</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IP
+                    Multicast</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Partial</CENTER> </TD>
+               </TR>
+               <TR><TD WIDTH="226"><B><FONT SIZE="2" COLOR="#000000">Performance
+                    Optimizations</FONT></B> </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"> </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Telnet
+                    in kernel</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Kernel
+                    Sockets</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">TCP
+                    Large Windows</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Zero
+                    Copy TCP/Hardware Checksum</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Path
+                    MTU Discovery</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">OpenShortestPathFirst
+                    (OSPF)</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">RTP:
+                    Real Time Protocol</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">RTCP:
+                    Real Time Control Protocol</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                     </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Parallelized
+                    TCP/IP</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Yes</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Yes</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">No</FONT></CENTER>
+                    </TD>
+               </TR>
+          </TABLE>
+
+
+
+
+<BR>
+<P>--인터넷/인트라넷 네트워킹 기능
+<img src="/assets/AIX43_f.gif" border=1>
+<BR>
+<BR>
+<P>-- 안정성과 확장성
+<img src="/assets/AIX43_h.gif" border=1>
+<BR>
+<BR>
+<P>-- 시스템 관리 기능
+<img src="/assets/AIX43_j.gif" border=1>
+<BR>
+<P>[저작권 Digital Equipment Corporation 1995-1998. All Rights Reserved]
+</center>
+<!------------->
+
+<hr>
+
+<h3><a name="reliability">신뢰성</a></h3>
+
+<P>현대적인 시스템에서는 속도보다도 신뢰성이 더욱 중요한 이슈로 간주되곤 한다.
+성능은 대체로 하드웨어 플랫폼(다음 섹션을 참조)과 연관되어 있는 반면,
+어떤 운영체계를 선택하는가에
+따라 <i>안정성</i>이 좌우된다.  어떤 운영체계가 좀 더 많은 기능을 제공하고 확장성이
+있으며 관리의 편리를 제공한다 하더라도 자주 다운되어 실시간 재무 처리가
+방해받는다면 이 모든 기능이 무슨 소용이 있는가?  빠르고 경제적인 자동차와
+정말 엄두도 안나게 비싸고 스포츠 카와 같은 멋진 외관을 가지고 있지만 자주
+도로에서 퍼져버리는 자동차의 비유는 윈도 NT 의 대명사라고 할 수 있다.
+
+<a name="stability"><p>사람들은 윈도 NT 서버가 "안정적인" 운영체계라는
+선전 문구를 듣고 있지만 사실 이것은 맞는 말이 아니다.  만약 NT 서버가
+정말 안정적인 운영체계였다면 다음과 같은 기사가 나오지 않았을 것이다.
+<b><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub5.html">
+NT의 거짓말: 다섯 번째 거짓말 - NT는 강력하고 크래쉬를 일으키지 않는다</a></b>,
+<b> <A HREF="http://www.gcn.com/gcn/1998/July13/cov2.htm">
+소프트웨어의 이상 동작은 해군 전함을 물속에 침몰시킬 수 있다</a></b>
+(Gregory Slabodkin,
+98년 7월 13일자의 <A HREF="http://www.gcn.com/">정부 컴퓨터 뉴스</a>),
+<B><A HREF="http://www.zdnet.com/pcweek/opinion/0330/30coff.html">
+기업의 IT은 결코 멈추지 않는 엔진을 필요로 한다</a></b>(Peter Coffe,
+PC 위크 98년 3월 30일),
+<b><A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">
+우리는 통신 실패 경험을 갖고 있지 않다</a></b>(Peter Coffee, PC 위크 98년 4월 13일)
+
+마지막 두 기사의 저자는 다음과 같은 질문을 던지고 있다.
+"시스템 다운이 선택 사항이 아닐 때 무엇을 사용하는가?"  보통 때보다 3 배
+이상의 수많은 메일 질문을 받으면서 그는 다음과 같이 답변하였다.
+
+<BLOCKQUOTE>
+"나는 관리자들로부터 윈도 NT가 쓸만 하다는 메시지를 한 번도 받아본 적 없다.
+오히려 완전히 그 반대이다.  몇몇 메시지에서는 윈도 NT 5.0 또한 미성숙 상태의
+추가 서비스 기능들을 탑재하고 기본 기능에 있어조차 기업 수준의 안정성을
+이루지 못한 채 비틀거리며 등장할 것이라는 비관적인 입장이 표현되어 있다."
+
+<P>"독자 중 한 명은 자신의 486 리눅스 서버가 200 MHz 펜티엄에서 돌아가는
+윈도 NT 보다도 더 뛰어난 성능을 보여주고 있다고 말하고 있다.  그리고 그는
+리눅스 머신을 윈도 NT 4.0 이 발표되기 이전부터 운영하면서 한 번도 리부팅한
+적 없다고 밝히고 있다."
+
+<P>"엔터프라이즈 급의 사이트에서도 리눅스를 선택하고 있는데, 탐탁치 않은
+전통적인 업체 지원 대신 소스 코드 공개가 많은 잇점을 가지고 있기 때문이다.
+다른 업체들은 언젠가 내놓겠다고 말할 뿐인 기능을 리눅스는 지금 당장 그것도
+저렴한 가격에 제공하고 있다"
+
+<P>-- Peter Coffee,
+<A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">
+우리는 통신 실패 경험을 갖고 있지 않다</a>,
+
+<A HREF="http://www.zdnet.com/pcweek/"> PC Week</a>, 98년 4월 13일
+
+</BLOCKQUOTE>
+
+사실 윈도 NT는 윈도 3.1, 또는 윈도 95 보다 많이 향상되었다.
+하지만 심지어 프리웨어 유닉스 운영체계에서 제공하고 있는 안정성에
+도달하려면 갈 길이 매우 멀다.
+
+<P>윈도 NT가 안정성을 결여하고 있다는 사실은 매우 잘 알려진 사실이지만
+상급자들은 이 사실을 숨기려 하고 있다고 IT 전문가들은 말하고 있다.
+
+<BLOCKQUOTE>
+"'내가 아는 3 개의 회사는 비싼 NT 를 유닉스 쪽으로 조용히 대체하고 있는 있는
+중이다.  왜냐하면 NT가 너무 자주 다운되기 때문이다.'라고 아일랜드 Cork 에서
+컨설턴트를 하고 있는 Peter Flynn 씨는 말하고 있다.  IT 관리자에게 있어서는
+허용할 수 없을 만큼 NT는 너무 자주 다운된다고 알려져 있다.  보통 메모리 접근
+위반 또는 I/O 에러에 의해 발생한다."
+
+<P>"'이 회사들은 위로부터의 압력을 감안하여 그들이 내린 결정에 대하여 말하려
+하지 않고 있다.'고 Flynn 씨는 말하고 있다.  '마이크로소프트 사 제품만 사라'는
+관습이 'IBM 사 제품만 사라'는 예전의 관습을 대체하였다.  관리자들은
+(기술적인 지식을 갖춘 사람들의 충고와는 반대로) 단지 체면을 잃기 싫어서
+유닉스 대신 NT를 고집하고 있다."
+
+<P>-- Mark Gibbs,
+<A HREF="http://www.nwfusion.com/intranet/0330linux.html">
+Lookin' into Linux</a>,
+
+<A HREF="http://www.nwfusion.com/">Network World</a>,
+1988년 3월 30일
+</BLOCKQUOTE>
+
+
+<P>윈도 NT 환경에서 일해 본 모든 IS 전문가들은 악명높은 "죽음의 파란 화면"에
+대하여 잘 알고 있다.  파란 화면이란 정상적인 데스크탑 윈도우 시스템이 사라지고
+16 진수만이 파란 배경 위에 가득한 채 뻗어 있는 화면을 말한다.  이런 경우에
+처하면 해결 방법이라고는 시스템을 껐다가 다시 켜는 것 밖에 없다.  NT가 파란 화면
+상태로 빠지는 이유는 다양하다.  본인의 경험으로는 다음과 같은 것이 영향을
+미친다고 생각한다.
+
+<ul>
+<li>IPX/SPX와 TCP/IP 프로토콜을 함께 사용하고 정적 IP 를 가진 이 머신을 전혀
+다른 서브넷으로 옮길 때.
+<li>몇몇 16 비트 비주얼 베이식 애플리케이션을 "별도의 메모리 공간"에서
+실행시키지 않았을 때.  NT는 기본적으로 별도의 메모리 공간에서 실행하지 않는다.
+각각의 16 비트 애플리케이션마다 <i>수동</i> 설정해줘야 한다.
+<li>몇몇 브랜드의 메모리 모듈 또는 캐쉬에 의해 문제가 발생하는데 이 똑같은
+하드웨어 상에서 윈도 95는 아무 문제 없이 실행되곤 한다.
+</ul>
+
+<p>어떤 상황에서는, 리눅스도 탑재된 하드웨어에 대해 불평을 늘어놓는다.
+필자는 개인적으로 아주 다양한 하드웨어상에서 리눅스를 설치해 보았지만 이러한
+난처함은 겪어보지 못했지만, 그럴 가능성은 있다.  좋지 않은 메모리를 가지고
+있는 머신상에서 커널을 컴파일할 때 특히 그런 일이 생긴다.
+좀 더 자세한 정보는 <A HREF="http://www.bitwizard.nl/sig11/"> 시그널 11</a>
+를 살펴보기 바란다.
+
+완벽한 목록이 되려면 멀었다.  윈도와 유닉스 플랫폼 모두에서 소프트웨어를
+개발하고 있는 Tim Newsham 씨는 이 짧은 목록이 잘못 되어 있다는 것을
+알려주었다.
+
+<BLOCKQUOTE>
+BSOD(Blue Screen Of Death, 죽음의 파란 화면) 섹션에서 당신은 BSOD가 일어날 수 있는 몇
+가지 경우를 언급하였다.  내가 생각하기에 이 짧은 목록은 독자들을 오해하게
+만들 것이다.  NT 시스템이 다운되는 방법은 <i>매우</i> 매우 많다.
+당신이 짧게 목록을 제시함으로써 사람들이 NT가 안정적이라는 잘못된 인상을
+가지게 될 것이다.  또한 당신이 보여준 예는 콘솔 앞에 앉아 잘못된 일을
+하는 경우에만 문제가 발생한다는 식의 더더욱 잘못된 인상을 준다.  NT 시스템이
+다운되는 것은 시스템의 일상적인 작업 중에도 예기치 않게 일어난다.
+(사실 프로그램을 이리저리 많이 실행시켜두고 오래 놔두기만 해도 알 수 없는
+문제로 다운되기도 한다. )  로그인 프로그램(LSA) 또는 TCP/IP 스택 상의 잘못된
+소프트웨어 구현 때문에 악의를 가진 사용자는 매우 쉽게 다운을 유발시킬 수 있다.
+
+</BLOCKQUOTE>
+
+"죽음의 불루 스크린"은 적지 않은 곳에서 일반적으로 일어나고 있으며 알기 힘든
+에러 메세지 때문에 문제를 해결하기 정말 힘들다.  또한 NT는 인텔 기반의
+하드웨어에 대한 바이러스 공격에도 무력하다.  인텔 하드웨어상에서 운영체제는
+NT 처럼 하드 드라이브로부터 부팅되어야 하는데, 하드 드라이브의  마스터 부트
+레코드는 운영체제의 죽음을 유발할 수 있다.  리눅스처럼 인텔 기반 하드웨어에서
+수행되는 다른 여러 유닉스 운영체제는 압축된 커널을 부트 플로피에 적재할 수 있으
+며, 따라서 이러한 문제점을 피할 수 있다.  이말의 뜻은 MS-DOS 용으로 10 년 전에
+만들어두었던 바이러스 때문에 NT 서버가 다운될 수도 있다는 것이다.
+NT 서버를 미션 크리티컬 환경에서 전개하려는 사람은 이러한 사실을 직시해야 한다.
+개인적으로 윈도 NT 4.0 (윈도95 클라이언트는 한 대도 없었다)을 운영하다가
+MBR 바이러스를 만난 적 있었는데 NT가 무력하게 다운되는 모습을 보았다.  덧붙이자면,
+윈도 운영체제를 무능력하게 만드는 대부분의 바이러스는 유닉스 운영체제에 영향을
+미치지 않는데, 그 이유는 바이러스들이 자신의 목적을 성취하기 위해 MS 윈도 환경을
+요구하기 때문이다.
+
+<P>NT의 신뢰성 문제에 대한 실제적인 예로서 네스라스카 대학 출판부의 정보
+시스템 부서 관리자인 Quinn P. Coldiron 씨는 다음과 같이 적고 있다.
+
+<BLOCKQUOTE>
+Cats[주문 처리, 재고 관리 시스템]를 NT로 옮긴 것은 악몽의 시작이었다.
+시스템은 도대체 알 수 없는 이유로 인해 하루에 2-3 회 다운되었다.
+마이크로소프트 사와 Cats 사에 전화를 걸어봐도 아무도 그 이유를 몰랐다.
+마이크로소프트 사는 본인에게 서비스 팩 1 번부터 3 번 그리고 몇 가지 핫픽스
+(HotFix)를 적용해보라고 말했고 이로 인해 도움이 조금 되기는 했어도 일주일에
+두 번 정도는 악명높은 죽음의 파란 화면이 뜨면서 다운되는 것은 마찬가지였다.
+몇 주가 지나고 마이크로소프트 사로부터 1500 달러의 전화 지원 요금을 지불하고
+난 후, 기술 지원부에서는 Cat 사의 Pajamas 보다 좋은 소프트웨어 패키지를
+찾아보라고 말하였다.  하지만 이것은 내가 원하던 답이 아니었다.  왜냐하면
+우리나라 대부분의 출판부에서 사용하는 소프트웨어이기 때문이다.  그래서
+어쩔 수 없이 구닥다리 노벨 서버로 되돌아가야 했다.  14 개월이 지난 지금
+우리는 리눅스를 서버로 사용하고 있다.
+</BLOCKQUOTE>
+
+<P>유닉스 쪽에서 "죽음의 파란 화면"에 해당하는 것을 "커널 패닉"이라고 부른다.
+분명히 커널 패닉이 있으며, 필자도 들어보았고 읽어본 적은 있으나,
+직업 경험속에서 목격한 적은 한 번도 없다.  유닉스 서버도 때에 따라서는
+다운된다고 생각하지만 이런 일은 상당히 드물다.
+만약에라도 유닉스 서버가 다운된다면 거의 대부분은 하드웨어의 문제이다.
+소프트웨어에 의해 발생하는 문제는 시스템의 전체 성능이 저하되는 등의
+표현방식으로 일정 시간 안에 포착할 수 있으며 이 때 관리자는 문제를 추적하고
+필요에 따라 프로세스를 죽이고 다시 시작시킬 수 있다(전체 시스템을 껏다가
+다시 켜는 일은 매우 드물다!).  일반적으로 유닉스는 다음과 같은 상황에서만
+꺼둔다.
+
+<ul>
+<li>예를 들어 하드디스크 고장과 같은 하드웨어 문제
+<li>하드웨어 업그레이드 시
+<li>백업 파워 공급기가 지탱할 수 없을 만큼 오랜 시간 동안의 정전 사태
+<li>커널을 업그레이드할 때
+<li>베타 커널을 테스트 할 때 (생산 현장에서는 추천하지 않음)
+</ul>
+
+위와 같은 일을 제외하면 유닉스 시스템의 연속 가동 시간은 몇 년이 되곤 한다.
+하지만 NT는 이러한 중단되지 않는 서비스 기간을 자랑할 수 없다.
+어느 누군가가 "죽음의 파란 화면"을 발생하지 않게 한다하더라도 NT는 그 자신의
+디자인에 의해 방해받으며, 재생산하기 까다로운 NT 레지스트리와 같은 독점
+바이너리 설정 파일을 사용한다.
+<A HREF="http://www.kirch.net/unix-nt/massive-nt-failure.html">
+중대한 NT 다운</a>은 10,000대 이상의 NT 머신을 네트웍 자원을 필요로 하는
+어떠한 작업에서도 무용지물로 만든다.
+
+<hr>
+
+<h3><a name="management">시스템 관리</a></h3>
+
+<P>윈도 NT는 GUI(마우스로 찍고 클릭하는 그래픽 사용자 인터페이스)이기 때문에
+관리가 쉽다는 주장은 근거가 미약하다.  CLI(명령행 인터페이스, 즉 키보드를
+통해 수동으로 명령을 입력하는 방식)보다 GUI가 장점을 갖는다는 것은 의문을
+가져볼 만 하다.  첫번째 가정으로서 윈도 NT는 GUI이기 때문에 유닉스보다 더
+낫다는 말은 틀리다.  유닉스 운영체계에도 마찬가지로 GUI가 있다.
+(이 <B>
+<A HREF="http://citv.unl.edu/linux/LinuxPresentation.html#Ease of
+administration">그래픽 예제</A></B>를 참고하자).
+
+<BLOCKQUOTE>
+"매우 친근한 윈도 모양과 느낌을 채택하였기 때문에 NT는 하나의 시스템을
+관리하는데 직관적인 사용자 인터페이스를 자랑하고 있다.  하지만 사용자가
+조금이라도 많은 서버를 관리하고 지리적으로 분산되어 있는 서버를 관리해야 할
+때면 단일 사용자 시스템에 걸맞는 NT의 설계 상 단점이 분명하게 드러난다.
+다중 사용자 설계인 유닉스는 여러 가지 수준의 원격 접근을 지원한다.  설정
+파일을 편집하기 위해서는 텔넷을 이용하여 문자 방식으로 접근할 수 있고 네트웍
+연결된 X 윈도우 시스템이라면 GUI 도구를 실행할 수도 있으며 지금은 자바로
+된 시스템 관리 도구를 사용할 수도 있다.  NT에서는 아직 이런 기능을 누릴 수
+없다.  원격 NT 관리 작업을 하고 싶을 때는 NT가 많이 설치되어 있으며 다른
+윈도와 비슷하기 때문에 쉽게 관리할 수 있다고 마이크로소프트 사가 말하고
+있으므로 그 쪽에 사람을 두던가 아니면 마이크로소프트 사 또는 서드 파티로부터
+시스템 관리 제품을 구입해야 할 것이다.  하지만 이 둘 모두 분산 유닉스 시스템
+관리에 발끝에도 미치지 못한다."<br>
+
+-- 인용:
+<A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+5 개의 상용 유닉스 운영체계와 윈도NT 서버(엔터프라이즈 판)에 대한 심층 분석' (d.H. Brown Associates, Inc.)
+</A>
+</BLOCKQUOTE>
+
+<p>참조: <b>
+<A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub9.html">
+NT의 거짓말: 9번째 거짓말 - 관리가 필요없다</A></B>
+
+<hr>
+
+
+
+<h3><a name="performance">성능</a></h3>
+
+<P>처리 능력은 운영체계보다는 대체로 컴퓨터 하드웨어에 영향을 받는다.
+대부분의 상용 유닉스 운영체계는 고급 워크스테이션 또는 서버 상에서만 작동하기
+때문에
+
+<A HREF="http://www.rs6000.ibm.com/hardware/largescale/index.html">
+IBM SP2</a>
+또는
+<A HREF="http://www.sun.com/servers/ultra_enterprise/10000/spec.html">
+썬 엔터프라이즈 10000</a>를 컴팩이나 델(Dell)과 비교한다는 것은 우스꽝스러운
+것이다.  유닉스는 전통적으로 고급 하드웨어를 위한 운영체계였다.  서로 다른
+하드웨어 상의 결과를 가지고 유닉스와 NT를 비교한다는 것은 마이크로소프트
+사에게 공평치 못한 일이다.  한편, 마이크로소프트 사는 지원하는 하드웨어
+플랫폼을 늘리기보다는 오히려 줄여왔다.  MIPS 용 NT는 소비자가 적어 중단된
+상태이고 파워PC에 대한 지원도 매우 열악한 상태이다.  NT는 현재 x86과 알파
+아키텍쳐에만 국한되어 있고 IT 업계에서는 "가난한 자를 위한 서버"로 불리고 있다.
+
+<p>NT의 신뢰성 부족은 그래도 규모성 부족에 비하면 그나마 낫다.
+우수한 규모성은 상용 유닉스 운영체제와 각자의 하드웨어에서 이룩된다는 점은
+대용량 컴퓨팅을 필요로 하는 대형 회사들이 그들이 원하더라도 NT로 바꿀 수
+없는 이유이다.
+<A HREF="http://www.gartner.com/">가트너 그룹</a>의
+리서치 디렉터인 Mary Hubley은 그녀의 기사
+<A HREF="http://www.gartner.com/public/static/datapro/industry/indnews6.html">
+NT 와 유닉스: 저항할 수 없는 지배력과 불변의 오브젝트의 대결 </A></B>
+(1998년 1월)에서 NT의 과도한 공공 독점력은 중요하게는 과대광고 마케팅에서
+연유한다고 이야기하고 있다.
+
+<BLOCKQUOTE>
+"많은 사람들은 NT가 실제로는 쉽지 않은데, 쉽다고 생각하고 있다.
+규모는 크지 않은데 보다 크다고 알고 있으며, 유닉스보다 더 강력하다고 생각하고
+있다.  하지만 이러한 생각의 대부분은 마이크로소프트의 대규모 마케팅에서 연유한
+것이며 사실이 아니다."
+</BLOCKQUOTE>
+
+<P><A HREF="http://www.ugraf.com/">유럽 마이크로그래프 사</A>
+는 <B><A HREF="http://www.ugraf.com/unix-nt/jt/unix-nt.nob.html">유닉스 대
+NT</A></B>라는 자사의 결과를 발표하면서 그 이유를 이렇게 설명한다.
+
+<BLOCKQUOTE>
+"한달에 몇번 씩 인쇄, 출판업에 종사하는 고객은 유닉스와 NT 중
+어느 서버 플랫폼을 사용하는 것이 좋겠냐는 질문을 한다.  윈도 NT는 평균 업무에서
+그날 그날 처리해야하는 일거리에 적합하지만, 출판업자들이 서버상에서 필요로하는
+일을 처리하지는 못한다."
+</BLOCKQUOTE>
+
+
+마이크로그래프 사는
+<A HREF="http://www.ugraf.com/unix-nt/jt/unix-nt.nob.html">
+유닉스 대 NT 비교</a> 보고에서 디지탈 모델 2100에 디지탈 유닉스와 윈도 NT를
+탑재하여 동일한 하드웨어 환경에서 네가지 서로 다른 테스트를 했다.
+
+<P>공평하게 하기 위해서는 NT 서버의 성능을 리눅스 또는 FreeBSD와 비교해야 할
+것이다.  왜냐하면 이 3 가지가 모두 동일한 하드웨어에서 작동하기 때문이다.
+진정한 성능 비교는 벤치마크에 의거해야 하는데 불행히도 필자가 아는 한 NT와
+리눅스, FreeBSD를 제대로 비교한 자료는 없지만,
+웹 성능과 같은 특정 분야에 촛점을 맞춘 벤치마크 자료는 더러 있다.
+<A HREF="http://www.caldera.com/news/features/971222.keylabs.html">
+칼데라 오픈리눅스 대 윈도 NT: 웹벤치 성능 테스트 </a>.
+하지만 리눅스와 FreeBSD가
+NT를 크게 앞지른다는 데 대하여 IT 전문가들이 동의하고 있다.  관리자가 꼭
+필요한 소프트웨어만을 선택하여 컴파일한 유닉스 커널이기 때문에 리눅스와
+FreeBSD는 NT보다 효율적으로 작동할 수 밖에 없다.  시스템 자원을 적게
+사용하는 운영체계는 NT와 같이 필요없이 부풀려진 운영체계보다 성능이 뛰어날
+수 밖에 없다.  유닉스는 작동하는데 있어 NT처럼 그래픽 사용자 인터페이스를
+필요로 하지 않는다. 그래픽은 엄청난 양의 디스크와 메모리를 필요로 한다는
+사실을 모두들 잘 알고 있을 것이다.  마이크로소프트 운영체계에서 중요하게
+여겨지는 사운드 또한 마찬가지이다.
+
+<P>똑같은 하드웨어를 놓고 비슷한 유닉스에 대한 벤치마크를 해야 의미가 있다.
+과학자, 엔지니어, 전화전신 산업용 x86 기반의 하드웨어에 대한 인터넷
+판매처인
+<A HREF="http://www.tdl.com/~netex/mb/mb.html">넷 익스프레스</a>
+는 다음과 같은 결과를 내놓았다.
+
+<BLOCKQUOTE>
+
+<hr>
+
+<h4><font size=-1>바이트(BYTE) 유닉스 벤치마크 3.2 OS 비교</font></h4>
+
+<P><font size=-1>많이 사용되고 있는 3 가지 유닉스/유닉스 클론 OS의 상대적인
+속도를 측정한 바이트 유닉스 벤치마크 3.2 결과이다.  테스트 머신은 펜티엄
+133 MHz,
+32 메가 램, 트라이톤-II 430HX 칩, 버스 로직 SCSI 컨트롤러를 사용하였다.
+</font><BR>
+
+</p>
+
+<center><table border=1 width=400>
+
+<tr bgcolor=666699>
+<th> <font color=white>System</font></th>
+<th> <font color=white>Bytemarks</font></th>
+</tr>
+
+<tr>
+<td> Linux on a Pentium 133MHz </td>
+<td> 12.2</td>
+</tr>
+
+<tr>
+<td> BSD on a Pentium 133MHz </td>
+<td> 9.8</td>
+</tr>
+
+<tr>
+<td> Solaris 2.5 on a Pentium 133MHz </td>
+<td> 6.2</td>
+</tr>
+
+<tr>
+<td> Solaris on a Sun Sparc-II Ultra 167MHz System </td>
+<td> 13.7</td>
+</tr>
+
+<tr>
+<td> Solaris 2.5 on an Orion Pentium Pro 200MHz </td>
+<td> 13.5</td>
+</tr>
+
+</table>
+</center>
+
+
+<P><font size=-1>이 결과를 보면 리눅스가 얼마나 효율적인 OS인지 알 수 있다.
+펜티엄 133 MHz 상의 리눅스가 거의 167 MHz 스팍 울트라, 200 MHz 펜티엄 프로
+상의 솔라리스 2.5 만큼의 속도를 내고 있다!!!</font></p>
+
+<center><p><i><font size=-1>Copyright &copy; 1996 Net Express All Rights Reserved. </font></i></p></center>
+
+<hR>
+
+</blockquote>
+
+<P><a name="KickAss">어쩌면</a> 유닉스와 프리웨어 아파치 웹 서버를 선택함으로써 누릴
+수 있는 성능 효과에 대한 예는 Sean Fulton 씨가 1997년 5월 5일 INTERNETWEEK에
+낸 기사인
+<B>
+<A HREF="http://www.techweb.com/se/directlink.cgi?CWK19970505S0103">
+최고의 힘 - 우리는 하이엔드 인트라넷 어플리케이션을 지향하는 다섯가지의
+잘 알려진 웹을 테스트했다.  </a></b>
+를 참고하면 좋을 것이다.
+NT의 경우 그 결과값은 실망스럽다.
+
+<BLOCKQUOTE>
+테스트 중 텔넷 시스템 솔루션이 보여준 성능은 매우 놀랍다.  단일 CPU와 BSDi로
+이뤄진 시스템이 2 CPU 시스템의 윈도 NT와 같은 성능을 보여주며 어떤 경우에는
+능가하기도 한다."
+
+<P>"여기서 특이할 만한 시스템은 BSDi 3.0 OS와 아파치 웹 서버의 결합이었다.
+듀얼 CPU 시스템은 모두 윈도 NT 4.0 과 인터넷 인포메이션 서버 2.0을 탑재하였다."
+
+</BLOCKQUOTE>
+
+<p> 웹 서버 성능과 관련해, Ariel Faigon 씨는 IRIX를 수행하는 SGI 머신이 이 분야에서
+세계 기록을 보유하고 있다고 밝혔다.
+
+<BLOCKQUOTE>
+<p>"1998년 4월경, 최고의 SPECweb 전체 결과는 초당 7214 http 동작을 수행하였다.
+이것은 8개의 CPU를 탑재한 실리콘 그래픽스 오리진 2000 서버에서 IRIX 6.5와
+넷스케이프 웹 서버였다."
+
+<p>좀 더 자세한 정보는, SGI 사의 <b>
+<A HREF="http://www.sgi.com/newsroom/press_releases/1998/april/performance.html">
+press release</A></B>를 보기 바란다.
+
+
+<P>"대조적으로, 최고의 NT 넘버는 초당 1878 동작을 4개의 CPU를 탑재한 휴렛-패커드
+넷서버  LXr Pro 6/200과 마이크로소프트 IIS 커플이였다.
+
+</BLOCKQUOTE>
+
+
+<P>리눅스와 NT에 대한 과학적인 분석은 아니지만 Richard Betel 씨의 현실 경험은
+시사하는 바가 크다.
+
+<BLOCKQUOTE>
+나는 지금까지 약 2 개월 동안 distributed.net RC5 크랙 클라이언트를 돌리고 있다.
+노는 시간이 많은 모든 서버에 이 프로그램을 설치하였다.  이 중에는
+하드웨어적으로 동일한 시스템 두 대가 있는데 램 128 메가에 듀얼 펜티엄 II,
+300 MHz 이다.  하나는 NT가 작동 중이며 익스체인지 서버는 아직 거의 일을 하지
+않고 있다. ( 서비스를 계획 중인데 아직은 완전히 휴식 상태이다.)  나머지
+하나에서는 리눅스가 작동 중이다. ( 삼바 서버이며 필요한 모든 것을 컴파일하여
+사용 중이다. ) 리눅스 박스는 현재 NT 박스보다 약 1.8 배 빨리 키를 깨고 있다.
+</BLOCKQUOTE>
+
+<HR>
+
+
+<h3><a name="security">보안</a></h3>
+<p>이 주제는 너무 거대하고 복잡하며 이 기사의 범위를 넘는다.  하지만 보안은
+아주 중요하다.   Jim Mohr 씨는 그의 기사
+<A HREF="http://www.jimmo.com/Debate/intro.html">
+리눅스 대 NT 대토론</a>에서
+<b><A HREF="http://www.jimmo.com/Debate/security.html">보안</a></b>과
+관련된 몇가지 재미있는 사실을 지적하고 있다.
+
+<UL>
+<LI><A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/980713np.htm">
+C2 보안 취득의 이면 살펴보기: NT는 마이크로소프트의 말처럼 안전한가?  </A><BR>
+<LI><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub2.html">
+NT의 거짓말: 두번째 거짓말 - NT는 유닉스보다 덜 안전하다</A><BR>
+(진짜 보안은 서버에서 네트웍을 분리하고 자물쇠로 잠궈버리는 것이다!)
+<LI><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub4.html">
+NT의 거짓말: 네번째 거짓말 - NT는 군용 표준을 만족시킨다</A>
+<LI><A HREF="http://www.byte.com/art/9711/sec6/art3.htm">
+윈도 NT 보안 문제와 관련한 바이트 기사</A>
+<LI><A HREF="http://www.secnet.com/ntinfo/linuxntf.htm">
+NT 안전 파일시스템(NTFS)은 리눅스에서 파일 시스템 보안을 무시하며 읽을 수 있다</A>
+<LI><A HREF="http://www.secnet.com/ntinfo/">잘 알려진 NT 보안 구멍</A>
+<LI><A HREF="http://www.it.kth.se/~rom/ntsec.html">
+NT 보안 - 자주 답하게 되는 질문 버전 0.41</A>
+<LI><A HREF="http://afcert.csap.af.mil/os.html">
+AFCERT - 다양한 운영체제에서의 보안 이슈</A>
+</UL>
+
+<P><B>한가지 흥미있는 관찰:</B>
+
+<p>1998년 5월 11일,  <A HREF="http://www.discovery.com/">디스커버리 채널</a>은
+<b>국립 보안청(National Security Agency)</b>에 "디스커버리 서명 시리즈"의 일환으로
+하나의 프로그램을 기탁했다.  이들은 오후 9시(중앙시간)부터 1시간동안 방송된
+내용에서 짧은 설명의 시간을 가졌다.
+"미국의 대부분의 은밀한 기관은 다른이들의 비밀을 아주 수준높은 기술로 베일을
+벗긴다."  이 방송에서 가장 눈에 들어오는 것은
+<b><a HREF="http://www.sun.com/">썬 마이크로시스템즈</a></b> 사 로고가 붙어있는
+워크스테이션이였다.  이 워크스테이션은 암호해독실 뿐만 아니라 그들의 미션
+통제실에서도 볼 수 있었다.  NSA가 자신들의 마이크로칩을 만드는 어느 한 곳에서
+커다란 "X" 글자를 보여주는 모니터도 볼 수 있었다.  X 윈도 시스템 로고는
+모든 유닉스 운영체제에서 사용된다.  방송의 끝부분에서 랩탑이 도스 애플리케이션을
+수행하는 모습이 비쳤다.  전체 방송 시간중 하나의 워크스테이션에만 인텔 로고가
+부착되어 있었다.  이 머신은 암호 해독 작업에 사용되지 않았으며, 얼굴 인식 작업을
+하고 있었으며, 애플리케이션의 윈도 경계로 미루어 볼 때 MS 윈도 운영체제가
+아닌 것 같았다.
+<p>
+
+<hr>
+
+
+<h2><a name="misconceptions">몇 가지 공통적인 오해</a></h2>
+
+<P><b>NT는 장난감 운영체계이다.</b>
+
+<P>장난감 운영체계로부터 진화하여 몇 가지 전문적인 기능만을 제공하고 있다는
+믿음이다.  그렇게 효율적으로 작동하는 것은 아니지만(서버 하나에 4 개 이상의
+CPU를 달면 성능이 떨어진다) 오랜 기간을 거쳐 왔다.  기업 환경의
+주 서버로 권장하지는 않지만 업무 상 핵심적인 작업이 아닌 경우라면 250 명
+이하의 작은 기업에는 쓸 만 하다.  하지만 단일 NT 서버는 250명의 사용자를 서비스
+하기에는 충분치 않다는 것을 명심하자.  일반적으로 추천하는 것은 하나의 PDC
+(프라이머리 도메인 콘트롤러)와 두개의 BDC(백업 도메인 콘트롤러)이다.
+다른 서버 애플리케이션을 PDC에서 수행하는 것은 추천하지 않는다.  RDBMS와
+E-mail, 웹 그리고 다른 일반적인 몇가지 서비스가 필요하다면 세대의 NT 서버 조차도
+불충분하게 될 것이다.
+
+<P><b>모든 것을 윈도 NT로 바꾸고 나면 기업은 이질적인 네트워킹 환경의 문제를
+제거할 수 있다.</b>
+
+<P>첫 번째 가정은 복합적인 네트워킹 환경 자체가 문제라는 가정이다.  한 때
+NT와 노벨을 같이 사용하는 회사에서 일한 적 있는데 거의 문제를 일으키지
+않았다.  사실 이 두 시스템을 같이 쓴 이유는 노벨이 파일, 프린터 공유
+서비스에 있어 NT보다 뛰어나기 때문이다.  유닉스를 가지고 마이크로소프트와
+호환되는 파일, 프린터 공유 서비스를 할 수 있는데 이 때 사용자는 그것이
+유닉스 서버인지 아닌지 구별할 방법이 없다.  그들에게 있어서는 마치 NT
+서버처럼 보일 것이다.  썬의 유닉스 운영체계인 솔라리스, 리눅스에서
+<b><A HREF="http://samba.anu.edu.au/samba/">
+삼바</a></b>라는 것을 사용하면 가능하다.
+삼바는 대부분의 유닉스 운영체제용으로 구할 수 있다.  현재 VMS, MVS, OS/2,
+Stratus-VOS, Amiga, Novell과 MPE/iX 용으로 포팅되어 있다.
+
+<P><b><a name="gui">유닉스는 구닥다리이며 난해하기 짝이 없는 명령행
+방식의 운영체계이다.</a></b>
+<BR>
+<P>틀렸다!  CDE(공통 데스크탑 환경)는 GUI 데스크탑이다. CDE는 대부분의
+상용 유닉스 시스템에 탑재되어 제공되고 있다.  썬의 <b>
+<A HREF="http://www.sun.com/solaris/">솔라리스</a></b>,
+IBM의 <B><A HREF="http://www.rs6000.ibm.com/software/OS/aix43.html">
+AIX</a></b>,
+휴렛-팩커드의
+<A HREF="http://software.external.hp.com:80/OS_transition/WHYTRANS.HTM">
+HP-UX</a></b>,
+DEC의 <b>
+<A HREF="http://www.unix.digital.com/">디지탈 유닉스 </a></b>등을 들 수 있다.
+리눅스의 경우에도 그 안에 들어있는 GUI 시스템에 만족하지 않는다면 약 90 달러를
+지불하여 CDE를 구입할 수 있다.  리눅스에 탑재되는 <b>대표적인 GUI 시스템</b>은
+다음과 같다.
+<ul>
+<li>오픈룩 - 솔라리스에서 사용하는 GUI
+<li>FVWM - 윈도 3.1과 비슷한 점이 아주 많은 프리웨어 GUI
+<li>FVWM95 - 윈도 95 GUI와 착각을 불러일으키는 프리웨어 GUI,
+하나의 윈도만 띄워놓으면 FVWM-95와 윈도 95를 구별할 방법이 없다.
+<li>TWM - 다양한 FVWM 윈도 매니저들의 원조
+</ul>
+
+만약 여러분이 유닉스로 운영되는 시스템 앞에 앉아본 적
+없다면 다음 <b><font color=red>그림</font></b>들을 참고해보는 것도 좋으리라.
+
+<B><A HREF="http://www.PLiG.org/xwinman/screenshots/dtwm.gif">
+CDE</A></B>,
+<B><A HREF="images/ted.jpg">
+TED</A></B> (트라이틸의 리눅스용 CDE),
+<B><A HREF="http://www.kde.org/kscreenshots.html">
+KDE</A></B>,
+<B><A HREF="http://mars.superlink.net/ekahler/fvwm1.desktop.html">
+FVWM 1.24</A></B>,
+<B><A HREF="http://mars.superlink.net/ekahler/fvwm2.desktop.html">
+FVWM 2.x</A></B>, <B>
+<A HREF="http://www.terraware.net/ftp/pub/Mirrors/FVWM95/screenshot-full.gif">
+FVWM-95</A></B>, <B>
+<A HREF="http://cslib.ecs.soton.ac.uk/wm/gfx/orig-olvwm.jpg">
+olvwm</A></B>(오픈룩 가상 윈도 관리자).
+
+이들도 사실은 유닉스 사용자들이 사용할 수 있는 수많은 GUI 인터페이스 중
+일부일 뿐이다.  Matt Chapman 씨의
+<A HREF="http://www.PLiG.org/xwinman/">
+X 윈도우 시스템을 위한 X 관리자 가이드</a>는
+좋은 참고 자료이다.  그의 사이트에 가보면 여기에 있는 것보다 훨씬 많은 화면을
+볼 수 있다.  여기에 소개된 윈도우 관리자들은 매우 광범위하게 설정할 수 있기
+때문에 같은 윈도우 관리자라 할 지라도 사람에 따라 매우 다르게 보일 수 있다.
+홈 페이지에서 Matt 씨는 이렇게 말하고 있다.
+
+"자, 생각해보자.  사람들은 서로 다르다.  그들이 각자의 업무에 컴퓨터를
+사용하는 방식도 서로 다르다.  그런데 왜 우리는 똑같은 인터페이스를 사용해야
+하는가? (왜 똑같은 지겨운 화면을 인내해야 하는가?)"
+아이러니하게도 마이크로소프트 사의 그래픽 사용자 인터페이스에는 변화의
+여지가 없다.
+
+<P>유닉스가 구닥다리라는 주장에 대해서는 아직도 과학, 엔지니어링, 연구, 고급
+교육 부분에서 사용되고 있다는 사실을 이야기해야겠다.  대부분의 엔지니어들은
+주저함이 없이 NT가 아니라 유닉스를 선택한다.  왜냐하면 각각의 특별한 작업에
+맞도록 최적화할 수 있기 때문이다.  독자들의
+<A HREF="http://www.isdmag.com/"> isd</a>에 대한 반응을 확인해보면 이것이
+확연해진다.
+
+<BLOCKQUOTE>
+"우리는 대부분의 디자이너들이 의지가 굳다는 것을 알았다.  그들은 유닉스에서
+수행되는 EDA 도구를 원하고 있었다.  더 나아가 리눅스는 기술적으로 모든 측면에서
+아주 훌륭하다.  하지만 NT는 전혀 그렇지 않다.  기술적인 훌륭함이 시장의 점유율을
+높이는 것은 아니라는 점을 애써 말하고 싶다.  많은 독자들은 지금이 그때라고
+말한다."
+
+<P>
+<B><A HREF="http://www.isdmag.com/Editorial/1998/CoverStory9807.html">
+엔지니어가 이야기하는 리눅스 대 윈도 NT, 1부</A></B><BR>
+-- Murry Shohat, <A HREF="http://www.isdmag.com/">
+<I>인터그레이티드 시스템 디자인</I> 잡지</A>, 1998년 7월.
+</BLOCKQUOTE>
+
+
+
+<P><b>어찌 되었든 모두들 NT로 가고 있으니 우리도 유닉스 서버를 NT 서버로
+교체해야 할 것 같다.  그것이 미래이기 때문이다.</b>
+
+<P>2 년전에 유닉스와 노벨 서버를 NT 서버로 바꾼 경험이 있는 대기업의 MIS
+관리자들에게 물어보면 모두들 유닉스없이는 관리가 불가능하다고 말할 것이다.
+많은 부하량의 처리에 있어서는 유닉스 서버일 수 밖에 없다.  개인적으로는
+오라클 서버의 경우 모두 유닉스 서버에서 작동 중이었다.  어떤 IT 전문가는
+내게 보내는 메일에서 다음과 같이 이야기하고 있다.
+"나는 여기서 여러 번 NT에 오라클을 설치지원하였다.  유닉스에서는 볼 수
+없었던 성능과 기능의 문제점을 많이 겪고 있다."
+
+<hr>
+
+<h2><a name="views">다른 MIS 전문가들의 견해</a></h2>
+
+<P><b>플로리다에 살고 있는 머신 엔지니어인 로버트 신들러는 지난 10년간 프리랜서로
+지내면서 다양한 100여개의 회사의 구조 분석 필드에서 일했다.  그는 다음과 같이
+썼다.</b>
+
+<BLOCKQUOTE>
+"전 NT나 다른 MS 제품을 칭찬하지 않습니다.  저는 게이츠와 그의 제국이 사회의
+표준에서 좀 더 멀어질 것이라고 생각합니다. 내가 만든 제품도 그들의 것과
+동등한 질을 가지고 있으며, ..."
+</BLOCKQUOTE>
+
+
+<P><B>직장을 잃기 싫어 익명으로 남고자하는 어느 전문가의 이야기:</b>
+
+<BLOCKQUOTE>
+"나는 커다란 회사에서 일하고 있다.  그일은 세상에서 가장 큰 종류의 하나였다.
+우리는 케이블트론에서부터 네트웍 감시 및 관리 패키지를 사용하여 작업하기로
+결정했다.  이것은 NT와 유닉스 둘다에서 가능했다.  이 일을 수행하는 사람들은
+NT상에서 설정하기 위해 단조로운 검사만을 하고 있었다.  왜냐하면 이들은 유닉스
+보다는 NT에 더 익숙해져 있었기 때문이였다.  1년의 세월과 25만 달러(한화로 약
+3억2천만원)정도를 소비한 이후에, NT상에서는 포기하고 그일을 솔라리스상에서
+완료했다.  왜?  NT는 그만한 규모를 받쳐주지 못하기 때문이다."
+</BLOCKQUOTE>
+
+<P><b>이 기사에 대한 Tim Newsham 씨의 답변 :</b>
+
+<BLOCKQUOTE>
+"나는 여기서 NT와 유닉스용 소프트웨어를 개발하고 있다.  나는 NT를 경멸한다.
+정말 끔찍한 녀석이다.  성능도 떨어지는데다 불안하기까지 하다.
+NT의 일부분에 문제가 크기 때문에 소프트웨어를 포팅하는 대부분의 시간을
+마이크로소프트 사가 만들어낸 버그와 싸워야 한다.  많은 사람들이 유닉스로부터
+NT로 이전한다는 사실이 짜증나게 만든다.  내가 생각하기에 시간이 지나면 많은
+관리자들이 지금까지 NT가 얼마나 기업에 불이익을 가져다 주었는지 알게 되면
+커다란 반 NT 기류가 생길 것이라고 생각한다."
+</BLOCKQUOTE>
+
+<P><b>Jessie Berst 씨에 대한 시카고 컨설턴트 Joseph Day 씨의 답변 :</b>
+
+<BLOCKQUOTE>
+"NT와 95 모두에서 많은 소프트웨어를 개발하고 있다.  사람들이 왜 이 플랫폼이
+괜찮다고 말하는지 이해할 수 없다.  네트웍 뉴스를 통한 리눅스 공동체의 지원이
+오히려 마이크로소프트 제품에서 받을 수 있는 지원보다 훨씬 뛰어나다.  리눅스가
+가지고 있는 안정성을 따라 오려면 NT는 갈 길이 멀다."<br>
+
+--
+<A HREF="http://www.zdnet.com/anchordesk/talkback/talkback_72950.html">
+그 기사를 쓰는데 마이크로소프트 사로부터 얼마를 받았습니까?
+</a>라는 제목으로 Joseph Day 씨가 보낸 편지에서 인용,
+출처 :
+<A HREF="http://www.zdnet.com/anchordesk/index.html">
+Jesse Berst's Anchor Desk</a>, 1998년 2월 16일,
+<A HREF="http://www.zdnet.com/">ZDNet</a>.
+</BLOCKQUOTE>
+
+<P><b>Jessie Berst 씨에 대한 라라미 지역 시스템 관리자 Torsten Holvak 씨의 답변 :</b>
+
+<BLOCKQUOTE>
+"Jessie 씨, 내가 생각하기에 60 년대의 IBM 처럼 마이크로소프트 사는 사람들이
+자사의 제품을 선택하지 않으면 경력에 오점을 남기게 될 것이라고 믿기를 바란다고
+본다.  하지만 그렇지 않다!  나는 업무 상 중요한 전자우편, 웹 서버를 유닉스가
+아닌 NT에 구현한 사람을 해고시켰다.  우리는 모든 업무에 FreeBSD를 사용하며
+이보다 안정적인 것은 없다.  무료 유닉스 서버임은 물론이며 NT 보다 빠르고
+더욱 강력하며 훨씬 안정적이며 지원도 훌륭하다.  마이크로소프트 기술부에
+전화를 걸어보라.  엄청난 돈을 지불해야 하며 전화를 들고 한참을 기다려야 한다.
+만약 문제가 해결되었다면 여러분은 정말 행운아이다.  당신의 페이지에 적힌
+글을 나는 믿을 수 없다.  정말 당황스럽다.  나는 당신이 마이크로소프트
+찬양론을 퍼뜨리려 하고 있다고 믿고 싶지 않다.
+--
+<A HREF="http://www.zdnet.com/anchordesk/talkback/talkback_72969.html">
+NT를 사용하는 사람을 해고했다</a>라는 제목으로 Torsten Holvak 씨가 Jessie 씨에
+한 답변글로부터 인용,
+출처 :
+<A HREF="http://www.zdnet.com/anchordesk/index.html">
+Jessie Berst's Anchor Desk.</a> 1998년 2월 16일,
+<A HREF="http://www.zdnet.com/">ZDNet</A>.
+
+</BLOCKQUOTE>
+
+
+<P><b>네브라스카 대학 출판부에서 정보 시스템 부서 관리자로 일하고 있는
+Quinn P. Coldiron 씨가 노벨, 윈도 NT, 리눅스를 사용한 경험에 대해 적은 글 :</b>
+
+<BLOCKQUOTE>
+"아침 업무를 마친 후, Cats(주문 처리, 재고 시스템)를 네트웨어 서버로부터
+완전히 백업받는 약 2 시간이 걸렸다.  리눅스 머신의 경우에는 45 분 밖에
+걸리지 않았으며 약 1 시간을 절약했다.  네트웨어 서버는 64 메가, SCSI 이고
+리눅스의 경우에는 32 메가, IDE 하드디스크였는데도 불구하고 이런 결과가 나왔다.
+일상적인 업무 중에도 빠른 속도를 느낄 수 있다.  리눅스 시스템은 더욱 빠르고
+더욱 안정적으로 작동하고 있다."
+
+<p>"최근 CPU를 200 MHz 펜티엄으로 교체했으며 메모리도 64 메가로 증설하였다.
+마이크로소프트 사에 무려 1500 달러의 기술 지원비를 내고도 이유없이 한 달에
+두 번씩 다운되는 윈도 NT 파일/프린터 서버를 완전히 교체하기 위해서이다.
+레드햇 리눅스를 설치한 단일 시스템이 노벨 네트웨어 3.11 서버와 윈도 NT 4.0
+서버 둘을 교체해버렸다.  전체 하드웨어 요구 사항도 떨어졌는데도 말이다.
+삼바 팀이 NT 도메인 구조를 지원하기 시작했고 지난 1997년 12월 출시된 레드햇
+5.0 를 가지고 윈도95, 윈도NT, 맥킨토시 클라이언트를 작업 요청을 모두
+처리할 수 있는 효율적이고 저렴한 서버를 구축할 수 있었다."<br>
+
+-- <b><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html">
+윈도NT 서버를 리눅스로 교체하기</a></b>에서 인용
+
+</BLOCKQUOTE>
+
+<P><b><A HREF="http://dev4.byte.com/joncon/_fmsg00441.html">바이트(Byte)
+포럼</a>에서 Nick Johnson 씨가 1997년 9월 29일 적은 글 :</b>
+
+<BLOCKQUOTE>
+"관리자의 입장에서 볼 때 작은 인트라넷 웹 서버를 돌리는데 램 128 메가,
+듀얼 200 Mhz 프로세서 그리고 8 기가의 하드디스크가 필요하다는 것, 게다가
+간단한 TCP 패킷 하나 때문에 다운되거나 리부팅되는 운영체계를 받아들여야
+한다는 것은 매우 어려운 일이다.  안정성과 속도가 필요한 곳에서 NT는
+불가능하다.  앞서 말한 작업을 마이크로소프트 사에서 제시하는 높은 가격을
+지불하지 않고도 386, 램 16 메가, FreeBSD로 처리할 수 있다."
+</BLOCKQUOTE>
+
+<P><b>미시간 주에서 유닉스 관리자이자 프로그래머로 일하고 있는 Mike Hucka 씨의 글 :</b>
+
+<BLOCKQUOTE>
+"분명히 더욱 성숙되어 있고 안정적이며 훨씬 저렴하고 성능도 뛰어난 유닉스
+솔루션이 있는데도 불구하고 <i>왜</i> NT 솔루션에 투자를 하고 있는지 이해가 가질
+않는다.  도대체 사람들은 무슨 생각을 하고 있는가?"
+
+<P>"사람들이 정말 유닉스의 능력에 대해서 모른 것일까?"
+
+<P>"사람들은 유닉스가 정말 사용하기 어렵다고 생각하는 것일까?
+나도 편향되어 있긴 하지만 썬에서 CDE를 보거나 KDE를 보면서 PC 또는 맥과
+매우 비슷하다고 느낄 것이라고 생각한다.  그리고 정말로 많은 유닉스 문서들이
+있다.  <A HREF="http://www.oreilly.com/">오렐리 출판사</a>에서 나온 수많은 책을
+보라.  또한 썬의 사이트 <b><A HREF="http://docs.sun.com">
+http://docs.sun.com</a></b> 에 가보면 수많은 온라인 매뉴얼을 볼 수 있다.
+수백 사이트에서 유닉스에 관한 모든 것을 알 수 있다.
+
+<P>"그 뿐 아니라 솔라리스의 확장성과 안정성에 필적하는 무료 버전의 유닉스도
+구할 수 있다.  이들은 PC 급의 하드웨어에서도 매우 잘 작동한다."
+
+<P>"각설하고 여러분은 소스 코드 자체도 얻을 수 있다."
+
+</BLOCKQUOTE>
+
+<h3><A HREF="http://www.kirch.net/unix-nt/feedback/"> 독자로부터의 응답</a></h3>
+
+<p>이 부분은 필자가 이 기사에 대해 받은 독자로부터의 응답 중 몇가지를 추려내어
+포함하는 새로운 영역이다.
+
+<hr>
+
+<h2><a name="web">웹 서버 </a></h2>
+
+<P>인터넷의 핵심부에 웹이 있다.  웹은 사람들이 보는 얼굴에 해당한다.
+만약 사이트가 느리고 기술적인 문제점을 가지고 있고 접근이 안될 때도
+있다면 그 악영향은 분명하다.  대부분의 기업들은 유닉스를 기반으로 하고
+있기 때문에 아파치 또는 네스케이프 엔터프라이즈와 같은 웹 서버를
+사용하고 있다.
+
+<B><A HREF="http://www.apache.org/">Apache</A></B> 아파치</a></b>는
+유닉스 용의 웹 서버이다.
+( 역자 주 : 1.3 베타 버전은 윈도95/NT에 이미 포팅되어 있다. )
+무료이며 현재 인터넷을 지배하고 있는 웹 서버이다.  약 전체 인터넷의
+<i>절반</i> 정도가 아파치를 운영 중이다.
+( <A HREF="http://www.netcraft.co.uk/Survey/"><B>Netcraft 웹 서버 조사 참고</b></a> )
+
+마이크로소프트 사의 IIS 웹 서버는 전체 웹 서버의 1/4 도 되지 않는다.
+아파치를 사용하고 있는 곳으로는
+<A HREF="http://java.sun.com/">자바소프트</A>,
+<A HREF="http://www.fbi.gov/">FBI</A>,
+<A HREF="http://www.ft.com/">파이낸셜 타임즈</A>,
+<A HREF="http://www.imdb.com/">무비 데이터베이스</A>,
+<A HREF="http://www.w3.org/">W3 콘소시엄</A>,
+<A HREF="http://www.royal.gov.uk/">로얄 패밀리</A>,
+<A HREF="http://www.lib.ox.ac.uk/">옥스포트 대학 도서관 자동화 서비스</A>,
+<A HREF="http://www.mit.edu/"> M.I.T.</A>,
+<A HREF="http://www.harvard.edu/">하버드 대학</A>,
+<A HREF="http://www.utexas.edu/">텍사스 대학</A> 등이 있다.
+넷크래프트는 가상 호스팅 회사인
+<A HREF="http://www.rapidsite.com/">라피드사이트</A>는 현재 조사에서 5위에
+링크되어 있는 서버라고 언급하고 있다.
+이 사이트의 호스팅 시스템은 아파치를 수정하여 사용하고 있는데 44,280 개의
+도메인 네임, 39,905 개의 IP 주소를 지원하고 있다.  정말 놀라운 성과이며
+세계에서 가장 큰 웹 호스팅 시스템이다.
+<A HREF="#KickAss">유닉스-아파치의 결합이 NT-IIS를
+웃음거리로 만들다</a>라는 제목의 기사에서 성능을 확인할 수 있다.
+아파치는 속도도 빠를 뿐 아니라 무료이다.
+
+아파치의 힘은 인터넷을 넘어 이제 <A HREF="http://www.ibm.com/">IBM</A>까지
+파트너 관계로 끌어들였다:
+
+<BLOCKQUOTE>
+<b>IBM 팀, 아파치를 탑재하다</b><br>
+"IBM은 IBM 웹 부문 애플리케이션 서버에 아파치 HTTP 서버를 탑재할 것입니다.
+아울러, 현재의 아파치 사용자들이 e-비지니스 솔루션을 전개하도록 도움을 줄 것입
+니다.  또한 우리는 웹 부문 애플리케이션 서버 패키지의 일부분으로 상용,
+엔터프라이즈 수준의 지원을 제공할 것입니다.  덧붙여, IBM은 아파치 HTTP 서버
+프로젝트의 개발에 협력하는 충분한 참가자가 될 것이며, 아파치의 능력을 확대하는
+기여를 하게 될 것입니다."<br>
+
+<A HREF="http://www.ibm.com/News/1998/06/223.phtml">
+IBM은 회사들이 단순한 웹 사이트를 강력한 e-비지니스 솔루션으로 가져갈 수 있도록
+도울 것이다</a>.  IBM 뉴스, 1998년 6월 22일.
+</BLOCKQUOTE>
+
+<P>기업이 필요로 하는 안정적인 웹 서버로는 네스케이프-엔터프라이즈가 알맞는
+선택이다.  아파치처럼 무료는 아니지만 모든 요구를 수용할 수 있다.
+네스케이프-엔터프라이즈를 사용하는 곳으로는
+<A HREF="http://www.bmw.de/">BMW</A>,
+<A HREF="http://www.dilbert.com/">딜버트</A>,
+<A HREF="http://www.sgi.com/">실리콘 그래픽스</A>,
+<A HREF="http://www.shell.com/">쉘</A>,
+<A HREF="http://www.sun.com">썬 마이크로시스템즈</A>,
+<A HREF="http://www.sybase.com/">사이베이스</A>,
+<A HREF="http://www.ferrari.it/">페라리</A> and
+<A HREF="http://www.vatican.va/">바티칸</A>
+등이 있다.
+
+<P>마이크로소프트 IIS는 윈도 NT에 함께 들어오는 몇 안되는 소프트웨어 중
+하나이다.  이미 다른 웹 서버 소프트웨어에서 구현되어 있는 기능 이상의
+특별한 것은 갖추고 있지 않다.  속도 면에서나 대중성 면에서나 그리고 처리할
+수 있는 접속 수 면 어디에서도 뛰어나지 않다.  현재
+<A HREF="http://www.compaq.com/">컴팩</A>,
+<A HREF="http://www.nasdaq.com/">나스닥</A>,
+<A HREF="http://www.nfl.com/">전미 풋볼 리그</A>,
+<A HREF="http://www.exxon.com/">엑선</A>,
+<A HREF="http://shop.tesco.co.uk/">테스코</A>
+등에서 사용중이다.
+마이크로소프트 사의 성공이 <a HREF="http://www.intel.com/">인텔</a>
+머신과 같은 저가 PC 하드웨어에서 이뤄졌다는 사실로 미루어 마이크로소프트
+사의 가장 큰 협력자가 IIS를 운영 중이라고 생각하며 오산이다.
+<b><A HREF="http://www.intel.com/">www.intel.com</a>은
+<A
+HREF="http://home.netscape.com/comprod/server_central/product/fast_trac
+k/fast_track_data.html">
+네스케이프 패스트트랙 서버</a></b>를 사용하고 있다!
+
+마이크로소프트 IIS가 빠르지 않다는 필자의 생각을 입증하는 것으로,
+위에서 소개한 링크 사이트를 테스트 해보았는 데,
+<A HREF="http://shop.tesco.co.uk/">Tesco</A>는 6월 2일 월요일의 00:02:53부터
+00:53:07 GMT까지 어떠한 요청에 대해서도 서비스를 하지 못했다.
+이 웹서버는 필자의 도메인과 telnet을 시도한 다른 도메인으로부터
+반복된 시도에 대해 <b>HTTP/1.1 Server Too Busy</B>라는 메시지를 보여주었다.
+그 웹서버는 홈페이지 문서를 결코 전달하지 못했다.  필자는 다양한 클라이언트와
+도메인으로부터 시도를 한 다음에도 동일한 에러 메시지를 보았기 때문에, 50분 쯤
+후에 포기를 했다.  이 메시지는 IIS 웹서버에서만 볼 수 있었다.
+<A HREF="http://shop.tesco.co.uk/">Tesco</A>는 마이크로소프트 IIS 4.0을 사용하고
+있다.  이 사이트의 웹서버 80 포트에 telnet을 직접 시도해 보니 또다른 아마추어적인
+모습을 발견할 수 있었다.  ntp 서버가 전세계에 광범위하게 존재함에도 불구하고,
+그 사이트의 시스템 시간은 8분 51초나 느렸다.
+
+<P><a name="win95">윈도95</a>와 NT 사용자들에게 있어 가장 인기있는 웹 중
+하나가 프리웨어 또는 쉐어웨어를 구할 수 있는
+<b><A HREF="http://www.windows95.com"> www.windows95.com</a></b>
+이라는 곳이다.  매우 인기있는
+사이트이기 때문에 튼튼한 운영체계와 성능이 뛰어난 웹 서버 소프트웨어가
+필요하다.  제공되는 소프트웨어들이 윈도95 또는 NT 용이기 때문에 전반적으로
+마이크로소프트 사에 우호적일 것이라고 생각할 것이며 당연히 NT 서버에
+IIS 일 것이라고 생각할 것이다.  하지만
+<A HREF="http://www.windows95.com/about/faq.html">
+그들의 웹 페이지를 보면 놀랄 것이다.</a>
+
+<BLOCKQUOTE>
+<b>Windows95.com은 어떤 하드웨어, 어떤 소프트웨어를 사용하고 있습니까?</b>
+<BLOCKQUOTE>
+우리는 펜티엄 프로 컴퓨터에 BSDI 유닉스 운영체계, 아파치 웹 서버를 사용하고
+있습니다.  멀티 홈 방식으로 T3 회선으로 인터넷에 연결되어 있습니다.
+</BLOCKQUOTE>
+</BLOCKQUOTE>
+주의 : 이 인용문은 1998년 2 월의 내용이다.  최근 그들은 windows95.com
+라는 이름을 WinFiles.com 으로 바꾸었다.  하지만 여전히 이름을 유지하고 있다.
+1998년 3월에 이름을 변경하였다.
+
+<p>필자는, 어느 일정한 싯점에 인터넷 사이트가 무엇을 수행하는 지를 알아보기
+위해, 웹서버와 메일 익스체인지 서버에 대해 현재 어떤 소프트웨어 타입을 사용하고
+있는지 질의를 던지는 CGI 스크립트를 작성했다.  이 도구는 여러분들이 이 부분과
+바로 다음의 MTAs 섹션을 위해 유용하게 사용할 수 있을 것이다.
+
+<CENTER>
+<B><A HREF="http://www.kirch.net/perl-bin/siteinfo">
+그 사이트는 어떤 서버 소프트웨어를 사용하고 있을까?</A></B>
+</CENTER>
+
+<HR>
+
+<H2><A NAME="mta">메일 서버 (MTAs)</A></H2>
+
+이 부분은 "센드메일 대 마이크로소프트 익스체인지 서버"라는 주제를 담고 있는
+유즈넷 뉴스에 대한 필자의 흥미에 의한 결과이다.  이 기사의 주요 주제는,
+익스체인지는 NT 환경이 우세한 곳에서 많이 사용하는 메일 서버라는 것이다.
+센드메일은 대부분의 유닉스 운영체제에서 표준이다.  센드메일은 설정하기
+까다롭지만, 대부분의 경우에는 일반적인 설치만으로도 충분하다.  하지만
+익스체인지는 이와 관련된 다른 이슈를 가지고 있다.  익스체인지가 센드메일과
+유사한 일반적인 MTA가 가지고 있는 특징 중 일부를 가지고 있지 않다는 것이다.
+익스체인지는 기능이 강력하지 않고, 비교적 높은 불륨을 요구하는 전자우편 작업에
+걸맞지 않으며, 낮은 퍼포먼스를 가지고 있다는 것이다.
+
+<p>20,000명 이상의 정보기술 사용자를 너끈히 수용하는 어느 대기업의 관리자는
+마이크로소프트 익스체인지 서버로 바꾸기로 결정했다.  이러한 결정은 그리
+성공적이지 못했다.  "익스체인지로 이전하는 작업이 절반쯤 끝났"지만 여기까지
+하는데 3백만 달러(한화 약 39억원)가 지출되었다.  "12,000 여명의 사용자와
+수백대의 서버에 있어서 중요 문제점"에 대해 좀 더 자세히 살펴보려면,
+<b><A HREF="http://www.aberdeen.com/">에버딘<I>그룹</I></A></B>의 <B>
+<A HREF="http://www.aberdeen.com/research/comp/onsite/case2/body.htm">
+사례연구: Horns of a Dilemma</A></B>를 보기 바란다.
+
+
+<H3><A NAME="mta-views">마이크로소프트 익스체인지 대 센드메일:
+다른 MIS 전문가의 관점 </A></H3>
+
+<P><b>익명을 요구하는 어느 시스템 관리자의 글:</b>
+
+<BLOCKQUOTE>
+익스체인지 서버는 서버 접속 수에 따라(per-seat) 마이크로소프트 사에
+돈을 지불해야 하는 '장점'을 갖고 있다.  썬 울트라 1 ($7,000), 솔라리스
+인터넷 메일 서버(솔라리스 2.6에 번들됨)를 사용하면 수천 명에게
+POP/IMAP 서비스를 할 수 있다.  아직 내게 NT 서버와 익스체인지를 가지고
+이보다 2 배의 가격으로 해낼 수 있다고 말할 수 있는 사람을 만나지 못했다.
+</BLOCKQUOTE>
+
+<P><b>시스템/네트웍 컨설턴트, Brad Van Drden 씨의 글 :</b>
+
+<BLOCKQUOTE>
+앞서 말한 바 있듯 초기 비용은 제쳐 두고라도 익스체인지는 계속적으로 많은
+비용을 요구한다.  일단 전담할 인원이 필요하다.  유닉스 메일을 사용하고
+있고 sendmail.cf 등의 설정 파일이 제대로만 되어 있다면 메일 관리로 해야
+할 일이라고는 메일 별칭을 더하고 제거하는 일 뿐이다.  계속적인 비용 면에
+있어 커다란 차이를 보여준다.
+</BLOCKQUOTE>
+
+<P><b>오하이오에 사는 Tom Moore 씨의 글 :</b>
+
+<BLOCKQUOTE>
+멍청이들이 관리자가 되는 경향이 있는 것 같다.  오늘날에도 역시 인터넷에서
+가장 많이 사용되는 서버는 아파치라는 관련 기사를 막 읽었다.  GUI 관리 도구를
+가지고 있지 않기 때문에 그리고 설정을 위해서는 경험많은 관리자가 필요하기
+때문에 기업에서 사용하기에 '적합하지 않다'.  GUI를 갖는다는 것은 아무나
+간단히 찍고 클릭하기만 하면 된다는 가정 하에서 나오는 이야기이다.
+
+<P>이와 똑같은 '논리'가 센드메일과 익스체인지 서버의 비교에 적용될 수 있을
+것이다.  센드메일은 텍스트 설정 파일 방식이기 때문에 경험있는 관리자가
+필요하다.  익스체인지 서버는 GUI 를 가지고 있기 때문에 그렇지 않다.
+둘 다 해보니 이런 말은 거짓말이라는 사실을 알았다.  둘 다 기본 설정만
+가지고도 쉽게 작동시킬 수 있다.  복잡한 작업을 해내려면 둘 다 전문적인
+지식이 필요하다.  예를 들어 SPAM 처리와 같은 복잡한 작업을 대면하게 되면
+익스체인지 서버로는 어림도 없다.
+</BLOCKQUOTE>
+
+<P><b>MS 익스체인지 서버를 MTA라고 말한 필자의 견해에 대한 독자의 반박 :</b>
+
+<BLOCKQUOTE>
+"익스체인지 서버를 다른 MTA와 비교하는 것은 잘못된 인식을 낳는다.
+익스체인지 서버는 MTA가 아니며 MTA라고 불린 적도 없다.  그보다는 기업용
+메시징 서버일 뿐이다."
+</BLOCKQUOTE>
+
+MS 익스체인지에는 일반적인 MTA에서는 볼 수 없는 몇 가지 기능을 가지고 있다.
+하지만 이 기사에서는 각 운영체계에 어떤 메시징 시스템이 번들되어 있는지에
+초점을 맞추고 있다.  그 답은 이렇다: 유닉스에는 센드메일이 있다.  윈도 NT
+서버 4.0 에는 번들되어 있는 것이 없다.  만약 마이크로소프트 사의 솔루션을
+원한다면 익스체인지 서버 밖에 없다.
+
+<P>물론 마이크로소프트 익스체인지 서버만이 이와 같은 기능을 제공하는
+메시징 서버는 아니다.  기업 고객을 위한 IMAP4 서버를 비교해 보겠다.
+
+<table border=1>
+<tr><th>
+</th>
+<th>
+<A HREF="http://www.lotus.com/home.nsf/tabs/domino/">
+Lotus Domino 4.6a </a>
+</th>
+<th>
+Microsoft Exchange Server 5.0
+Enterprise Edition
+</th>
+<th>
+<A HREF="http://search.netscape.com/comprod/server_central/">
+Netscape Suitespot Server 3.5</a>
+</th></tr>
+
+<tr><td>
+Platforms Supported:
+</td>
+<td>
+AIX, HP-UX, Netware, OS/2, OS/400,
+Solaris, S/390, Windows NT, Windows 95
+</td>
+<td>
+Windows NT Server
+</td>
+<td>
+AIX, Digital 유닉스, HP-UX, IRIX,
+Solaris, Windows NT
+</td></tr>
+
+<tr><td>
+Cost of server and 50 client
+licenses
+</td>
+<td>
+$4,240
+</td>
+<td>
+$4,859
+</td>
+<td>
+$4,100
+</td></tr>
+</table>
+
+<BR>
+<P>자세한 가격 정보는 이
+<b><A HREF="http://search.netscape.com/comprod/server_central/product/pricing/comparison.html">
+링크</a></b>를 따라가기 바란다.
+
+<hr>
+
+<h2><a name="conclusion">결론</a></h2>
+
+<P>아이러니하게도 경험많은 전문가들의 견해를 들어보면 예산이 빡빡한 곳, 그리고
+고성능 다중 프로세서 서버를 필요로 하는 대기업, 이 둘에 유닉스가 적합하다고
+한다.  <i>워싱턴 포스트</i>의 고정 작가인 Elizabeth Corcoran 씨는 다음과 같은
+실제적인 예를 제시하고 있다.
+
+<BLOCKQUOTE>
+예를 들어 신시내티 벨 정보 시스템은 지난 몇 년 간 입금 점검 처리를 위해
+썬 워크스테이션과 서버를 사용하고 있다.  하루에 백만 달러 이상의 입금
+처리를 감당하기 위해 최고급 썬 서버를 구입하였다.  CBIS 부사장인 James
+Holtman 씨는 썬 서버 아니면 IBM 메인프레임이 그들의 선택임을 밝히고 있다.
+마이크로소프트 사의 기술력에 대해서는 "아직 너무 미흡하며 이 정도 규모의
+일을 처리하려면 갈 길이 멀다"고 말한다.<br>
+
+(<i>워싱턴 포스트</i>, 1998년 2월 8일 일요일 : H01 페이지)
+</BLOCKQUOTE>
+
+회사의 크기가 중소 규모이고 중요한 업무가 없는 경우라면 그리고
+마이크로소프트 익스체인지 서버와 인터넷 인포메이션 서버를 관리할 사람을
+추가로 뽑을 생각이며 마이크로소프트 사의 '퍼 서버' 또는 '퍼 시트'
+라이센스료를 감당한 능력이 된다면 NT를 선택하면 된다.
+<B><A HREF="http://www.aberdeen.com/">에버딘<i> 그룹</i></a></b>은
+윈도NT로 이전하는
+<b><A HREF="http://www.aberdeen.com/research/comp/onsite/case1/body.htm">사례
+</a></b>에 대한 자세한 분석을 해두었다.
+
+<P>하드웨어/소프트웨어에 대한 년간 예산을 사용했다는 것을 보여줘야 하는
+관리자에게 있어서는 NT가 좋은 선택이다.  아마도 연방 단체에서는 사전 구입
+승인이 필요없기 때문인 것 같다. : "NT는 연방 정부의 '비공식' 표준 운영체계가
+되고 있다.  컴퓨터 하드웨어/소프트웨어 물품 조달을 책임지는 연방 직원은 유닉스
+운영체계나 윈도 NT가 작동하지 않는 하드웨어를 구입할 때는 서면 승인을 받아야
+하기 때문이다.  인텔 하드웨어 또는 윈도 NT의 경우 사전 동의를 필요치 않다."
+(익명으로 남고 싶어하는 썬 솔루션 업체의 보고)
+
+<P>자그마한 가게 또는 예산이 충분치 않은 파워 유저 또는 계산서에 적힌 숫자가
+성능을 보장한다는 사고방식으로부터 탈피하기 시작한 중대형 기업에서는 리눅스 또는
+FreeBSD를 사용하여 인텔 하드웨어, 빌 게이츠 씨도 무찌를 수 없는 0 달러
+소프트웨어로 가볍게 NT 솔루션보다 빠르고 기능적인 시스템을 구축할 수 있다.
+왜 매번 새로운 NT 버전이 나올 때마다 비싼 교육/재교육 비용을 지불해야 하는
+비싼 운영체계에 투자하는가?  유닉스/리눅스 관리자는 이미 매우 많으며
+일반적으로 NT 관리자들보다 훨씬 높은 기술적 지식을 가지고 있다.
+( 대부분의 유닉스 관리자들은 신세대 NT 관리자들은 갖지 못한 코딩/스크립팅
+능력을 지니고 있다. )  리눅스에다가 수많은 시간 동안 수천의 메일을 쉽게
+처리할 수 있는 기능을 입증받은 센드메일을 사용하지 않고 고작 몇 백명의
+메일 처리를 위해 MS 익스체인지 서버에 거의 5000 달러나 되는 돈을 소비하는가?
+
+<P>두 운영체계의 전반적인 기능, 성능을 보면 유닉스의 승리이다.  다양한
+업체들이 있으며(독점의 위험이 없다) 확장성, 시스템 자원의 효율적인 사용,
+원격 관리, 다중 사용자, 매우 다양한(또는 전문적인) 소프트웨어, 업체
+독립적인 표준(POSIX), 사용자에 대한 디스크 사용 제한(NT에서는 할 수 없는),
+DOS용으로 만들어진 10 년 전의 바이러스에 다운되는 일이 없음, 이 모든 것이
+유닉스가 제공하고 있는 힘이다.  윈도 NT와 많은 유닉스 운영체계 중 선택할 때
+기억해야 할 가장 중요한 것은 다음과 같다 :
+
+<BLOCKQUOTE>
+<b>유닉스</b> 운영체계는 여러분에게 <b>선택권</b>을 준다 : 어떤 하드웨어든,
+CLI 와 GUI, 상용 또는 GNU, 다양한 업체 선택.  유닉스는 <b>동적</b>이다.  즉,
+여러분의 필요에 딱 맞는 맞춤 커널을 만들 수 있다.
+
+<P><b>윈도 NT</b>는 <b>제한</b>을 준다.  인텔 또는 알파, CLI는 없고 GUI만
+있다.(NT를 CLI만의 모드로 부팅해보려고 해보라), 게다가 GUI는 딱
+한 가지이다.(X 윈도우에서 볼 수 있는 여러 윈도우잉 시스템 선택은 불가능하다)
+오로지 상용 MTA만 있다.  또한 마이크로소프트 제품만 있을 뿐이다.
+(어떤 업체에서 NT 서버 클론 운영체계라는 것을 판매한다는 말을 들어본 적
+있는가?)  NT 서버는 <b>정적</b>이다.  맞춤 커널이란 없고 단 하나일 뿐이다.
+</BLOCKQUOTE>
+
+<P>물론 마이크로소프트 사만이 자사의 폐쇄적이고 독점적인 솔루션을
+권장하는 '제한 위주의' 소프트웨어 업체는 아니다.  하지만 사람들은 개방적인
+시스템과 솔루션을 지향하는 업체들이 많이 있기를 바란다.  네스케이프 사는
+다양성을 지향하는 회사로서 자사 제품에 대하여 제한 위주, 선택을 막는
+마이크로소프트 사의 방식을 지적하고 있다.
+
+<BLOCKQUOTE>
+(우리의) 전략은 항상 고객에게 최신의 소프트웨어로 업그레이드하기만을
+강요하는 사업 모델을 가진 마이크로소프트와 같은 업체와 대조적이다.
+다음과 같은 상황을 생각해보자.  네스케이프 사의 주요 메시지 클라이언트는
+윈도 3.1, 맥킨토시, 유닉스 모두에서 운영될 수 있다.  마이크로소프트 사
+제품은 이들 시스템에서 작동하지 않는다.  네스케이프의 주요 인터넷 서버는
+윈도 NT 3.51과 유닉스에서 작동한다.  마이크로소프트 사 제품은 그렇지 않다.
+네스케이프 사는 인포믹스, 오라클, 사이베이스, DB/2, 그리고 ODBC 등에 대한
+기본 접근을 지원한다.  마이크로소프트 사는 윈도 NT에서 돌아가는 자사의
+데이터베이스에 대해서만 지원한다.  네스케이프 ONE은 플랫폼 독립적인
+애플리케이션 개발 환경을 제공한다.  마이크로소프트 사의 제품은 오로지 최신
+버전의 윈도에만 국한되어 있다.
+-- 네스케이프,
+<A HREF="http://developer.netscape.com/docs/wpapers/crossware/#advantages">
+넷스케이프의 장점</A>
+</BLOCKQUOTE>
+
+<P>필자가 지금까지 이야기해 온 것은 아카데믹한 기준일 뿐이고 일상의
+작업 속에서 시스템/네트웍 관리자들은 그의 상급자들이 NT로 이전하고자 한다는
+말을 듣곤 한다.  관리자들은 이 글 속에 적혀 있는 내용을 잘 알고 있기 때문에
+당황해 하곤 한다.  이 글은 여러분의 결정권자들이 읽어야 한다.  너무 빈번하게
+안정적이고 경제적이며 기술적으로 더욱 우월한 선택을 하지 않고 나중에 가서야
+오로지 정치적인 이유 때문에 적합하지 않은 운영체계를 사용해 왔다는 사실을
+알게 되곤 한다.
+
+<BLOCKQUOTE>
+"기업의 IT 관리자들은 어느 날 저 쪽 구석에 있는 머신을 발견하고는 물어보면
+리눅스에 의해 지난 1 년 반 동안이나 꺼떡없이 작동하고 있는 부서 웹 서버라는
+대답을 들을 것이다.  처음에는 즉시 NT로 업그레이드하라고 하겠지만 성능이
+떨어짐에 따라 다시 리눅스로 돌아오게 된다."
+<BR>
+
+--
+<A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">
+리누스 토르발즈가 경제성과 운영체제에 대하여 한 말들</a>,
+인포월드 1998년 4월 9일.
+</BLOCKQUOTE>
+
+바로 이와 같은 일이
+<A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">시스코 시스템즈 사
+</a></b>에서 일어났다.  수석 관리자들로부터 NT로 교체하라는 명령에도 불구하고
+그들은 여전히 리눅스를 사용하고 있다(<b><a href="#cisco">자세한
+내용</a></b>은 이 곳을 보자).  몇몇 기술자들은
+이런 명령에 복종하지 않을 것이 분명하다.  왜 이들이 위험을 자초하는가?
+이에 대한 답변은 여러분에게 맡기도록 하겠다.
+
+<P>여러분이 상급 관리자라면 기업 컴퓨팅 환경을 개선하기 위해 여기에 적힌
+정보를 활용하기 바란다.  기술자들에게 물어보고 어떤 것이 제대로 작동하는지
+물어보라.  올바른 판단을 하자.  여러분 회사의 목적에는 관심이 없고 어려운
+말만 사용하고 실제로는 설명도 하지 못하는 세일즈맨들에게 현혹되어서는 안된다.
+여러분이 생각하고 있는 것에 대하여 윈도 NT와 유닉스 이 두 가지 솔루션을
+모두 가지고 있는 업체를 찾으라.  가용성, 구현의 어려움 정도, 초기/이후
+관리 비용 등에 대한 직접적인 보고서를 받을 수 있도록 기술자들과 만나보기
+바란다.
+
+<hr>
+<h2><a name="compare">한 눈에 보는 리눅스, 윈도 NT 서버 4.0</a></h2>
+
+<P>NT가 비용절감적인 하드웨어 솔루션이라는 기초 아래 선택된 것이라면 리눅스는
+똑같은 기준의 의거한 유닉스 진영의 선택이라고 말할 수 있다.
+
+<P>주의 : 각 운영체계에 실제로 같이 제공되고 있는 항목/기능만을 나열하였다.
+예를 들어 펄 5.0 은 모든 플랫폼에서 사용할 수 있다.  하지만 마이크로소프트
+사 측은 이를 기본으로 제공하지 않는다.  대부분의 리눅스 배포판에서는 4 개
+이상의 GUI를 제공한다.  앞서도 설명했듯 리눅스, 유닉스에서 사용할 수 있는
+많은 GUI 중 일부일 뿐이다.
+
+<table width=100% border=on>
+
+<tr>
+<td width=33%><strong>Component</strong></td>
+<td width=33%><strong>Linux</strong></td>
+<td width=34%><strong>Windows NT Server 4.0</strong></td>
+</tr>
+<tr>
+<td width=33%>Operating System</td>
+<td width=33%>Free, or around $49.95 for a CD-ROM distribution</td>
+<td width=34%>Five-User version $809<BR>
+              10-User version $1129<BR>
+              Enterprise Edition 25-User Version $3,999</td>
+</tr>
+<tr>
+<td>Free online technical support</td>
+<td>Yes,
+<A HREF="http://www.linux.org/help/howto.html">
+Linux Online</A> or
+<A HREF="http://www.redhat.com/">
+Redhat</A></td>
+<td>No</td>
+</tr>
+<tr>
+<td>Kernel source
+code</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td width=33%>Web Server</td>
+<td width=33%>Apache Web Server</td>
+<td width=34%>IIS</td>
+</tr>
+<tr>
+<td width=33%>FTP Server</td>
+<td width=33%>Yes</td>
+<td width=34%>Yes</td>
+</tr>
+<tr>
+<td width=33%>Telnet Server</td>
+<td width=33%>Yes</td>
+<td width=34%>No</td>
+</tr>
+<tr>
+<td>SMTP/POP3 Server</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Yes</td>
+<td>Yes, though reports indicate that it is a broken implentation with limited functionality.</td>
+</tr>
+<tr>
+<td>Networking</td>
+<td>TCP/IP, IPv6, NFS, SMB, IPX/SPX, NCP Server (NetWare Server), AppleTalk, plus many other protocols</td>
+<td>TCP/IP, SMB, IPX/SPX, AppleTalk, plus many other protocols</td>
+</tr>
+<tr>
+<td>X Window Server<BR>
+(For running remote <BR>
+GUI-based applications)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Remote Management Tools</td>
+<td>Yes, all tools</td>
+<td>Only "User Manager for Domains" <BR>
+and "Server Manager"</td>
+</tr>
+<tr>
+<td>News Server</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>C and C++ compilers</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Perl 5.0</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Revision Control</td>
+<td>Yes, <A HREF="http://sunsite.unc.edu/LDP/HOWTO/mini/RCS.html">RCS</A>
+</td>
+<td>No</td></tr>
+<tr>
+<td>Number of file systems supported</td>
+<td>32</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Disk quotas support</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Number of GUIs (window managers) to choose
+from</td>
+<td>4</td>
+<td>1</td>
+</tr>
+</table>
+
+<hr>
+
+<h2><a name="bigguys">주요 회사들의 구축 사례</a></h2>
+
+<P><B><A HREF="http://www.amazon.com/">Amazon.com</A></B>
+
+<P>세계에서 가장 큰 온라인 서점인 Amazon.com은 24 시간 내내 인터넷
+비즈니스를 처리하기 위해 디지탈 유닉스 알파 서버 2000 시스템을
+사용하고 있다.  디지탈 VLM64 기술을 통해 방대한 자료를 고객에게
+서비스할 수 있다.  "디지탈 알파서버 시리즈의 확장 웹 서버 기술은 우리의
+초고속 성장에 맞춰 나갈 수 있는 해결책을 제시하고 있다."
+
+<P><B><A HREF="http://www.boeing.com/">보잉</A></B>
+
+<P>운영체계 : HP-UX, IRIX, 솔라리스, 일부 기술자를 위한 NT<br>
+<b><a href="#boeing">리눅스 토르발즈가 보잉 사에 대하여 한 말을 참고!</a></b><br>
+웹 서버 : 네스케이프-엔터프라이즈 2.01
+
+<P><B><A HREF="http://www.dallascowboys.com">달라스 카우보이</A></B>
+
+<P>운영체계 :<b>
+<A HREF="http://www.sgi.com/Products/hardware/servers/products/Irix.html">
+IRIX</a></b>(실리콘 그래픽스 유닉스 운영체계)와 유닉스 시스템 V 릴리즈 4.0<br>
+MTA : 네스케이프 메시징 서버 3.01<br>
+웹 : 네스케이프 엔터프라이즈 3.0
+
+
+<P><B><A HREF="http://www.dow.com/">다우 코닝</A></B>
+
+<P>"우리는 전세계적인 일을 하고 있으며 항상 메인프레임만을 사용해 왔다.
+썬을 선택하는 것은 처음에 매우 위험한 일이었으나 그들이 제시하는 기술에
+강한 인상을 받았다.  썬과의 일이 제대로 진행되고 있기 때문에 앞으로도 썬
+이외의 다른 결정은 하지 않을 것이다.  썬은 매우 놀랍게 일을 처리하고 있다."<br>
+-- Mark Smith, 다우 코닝의 정보 기술 시스템 관리자.
+
+<p>
+<B><A NAME="ms-solaris" HREF="http://www.hotmail.com">핫메일</A></B>,
+<B><A HREF="http://www.microsoft.com">마이크로소프트 사</A></B>
+
+<p>이 공짜 웹 기반 전자우편 서비스에는 썬 솔라리스와 FreeBSD를 사용하고 있다.
+웹 서버 소프트웨어는 아파치 1.2.1이다.  마이크로소프트 사가 이 회사를 사들인
+1997년 12월에 이들은 NT로 이전하려고 시도했으나, "들리는 바에 의하면
+천만명의 사용자에 대한 지원 요구를 처리하기에는 NT는 소규모였으며, 다시
+솔라리스를 사용하였다."  전체 이야기는
+<A HREF="http://www.kirch.net/unix-nt/hotmail.html">
+마이크로소프트의 핫메일 서비스에 솔라리스가 사용된다</A>에서 볼 수 있다.
+
+
+<P><B>
+<A NAME="usps" HREF="http://www.usps.gov/">
+미 우체국 서비스</A></B>
+
+<p>"미 우체국 서비스는 900대의 리눅스 기반 시스템으로 공급하고 있다.
+우편물에서 상대방 주소를 자동으로 인식하기 위해 1997부터 사용하고 있는 것이다.
+각각의 시스템은 다섯대의 듀얼 펜티엄 프로 200MHz (PP200) 컴퓨터와 한대의
+싱글 PP200이며, 모두 리눅스를 사용하고 있다."<br>
+-- 존 테이브,
+<A HREF="http://members.aa.net/~jtaves/linux.htm">
+리눅스가 여러분의 편지를 읽어낸다</A>, 1998년 4월 8일
+
+
+
+<P><B><A HREF="http://www.yahoo.com">야후!</A></B>
+
+<P>"... 며칠 뒤 우리는 웹 서버 클러스터에 FreeBSD를 추가하였다.  이 머신은 다른
+것들보다 훨씬 뛰어난 성능을 보임은 물론이며 더욱 안정적이기까지 하다.
+몇 주 후 우리는 완전히 매료되었다.  가격도 인상적이었지만 우리는 매료시킨
+것은 안정성, 성능, 그리고 소스 코드를 볼 수 있다는 점이었다.  그 이후로
+우리는 실제적인 작업은 물론이며 개발 작업에서도 FreeBSD를 본격적으로 사용하고
+있다."<br>
+-- David Filo, 야후!의 공동 창업자 (<i>FreeBSD 뉴스</i>, 이슈 1)
+
+
+<P><b>
+<A HREF="http://www.m-tech.ab.ca/linux-biz/">리눅스를 일상의 업무에 사용하고
+있는 비지니스</a></b> 목록은 다른 상용 유닉스 운영체제를 대체할 수 있는 리눅스의
+실제 힘을 보여주고 있다.  이들 회사들에는
+<B><A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">시스코 시스템즈</A></B>,
+<B><A HREF="http://www.m-tech.ab.ca/linux-biz/sony.html">소니 월드와이드 네트웍</A></B>,  <B>
+<A HREF="http://www.m-tech.ab.ca/linux-biz/mercedes.html">머세드-벤츠</A></B>, <B>
+<A HREF="http://www.m-tech.ab.ca/linux-biz/taxi1.html">엘로우 택시 서비스 사</A></B>
+등이 있다.  리눅스를 어디에 어떻게 사용하고 있는 지에 대한 자세한 설명은
+이들 회사 목록을 따라가 보기 바란다.
+
+<P><A NAME="cisco">인포월드</a>는
+<B><A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">시스코 시스템 사</a></b>
+가 리눅스로부터 NT로 전환했을 지 모른다는 사실에 대하여 다음과 같이 적었다:
+
+<BLOCKQUOTE>
+"플랫폼 전환 문제에 있어 시스코 시스템이 내부 네트웍 프린트 서버를 바꿨을
+지도 모른다.  하지만 여전히 회사의 현재 내부구조는 리눅스 기반이며
+잘 작동 중이다.  하지만 아직도 상층에서는 걸고 넘어지려 하고 있다.
+시스코와 마이크로소프트의 관계 때문에 수석 관리자들은 윈도 NT 기반으로 기존의
+시스템을 갈아엎으려고 한다는 말을 들었다.  하지만 기존의 흐름이 이를
+이겨냈으며 상층의 지시에도 불구하고 프린팅 시스템은 여전히 리눅스로
+운영 중이다."<br>
+
+-- Robert X. Cringley,
+"No Sunday in the Park : Rain Pushes platforms closer to the precipice",
+인포월드 1998년 2월 23일, 볼륨 20, 이슈 8 페이지 115
+</BLOCKQUOTE>
+
+<p><a name="boeing">리눅스의 창시자인 리누스 토르발즈</a>는 인포월드와의
+인터뷰에서 리눅스가 종종 몇몇 회사에서 '비공식적으로 공인된 목록'이라고
+밝히고 있다.
+
+<BLOCKQUOTE>
+"하지만 많은 사람들은 공식적으로 나와서 자신들이 리눅스를 쓰고 있다고
+말하기를 원하지 않는다.
+<B><A HREF="http://www.hq.nasa.gov/">NASA</A></B>는 대학들처럼 리눅스 지원에
+공개적이다.
+<B><A HREF="http://www.boeing.com/">Boeing</A></B>과 같은 회사에서도
+리눅스를 사용하고 있다는 사실을 알지만 그런 말을 하고
+있는 웹 페이지를 소개할 수는 없다."<br>
+
+--
+<A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">
+리누스 토르발즈가 경제성과 운영체계에 대하여 한 말들</a>,
+인포월드 1998년 4월 9일
+</BLOCKQUOTE>
+
+<hr>
+
+<h2><a name="links">관련 링크</a></h2>
+
+
+<P><B><A HREF="http://www.isdmag.com/Editorial/1998/CoverStory9807.html">
+Engineers Speak Out: Linux vs. Windows NT, Part 1</A></B><BR>
+by Murry Shohat, <A HREF="http://www.isdmag.com/">
+<I>Intergrated System Design</I> Magazine</A>, July 1998.
+
+<P><B><A HREF="http://www.pcquest.com/editorial/edit-may98.html">
+The "Decline" and Rise of Unix</A></B><BR>
+by Prasanto K. Roy, <A HREF="http://www.pcquest.com/">
+PC Quest</A>.
+
+<P><B><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/">
+NT Lies</A></B><BR>
+by Ed Bott, <A HREF="http://www.zdnet.com/">ZDNet</A>, July 1997.
+
+<P><B><A HREF="http://slashdot.org/articles/9804211730214.shtml">
+Sun Joins Linux International</A></B><BR>
+<A HREF="http://slashdot.org/">Slashdot</A>, 21 May 1998.
+
+<P><B><A HREF="http://slashdot.org/articles/980529098226.shtml">
+Update on Sun joining Linux International</A></B><BR>
+<A HREF="http://slashdot.org/">Slashdot</A>, 29 May 1998.
+
+<P><B>
+<A HREF="http://earthspace.net/~esr/writings/cathedral-paper.html">
+The Cathedral and the Bazaar</A></B><BR>
+by Eric S. Raymond, 29 January 1998.
+
+<P><B>
+<A HREF="http://www.aberdeen.com/research/comp/viewpnts/1997/v10n20/97090178.htm">
+Microsoft: The Joker of Enterprise IS Computing</A></B><BR>
+by The <B>
+<A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>,
+Executive Viewpoint, Volume 10 / Number 20, September 29, 1997.
+
+<P><B>
+<A HREF="http://www.aberdeen.com/research/comp/whtpaper/1998/98031201.htm">
+Interoperability: Possibility or Elusive Dream? -- An Executive White Paper</A></B><BR>
+by The <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>, March 1998.
+
+<P><B>
+<A HREF="http://www.aberdeen.com/research/comp/onsite/case1/body.htm">
+<I>OnSite</I> - Case Study: Migration Migraines</A></B><BR>
+by The <B>
+<A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>, 1997.
+
+<P><B>
+<A HREF="http://www.aberdeen.com/research/comp/onsite/case2/body.htm">
+Case Study: Horns of a Dilemma</A></B><BR>
+by The <B>
+<A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>.
+
+
+<P><B>
+<A HREF="http://cwlive.cw.com:8080/home\online9697.nsf/All/970724windows">
+Windows NT no match for UNIX, IDC says</A></B><BR>
+by Rob Guth, <B><A HREF="http://www.computerworld.com">Computerworld</A></B>, 7-24-97.
+
+<P><B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/np102896.htm">
+It will take less drive to make most PC operating
+systems work like Unix</A></B><BR>
+by Nicholas Petreley, <A HREF="http://www.infoworld.com/">InfoWorld</A>,
+28 October 1996.
+
+<P><B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.win3.htm#linux">
+1997 Product of the Year Award: Operating Systems - Network Operating System</A></B><BR>
+by Eric Hammond, <A HREF="http://www.infoworld.com/">InfoWorld</A> Test Center.
+
+<P><B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.supp.htm">
+1997 Product of the Year Award: Best Technical Support Award</A></B><BR>
+by Ed Foster, <A HREF="http://www.infoworld.com/">InfoWorld</A> Test Center.
+
+<P><B><A HREF="http://odin.appliedtheory.com/linux-activism/">
+Linux Reviews and Articles</A></B> by Christopher Blizzard. <BR>
+This page lists 65 articles or reviews of Linux.
+
+<P><B><A HREF="http://currents.net:80/magazine/national/1524/inet1524.html">
+Linux Grows Up: Red Hat's commercial Linux beats NT at its own
+game</A></B>, by Maggie Biggs.<BR>
+The author is a senior analyst in the
+<A HREF="http://www.infoworld.com/">InfoWorld</A>
+ Test Center.  She specializes in database technology and application
+ design, development, and deployment via intranets and other networks.
+
+ <P><B><A HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">
+ Linux lines up for the enterprise:
+ Is there a place in your shop for this inexpensive UNIX?</A></B><BR>
+ by Rick Cook, in:
+ <A HREF="http://www.sun.com/sunworldonline/swol-01-1998/">SunWorld - January 1998</A>.
+
+ <P><B><A HREF="http://www.nwfusion.com/intranet/0330linux.html">
+ Lookin' into Linux</A></B><BR>
+ by Mark Gibbs, Network World, March 30, 1998.
+
+ <P><B><A HREF="http://guide.sbanetweb.com/press/nw818.html">
+ Doing the math to resolve the NT vs. UNIX debate</A></B><BR>
+ by Wayne Spivak, Network World, August 18, 1997
+
+ <P><B><A HREF="http://www.iserver.com/servers/compare/bsd_vs_nt.html">
+ The advantages of using BSDI BSD/OS over Windows NT Server</A></B><BR>
+ iServer - Verio Web Hosting Inc. - Virtual Servers
+
+ <P><B><A HREF="http://www.zdnet.com/sr/business/opportunity/980211b.html">
+ Linux: Not Just For Geeks And College Kids Anymore</A></B>, by Jason Perlow,
+ <A HREF="http://www.zdnet.com/">ZDNet</A>, February 11, 1998.
+
+ <P><B><A HREF="http://www.zdnet.com/pcmag/issues/1613/pcmg0068.htm">
+ Leaning Toward Linux: Powerful, robust, and free, Linux is worth
+ investigating, especially if you plan to set up an Internet
+ domain</A></B> by Neil Randall,
+ <A HREF="http://www.zdnet.com/pcmag/issues/1613/contents.htm">
+ ZDNet - PC Magazine Online, July 1997, Vol 16, No. 13.</A>
+
+ <P><B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html">
+ Replacing Windows NT Server with Linux</A></B> by Quinn P. Coldiron,
+ Information Systems Department manager for the University of Nebraska
+ Press.
+
+ <P><B><A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+ An In-Depth Analysis of Five Commercial UNIX Operating Systems and
+ Windows NT Server 4.0 (Enterprise Edition) by D.H. Brown Associates,
+ Inc.</A></B>
+
+ <P><B><A HREF="http://www.bsdi.com/white-papers/compare">
+ Comparing BSDI and NT:
+ Building Intranet and Internet Servers with BSDI and Windows NT</A></B>
+
+ <P><B><A HREF="http://www.standishgroup.com/syst.html">
+ The Standish Group - SUN Also Rises: Solaris Vs. NT</A></B>
+
+ <P><B><A HREF="http://www.bitwizard.nl/unixnt.html">
+ BitWizard B.V. "UNIX vs. NT"</A></B>
+
+ <P><B><A HREF="http://pubsys.cmp.com/nc/701/701hreportb.html">
+ THE H-REPORT: Which Operating System For Your 'Intranet'?</A></B>
+
+ <P><B><A HREF="http://www.ssc.com/lj/issue46/2494.html">
+ Linux Helps Bring <I>Titanic</I> to Life</A></B><BR>
+ Daryll Strauss,
+ <A HREF="http://www.ssc.com/lj/">LINUX Journal</A>,
+ <A HREF="http://www.ssc.com/lj/issue46/">Issue #46</A>, February 1998.
+
+ <HR>
+
+ <H2><A NAME="acknowledgments">Acknowledgments</A></H2>
+
+ <P>My very special thanks to Martin Vermeer, who, thanks to his advice
+ on form, argumentation presented herein, as well as having provided
+ numerous valuable and sometimes explosive links, has been,
+ and continues to be, an invaluable contributor to the
+ positive development of this dynamic project.  My deepest appreciation
+ goes to the translators who have been generous enough to donate their
+ time to this worthy cause: Brian Lin for the Traditional Chinese and
+ Simplified Chinese versions, Davor Ocelic for the Croatian translation,
+ Hanus Adler for the Czech translation,
+ Kobayashi Osamu for the Japanese translation, Bruno H. Collovini for
+ the Portuguese translation, Ilgam Vasilyev for the Russian translation,
+ Miguel Angel Sepulveda who arranged for the article to be translated
+ into Spanish, and Jos
+</div>
+</body>
+</html>

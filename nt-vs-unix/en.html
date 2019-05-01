@@ -1,0 +1,2978 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="UNIX versus Windows NT -
+	Information every manager should know when planning a corporate network or
+	the purchase of server hardware.">
+    <meta name="keywords" content="NT vs UNIX, UNIX vs NT, NT vs. UNIX,
+	UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail,
+	exchange server, microsoft, smp, aix, hp-ux, digital unix, solaris,
+	freebsd, bsdi, linux, windows nt, corporate network, mail servers,
+	operating systems, cost effective solutions, mission critical
+	operations, sendmail, apache, iis, system administration, microsoft">
+    <title>Microsoft Windows NT Server 4.0 versus UNIX</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body bgcolor="#FFFFFF">
+<div style='margin-left:10%;max-width:80%'>
+<center>
+<p>
+    <A HREF="/nt-vs-unix/cn/">Chinese</A>&nbsp; &nbsp;
+    Croatian &nbsp; &nbsp;
+    <A HREF="/nt-vs-unix/cz.html">Czech</A>&nbsp; &nbsp;
+    <A HREF="/nt-vs-unix/fr.html">French</A>&nbsp; &nbsp;
+    <A HREF="/nt-vs-unix/de.html">German</A>&nbsp; &nbsp;
+    <A HREF="/nt-vs-unix/id.html">Indonesia</A>&nbsp; &nbsp;
+<P>
+    <A HREF="/nt-vs-unix/jp.html">Japanese</A>&nbsp; &nbsp;
+    <A HREF="/nt-vs-unix/kr.html">Korean</A>&nbsp; &nbsp;
+    <A HREF="/nt-vs-unix/pt.html">Portuguese</A>&nbsp; &nbsp;
+    <A HREF="/nt-vs-unix/ru.html">Russian</A>&nbsp; &nbsp;
+    <A>Spanish</A>
+</p>
+
+</center>
+
+<hr />
+<p class="note">This paper is being presented here for historical purposes only.
+Although the HTML was recently updated to XHTML 1.0, some of the hyperlinks
+are to articles which were published 8&ndash;9 years ago, and thus, due to the
+nature of the Web, are long since defunct.<br />
+&mdash; The Author, 19 February 2007</p>
+<hr />
+
+<h1>Microsoft Windows NT Server 4.0 versus UNIX</h1>
+<p>By John Kirch<br />
+Networking Consultant and
+Microsoft Certified Professional (Windows NT)</p>
+<p>7 August 1999</p>
+
+<hr />
+
+<h2>Executive Summary</h2>
+
+<p>IT managers worldwide are being confronted with the question, should
+we go with Microsoft Windows NT Server or one of the UNIX operating
+systems? As you may already know, UNIX is not a single operating
+system; it refers to a family of operating systems which includes AIX,
+BSDI, Digital UNIX, FreeBSD, HP-UX, IRIX, Linux, NetBSD, OpenBSD,
+Pyramid, SCO, Solaris, SunOS, just to name the more prominent ones.
+Windows NT Server is increasing in popularity, but is it increasing the
+productivity of your MIS operations?  Most important of all, though,
+for you as a manager is, are you increasing the profits of your company
+when you choose a Microsoft solution?</p>
+
+<p>The bottom line is, which is cheaper?  Hardware costs, software
+licenses, technical support agreements, prices of upgrades/service
+packs, costs of hardware upgrades, profits lost for every hour of
+downtime, personnel costs for recovering/recreating data lost due to
+product defects in the operating system and/or hardware platform
+required by your choice of operating systems, and personnel costs for
+systems administrators, these are only some of the factors that
+contribute to the overall budget resulting from your decision.	It is
+not a trivial consideration.</p>
+
+<p>Although money is the bottom line for you as a manager, given the
+complex set of factors I&rsquo;ve just presented, a technically superior
+combination of server hardware and operating systems could prove to be
+less expensive in the long run.  UNIX is a mature, technically superior
+group of operating systems with a proven track record for performance,
+reliability, and security in a server environment.  The almost thirty
+years of continual development, performed often by volunteers who
+believe in what they&rsquo;re doing, has produced a group of operating
+systems&mdash;and extremely powerful multiprocessor server hardware
+tailor-made to its needs, whose performance is still unparalleled by
+Intel hardware&mdash;that not only meets the demands of today&rsquo;s computing
+needs, but in many cases exceeds them.</p>
+
+<p>Why Windows NT Server 4.0 continues to exist in the enterprise would
+be a topic appropriate for an investigative report in the field of
+psychology or marketing, not an article on information technology.
+Technically, Windows NT Server 4.0 is no match for any UNIX operating
+system, not even the non-commercial BSDs or Linux.  A manager is not
+expected to have the technical expertise of a systems administrator
+with 15 years of industry experience.  There is no shame in not having
+the facts, only in being ignorant of such facts, which will in the end
+cost your employer, and eventually all consumers, money. The aim of
+this article is to give you the resources which will enable you to make
+thoughtful and informed decisions regarding your organization&rsquo;s
+IT planning and operations.</p>
+
+<p>The following article relies on my experience in this industry,
+which started back in 1979 with Chevron Geosciences Company, and on
+roughly 150 links to other technical articles, white papers, and
+executive summaries.  At this point it should be noted that  I am not
+promoting the product of any one company, nor would my employer benefit
+should you choose UNIX.  My goal is to ease the burden of systems
+administrators, promote more efficient and economical computing
+worldwide, and encourage a more fair and diverse community of software
+vendors.</p>
+
+<hr />
+
+<table>
+<tr>
+<td align="left" valign="top">
+
+<h2>Contents</h2>
+
+<ul class="disc">
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#os">Operating Systems</a>
+    <ul class="disc">
+        <li><a href="#costs">Product costs and licensing issues</a></li>
+        <li><a href="#functionality">Functionality</a></li>
+        <li><a href="#reliability">Reliability</a></li>
+        <li><a href="#management">System Management</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#security">Security</a></li>
+    </ul></li>
+    <li><a href="#misconceptions">Some Common Misconceptions</a></li>
+    <li><a href="#views">Views of Other IT Professionals</a>
+    <ul>
+        <li><a href="feedback/">
+        Feedback from Readers of this Article</a></li>
+    </ul></li>
+    <li><a href="#web">Web Servers</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#compare">Linux and NT Server 4.0 at a Glance</a></li>
+    <li><a href="#bigguys">What are Major Companies Deploying?</a></li>
+    <li><a href="#links">Related Links</a></li>
+    <li><a href="../legal.html">Disclaimers and Other Legal Information</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+</td>
+
+<td align="left" valign="top">
+
+<h2><a name="highlights">Highlights in this Article</a></h2>
+
+<ul>
+    <li><a href="#ms-solaris">Why Microsoft uses Solaris instead of NT</a></li>
+    <li><a href="#ms-summit">Microsoft admits that NT trails Solaris</a></li>
+    <li><a href="#graphs">Graphical comparison of the various operating systems</a></li>
+    <li><a href="#stability">Which operating systems do professionals choose when
+                             stability is the most important issue?</a></li>
+    <li><a href="#win95">A little-known fact about windows95.com</a></li>
+    <li><a href="#KickAss">UNIX on a single processor PC outperforms a dual processor
+                           NT machine?</a></li>
+    <li><a href="#cisco">Cisco changing from Linux to Windows NT?</a></li>
+    <li><a href="#usps">Linux and the United States Postal Service</a></li>
+    <li><a href="#web">Web Server software; What do the Royal Family and the
+                       FBI have in common?</a></li>
+    <li><a href="#gui">Show me some UNIX, I want to see what it looks like!</a></li>
+    <li><a href="http://www.netcraft.com/cgi-bin/Survey/whats">
+        What is that Site Running?</a></li>
+    <li><a href="../resources.html">FreeBSD and Linux Resources with
+        answers to the following questions:</a>
+    <ul>
+        <li>Where can I get Linux/FreeBSD to try this out?</li>
+        <li>Where can I buy a workstation/server with Linux/FreeBSD
+        pre-installed?</li>
+        <li>Where can I find a consultant for these operating systems?</li>
+    </ul></li>
+</ul>
+</td>
+</tr>
+</table>
+
+<hr />
+
+<h2><a name="intro">Introduction</a></h2>
+
+<p>
+The choice of server platforms can be difficult for managers who do not
+have highly specialized training in systems and network administration.
+In this paper, Microsoft Windows NT Server is compared to UNIX, a large
+family of commercial and non-commercial operating systems with a common
+heritage and many similarities.  The main focus of the comparison is on
+the areas of functionality, reliability, system management, and
+performance. This paper is about servers, not workstations.  Other
+factors, such as product pricing, quantity and quality of bundled
+software, and a section on common misconceptions about both groups of
+operating systems are presented to provide a more complete view of
+these products.  The information used in this comparison is derived
+from a variety of sources: white papers, case studies by third parties,
+articles from technical periodicals, and observations made by IT
+professionals who have industry experience in the implementation and
+administration of both Microsoft Windows NT and various UNIX operating
+systems.</p>
+
+<hr />
+
+<h2><a name="os">Operating Systems</a></h2>
+
+<h3><a name="costs">Product costs and licensing issues</a></h3>
+
+<p>Most managers will agree that the mere cost of an operating system
+is trivial when looking at the big picture.  Although Windows NT Server
+4.0 can be more expensive than some commercial UNIX operating systems,
+it can be had for trivial amounts at trade shows.</p>
+
+
+<center>
+
+<p>
+Price List for Windows NT Server 4.0 (Source:
+<a href="http://www.microsoft.com/products/prodref/458_pr_st.htm">Microsoft</a>)
+</p>
+
+<table border="2">
+<tr>
+<th align="left">Product</th><th>Price (US-$)</th></tr>
+<tr>
+<td align="left">NT Server 4.0 (5-user version)</td>
+<td align="right">$809</td></tr>
+<tr>
+<td align="left">NT Server 4.0 (10-user version)</td>
+<td align="right">$1,129</td></tr>
+<tr>
+<td align="left">NT Server 4.0 Enterprise Edition (25-user version)</td>
+<td align="right">$3,999</td></tr>
+<tr>
+<td align="left">NT Server 4.0 Enterprise Edition (50-user version)</td>
+<td align="right">$4,799</td></tr>
+<tr>
+<td align="left">NT Server 4.0 Documentation Kit</td>
+<td align="right">$69.95</td></tr>
+<tr>
+<td align="left">20 Quantity Client License</td>
+<td align="right">$329</td></tr>
+<tr>
+<td align="left">Single Quantity Client License</td>
+<td align="right">$19.95</td></tr>
+</table>
+
+</center>
+
+<br />
+<p>
+Is NT Server really worth its price?  And, how can a networked operating system in this
+price range ship without a telnet server, SMTP server (e-mail),
+disk quotas, news server, or at least a DNS server that works to
+customers&rsquo; satisfaction (many NT administrators feel compelled to go
+with third party DNS solutions)? In order to match the functionality of
+a BSDI installation, additional Microsoft products and third-party
+solutions would bring the final price of a comparable NT solution to
+around $4,000, according to
+<a href="http://www.bsdi.com/white-papers/compare">BSDI</a>.
+Maggie Biggs, a senior analyst in the InfoWorld who specializes in
+database technology and application design, development, and deployment
+via intranets and other networks, estimates a price of $4,636 for a
+comparable Windows NT 4.0 solution in her
+<a href="http://currents.net:80/magazine/national/1524/inet1524.html">
+article</a> which compares NT 4.0 to Red Hat&rsquo;s commercial
+Linux (for only $49.95).
+Here one sees that successful marketing can often distract customers
+from considering their need for functionality.</p>
+
+<p>NT is often chosen for budget reasons since many customers are not
+willing to pay for the more expensive hardware required by most
+commercial flavors of UNIX.  More important, however, is the overall
+cost of implementation which includes system administration along with
+several other factors like downtime, telephone support calls, loss of
+data due to unreliability, etc.  For a more detailed discussion of NT&rsquo;s
+hidden costs, see the following
+<a href="http://www.informationweek.com/">
+InformationWeek</a> article:</p>
+
+<blockquote>
+Windows NT systems carry lower sticker prices than
+their Unix counterparts, but ongoing maintenance and
+support requirements can make them much more costly
+to run.
+<br />
+&mdash; Martin J. Garvey,
+&ldquo;<a href="http://www.informationweek.com/692/92iuhid.htm">
+The Hidden Cost Of NT</a>,&rdquo;
+<a href="http://www.informationweek.com/">
+<i>InformationWeek</i></a>, 20 July 1998.
+</blockquote>
+
+<p>Tippett Studio, the company
+responsible for the graphics in
+<i><a href="http://imdb.com/title/tt0120201/">Starship Troopers</a></i>,
+which received
+an Oscar nomination for Best Special Effects, uses 130 SGI
+(<a href="http://www.sgi.com/">Silicon Graphics, Inc.</a>) machines running
+<a href="http://www.sgi.com/origin/products/irix.html">IRIX</a>, SGI&rsquo;s
+very own UNIX operating system.  Tippett&rsquo;s studio operations manager
+explains why they use SGI with IRIX instead of an NT solution:</p>
+
+<blockquote>
+<p>&ldquo;SGIs are cheap for what they do,&rdquo; says Tippett&rsquo;s Jeff Stringer, the
+studio&rsquo;s operations manager. &ldquo;The cost of maintaining an NT system is
+pretty high when you think of all the system administrators you have to
+hire.&rdquo;</p>
+
+<p>Hiring is an especially big concern for the small studio. Unlike
+the super-studios, Tippett&mdash;which designed the bugs that threaten
+humanity in
+<i><a href="http://imdb.com/title/tt0120201/">Starship Troopers</a></i>&mdash;is an f/x boutique.</p>
+
+<p>&mdash; Greg Lindsay,
+&ldquo;Oscar Tech,&rdquo; The Netly News, 27 February 1998.</p>
+</blockquote>
+
+<p>For the most cost-conscious customer,
+<a href="http://www.linux.org">Linux</a>,
+<a href="http://www.freebsd.org">FreeBSD</a>,
+<a href="http://www.netbsd.org/">NetBSD</a>, or
+<a href="http://www.openbsd.org/">OpenBSD</a>
+would be the obvious choices. They cost nothing, yet they are
+just as stable and offer as much functionality as, if not more than,
+the commercial UNIX operating systems.</p>
+
+<p>Journalists R. Scott Raynovich and Polly Sprenger at LAN Times
+indirectly point out the flexibility of the
+<a href="http://www.opensource.org/">Open Source</a> concept
+in their recent article on Linux and how
+commercial organizations can benefit from it:</p>
+
+<blockquote>
+<p>. . . Linux
+can be downloaded for free over the Internet or obtained
+inexpensively with support and documentation from a
+number of commercial vendors. This makes it an
+attractive product for companies trying to reduce the
+cost of licensing and managing OSes.</p>
+
+<p>&mdash; R. Scott Raynovich and Polly Sprenger,
+&ldquo;Linux legitimacy rallies NT skeptics,&rdquo;
+<i>LAN Times</i>,
+17 August 1998.</p>
+</blockquote>
+
+<p>In <a href="http://www.softwaremagazine.com/">Software Magazine</a>&rsquo;s
+recent cover story on Linux, Ann Harrison points out how even large
+companies are finding a cost effective alternative to Microsoft in the
+deployment of Linux servers:</p>
+
+<blockquote>
+<p>Randy Kessell, manager of technical analysis for a Southwestern Bell
+operation center, notes that
+because Linux allows his company to do more remote network
+administration and software loads
+than was possible with either Microsoft or NetWare products, it has
+driven down their network management costs.</p>
+<p>&mdash; Ann Harrison,
+&ldquo;<a href="http://www.softwaremag.com/Sept98/sm098cv.htm">
+In LINUX We . . .</a>,&rdquo;
+<i><a href="http://www.softwaremagazine.com/">
+Software Magazine</a></i>, Cover Story, September 1998.</p>
+</blockquote>
+
+
+<p>One reader informed me that
+mentioning Linux would detract from the credibility of this article.  I
+beg to differ. The existence of such alliances as mentioned in the
+article
+&ldquo;<a href="http://www.techweb.com/wire/story/TWB19980402S0013">
+Andreessen Sees Mozilla-Linux Upset of Windows</a>,&rdquo; clearly shows
+that Linux is strengthening its presence in commercial environments.
+(For newcomers to this arena, Mozilla is the name of the
+Netscape/Communicator code and Marc Andreessen is Cofounder and
+Executive VP of Products at Netscape.)	Also noteworthy is a new
+alliance between
+<a href="http://www.sun.com/">Sun Microsystems</a> and
+<a href="http://www.li.org/">Linux International</a>.
+(<a href="http://slashdot.org/">Slashdot</a>:
+<a href="http://slashdot.org/articles/9804211730214.shtml">
+Sun Joins Linux International</a>, 21 May 1998) &nbsp;
+Yet another recent development is
+<a href="http://www.corel.com/">Corel</a>&rsquo;s special relationship with
+Linux:</p>
+
+<blockquote>
+. . . <a href="http://www.corel.com/">Corel</a>, which has already
+announced plans to build a Linux-based network computer, said it will
+next month post free Linux-based development tools to its Web site,
+joining a number of software companies supporting the Linux open source
+movement.<br />
+&mdash; Erich Luening,
+&ldquo;<a href="http://www.news.com/News/Item/0,4,21929,00.html">
+Corel joins Linux fest</a>,&rdquo;
+<i><a href="http://www.news.com">CNET News.Com</a></i>, 8 May 1998.
+</blockquote>
+
+<p>The very latest headlines indicate that Linux is well on its way into
+the major leagues:
+<a href="http://www.zdnet.com/zdnn/stories/zdnn_smgraph_display/0,3441,2121004,00.html">
+Informix, Oracle ready to port to Linux</a>
+(<a href="http://www.zdnet.com/pcweek/">PCWeek Online</a>, 20 July 1998),
+<a href="http://www.zdnet.com/pcweek/news/0720/20morac.html">
+Oracle to port database to Linux</a>
+(<a href="http://www.zdnet.com/pcweek/">PCWeek Online</a>, 20 July 1998),
+and
+<a href="http://www.news.com/News/Item/0,4,20863,00.html?st.ne.ni.rel">
+Netscape: Linux a top priority</a>
+(<a href="http://www.news.com/">CNET News.Com</a>, 7 April 1998).</p>
+
+<p>Historically, large corporations have steered clear of free software
+due to the unfounded assumption that anything free can&rsquo;t be worthwhile.
+The recent trend among some corporations is to use these
+cost-effective operating systems.  Hewlett-Packard used Linux instead
+of its own HP-UX operating system "to port the Carnegie Mellon Mach
+kernel to HP
+PA-RISC in order to use it for their imagery work.
+(<a href="http://www.ssc.com/lj/issue44/2355.html">
+full story</a>)  &nbsp; Schlumberger chose Linux over SCO for its new point of sale computers.
+(<a href="http://www.ssc.com/lj/">
+Linux Journal</a>, November 1997, Issue 43, pp. 83-4)  It is
+interesting to note that <i>SunWorld
+On-Line</i> gives Linux positive press in one of its articles,
+&ldquo;Linux lines up for the enterprise.&rdquo;</p>
+
+<p>The September 1998
+<i><a href="http://www.softwaremagazine.com/">Software Magazine</a></i>
+cover story reveals just how far Linux has managed to infiltrate
+corporate America and how it is not about to go away:</p>
+
+<blockquote>
+<p>Tim Payne, director of
+database marketing at Oracle, says many of his company&rsquo;s corporate
+customers have made large
+investments in Linux. When Oracle announced in July that it would be
+offering 24x7 support for
+Oracle8 on Linux, he says 300 customers called the next day asking
+about availability. &ldquo;It&rsquo;s reliable,
+it&rsquo;s proven, it runs on commodity Intel boxes, and it&rsquo;s a really
+low-cost alternative to NT,&rdquo; says
+Payne. &ldquo;The fact that you are going to be able to get enterprise
+quality support from Oracle to deploy on
+the Linux platform will help customers adopt Linux.&rdquo;</p>
+<p>&mdash; Ann Harrison,
+<a href="http://www.softwaremag.com/Sept98/sm098cv.htm">
+In LINUX We . . .</a>,
+<a href="http://www.softwaremagazine.com/">
+Software Magazine</a>, Cover Story, September 1998.</p>
+</blockquote>
+
+<p>Since these operating
+systems are free for use even in commercial environments, many ISPs run
+on Linux or FreeBSD.  NetBSD will run on practically anything: DEC
+Alpha, Motorola 68k (Amiga, Atari, Mac, MVME, Sharp, Sun3), PowerPC,
+Intel, DEC VAX, Acorn RISC, MIPS (Sony NEWS, DECstation), etc.
+OpenBSD&rsquo;s primary focus is on correctness and security. Linux is the
+most popular and will run on a wide range hardware:  Sun, Intel, DEC
+Alpha, PowerPC, PowerMac, etc.
+Paul Krill&rsquo;s recent articles in
+<i><a href="http://www.infoworld.com/">InfoWorld</a></i>
+(&ldquo;<a href="http://www.infoworld.com/cgi-bin/displayStory.pl?980710.whlinux.htm">
+Linux picking up steam</a>&rdquo; and
+&ldquo;<a href="http://www.infoworld.com/cgi-bin/displayStory.pl?980715.ehlinux.htm">
+Linux supporters rally around freeware OS</a>&rdquo;) focus on the ever
+increasing support of major vendors and future plans for added
+functionality, i.e. support for Intel&rsquo;s 64-bit Merced processor.
+Currently, Linux is perhaps the fastest
+growing operating system on the market.  For more information, see
+<a href="http://www.linuxresources.com/">Linux Resources</a> or
+<a href="http://www.redhat.com">Red Hat Software</a>.</p>
+
+<p>Nicholas Petreley, editor-in-chief of NC World and columnist
+for InfoWorld and NT World Japan provides an explanation
+for the rise of Linux and FreeBSD in IT departments:</p>
+
+<blockquote>
+<p>Yesterday&rsquo;s college students learned their UNIX expertise on Linux and
+FreeBSD. Today they&rsquo;re working in IT departments, and many of them are
+openly hostile to both Microsoft and Windows NT. As a result, Linux,
+BSD, Solaris, and other forms of UNIX are finding their way into IT
+departments, both overtly and on the sly.</p>
+
+<p>For example, are you sure that&rsquo;s an NT server you&rsquo;re connecting to
+at work? IS employees in many corporations have secretly installed UNIX
+servers that provide native NT services. Why take such a risk? Linux
+and FreeBSD are free, as is SAMBA, the software that provides NT
+services. So the IS department saves money. And managers are unlikely
+to find out UNIX is behind the scenes because fewer people will
+complain about server downtime.</p>
+
+<p>Fewer people will complain because the servers are more stable than
+Windows NT. Linux, FreeBSD, and BSDI UNIX outperform Windows NT by a
+wide margin on limited hardware, and under some circumstances can
+perform as well or better than NT on the best hardware. Once behind in
+scalability features, UNIX on Intel is catching up and may soon surpass
+NT in the number of processors it can use, and how it uses them.</p>
+
+<p>&mdash; Nicholas Petreley,
+<a href="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">
+The new UNIX alters NT&rsquo;s orbit: The re-emergence of UNIX threatens to
+modify the future direction of NT</a>,
+<i><a href="http://www.ncworldmag.com/ncworld/">
+NC World</a></i>, April 1998.</p>
+
+</blockquote>
+
+<p>Even <i><a href="http://www.economist.com/">The Economist</a></i> is now
+reporting on the rising popularity of Linux:</p>
+
+<blockquote>
+<p>Oracle, a database firm, is planning to offer Linux versions of some
+of its software. . . .  Even without such endorsements, Linux has
+achieved a measure of success. In only a few
+years, the program has evolved from a hacker&rsquo;s toy into software that
+is, at least in part,
+technically superior to Windows NT.</p>
+<p>&mdash; Stephen Morley,
+&ldquo;Revenge of the hackers,&rdquo;
+<a href="http://www.economist.com/">The Economist</a>,
+July 11th &ndash; 17th 1998.</p>
+
+</blockquote>
+
+<h3><a name="functionality">Functionality</a></h3>
+
+<p>What can you expect from Windows NT Server out of the box and from UNIX
+out of the box?  NT can communicate with many different types of
+computers.  So can UNIX.  NT can secure sensitive data and keep
+unauthorized users off the network.  So can UNIX. Essentially, both
+operating systems meet the minimum requirements for operating systems
+functioning in a networked environment.  Put briefly, UNIX can do
+anything that NT can do and more.</p>
+
+<p>NT is often considered to be a &ldquo;multi-user&rdquo; operating system, but
+this is very misleading.  An NT server will validate an
+authorized user, but once the user is logged on to the NT network, all
+he/she can do is access files and printers.  The NT user cannot just
+run any application on the NT server (in order to take advantage
+of the superior processing power of server hardware).  An NT user can
+only run special applications that have been written in two pieces,
+i.e.  client/server applications.  When a user logs in to a UNIX
+server, he/she can then run any application (provided the user
+is authorized to do so), thus taking the processing load off his/her
+workstation.  This also includes graphics-based applications since
+X-server software is standard issue on all UNIX operating systems.</p>
+
+<p>For most businesses, e-mail has become an indispensable tool for
+communication, and most companies run their own internal/external
+e-mail systems.  With Windows NT, you will have to buy a separate
+software package in order to set up an e-mail server.  UNIX operating
+systems come with a program called
+<a href="http://www.sendmail.org">sendmail</a>.  There are other
+mail server software packages (or MTAs, Mail Transport Agents)
+available for UNIX, but this one is the most widely used, and it is
+free.  Some UNIX administrators feel that
+<a href="http://www.exim.org/">exim</a> or
+<a href="http://www.qmail.org/">qmail</a> are better choices
+since they are not as difficult to configure as sendmail.  Both exim
+and qmail, like sendmail as well, are free for use even in a commercial
+environment.
+Many NT-based companies use
+<a href="http://www.microsoft.com/exchange/default.asp">
+Microsoft Exchange Server</a>
+as their MTA.  This is an expensive solution with limited success in an
+enterprise environment.  Microsoft Exchange Server Enterprise
+Edition - 25 Client Access Licenses costs $3,549.00.
+If you have more than 25 employees, the same package with 50 Client
+Access Licenses costs $4,859.00 (Source: Microsoft)
+For more information on this topic see
+<a href="sendmail-exchange.html">
+Microsoft Exchange versus Sendmail:
+Views of Other IT Professionals</a>.</p>
+
+<p>Since Microsoft sees NT as a viable alternative to all other
+network-capable operating systems on the market, UNIX and Novell
+included, one would assume that NT would come with all the tools
+necessary to  accomplish the most basic tasks required: file and
+printer services.  Any systems/network administrator knows from
+experience that there are two important issues to be considered when
+setting up a file server or adding a new network user: security, i.e.
+passwords and file permissions; and quotas for limiting disk usage of
+any new or existing users or groups.  Although NT provides basic
+password security, it only provides file-level security if you choose
+to use its proprietary filesystem called NTFS.	More important than
+this issue, however, is that NT does not provide any mechanism for
+limiting a user&rsquo;s disk usage! UNIX and Novell, on the other hand,
+provide software for performing this seemingly elementary control.
+Microsoft has announced, however, that its not yet released NT Server
+5.0 will provide &ldquo;new storage management features such as disk quotas
+.&nbsp;.&nbsp;.&rdquo; (Microsoft Press Release: &ldquo;Windows NT 5.0 Beta Delivered
+to Over 200,000 Developers,&rdquo; September 1997).</p>
+
+<p>Another disk related design flaw in the Microsoft suite of operating
+systems is its antiquated use of "drive letters," i.e. drive C:, drive
+D:, etc.  This schema imposes hardware specific limitations on system
+administrators and users alike.  This is highly inappropriate for
+client/server environments where network shares and file systems are
+to represent hierarchies meaningful to humans.  UNIX allows shared
+network filesystems to be mounted at any point in a directory structure.
+A network share can also span multiple disk drives (or even different
+machines!) in UNIX, thus
+allowing administrators to maintain pre-existing directory structures
+that are well-known to users, yet allowing them to expand the available
+disk space on the server, making such system changes transparent to
+users.  This single difference between the UNIX and Windows operating
+systems further underscores the original intentions of their respective
+designers: UNIX was conceived as a client/server operating system for
+professional use, whereas Windows and its descendents sprang from DOS,
+an operating system that was never intended to be a player in a
+client/server environment, much less a server.  For more detailed
+information on this topic, see Nicholas Petreley&rsquo;s article
+
+&ldquo;<a href="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/np102896.htm">
+It will take less drive to make most PC operating
+systems work like Unix</a>.&rdquo;</p>
+
+<p>Last but not least, UNIX operating systems are equipped with
+scripting languages (Bourne Shell, Korn Shell, C Shell, and sometimes
+Perl, just to name a few) and a &ldquo;cron&rdquo; facility for scheduling jobs to
+run at fixed intervals (every <i>n</i> minutes, every <i>n</i> hours,
+once a week, once a month, etc.).  <tt>cron</tt> scheduling is highly
+configurable and not just limited to these examples here.  In short,
+<i>high-level scripting languages</i> <tt>+ cron =</tt> <i>a powerful resource for system
+administration</i>, the likes of which cannot be found in Microsoft NT
+Server 4.0.  A great deal of UNIX system administration is automated
+and customized for site-specific needs through the use of these tools,
+which in effect cuts down on personnel costs.  As one reader pointed
+out, NT does have a &ldquo;scheduler&rdquo; and an &ldquo;<tt>at</tt>&rdquo; command,
+and that Perl is
+available for NT. Yes, this is true, however, I don&rsquo;t feel that NT&rsquo;s
+limited <tt>cmd.exe</tt> scripting environment combined with the &ldquo;scheduler&rdquo; or
+&ldquo;<tt>at</tt>&rdquo; can even begin to approach the functionality offered by the UNIX
+tools I&rsquo;ve mentioned.  One reader, Neil McKellar, provided an excellent
+<a href="feedback/neil_mckellar.job_scheduling.html">
+example</a>
+which supports this statement.</p>
+
+<p>Running automated tasks is only useful when the
+scripts/tasks/executables can be run without human intervention.  So
+much that runs on NT is GUI-based, and thus, requires interaction with
+a human administrator. If seen realistically, the types of automated
+tasks that are being run in most shops are site-specific routines that
+have to be programmed by system administrators.  Based on my own
+industry experience, it is a rare site indeed where Perl is installed
+on NT servers and there is any NT administrator who knows the first
+thing about Perl.  The driving force behind buying cheap hardware goes
+hand-in-hand with the hiring practice of selecting the cheapest NT
+administrators available; after all, it&rsquo;s NT, all you have to do is
+point and click!</p>
+
+<p>To summarize, once you logon to an NT network, all you can do is
+read files and print. In a UNIX environment, once you log in to a UNIX
+server, you can be on that machine and do anything on it that
+you could do if you were sitting at its keyboard and mouse!  With
+NT, don&rsquo;t plan on being able to set up an e-mail server with the
+software at hand.  You will need to buy expensive mail server software
+like Microsoft Exchange Server separately.  If your NT server should
+function as a file server&mdash;what else can you do with it
+really?&mdash;don&rsquo;t plan on being able to prevent users from
+crashing the server by
+filling up the disk(s) with their data.</p>
+
+<p>Ease of configuration and being able to configure a server without
+causing downtime is yet another aspect of functionality:</p>
+
+<blockquote>
+<p>Some versions of UNIX (Linux, for example) support loadable device
+modules. This means you can boot Linux and reconfigure its support for
+hardware and software on the fly. For example, you can boot Linux
+without support for the SCSI card you have installed. You simply load
+support for that SCSI card when you need to access one or more of the
+SCSI-connected devices, such as an optical disk for backup. You can
+unload the SCSI driver when you&rsquo;re finished. You can also freely load
+and unload support for sound cards, network cards &mdash; even file systems
+such as HPFS, FAT, VFAT, and others (an NTFS driver is in the works).</p>
+
+<p>Any UNIX with loadable module support is therefore by nature more
+appropriate for a server environment because almost all configuration
+changes do not require system restarts.</p>
+
+<p>Windows NT doesn&rsquo;t even come close. Even insignificant changes to a
+Windows NT configuration require or request a shutdown and reboot in
+order to make the changes take effect. Change the IP address of your
+default gateway and you need to reboot. You can&rsquo;t even change the type
+of modem you use for a dial-up PPP connection without a reboot to
+update the system. None of these limitations exist in UNIX.</p>
+
+<p>&mdash; Nicholas Petreley,
+<a href="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">
+The new UNIX alters NT&rsquo;s orbit: The re-emergence of UNIX threatens to
+modify the future direction of NT</a>,
+<a href="http://www.ncworldmag.com/ncworld/">
+NC World</a>, April 1998.</p>
+</blockquote>
+
+<p>When it comes to more sophisticated networking functionality, it
+seems that Microsoft&rsquo;s NT Server 4.0 Enterprise Edition can&rsquo;t hold a
+candle to the more mature commercial UNIX operating systems.  Although
+not essential to network performance, 64-bit computing is here today
+with these UNIX operating systems (as opposed to NT&rsquo;s 32-bit operating
+system).  D.H. Brown Associates Inc. reports the results of their
+analysis as follows (the following quotation along with the table and
+the three graphs immediately following the table are excerpts from a
+Web page on Digital Equipment Corporation&rsquo;s site entitled
+<a href="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+AIX 4.3 Leaps To 64-Bits In Dead Heat With Digital UNIX 4.0</a>):</p>
+
+<blockquote>
+<p>AIX 4.3 takes the lead in Internet/intranet networking features
+by providing the broadest set of TCP/IP extensions and adding
+value with a bundled Notes server. Digital UNIX comes in second
+place with strong network security capabilities, bundling not
+only Web-browsing capabilities but also Web-authoring tools, with
+Navigator Gold, and a solid set of TCP/IP extensions. However,
+Digital UNIX lacks advanced NFS features such as CacheFS and
+AutoFS. IRIX 6.4 places third, bundling CacheFS and AutoFS, and
+network security features almost as strong as Digital&rsquo;s. But IRIX
+lacks network time facilities (NTP) and TCP/IP capabilities such
+as IPv6 and IPSec. Sun follows, with good support for NFS
+functions and the second-place array of TCP/IP extensions.
+However, Sun relies on its own Web server, rather than Netscape,
+Microsoft or Apache, and lacks authoring tools as well as
+important services such as Novell&rsquo;s NDS directory service. HP
+provides strong Internet support within HP-UX, bolstered by its
+good showing in advanced Internet protocol function and network
+security, while lagging behind in support for advanced NFS
+capability. HP-UX, along with AIX, has also established a lead in
+supporting NDS. While Microsoft NT 4.0 provides Internet/intranet
+support that overall rates as &quot;Good,&quot; NT lags behind
+the leading UNIX vendors due to poor support for directory
+services, network security, NFS, and few TCP/IP extensions.
+Microsoft has largely focused adding value to its bundled Web
+server product and to tuning its Java Virtual Machine.</p>
+</blockquote>
+
+<center>
+<table border="1">
+<tr>
+<td width="226"></td>
+<td width="62"><center><font size="2" color="#000000">HP-UX
+11.0</font></center></td>
+<td width="62"><center><font size="2" color="#000000">Solaris
+2.6</font></center></td>
+<td width="62"><center><font size="2" color="#000000">AIX
+4.3</font></center></td>
+<td width="62"><center><font size="2" color="#000000">Irix
+6.4</font></center></td>
+<td width="62"><center><font size="2" color="#000000">Digital
+UNIX 4.0d</font></center></td>
+<td width="62"><center><font size="2" color="#000000">NTS
+4.0/EE</font></center></td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">Extension</font>
+</td>
+<td width="62"></td>
+<td width="62"></td>
+<td width="62"></td>
+<td width="62"></td>
+<td width="62"></td>
+<td width="62"></td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">IPSec</font>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">IPv6</font>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">RSVP</font>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2"
+color="#000000">Partial</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">IP
+Multiplexing</font> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">IP
+Multicast</font> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Partial</center> </td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">Performance
+Optimizations</font> </td>
+<td width="62"></td>
+<td width="62"></td>
+<td width="62"></td>
+<td width="62"> </td>
+<td width="62"></td>
+<td width="62"></td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">Telnet
+in kernel</font> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">Kernel
+Sockets</font> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">TCP
+Large Windows</font> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">Zero
+Copy TCP/Hardware Checksum</font> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">Path
+MTU Discovery</font> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">OpenShortestPathFirst
+(OSPF)</font> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">RTP:
+Real Time Protocol</font> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">RTCP:
+Real Time Control Protocol</font> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+<tr><td width="226"><font size="2" color="#000000">Parallelized
+TCP/IP</font> </td>
+<td width="62"><center><font size="2" color="#000000">Yes</font></center>
+</td>
+<td width="62"><center><font size="2" color="#000000">Yes</font></center>
+</td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center>Yes</center> </td>
+<td width="62"><center>Yes</center></td>
+<td width="62"><center><font size="2" color="#000000">No</font></center>
+</td>
+</tr>
+</table>
+
+<h3><a name="graphs">INTERNET/INTRANET NETWORKING FEATURES</a></h3>
+<img src="/assets/AIX43_f.gif" alt="Networking Features Graph" />
+
+<h3>RELIABILITY AND SCALABILITY</h3>
+<img src="/assets/AIX43_h.gif" alt="Reliability and Scalability Graph" />
+
+<h3>SYSTEM MANAGEMENT</h3>
+<img src="/assets/AIX43_j.gif" alt="System Management Graph" />
+<p>
+Copyright Digital Equipment Corporation 1995-1998. All Rights Reserved.</p>
+
+</center>
+
+<p>See also D. H. Brown&rsquo;s
+<a href="http://www.dhbrown.com/pdfs/osscorecard.html">
+Operating System Scorecard page</a> for other graphical comparisons
+of the operating systems compared above.</p>
+
+<hr />
+
+<h3><a name="reliability">Reliability</a></h3>
+
+<p>In today&rsquo;s world, reliability is often more important than speed.
+Although performance is largely a function of hardware platform (see
+the next section), it is in the area of reliability that the
+choice of operating systems has the most influence.  Even if one
+operating system offers more functionality, is more scalable, and
+offers greater ease of system management, what good are these
+advantages when a server processing real-time financial transactions is
+plagued by frequent crashes resulting in unacceptable downtimes?  The
+analogy of a fast, economical automobile with lots of gadgets, and
+sporty appearance that frequently stalls in traffic despite repeated
+visits to the authorized service center is actually quite
+representative of Windows NT.</p>
+
+<p>
+<a name="stability">One often hears about Windows NT Server</a>
+being referred to as a &ldquo;stable&rdquo; operating system, but this is not
+entirely accurate.  Were it so, then we wouldn&rsquo;t be reading articles
+like
+<a href="http://www.zdnet.com/pccomp/features/fea0797/nt/sub5.html">
+NT Lies: Lie 5 - NT is robust and crash-proof</a>,
+&ldquo;<a href="http://www.gcn.com/gcn/1998/July13/cov2.htm">
+Software glitches leave Navy Smart Ship dead in the water</a>&rdquo;
+(Gregory Slabodkin, <i><a href="http://www.gcn.com/">
+Government Computer News</a></i>, 7-13-98),
+&ldquo;<a href="http://www.zdnet.com/pcweek/opinion/0330/30coff.html">
+Corporate IT needs an engine that never quits</a>&rdquo; (Peter Coffee, <i>PC Week</i> 3-30-98) or
+&ldquo;<a href="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">
+We do not have a failure to communicate</a>&rdquo; (Peter Coffee, <i>PC Week</i>
+04-13-98).</p>
+
+<p>When the author of these last two articles posed the question,
+&ldquo;What do you use when failure is not an option?&rdquo; he was bombarded by
+&ldquo;three times the usual number of vigorous e-mail replies.&rdquo;  Concerning
+these replies he states:</p>
+
+<blockquote>
+<p>Notably, I did not get a single message from anyone who took the
+position that Windows NT was good enough. Quite the opposite: Several
+messages expressed a resigned expectation that Windows NT 5.0 would
+stagger out the door, burdened with immature add-on services but
+without achieving corporate-class reliability in its basic functions.</p>
+
+<p>I heard from one reader who said that at his site, Linux on a 486
+is outperforming Windows NT on a 200MHz Pentium, and he has Linux
+machines that have been running without interruption since before
+Windows NT 4.0 was released.</p>
+
+<p>I also heard from enterprise-class sites where Linux is considered
+a proven choice, with source-code accessibility outweighing the dubious
+advantage of more traditional vendor support. What others promise
+someday, Linux gives many users now&mdash;at a bargain price.</p>
+
+<p>&mdash; Peter Coffee,
+&ldquo;<a href="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">
+We do not have a failure to communicate</a>,&rdquo;
+<i><a href="http://www.zdnet.com/pcweek/">
+PC Week</a></i>, 4-13-98.</p>
+</blockquote>
+
+<p><a name="ms-summit">Indeed,</a> Windows NT is a great improvement over Windows 3.1 or Windows
+95, but it still has a long way to go before it can reach the level of
+stability offered by even the
+<a href="http://www.opensource.org/">
+Open Source</a> (free) UNIX operating systems.  When
+pitted against Sun Microsystems&rsquo;s Solaris, there&rsquo;s really no comparison
+at all.  At the recent Microsoft Global Summit,
+<i><a href="http://www.crn.com/">Computer Reseller News</a></i> journalists
+Barbara Darrow and Stuart Glascock interviewed some of the attendees:</p>
+
+<blockquote>
+<p>We have a
+Solaris box that hasn&rsquo;t been rebooted in two years," said
+James Domengeaux, president of Comspace.Com, a
+Houston-based Web reseller. In comparison, NT servers
+are rebooted often, he said. &ldquo;That&rsquo;s a problem especially in
+e-commerce if you&rsquo;re talking transactions per second,
+because how many orders do you miss?&ldquo; he said.</p>
+
+<p>&mdash; Barbara Darrow and Stuart Glascock,
+&ldquo;<a href="http://www.techweb.com/wire/story/TWB19980728S0004">
+Microsoft Admits NT Trails Solaris</a>,&rdquo;
+<i><a href="http://www.crn.com/">Computer Reseller News</a></i>,
+28 July 1998.</p>
+</blockquote>
+
+<p>Windows NT&rsquo;s lack of stability is a known issue yet managers tend to
+deal with it in discrete ways, reports one IT professional:</p>
+
+<blockquote>
+<p>&ldquo;I know three companies that are silently putting more and more into
+UNIX . . . at the expense of NT, simply because NT falls over too
+often,&rdquo; says Peter Flynn, a consultant in Cork, Ireland. NT is known to
+crash too frequently for many IT manager&rsquo;s tastes. Typical causes are
+memory access violations and I/O errors.</p>
+
+<p>These companies aren&rsquo;t inclined to talk about their decisions
+&ldquo;because of pressure from upstairs,&rdquo; Flynn says. &ldquo;The
+buy-Microsoft-only ethos has taken over from the buy-IBM-only, and
+managers who decided [against advice from technology people] to use NT
+rather than UNIX are now unwilling to lose face,&rdquo; he adds.</p>
+<p>&mdash; Mark Gibbs,
+&ldquo;<a href="http://www.nwfusion.com/intranet/0330linux.html">
+Lookin&rsquo; into Linux</a>,&rdquo;
+<i><a href="http://www.nwfusion.com/">Network World</a></i>, March 30, 1998.</p>
+</blockquote>
+
+<p>Any IS professional who has worked in a Windows NT environment has
+intimate knowledge of the infamous &ldquo;Blue Screen of Death,&rdquo; (BSOD) a situation
+in which the normal desktop windowing system disappears completely and
+is replaced by a full screen of hexadecimal numbers on a blue
+background.  The only method of recovery in this situation is
+powering the machine off and rebooting.  What causes &ldquo;blue screens&rdquo; in
+NT varies. In my own experience, the following can induce this state
+of failure:</p>
+
+<ul>
+<li>When both IPX/SPX and TCP/IP protocols are used and technicians put
+a machine with a static IP address on a different subnet</li>
+<li>When some 16-bit Visual Basic applications are not being run
+in &ldquo;separate memory space.&rdquo; NT does not run them in separate memory
+space by default. This is a manual configuration which should
+be set for each and every 16-bit application on the machine;</li>
+<li>Certain brands of memory modules or cache will induce this, even
+though the same hardware runs fine under other operating systems, such
+as Windows 95.</li>
+</ul>
+
+<p>In some situations, Linux too will complain about its hardware.  I
+personally have not experienced this despite having installed Linux on
+a wide variety of hardware, but it may happen.  It appears to happen
+mainly when one is compiling the kernel on a machine with bad memory.
+For more information see
+<a href="http://www.bitwizard.nl/sig11/">Signal 11</a>.
+The above list is by no means complete.  As a matter of fact, Tim
+Newsham, a software developer for both Windows and UNIX platforms,
+found this short list very misleading:</p>
+
+<blockquote>
+<p>In the BSOD section you mention a few ways that a BSOD can be caused.
+I think this (small) list is misleading to the reader. There are
+so many ways that an NT system can crash, that by listing a
+small number you are likely to give the wrong impression. More
+dangerous yet is the fact that your cases mostly involve a person who
+is on the console doing something BAD to cause a crash. Many of the
+ways to crash an NT system happen inadvertently in the day-to-day
+operation of the system (indeed, leaving the system on too long while
+running a myriad of applications can cause bizarre crashes with little
+clue to their cause). Additionally malicious users can trigger crashes
+due to shoddy implementation in software modules such as the login
+program (LSA) or the tcp/ip stack.</p>
+</blockquote>
+
+<p>The &ldquo;Blue Screen of Death&rdquo; can be commonplace in some computing
+environments and is often difficult to troubleshoot due to the either
+cryptic or non-existent error reporting.  In addition to this, NT is
+particularly prone to virus attacks on the Intel-based hardware.  For
+operating systems on Intel hardware that must be booted from a hard
+drive, i.e. NT Server, the Master Boot Record of a hard drive can be
+the death of the operating system.  Linux, along with several other
+UNIX operating systems that run on Intel-based hardware, can load a
+compressed kernel from a boot floppy, thus avoiding this problem. What
+this means is, an NT Server can theoretically be crashed by a virus
+written 10 years ago for MS-DOS computers.  Anyone planning to deploy
+an NT Server in a mission critical environment should consider this
+fact.  I personally have encountered MBR viruses in a corporate
+environment running Windows NT 4.0 (no Windows 95 clients!), and their
+effects are devastating.  In addition to this, most viruses that would
+incapacitate a Windows operating system don&rsquo;t have an effect on UNIX
+operating systems since they often require the MS Windows environment
+to do their damage.</p>
+
+<p>One real-life situation involving NT&rsquo;s reliability is reported by
+the University of Nebraska Press&rsquo;s Information Systems Department
+manager, Quinn P. Coldiron, who writes,</p>
+
+<blockquote>
+<p>Life after moving Cats [an order fulfillment and inventory system] to
+NT was a nightmare. The system was crashing two to three times a day
+with no reason that I could find. I was on the phone with Microsoft and
+Cats constantly, but nobody could figure it out. Microsoft had me apply
+Service Packs one through three and a few HotFixes, which helped, but
+it still was crashing at least twice a week with the infamous &ldquo;Blue
+Screen of Death.&rdquo; After many weeks and about $1500.00 in phone support
+from Microsoft, the technical support rep told me that I should find a
+better software package than The Cat&rsquo;s Pajamas. This was not the
+solution I was looking for, since this is the package that a sizeable
+percentage of presses our size nationwide are running, so I was forced
+to bring the old Novell server back into production until I could
+figure something out. . . . Fourteen months later, we are running Linux
+as our server.</p>
+</blockquote>
+
+<p>The UNIX equivalent of the &ldquo;Blue Screen of Death&rdquo; would be called
+&ldquo;kernel panic.&rdquo;  It obviously exists, since I have heard and read about
+it, but I&rsquo;ve never been witness to it in my professional career.
+Although I am sure that UNIX servers do crash on occasion, these are
+extremely rare events. If and when a UNIX server crashes, it is almost
+always due to a hardware failure of some sort. Any software induced
+problems in a UNIX environment generally make themselves known over a
+period of time, sometimes in the form of overall gradual performance
+degradation of the system, giving the administrator ample time to track
+down the source of the problem, correct it, and stop/restart the
+process (very rarely the entire machine!) causing the problem.
+In general, a UNIX server is halted only in the following situations:</p>
+
+<ul>
+<li>Due to a hardware failure, for instance, a hard drive fails;</li>
+<li>A hardware upgrade needs to be performed;</li>
+<li>A lengthy power outage has occurred and the backup power supply
+resources have been exhausted;</li>
+<li>The kernel is being upgraded.</li>
+<li>A beta kernel is being tested (not recommended for production
+environments).</li>
+</ul>
+
+<p>If none of the above the above occurs, then a UNIX system&rsquo;s uptime can
+be measured in years. NT, however, cannot boast of such periods of
+uninterrupted service. Even if one could eliminate the &ldquo;Blue Screen of Death,&rdquo;
+NT is hampered by its own design and use of
+difficult-to-recreate proprietary binary configuration files, for
+instance, the NT registry.  Read about a
+<a href="massive-nt-failure.html">
+massive NT failure</a> that
+lead to over 10,000 NT machines being rendered useless for any task
+requiring network resources.</p>
+
+<hr />
+
+<h3><a name="management">System Management</a></h3>
+
+<p>The argument that Windows NT is easier to manage due to its GUI
+(point-and-click graphical user interface) is unfounded.  The
+advantage, if any, of GUI over CLI (command line interface, i.e. having
+manually to type commands from a keyboard) is questionable.  The first
+assumption is that Windows NT has an advantage over UNIX because of its
+GUI.  This is wrong.  UNIX operating systems have a GUI as well (see
+this
+<a href="http://citv.unl.edu/linux/LinuxPresentation.html#Ease of
+administration">graphic example</a>).</p>
+
+<blockquote>
+<p>NT has long enjoyed an intuitive user interface for managing single
+systems, largely benefiting from the exceptional familiarity of the
+Windows look-and-feel adopted by the NT GUI. However, as users begin to
+deploy large numbers of servers, and geographically-dispersed servers,
+some of NT&rsquo;s architectural shortcomings for system management have
+become more apparent, deriving primarily from its design as a
+single-user system. The multi-user design of UNIX supports remote
+access at multiple levels, including the ability to login with a
+character session, via telnet, to edit configuration files, running GUI
+tools over the network-enabled X Window System, and now through Java
+versions of system management tools. NT currently enjoys none of these
+features. Rather, remote NT management typically involves either
+installing a local expert which Microsoft hopes will be easier due to
+NT&rsquo;s larger volumes and similarity to mainstream Windows versions or
+relying on layered system management products from Microsoft or third
+parties. Neither option, though, quite matches the efficiency of
+managing distributed UNIX systems.<br />
+&mdash; Source:
+<a href="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+&ldquo;An In-Depth Analysis of Five Commercial UNIX Operating Systems and
+Windows NT Server 4.0 (Enterprise Edition)</a>&rdquo; by D.H. Brown Associates,
+Inc.</p>
+</blockquote>
+
+<p>See also:
+<a href="http://www.zdnet.com/pccomp/features/fea0797/nt/sub9.html">
+NT Lies: Lie 9 - Zero administration is here.</a></p>
+
+<hr />
+
+<h3><a name="performance">Performance</a></h3>
+
+<p>Processing power is largely a function of computer hardware rather
+than of operating system.  Since most commercial UNIX operating systems
+run only on high-end workstations or servers, it would be ridiculous to
+compare an
+<a href="http://www.rs6000.ibm.com/hardware/largescale/index.html">
+IBM SP2</a>,
+<a href="http://www.sun.com/servers/ultra_enterprise/10000/spec.html">
+Sun Enterprise 10000</a>, or a
+<a href="http://www.sun.com/servers/enterprise/450/;$sessionid$DSWFMQYAABX5HAMW0JZE45UBS1JHEUDO">
+Sun Enterprise 450</a>
+to anything Compaq or Dell produces.  UNIX has
+been historically an operating system for high-end hardware.  To say
+that UNIX outperforms NT based on the results of differing hardware
+would be unfair to Microsoft.  On the other hand, Microsoft has
+reduced, rather than increased, the number of hardware architectures it
+supports.  NT for MIPS has been discontinued due to lack of customers
+and PowerPC support is only marginal.  NT, now reduced to only x86 and
+Alpha architectures will remain &ldquo;a poor man&rsquo;s server&rdquo; as it is commonly
+referred to in the IT business.</p>
+
+<p>NT&rsquo;s lack of reliability is only surpassed by its lack of
+scalability.  The superior scalability achieved by the commercial UNIX
+operating systems on their respective hardware is the reason why large
+corporations with high capacity computing needs cannot switch to NT
+even if they wanted to. Mary Hubley, Research Director with the
+<a href="http://www.gartner.com/">GartnerGroup</a>, mentions in her article
+<a href="http://www.gartner.com/public/static/datapro/industry/indnews6.html">
+NT and UNIX: Irresistible Force vs. Immovable Object</a> (January
+1998) that  the public&rsquo;s overly positive perception of NT&rsquo;s
+capabilities is based mainly on marketing hype:</p>
+
+<blockquote>
+<p>Many people believe that NT is easier to use than it actually is,
+scales better than it does, and is powerful enough to do what UNIX can
+do. But most of this perception is due to great marketing by Microsoft,
+and is not reality.</p>
+</blockquote>
+
+<p>If high performance Windows file sharing is of utmost importance,
+then one should consider choosing a server configuration that has
+broken the world speed record for such services, an SGI machine
+running IRIX:</p>
+
+<blockquote>
+<p>Samba 2.0 has been benchmarked using the Ziff-Davis NetBench (R)
+benchmarking suite, as the world&rsquo;s fastest Windows server, achieving
+193 megabits per second file serving performance on a Silicon Graphics
+(R) Origin 200 (R) server with 60 Windows clients.</p>
+
+<p><a href="http://lwn.net/1999/0121/samba.html">
+Samba Team Releases Samba 2.0:
+World&rsquo;s Fastest Windows Server Software</a> as
+sent out on Sat, 16 Jan 1999 16:08:38 +1100 to recipients on the
+Samba Announcement Mailing List (samba-announce@samba.org) with
+the HTML version hosted courtesy of
+<a href="http://lwn.net/">Linux Weekly News</a>.</p>
+</blockquote>
+
+<p>This announcement also reveals one very important fact regarding
+the interoperability with Windows NT domains:</p>
+
+<blockquote>
+<p>Samba 2.0 features the first non-Microsoft implementation of the
+Windows NT Domain authentication protocols, allowing a Samba 2.0
+server to be seamlessly integrated into an existing Windows NT Domain.</p>
+</blockquote>
+
+<p>For even more information, try visiting one of the many
+<a href="http://samba.org/">Samba Web sites</a> located in 20
+different countries.</p>
+
+<p>Ann Harrison&rsquo;s article provides an excellent testimonial from
+Southwestern Bell regarding how Linux outperforms NT:</p>
+
+<blockquote>
+<p>Randy Kessell, manager of technical analysis for a Southwestern Bell
+operation center, . . .
+adds that his company is thinking about replacing
+their NT network server
+with Linux. 'Our preliminary tests show that the Linux solution is
+outrunning the NT solution,'
+says Kessell. 'It&rsquo;s much faster.'</p>
+<p>&mdash; Ann Harrison,
+<a href="http://www.softwaremag.com/Sept98/sm098cv.htm">
+In LINUX We . . .</a>,
+<a href="http://www.softwaremagazine.com/">
+Software Magazine</a>, Cover Story, September 1998.</p>
+</blockquote>
+
+<p><a href="http://www.ugraf.com/">European MikroGraf Corporation</a>
+has published the results of their own
+<a href="http://www.ugraf.com/unix-nt/jt/unix-nt.nob.html">UNIX vs
+NT</a> performance comparison and explains why:</p>
+
+<blockquote>
+<p>Several times a month, customers in the printing and prepress industry
+ask us what server platform they should use: Unix or
+Windows NT. Windows NT might be acceptable for day-to-day operations in
+the average business, but does not handle the loads that
+publishers typically put on servers.</p>
+</blockquote>
+
+<p>The interesting thing about MikroGraf&rsquo;s
+<a href="http://www.ugraf.com/unix-nt/jt/unix-nt.nob.html">
+UNIX vs NT comparison</a> is that the same hardware was used in two of
+the four tests, a Digital Model 2100: once with Digital UNIX as the
+operating system, and again with Windows NT on the same hardware.</p>
+
+<p>To be fair, one should compare NT Server&rsquo;s performance to that of
+Linux or FreeBSD, since all three operating systems run on the same
+hardware, Intel, the hardware-type most often used with NT.
+Unfortunately, a truly objective analysis of performance would have to
+based on benchmarks, but these are not plentiful and usually only focus
+on specific areas like Web performance:
+<a href="http://www.calderasystems.com/news/features/971222.keylabs.html">
+Caldera OpenLinux vs. Windows NT: WebBench Performance Test</a>.  The
+general consensus among IT professionals is, however, that Linux and
+FreeBSD greatly outperform NT.	Considering that these UNIX kernels are
+custom-compiled to contain only the software actually required by the
+administrator, Linux and FreeBSD can function more efficiently than NT.
+Inherently, any operating system requiring fewer resources will
+outperform a more bloated operating system like NT.  UNIX does
+not require a graphical user interface to function.  NT does.  Anyone
+knows that graphics require incredible amounts of disk space and
+memory.  The same holds true for sound files, which seem to be so
+important to the Microsoft operating systems.</p>
+
+<hr />
+
+<p>Benchmarks performed on similar UNIX operating systems using the
+same hardware are more meaningful.
+<a href="http://www.tdl.com/~netex/mb/mb.html">Net Express</a>, an
+Internet retailer of x86-based hardware, whose systems are "designed
+for scientists, engineers and the telecommunications industry," shows
+what results can be achieved with the proper operating system:</p>
+
+<blockquote>
+
+<h4><font size="-1">Byte UNIX Benchmark 3.2 for OS Comparison:</font></h4>
+
+<p><font size="-1">In addition we are presenting these Byte UNIX
+Benchmark 3.2 results for comparing the relative speeds of three
+popular UNIX/UNIX-Clone OS&rsquo;s. Tests were conducted on Pentium 133MHz
+machines with 32MBs of RAM, the Triton-II 430HX chip set and a
+BusLogic SCSI controller: </font></p>
+</blockquote>
+
+<center>
+<table border="1">
+<tr>
+<th align="left" bgcolor="#0000FF"><font color="#FFFFFF">System</font></th>
+
+<th bgcolor="#0000FF"><font color="#FFFFFF">Bytemarks</font></th>
+</tr>
+
+<tr>
+<td><font size="-1">Linux on a Pentium 133MHz </font></td>
+
+<td align="center"><font size="-1">12.2</font></td>
+</tr>
+
+<tr>
+<td><font size="-1">BSD on a Pentium 133MHz </font></td>
+
+<td align="center"><font size="-1">9.8</font></td>
+</tr>
+
+<tr>
+<td><font size="-1">Solaris 2.5 on a Pentium 133MHz </font></td>
+
+<td align="center"><font size="-1">6.2</font></td>
+</tr>
+
+<tr>
+<td><font size="-1">Solaris on a Sun Sparc-II Ultra 167MHz System </font></td>
+
+<td align="center"><font size="-1">13.7</font></td>
+</tr>
+
+<tr>
+<td><font size="-1">Solaris 2.5 on an Orion Pentium Pro 200MHz </font></td>
+
+<td align="center"><font size="-1">13.5</font></td>
+</tr>
+</table>
+
+<p><font size="-1">From these results we can see that Linux is a very efficient
+OS. Scores for Linux on the Pentium 133 were nearly as fast as Solaris
+2.5 on a 167MHz Sparc Ultra or a 200MHz Pentium Pro!!!</font></p>
+
+<p><font size="-1">Copyright &copy; 1996 Net Express All Rights
+Reserved. </font></p>
+
+
+</center>
+
+<hr />
+
+
+<p><a name="KickAss">Perhaps</a> an example of the performance
+advantage one could expect to find when choosing a UNIX operating
+system coupled with the
+<a href="http://www.opensource.org/">Open Source</a> (free)
+Apache Web Server can be found in an
+article by Sean Fulton that appeared in INTERNETWEEK on May 5, 1997,
+
+<a href="http://www.techweb.com/se/directlink.cgi?CWK19970505S0103">
+Towers of Power &mdash; We test five muscular Web servers aimed at high-end
+intranet applications</a>.	For NT, the test results were pretty
+devastating:</p>
+
+<blockquote>
+<p>Telenet System Solutions produced the most surprises during our tests,
+with a BSDi-powered, single-CPU system that kept up with-and in some
+cases outperformed-twin-CPU machines running Windows NT.</p>
+
+<p>The differentiating factor here was the BSDi 3.0 OS loaded on the
+machine and its Apache HTTP server software. All of the twin-CPU
+machines were running Windows NT 4.0 with Microsoft&rsquo;s Internet
+Information Server 2.0.</p>
+</blockquote>
+
+<p>While on the subject of Web Server performance, IBM has regained the
+title of fastest Web server with the introduction of its new 262 MHz
+PowerPC RS64-II microprocessor:</p>
+
+<blockquote>
+<p>The new processor will also make IBM&rsquo;s S70 one of the fastest Web
+servers on the market when used in certain configurations, according
+to a certain benchmark test selected by IBM. In a 12-way configuration,
+the S70 delivered SPECweb96 performance of 9,081 HTTP operations per
+second, making it the first system to break the 9,000 barrier,
+according to IBM.</p>
+
+<p>&mdash; James Niccolai,
+<a href="http://www.infoworld.com/cgi-bin/displayStory.pl?980812.ecrs6000.htm">
+New chip to debut in IBM&rsquo;s RS/6000 Model S70</a>,
+<a href="http://www.infoworld.com/">
+InfoWorld Electric</a>, 12&nbsp;August&nbsp;1998.</p>
+</blockquote>
+
+<p>For enterprise-level processing power, clustering wth Linux can
+produce awesome results at a modest price.  In a recent report by
+Michael Stutz, NASA&rsquo;s Beowulf project sets an example for the
+the potential of such <a href="http://www.opensource.org/">Open Source</a>
+UNIX operating systems like Linux in the area of supercomputing:</p>
+
+<blockquote>
+<p>Enter <a href="http://www.beowulf.org/">Beowulf</a>,
+a system that uses a parallel-processing
+architecture and off-the-shelf machines running the freely
+available Linux operating system. One machine is the server
+node, and distributes a processing job to all of the other
+machines, which are client nodes.</p>
+
+<p>The total hardware cost for CCD&rsquo;s 24-node Beowulf cluster
+was US$57,000 &mdash; as compared to most commercial
+supercomputers today, which cost between $10 million and
+$30 million.  The cluster gives 2.4 gigabytes per second
+throughput, which means that a 200 GB hard drive can be
+scanned in only 20 seconds. While it took five to seven
+weeks to analyze the evidence of several intruders in the
+recent Israeli hacker case, Talleur said it would have only
+taken a few hours with Beowulf.</p>
+
+<p>The Beowulf project was developed at NASA by Thomas
+Sterling and Donald Becker in the summer of 1994; today,
+anyone can buy a Beowulf CD-ROM &mdash; Red Hat
+Software&rsquo;s
+<a href="http://www.redhat.com/product.phtml/EX1000/">Extreme Linux</a>
+package &mdash; for $29.</p>
+
+<p>&mdash; Michael Stutz,
+<a href="http://www.wired.com/news/news/technology/story/14450.html">
+NASA Greets Beowulf</a>,
+<a href="http://www.wired.com/news/">Wired News</a>,
+17 August 1998.</p>
+</blockquote>
+
+<hr />
+
+<h3><a name="security">Security</a></h3>
+
+<p>This topic is too vast and complex to be fully addressed in an
+article of this scope. Security is, however, very important.
+The following links are excellent starting points for comparing the
+security weaknesses of the various operating systems:</p>
+
+<ul>
+<li><a href="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/980713np.htm">
+Probing into C2 security claims: Is NT as secure as Microsoft has said it is?</a></li>
+<li><a href="http://www.zdnet.com/pccomp/features/fea0797/nt/sub2.html">
+NT Lies: Lie 2 - NT is less secure than UNIX</a><br />
+(Real security means taking a server off the network and locking it up!)</li>
+<li><a href="http://www.zdnet.com/pccomp/features/fea0797/nt/sub4.html">
+NT Lies: Lie 4 - NT Meets Military Standards</a></li>
+<li><a href="http://www.byte.com/art/9711/sec6/art3.htm">
+A BYTE article on Windows NT security problems</a></li>
+<li><a href="http://www.iss.net/vd/bill_stout/NThacks/ntfsdos.htm">
+NT secured filesystem (NTFS) can be read from Linux, bypassing filesystem security.</a></li>
+<li><a href="http://www.iss.net/vd/bill_stout/ntexploits.htm">
+Known NT Exploits</a></li>
+<li><a href="http://www.it.kth.se/~rom/ntsec.html">
+NT Security - Frequently Asked Questions version 0.41</a></li>
+<li><a href="http://afcert.csap.af.mil/vulnerabilities.html">
+AFCERT - Security Issues for various operating systems</a></li>
+</ul>
+
+<hr />
+
+<h2><a name="misconceptions">Some Common Misconceptions</a></h2>
+
+<p><i>NT is a toy operating system</i></p>
+
+<p>For an operating system that has evolved from a toy operating
+system, it offers some professional functionality.  Although it does
+not scale very well &mdash; performance goes down with more than 4 CPUs per
+server &mdash; it has come a long way.  Although I would not recommend it as
+the primary operating system in an enterprise environment, it should
+yield satisfactory performance for small businesses with fewer than 250
+user accounts that do not run mission critical processes.  Please keep
+in mind, however, that a single NT server will not be sufficient to
+service 250 users.  The general recommendation is one PDC (Windows NT
+Primary Domain Controller) and two BDCs (Backup Domain Controllers).
+Having other server applications on the PDC is also not recommended.
+Should RDBMS, E-mail, Web, and other typical services be required,
+three NT servers will most likely prove to be insufficient.</p>
+
+<p><i>By converting everything to Windows NT a company can eliminate
+the problems of a heterogeneous networking environment.</i></p>
+
+<p>The first assumption here is that a heterogeneous networking
+environment is a problem.  I once worked at a company where NT and
+Novell coexisted with very little conflict.  As a matter of fact, the
+very reason for this coexistence was because Novell outperformed NT in
+the area of file and printer sharing  services.  With UNIX, one can
+create Microsoft-compatible file and printer sharing without the users
+ever knowing that these services emanate from a UNIX server.  For all
+they know, it&rsquo;s an NT server.  This functionality is provided for in
+Sun&rsquo;s UNIX operating system, Solaris.  Linux can use a software package
+called
+<a href="http://samba.anu.edu.au/samba/">
+Samba</a> that ships with most distributions to achieve this. Samba
+is available for practically all UNIX operating systems.  It has also
+been ported to VMS, MVS, OS/2, Stratus-VOS, Amiga, Novell, and MPE/iX.</p>
+
+<p><a name="gui"><i>UNIX is this outdated, cryptic, command-line based
+operating system.</i></a></p>
+
+<p>Wrong!  CDE (Common Desktop Environment) is a GUI desktop (Graphical
+User Interface: you use a mouse to point and click, or drag and drop on
+a colorful "desktop"; this is the basis for Microsoft&rsquo;s success.).  CDE
+ships with most commercial UNIX operating systems: Sun&rsquo;s
+<a href="http://www.sun.com/solaris/">Solaris</a>,
+IBM&rsquo;s <a href="http://www.rs6000.ibm.com/software/OS/aix43.html">
+AIX</a>
+Hewlett Packard&rsquo;s
+<a href="http://software.external.hp.com:80/OS_transition/WHYTRANS.HTM">
+HP-UX</a>,
+DEC&rsquo;s
+<a href="http://www.unix.digital.com/">Digital UNIX</a>, to name a
+few.  For around $90 you can get CDE for Linux if you happen to be
+dissatisfied with your choice of four GUI systems that ship with
+Linux: OpenLook, the GUI that Solaris used to use; FVWM, an
+<a href="http://www.opensource.org/">Open Source</a> (free) GUI
+that has many similarities to the Windows 3.1 GUI; or FVWM-95, another
+<a href="http://www.opensource.org/">Open Source</a>
+GUI that mimics the Windows 95 GUI (when looking at a single
+window, one can&rsquo;t distinguish between FVWM-95 and Windows 95). TWM is
+the predecessor of the various FVWM window managers which also ships
+with Linux.  If you&rsquo;ve never had the opportunity to sit at a computer
+running UNIX, here are some <font color="red">SCREENSHOTS</font>
+of these window managers:
+<a href="http://e.themes.org/sqlgal.cgi?version=DR0.15">
+Enlightenment</a>,
+<a href="http://www.PLiG.org/xwinman/screenshots/dtwm.gif">
+CDE</a>,
+<a href="../images/ted.jpg">
+TED</a> (TriTeal&rsquo;s CDE for Linux),
+<a href="http://www.kde.org/kscreenshots.html">
+KDE</a>,
+<a href="http://www.PLiG.org/xwinman/screenshots/fvwm-wlug.jpg">
+FVWM 1.24</a>,
+<a href="http://www.PLiG.org/xwinman/screenshots/fvwm-geir.gif">
+FVWM 2.x</a>,
+<a href="http://www.terraware.net/ftp/pub/Mirrors/FVWM95/screenshot-full.gif">
+FVWM-95</a>,
+<a href="http://cslib.ecs.soton.ac.uk/wm/gfx/orig-olvwm.jpg">
+olvwm</a>(OpenLook Virtual Window Manger).	These are only some of
+the GUI interfaces available to UNIX users.  Matt Chapman&rsquo;s
+<a href="http://www.PLiG.org/xwinman/">Guide to Window Managers for The
+X Window System</a> is an excellent resource on this topic.  You will
+find many more screenshots on his site than I am able to list here.
+Keep in mind that almost all of these window managers are highly
+configurable; you shouldn&rsquo;t be surprised to see screenshots made of the
+same window manager which look completely different.  As Matt states on
+his page, "Let&rsquo;s face it, people are different, and those that use
+computers use them in different ways for different tasks. So why do
+some think we should all use (suffer?) the same interface?"
+Ironically, it is Microsoft&rsquo;s graphical user interface that is lacking
+the features of customization.</p>
+
+<p>As for the claim that UNIX is behind the times, it is still the
+operating system of choice for science, engineering, research, and
+higher education.  Most engineers would choose UNIX over NT without
+hesitation.  They are fully aware of its ability to be customized and
+its tuning capabilities for the optimization of specialized computing
+tasks.  Readers&rsquo; feedback to
+<a href="http://www.isdmag.com/">isd</a> confirm this attitude:</p>
+
+<blockquote>
+<p>As we suspected, most designers are adamant: They want their EDA tools
+to run under Unix. What&rsquo;s more, they say that Linux is
+technically excellent by every measure, and NT simply isn&rsquo;t. Painfully
+aware that technical excellence doesn&rsquo;t guarantee market
+share, many readers say that this time it should.</p>
+
+<p>Although readers&rsquo; sentiments overwhelmingly backed Linux, we were
+impressed with the quality of the input . . . .</p>
+
+<p><a href="http://www.isdmag.com/Editorial/1998/CoverStory9807.html">
+Engineers Speak Out: Linux vs. Windows NT, Part 1</a></p>
+<p>&mdash; Murry Shohat, <i><a href="http://www.isdmag.com/">
+Intergrated System Design Magazine</a></i>, July 1998.</p>
+</blockquote>
+
+<p>Everyone is converting to NT anyway, we might as well gradually
+replace our UNIX servers with NT servers.  It&rsquo;s the way of the
+future.</p>
+
+<p>If you talk to IT managers of some large corporations who had UNIX
+and Novell two years ago, and then replaced their Novell servers with
+NT servers, you&rsquo;ll find that none of them can manage without their UNIX
+servers. It seems that heavy processing is still better accomplished
+with UNIX servers. So far in my career, every Oracle server I&rsquo;ve ever
+seen was running on a UNIX server. One IT professional, however, did
+send me e-mail saying, "I support several installations of ORACLE on
+NT. There are performance and functional issues that I encounter which
+I have never seen on UNIX (Pyramid).</p>
+
+<hr />
+
+<h2><a name="views">Views of Other MIS Professionals</a></h2>
+
+<p>Robert Schindler, a mechanical engineer based in Florida who has
+been working for the past decade as a free-lance consultant for various
+Fortune 100 companies in the field of structural analysis, writes:</p>
+
+<blockquote>
+<p>It will be a long time before you hear me praise NT or any other MS
+product. I believe that Gates and his empire have done more to lower
+the standards of our society than anything else in my lifetime. If my
+product had the same quality as theirs, airplanes would be falling out
+of the sky hourly.</p>
+</blockquote>
+
+<p>One professional who wishes to remain anonymous for fear of losing his job  writes:</p>
+
+<blockquote>
+<p>At my day job I work at a big firm. It&rsquo;s one of the biggest of its
+kind in the world.  We decided to go with a Network Monitoring and
+Management package from Cabletron. It&rsquo;s available on both NT and Unix.
+The people who would run it gave them a blank check for the system to
+be set up under NT because they were more familiar with NT than they
+were with Unix. About a year and a quarter million
+dollars later, they finally gave up on NT and did it over with Solaris.
+Why?  NT just doesn&rsquo;t scale up.</p>
+</blockquote>
+
+<p>Tim Newsham writes in response to this article:</p>
+
+<blockquote>
+<p>I develop software in NT and in UNIX.	I despise NT.  It is a horrid
+beast, it performs very very poorly and it is way too unstable.  Some
+parts of NT are so broken that the majority of time porting software to
+the system involves working around microsoft bugs. It bothers me that
+so many people are migrating away from unix to NT. I can only imagine
+that eventually there will be a large anti-NT backlash as management
+types realize how much NT has hurt their organizations.</p>
+</blockquote>
+
+
+<p>Joseph Day, a consultant in Chicago, replies to Jessie Berst:</p>
+
+<blockquote>
+<p>I do a lot of software development on both NT, and 95. I can&rsquo;t seem to
+understand why people are hyping up these platforms as being so great.
+. . . The support you get in the Linux community through netnews is far
+superior to anything that you will ever see with Microsoft products. .
+. .  NT has a ways to go before it will reach the level of stability
+that Linux has.<br />
+&mdash; Excerpts from a letter by Joseph Day entitled,
+<a href="http://www.zdnet.com/anchordesk/talkback/talkback_72950.html">
+How did Microsoft pay you to write this article?</a>, Source:
+<i><a href="http://www.zdnet.com/anchordesk/index.html">
+Jesse Berst&rsquo;s Anchor Desk.</a></i>  February 16, 1998,
+<a href="http://www.zdnet.com/">ZDNet</a>.</p>
+</blockquote>
+
+<p>Torsten Holvak, a systems administrator in Laramie, WY, replies to Jessie Berst:</p>
+
+<blockquote>
+<p>Jesse: I&rsquo;m sure Microsoft, like IBM in the 60s, would love to have
+people believe that choosing something other than their products would
+be a career-limiting move. But it just ain&rsquo;t so! I&rsquo;d fire an employee
+for putting mission-critical e-mail or Web server applications on an NT
+machine rather than a UNIX box. We use FreeBSD for everything and there
+is nothing more stable. Not only are free UNIX servers faster, more
+powerful, and more stable than NT, but the support is better, too. Just
+try to get an answer from a Microsoft tech without paying big bucks
+and/or waiting on hold. And consider yourself lucky if it actually
+solves your problem. I find it hard to believe that this story appeared
+on your front page. It&rsquo;s embarrassing. I sure didn&rsquo;t <i>think</i> you were
+into spreading Microsoft
+<a href="http://sagan.earthspace.net/jargon/jargon_21.html#TAG712">
+FUD</a>. <br />
+&mdash; Excerpts from a letter by Torsten Holvak entitled,
+<a href="http://www.zdnet.com/anchordesk/talkback/talkback_72969.html">
+I&rsquo;d fire someone for using NT</a>, Source:
+<a href="http://www.zdnet.com/anchordesk/index.html">
+Jesse Berst&rsquo;s Anchor Desk.</a>  February 16, 1998,
+<a href="http://www.zdnet.com/">ZDNet</a>.</p>
+</blockquote>
+
+<p>Quinn P. Coldiron, Information Systems Department manager for the
+University of Nebraska Press, writes about his experiences with Novell,
+Windows NT, and Linux:</p>
+
+<blockquote>
+<p>After completing the morning duties, we normally run a complete Cats
+[an order fulfillment and inventory system] backup before we continue
+with closing which usually would take two hours to complete on the
+Netware server. The Linux machine was able to do the entire backup in
+45 minutes, cutting a little over an hour off our closing time. This
+increase in speed came from a decrease in hardware because the Linux
+server was running only 32 MB in RAM and IDE hard drives where the
+Netware server had 64 MB in RAM and SCSI drives. The speed increase has
+been noticed in daily work also. I get almost daily remarks that the
+system seems to be running faster and more reliable.</p>
+
+<p>We have recently upgraded the CPU to a 200Mhz Pentium and have
+upgraded the Memory to 64 MB to handle the newest plans of making this
+server replace our Windows NT file/printer server, which still crashes
+about twice a month for no reason, even after an additional $1,500 in
+tech support with Microsoft. This single computer running Red Hat Linux
+will replace both our Novell Netware 3.11 server and our Windows NT 4.0
+server, while decreasing total hardware requirements. With the recent
+advances from the Samba team in supporting the NT domain structure and
+the December 1997 release of Red Hat 5.0, I expect to have a very
+efficient and inexpensive server for our Windows 95, Windows NT and
+Macintosh clients. <br />
+&mdash; Quoted from:
+<a href="http://www.ssc.com/lg/issue29/coldiron.html">
+Replacing Windows NT Server with Linux</a></p>
+</blockquote>
+
+<p>On September 29, 1997 Nick Johnson writes in a
+<a href="http://dev4.byte.com/joncon/_fmsg00441.html">Byte Forum</a>:</p>
+
+<blockquote>
+<p>From an administrator perspective, I have a very difficult time taking
+an operating system seriously when it needs 128 megs of RAM, two
+200-Mhz processors and 8 gigs of hard drive space just to run a small
+intranet web server, especially when the OS crashes and reboots from a
+simple, standard TCP packet. NT is just impossible to consider when
+reliability and speed are required. You could perform the same task I
+mentioned above on a 386 with 16 megs of RAM running FreeBSD, without
+paying the high Microsoft price tag.</p>
+
+</blockquote>
+
+<p>Mike Hucka, a UNIX administrator and programmer in Michigan, writes:</p>
+
+<blockquote>
+<p>What boggles my mind is why people are investing so much in NT
+solutions when there is so much evidence that the UNIX solutions are
+more mature, stable, less expensive, and perform so much better?  Why?
+What is wrong with people?</p>
+
+<p>Do people simply not know about the capabilities of UNIX?</p>
+
+<p>Do people think that UNIX systems are too difficult to use?  I may
+be biased, but when I look at desktop environments such as CDE on a
+Sun, or KDE, I think that&rsquo;s pretty close to what you find on a PC or
+Mac.  And there is a TREMENDOUS amount of documentation for UNIX now
+available &mdash; just consider all the books published by
+<a href="http://www.oreilly.com/">O&rsquo;Reilly &amp; Associates</a>,
+or the online manuals available at Sun&rsquo;s site
+<a href="http://docs.sun.com">http://docs.sun.com</a>, or any of
+hundreds of sites with information about every imaginable aspect of
+UNIX.</p>
+
+<p>And not only that, but you can get free versions of UNIX that are
+comparable in stability and scalability to Solaris, and will run quite
+well on PC class hardware if you so choose.</p>
+
+<p>And to top it all off, you can get source code.</p>
+
+</blockquote>
+
+<h3><a href="feedback/">Feedback from Readers of this Article</a></h3>
+
+<p>This is a new external section containing some of the best feedback
+I have received in response to the article.</p>
+
+<hr />
+
+<h2><a name="web">Web Servers</a></h2>
+
+<p>The life-blood of the Internet is the Web.  This is the face that
+the public sees. If your site is slow, plagued with technical problems,
+or inaccessible, this will surely have adverse effects.  Since most
+large corporations are UNIX-oriented, they normally go with Web server
+software like Apache or Netscape-Enterprise.
+<a href="http://www.apache.org/">Apache</a>
+was conceived with UNIX in mind.  It is free and currently rules the
+Internet.  Roughly half the Web servers on the Internet are
+running Apache (see
+<a href="http://www.netcraft.co.uk/Survey/">the Netcraft Web Server
+Survey</a>). Microsoft&rsquo;s IIS Web server software does not even
+amount to one-quarter of all Internet-connected Web servers.  Apache is
+currently being used by
+<a href="http://java.sun.com/">Javasoft</a>,
+<a href="http://www.fbi.gov/">The FBI</a>,
+<a href="http://www.ft.com/">Financial Times</a>,
+<a href="http://www.imdb.com/">The Movies Database</a>,
+<a href="http://www.w3.org/">W3 Consortium</a>,
+<a href="http://www.royal.gov.uk/">The Royal Family</a>,
+<a href="http://www.lib.ox.ac.uk/">Oxford University Libraries Automation Service</a>,
+<a href="http://www.mit.edu/"> M.I.T.</a>,
+<a href="http://www.harvard.edu/">Harvard University</a>, and the
+<a href="http://www.utexas.edu/">University of Texas at Austin</a>.
+Netcraft also mentions that "Virtual hosting company
+<a href="http://www.rapidsite.com/">Rapidsite</a>
+is now the fifth placed server in the survey. Their hosting system,
+running a personalised version of Apache, supports 44,280 domain names
+on 39,905 distinct ip addresses. An achievement, and probably the
+world&rsquo;s largest hosting system." You will recall that in the
+performance section of this article the
+<a href="#KickAss">UNIX-Apache marriage put the NT-IIS one to
+shame</a>.  Not only is Apache fast, it&rsquo;s free.
+Apache&rsquo;s rule over the Internet has also been recognized by
+<a href="http://www.ibm.com/">IBM</a> who now has a partnership with
+Apache:</p>
+
+<blockquote>
+<p><i>IBM Teams Up With Apache</i><br />
+IBM will ship the Apache HTTP server with the IBM WebSphere Application
+Server, helping
+current Apache users to evolve to e-business solutions. As part of the
+WebSphere Application
+Server package, IBM will provide commercial, enterprise-level support for the Apache HTTP
+Server. In addition, IBM will be a full participant in the Apache HTTP Server Project, a
+collaborative development effort, and will make contributions to enhance the capabilities of the
+Apache HTTP Server. <br />
+&ldquo;<a href="http://www.ibm.com/News/1998/06/223.phtml">
+IBM helps companies turn simple web sites into powerful e-business
+solutions</a>,&rdquo; <i>IBM News</i>, 22 June, 1998.</p>
+</blockquote>
+
+<p>For the most robust Web server a corporation could ever need,
+Netscape-Enterprise is a great choice. Although it is not
+<a href="http://www.opensource.org/">Open Source</a>
+like Apache, it will meet the most demanding needs. Netscape-Enterprise
+is used by such
+companies as
+<a href="http://www.bmw.de/">BMW</a>,
+<a href="http://www.dilbert.com/">Dilbert</a>,
+<a href="http://www.sgi.com/">Silicon Graphics</a>,
+<a href="http://www.shell.com/">Shell</a>,
+<a href="http://www.sun.com">Sun Microsystems</a>,
+<a href="http://www.sybase.com/">Sybase</a>,
+<a href="http://www.ferrari.it/">Ferrari</a> and
+<a href="http://www.vatican.va/">The Vatican</a>.</p>
+
+<p>Microsoft&rsquo;s IIS is one of the few things that actually comes with
+Windows NT. It does not possess any special or unique qualities not
+already found in other Web server software. It excels neither in speed,
+nor in popularity, nor in the number of concurrent hits it can handle.
+It is currently being used by
+<a href="http://www.compaq.com/">Compaq</a>,
+<a href="http://www.nasdaq.com/">Nasdaq</a>,
+<a href="http://www.nfl.com/">The National Football League</a>,
+<a href="http://www.exxon.com/">Exxon</a>,
+and <a href="http://shop.tesco.co.uk/">Tesco</a>.
+To further substantiate my claim
+that Microsoft IIS is not up to speed, while testing the validity of the
+links for the sites above, I discovered that
+<a href="http://shop.tesco.co.uk/">Tesco</a> was unable to service any
+requests between 00:02:53 and 00:53:07 GMT on Monday, 22 June 1998.
+Their Web server kept returning the message HTTP/1.1 Server Too
+Busy despite my repeated attempts from my own domain and from
+other domains I telnetted into. The Web server never did manage
+to deliver their home page.  I simply gave up after 50 minutes of
+seeing the same error message from various clients in various domains.
+I have only ever seen this message from IIS Web servers.
+<a href="http://shop.tesco.co.uk/">Tesco</a> is running
+Microsoft-IIS/4.0.  Telnetting directly into their Web server on port
+80 revealed another unprofessional aspect of their site.  Despite the
+wide availability of ntp servers the world over, their system clock was
+off by 8 minutes and 51 seconds.</p>
+
+<p><a name="win95">For</a> Windows 95 and NT users, one of the most
+popular places on the Web to get freeware and shareware is a site
+called
+<a href="http://www.windows95.com">www.windows95.com</a>. Due to
+the immense popularity of the site it requires a robust operating
+system and performance oriented Web server software.  Since all the
+software offered at this site is exclusively for Windows 95 or NT, and
+the overall flavor tends to be very pro-Microsoft, one would assume
+that NT servers running IIS would be the logical choice for their
+Internet solution.  Well, here&rsquo;s
+<a href="http://www.windows95.com/about/faq.html">a quote from one of their own Web pages</a>:</p>
+
+
+<blockquote>
+<p>What hardware and software is Windows95.com running on?</p>
+<blockquote>
+<p>We use Pentium Pro computers running the BSDI UNIX operating system
+with Apache Web server software. Our servers are connected to the
+Internet via multi-homed T3 connections.</p>
+</blockquote>
+</blockquote>
+<p>Note:  This quote is from February 1998.  They recently changed their
+name from Windows95.com to WinFiles.com although they still have use of
+the windows95.com domain name. This change took place in March 1998.</p>
+
+<p>To verify what an Internet site is running at any given time,
+try the following link: <a href="http://www.netcraft.com/">
+What is that Site Running?</a></p>
+
+<hr />
+
+<h2><a name="conclusion">Conclusion</a></h2>
+
+<p>Ironically, it seems from the observations of experienced system
+administrators that UNIX would be the operating system of choice either
+for installations on a tight budget or huge corporations with a demand
+for high-powered multi-processor servers requiring a scalable operating
+system. Washington Post Staff Writer, Elizabeth Corcoran,
+provides us with a real-world example:</p>
+
+<blockquote>
+<p>Cincinnati Bell Information Systems, for instance, has used Sun
+workstations and servers to process checks for several years. It
+recently bought several top-of-the-line Sun servers to handle the
+demands of a million bills a day. The choices, said James Holtman, CBIS
+vice president, were either Sun servers or IBM mainframes. Microsoft&rsquo;s
+technology &ldquo;isn&rsquo;t quite there yet. It has a ways to
+grow to match those-size systems,&rdquo; he said.<br />
+(<i>The Washington Post</i>, Sunday, February 8, 1998; Page H01)</p>
+</blockquote>
+
+<p>Provided that a company is small to medium-sized, has few
+mission-critical processes to be run, is willing to hire additional
+administrators for their Microsoft Exchange and Internet Information
+Server(s), and has a substantial budget for Microsoft&rsquo;s &ldquo;per server&rdquo; or
+&ldquo;per seat&rdquo; licensing scheme, then NT would be the operating system of
+choice.  The
+<a href="http://www.aberdeen.com/">AberdeenGroup</a> has published an excellent
+<a href="http://www.aberdeen.com/research/comp/onsite/case1/body.htm">
+case study</a> on migrating to Windows NT.</p>
+
+<p>NT is also an excellent choice for managers who need to show that
+they used up their fiscal year budget for hardware/software
+expenditures.  Perhaps this is why it requires no prior purchase
+approval within federal agencies; &ldquo;NT has become the &lsquo;unofficial&rsquo;
+standard operating system for the federal government.  Federal
+employees whose responsibilities include the acquisition of computer
+hardware/software require prior written approval from above before
+ordering a UNIX operating system or hardware which cannot run Windows
+NT. For Intel-based hardware or Windows NT, no prior approval is
+required.&rdquo; (as reported by a vendor of Sun solutions who wishes to
+remain anonymous)</p>
+
+<p>For small shops or power users on a budget, or even medium to large
+businesses who are beginning to escape the antiquated mind-set that
+performance is best gauged by the last figure on the sales receipt,
+Linux or FreeBSD can easily exceed the performance and functionality of
+an NT solution, do it with inexpensive Intel-based hardware, and do it
+for $0.00, a price Bill Gates will find difficult to beat.  Why invest
+in an operating system that will require expensive training and
+re-training with each new NT release?  UNIX/Linux administrators are
+plentiful and generally more technically capable than their NT
+counterparts (most UNIX administrators have some coding/scripting
+skills seldom found among the new generation of "NT admins"). Why spend
+almost $5,000 for MS Exchange Server (this price only covers 50 client
+accesses), which in some companies, seems to only be able to handle the
+e-mail of a few hundred employees when you can use the built-in
+&ldquo;sendmail&rdquo; mail server software that ships with Linux, a tried and
+proven application capable of supporting the e-mail demands of
+thousands of employees?</p>
+
+<p>As to the actual overall features and performance of the two
+operating systems, it seems that UNIX wins hands down. It offers a
+variety of vendors (no threat of a monopoly), scalability, more
+efficient use of system resources, remote administration, remote
+computing, multi-user capabilities, large palette of (professional)
+software resources, vendor independent standards (POSIX), control of
+users&rsquo; disk usage (unlike NT), and can&rsquo;t be crashed by viruses written
+10 years ago for DOS computers.  But the most important thing of all to
+remember from this article when trying to choose between Windows NT and
+one of the many UNIX operating systems is this:</p>
+
+<blockquote>
+<p>A UNIX operating system will give you choices: any type
+of hardware, CLI or GUI, commercial or GNU, diverse choice of vendors.
+It is dynamic, i.e. you can build a customized kernel to fit the
+specific computing needs at hand.</p>
+<p>Windows NT will give you restrictions: only Intel or
+Alpha; no CLI, only GUI (try booting NT into CLI-only mode) and then
+only one GUI (no wide choice of windowing systems as can be found under
+X); only commercial MTAs, only Microsoft (ever heard of another company
+marketing &ldquo;NT Server clone&rdquo; operating systems?), etc.  NT Server is
+static, i.e. you will never be able to build a customized
+kernel.  One size fits few.</p>
+</blockquote>
+
+<p>Although Microsoft is not the only &ldquo;restrictions-oriented&rdquo; software
+vendor promoting its own closed, proprietary solutions, one would hope
+that organizations promoting open systems and solutions would prevail.
+Netscape is one vendor that promotes diversity and points out
+Microsoft&rsquo;s pro-restriction, anti-choice stance regarding various
+products:</p>
+
+<blockquote>
+<p>[Our] strategy is in sharp contrast to that of vendors like Microsoft,
+whose business model depends on customers upgrading to the most recent
+version of each operating system. Consider that Microsoft&rsquo;s component
+model, ActiveX, and the underlying components are designed to run only
+on 32-bit Windows. Many Microsoft APIs also run only on 32-bit Windows.
+For example, an application that uses ADSI (Microsoft&rsquo;s API to access
+the LDAP directory protocol), will not run on existing Win16 clients,
+much less on Macintosh or Unix systems. Netscape&rsquo;s LDAP API is
+available on 17 platforms in C and many more in Java. In addition,
+Microsoft&rsquo;s future platform services like &ldquo;Viper&rsquo;s&rdquo; transaction
+processing and &ldquo;Falcon&rsquo;s&rdquo; messaging only runs on NT 5.0 - an Oracle
+database running on Unix, for example, is not supported. The difference
+is clear: with Microsoft, developers write to the Windows platform,
+with Netscape, they write to the Internet platform.<br />
+&mdash; Netscape,
+<a href="http://developer.netscape.com/docs/wpapers/crossware/#advantages">
+Netscape ONE Advantages</a></p>
+</blockquote>
+
+<p>It would seem that the question of which operating system to choose
+would be academic at this point based on the information I have
+provided here, yet every day some highly-capable systems/network
+administrator somewhere is told by his/her manager that the company is
+switching over to NT.  The administrator is left stunned and confused,
+for he/she already knows the information contained in this article.  It
+is the management of your company who should be reading this.  All too
+often management rocks the boat and disrupts the harmony of stable,
+economical, and technically superior implementations when they suddenly
+discover that an unapproved operating system has been in use for quite
+some time, based solely on political reasons:</p>
+
+<blockquote>
+<p>The corporate IT managers notice someday what is that box in the
+corner and they tell them that it&rsquo;s the departmental Web server that&rsquo;s
+been running for a year and a half, and by the way it&rsquo;s running Linux.
+One normal reaction is to upgrade it immediately to NT, but what
+happens is that they go back to Linux because the performance
+dropped.<br />
+&mdash;
+<a href="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">
+Linus Torvalds talks economics and operating systems</a>, InfoWorld, April 9, 1998.</p>
+</blockquote>
+
+<p>This very type of incident happened at
+<a href="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco Systems
+Inc.</a> but despite the order from senior management to switch
+over to NT, they are still running Linux (get the
+<a href="#cisco">details</a>).  Obviously, some of the technical
+staff refused to comply with this order.  Why do you think that
+technical people risk losing their positions over this issue? I&rsquo;ll
+leave this question for you to answer.</p>
+
+<p>If you are a manager, try to use this information wisely to enhance
+the computing environment at your facility.  Talk to your technical
+people and ask them what works.  Make the right decision.  Don&rsquo;t be
+fooled by salespeople who use buzz words but can&rsquo;t explain them, let
+alone explain their pertinence to your company&rsquo;s computing
+goals.	Seek out companies who have implemented both Microsoft
+and UNIX servers for the type of solution you are considering.
+Try meeting with their technical people to get objective, first-hand
+reports on the feasibility, difficulty of implementation, and
+initial+ongoing maintenance costs associated with your proposed
+solution.</p>
+
+<hr />
+
+<h2><a name="compare">Linux and NT Server 4.0 at a Glance</a></h2>
+
+<p>Since NT is often chosen on the basis of cost-effective hardware
+solutions, Linux will be the UNIX system in this comparison, for it
+thrives on Intel hardware.</p>
+
+<p>Note: Only the items/features that actually ship with each
+operating system are listed here.  Perl 5.0, for instance, is available
+for all platforms, but Microsoft does not provide this with its
+operating systems. On the same note, most distributions of Linux ship
+with only about four GUIs (window managers) to choose from, yet you&rsquo;ll
+note from a previous section in this article, that this is only a small
+number of what is available for Linux, or any other UNIX operating
+system for that matter.</p>
+
+<center>
+
+<table width="85%" border="1">
+<tr>
+<td width="28%"><strong>Component</strong></td>
+<td width="28%"><strong>Linux</strong></td>
+<td width="32%"><strong>Windows NT Server 4.0</strong></td>
+</tr>
+<tr>
+<td width="28%">Operating System</td>
+<td width="28%">Free, or around $49.95 for a CD-ROM distribution</td>
+<td width="32%">Five-User version $809<br />
+10-User version $1129<br />
+EE 25-User Version $3,999</td>
+</tr>
+<tr>
+<td>Free online technical support</td>
+<td>Yes,
+<a href="http://www.linux.org/help/howto.html">
+Linux Online</a> or
+<a href="http://www.redhat.com/">
+Redhat</a></td>
+<td>No</td>
+</tr>
+<tr>
+<td>Kernel source
+code</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td width="28%">Web Server</td>
+<td width="28%">Apache Web Server</td>
+<td width="32%">IIS</td>
+</tr>
+<tr>
+<td width="28%">FTP Server</td>
+<td width="28%">Yes</td>
+<td width="32%">Yes</td>
+</tr>
+<tr>
+<td width="28%">Telnet Server</td>
+<td width="28%">Yes</td>
+<td width="32%">No</td>
+</tr>
+<tr>
+<td>SMTP/POP3 Server</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Yes</td>
+<td>Yes, though reports indicate that it is a broken implementation
+with limited functionality.</td>
+</tr>
+<tr>
+<td>Networking</td>
+<td>TCP/IP, IPv6, NFS, SMB, IPX/SPX, NCP Server (NetWare Server),
+AppleTalk, plus many other protocols</td>
+<td>TCP/IP, SMB, IPX/SPX, AppleTalk, plus many other protocols</td>
+</tr>
+<tr>
+<td>X Window Server<br />
+(For running remote <br />
+GUI-based applications)</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Remote Management Tools</td>
+<td>Yes, all tools</td>
+<td>Web Administrator 2.0 (a recent addition)
+offers a large, but still not complete,
+set of tools.<br /></td>
+</tr>
+<tr>
+<td>News Server</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>C and C++ compilers</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Perl 5.0</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Revision Control</td>
+<td>Yes,
+<a href="http://sunsite.unc.edu/LDP/HOWTO/mini/RCS.html">
+RCS</a></td>
+<td>No</td></tr>
+<tr>
+<td>Number of file systems supported</td>
+<td>32</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Disk quotas support</td>
+<td>Yes</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Number of GUIs (window managers) to choose
+from</td>
+<td>4</td>
+<td>1</td>
+</tr>
+</table>
+
+</center>
+
+<hr />
+
+<h2><a name="bigguys">What are Major Companies Deploying?</a></h2>
+
+
+<p><a href="http://www.amazon.com/">Amazon.com</a><br />
+Amazon.com Books, the world&rsquo;s largest on-line bookstore, relies on
+DIGITAL UNIX AlphaServer 2000 systems to keep its Internet business
+open around the clock. DIGITAL VLM64 technology keeps data highly
+available to customers. &ldquo;The extensive Web server capabilities of the
+DIGITAL AlphaServer series, coupled with its smooth upgrade path,
+provided the perfect solution for our rapid growth curve.&rdquo;</p>
+
+<p><a href="http://www.boeing.com/">Boeing</a><br />
+Operating systems: HP-UX, IRIX, Solaris, and more NT than some of
+its technical staff would prefer. <br />
+<a href="#boeing">Read what Linus Torvalds has to say about Boeing!</a><br />
+Web server: Netscape-Enterprise 2.01</p>
+
+<p>The <a href="http://www.dallascowboys.com">Dallas Cowboys</a><br />
+Operating systems:
+<a href="http://www.sgi.com/Products/hardware/servers/products/Irix.html">
+IRIX</a>
+(Silicon Graphics UNIX Operating System) and UNIX System V Release 4.0<br />
+MTA: Netscape Messaging Server 3.01<br />
+Web: Netscape-Enterprise 3.0</p>
+
+<p><a href="http://www.dow.com/">Dow Corning</a><br />
+"We&rsquo;re a global operation and have always used mainframes. Choosing
+Sun was a higher risk than other choices, but they really impressed us
+with their technology and commitment. Now that we&rsquo;ve worked with Sun,
+if we had to do it over again, we wouldn&rsquo;t even consider making a
+different decision. Sun is doing an outstanding job." <br />
+&mdash; Mark Smith, Manager of Information Technology Systems, Dow Corning</p>
+
+<p>
+<a href="http://www.hotmail.com" name="ms-solaris">Hotmail</a>,
+<a href="http://www.microsoft.com">The Microsoft Corporation</a>
+<br />
+This free Web-based e-mail service runs a mixture of Sun Solaris and
+FreeBSD.  Apache 1.2.1 is the Web server software.  After Microsoft
+purchased the company in December 1997, they tried to migrate to NT,
+but ". . . the demands of supporting 10 million users reportedly proved
+too great for NT, and Solaris was reinstated."	Get the full story:
+<a href="hotmail.html">
+Solaris calls Hotmail shots for Microsoft</a>.</p>
+
+<p>
+<a name="usps" href="http://www.usps.gov/">
+United States Postal Service</a>
+<br />
+&ldquo;The United States Postal Service deployed over 900 Linux based
+systems throughout the United States in 1997 to automatically recognize
+the destination addresses on mail pieces. Each system consists of 5
+dual Pentium Pro 200MHz (PP200) computers and one single PP200 all
+running Linux.&rdquo; <br />
+&mdash; John Taves,
+<a href="http://members.aa.net/~jtaves/linux.htm">
+Linux is reading your mail</a>, April 8, 1998</p>
+
+<p><a href="http://www.yahoo.com">Yahoo!</a><br />
+&ldquo;. . . A couple of days later we added a FreeBSD box to our cluster
+of Web servers. Not only did it out-perform the rest of our machines,
+but it was more stable. A few weeks into this experiment and we were
+sold. Although the price was certainly attractive, it was the
+stability, performance, and access to the source code that sold us.
+Ever since then we&rsquo;ve used FreeBSD almost exclusively for production as
+well as our development environment.&rdquo;<br />
+&mdash; David Filo, Co-founder of Yahoo! (<i>FreeBSD News</i>, Issue 1)</p>
+
+<p>This list of
+<a href="http://www.m-tech.ab.ca/linux-biz/">businesses using Linux in
+their day-to-day operations</a> seeks to inform the public about
+the reality of Linux as a viable alternative to commercial UNIX
+operating systems.  Companies such as
+<a href="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco Systems Inc.</a>,
+<a href="http://www.m-tech.ab.ca/linux-biz/sony.html">Sony WorldWide Networks</a>,
+<a href="http://www.m-tech.ab.ca/linux-biz/mercedes.html">Mercedes-Benz</a>, and
+<a href="http://www.m-tech.ab.ca/linux-biz/taxi1.html">Yellow Cab Service Corporation</a>
+are mentioned. A description of the capacity in which Linux is being
+deployed accompanies each company&rsquo;s listing.</p>
+
+<p><a name="cisco"><i>InfoWorld</i> recently wrote about the possibility of</a>
+<a href="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco Systems Inc.</a>
+switching from Linux to Windows NT:</p>
+
+<blockquote>
+<p>Speaking of platform changes, Cisco Systems may be switching over its
+internal network of print servers.  Apparently, the company&rsquo;s current
+infrastructure is based on Linux and works very well, but that hasn&rsquo;t
+stopped the guys at the top from wanting to mess with it.  I&rsquo;m told
+that in light of Cisco&rsquo;s ever-cozier relationship with Microsoft, its
+senior management issued an order that the existing system be trashed
+in favor of a Windows NT-based setup.  Word has it, though, that
+inertia has won out, and despite the order from on-high, the printing
+system is still &mdash; you guessed it &mdash; Linux-based.<br />
+&mdash; Robert X. Cringely,
+&ldquo;No Sunday in the Park: Rain Pushes platforms closer to the precipice,&rdquo; in:
+<i><a href="http://www.infoworld.com/">InfoWorld</a></i>, February 23, 1998, vol. 20, issue 8, p. 115.</p>
+</blockquote>
+
+<p><a name="boeing">Linus Torvalds, the founder of Linux, mentions</a>
+in an interview with <i>InfoWorld</i> that Linux can often be on the
+&ldquo;unofficially approved list&rdquo; at some companies:</p>
+
+<blockquote>
+<p>But not many people want to come out of the closet to officially say they are using Linux.
+<a href="http://www.hq.nasa.gov/">NASA</a> is very open about
+supporting Linux, as are universities. I know that Linux is used in
+places like <a href="http://www.boeing.com/">Boeing</a>, but I
+can&rsquo;t point people to a Web page that says so.<br />
+&mdash; <a href="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">
+Linus Torvalds talks economics and operating systems</a>, <i>InfoWorld</i>, April 9, 1998.</p>
+</blockquote>
+
+<p>See also
+<a href="../webservers.html">
+Web Servers of 101 Prominent Companies/Organizations</a>.</p>
+
+<hr />
+
+<h2><a name="links">Related Links</a></h2>
+
+<blockquote>
+<p><a href="http://www.bell-labs.com/user/tal/papers/ntdesktop/ntdesktop/ntdesktop.html">
+Providing Reliable NT Desktop Services by Avoiding NT Server</a><br />
+by Thomas A. Limoncelli, Robert Fulmer, Thomas Reingold,
+Alex Levine, Ralph Loura,<br />
+<a href="http://www.bell-labs.com/">Lucent Technologies, Bell Labs</a>.</p>
+
+<p><a href="http://dtf.external.hp.com/linux/">
+HP Delivers 24x7 Worldwide Support For Linux Systems and Applications</a></p>
+
+<p><a href="http://www.sunworld.com/swol-04-1999/swol-04-idcnt.html">
+NT looking great on paper</a><br />
+Microsoft has stolen mindshare from Unix, says IDC<br />
+by Steven Brody,
+<i>SunWorld</i>,
+19 April 1999.<br />
+<a href="http://www.cnn.com/TECH/computing/9904/21/ntpaper.ent.idg/">
+CNN.com&rsquo;s version of this same article.</a></p>
+
+<p><a href="http://www.zdnet.com/zdnn/stories/news/0,4586,2242246,00.html">
+NT beats Linux ... maybe</a><br />
+Study finds NT is faster than Linux as a Web server...at least
+according to MS-sponsored tests.<br />
+by Steven J. Vaughan-Nichols,
+<a href="http://www.zdnet.com/sr/">Sm@rt Reseller</a>,
+15 April 1999.</p>
+
+<p><a href="http://www.dhbrown.com/dhbrown/linux.html">
+Linux: How Good Is It?</a><br />
+D.H. Brown Associates, Inc., 12 April 1999.</p>
+
+<!--<p><a href="http://advisor.gartner.com/n_inbox/hotcontent/hc_2121999_3.html">-->
+<p>&ldquo;Divorcing Thin Server Software from the Hardware&rdquo;<br />
+This article is no longer available.<br />
+Please direct inquiries concerning this article to the
+<a href="MAILTO:gginfo@gartner.com">GartnerGroup</a>.<br />
+by J. Staten,
+<i><a href="http://advisor.gartner.com/">GartnerGroup Advisor</a></i>,<br />
+&ldquo;This document examines this issue in detail, particularly the differences
+between Linux and FreeBSD, the current de facto leaders in the market.&rdquo;</p>
+
+<p><a href="http://pages.cthome.net/iact/24x7-NTreal.html">
+IACT&rsquo;s 24x7 Report</a><br />
+by John Drabik,
+<a href="http://pages.cthome.net/iact/">IACT</a>
+(International Alliance for Compatible Technology).</p>
+
+<!--<p><a href="http://www.freebsd.org/~andreas/benches/index.html">-->
+<p>Comparison between FreeBSD 3.1 SMP and SuSE Linux 6.0 SMP<br />
+(Author has removed this article from FreeBSD&rsquo;s site.)<br />
+"Looks promising for the Linux 2.2.3 SMP kernel, but actually FreeBSD
+is still 19% faster."<br />
+by Andreas Klemm,
+<a href="http://www.freebsd.org/">FreeBSD.org</a>,
+14 March 1999.</p>
+
+<p><a href="http://www.pbs.org/cringely/pulpit/pulpit19990311.html">
+Windows 2000, Users Zilch:<br />
+The Y2K Disaster Parading as Microsoft&rsquo;s
+Windows NT Marketing Plan</a><br />
+by Robert X. Cringely,
+<i><a href="http://www.pbs.org/">PBS online</a></i>,
+11 March 1999.</p>
+
+<p><a href="http://www.zdnet.com/pcweek/stories/news/0,4153,389494,00.html">
+IBM to Linux-ize PCs</a><br />
+by Carmen Nobel and Scott Berinato,
+<i><a href="http://www.zdnet.com/pcweek/">PC Week</a> Online</i>,
+15 February 1999.</p>
+
+<p><a href="http://www.zdnet.com/pcweek/stories/news/0,4153,387766,00.html">
+Linux: Enterprise-ready</a><br />
+"2.2 kernel&rsquo;s multiprocessing, improved memory
+management deliver enterprise goods"<br />
+by Henry Baltazar,
+<i><a href="http://www.zdnet.com/pcweek/">PC Week</a></i> Labs,
+1 February 1999.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,31511,00.html">
+Computing heavyweights warm to Linux</a><br />
+by Stephen Shankland, <i><a href="http://www.news.com">CNET News.Com</a></i>,
+27 January 1999.</p>
+
+<p><a href="http://www.theregister.co.uk/990126-000022.html">
+Windows NT could triple enterprise upgrade costs - report</a><br />
+by John Lettice,
+<i><a href="http://www.theregister.co.uk/">The Register</a></i>,
+26 January 1999.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,31458,00.html?st.ne.fd.mdh">
+New version of Linux posted</a><br />
+by Stephen Shankland, <i><a href="http://www.news.com">CNET News.Com</a></i>,
+26 January 1999.</p>
+
+<p><a href="http://www.zdnet.com/sr/stories/issue/0,4537,387506,00.html">
+Linux Up Close: Time To Switch</a><br />
+by Steven J. Vaughan-Nichols &amp; Eric Carr,
+<a href="http://www.zdnet.com/sr/welcome.html">Sm@rt Reseller</a>,
+25 January 1999.</p>
+
+<p><a href="http://www.infoworld.com/cgi-bin/displayStory.pl?990123.whlinux.htm">
+Linux bandwagon grows</a><br />
+by David Pendery, Dan Briody, and Ed Scannell,
+<i><a href="http://www.infoworld.com/">
+InfoWorld Electric</a></i>, 23 January 1999.<br />
+&ldquo;Momentum behind the Linux platform will soon surge again with both Hewlett-Packard and
+<a href="http://www.tivoli.com/">Tivoli Systems</a> planning to extend their
+management platforms to the open-source Linux platform, according to high-ranking
+officials at the two companies.&rdquo;</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,31060,00.html">
+Notes headed to Linux</a><br />
+by Erich Luening, Staff Writer,
+<i><a href="http://www.news.com">CNET News.Com</a></i>,
+18 January 1999.</p>
+
+<p><a href="http://www.performance-computing.com/columns/penguin/9901.shtml">
+Linux 101</a><br />
+by Jon maddog Hall
+<i><a href="http://www.performance-computing.com/">
+Performance Computing</a></i>,
+January 1999.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,30027,00.html">
+Linux shipments up 212 percent</a><br />
+by Stephen Shankland, <i><a href="http://www.news.com">CNET News.Com</a></i>,
+16 December 1998.</p>
+
+<p><a href="http://www.linuxworld.com/linuxworld/lw-1998-12/lw-12-freebsd.
+html">
+The story on FreeBSD: What you should know about this important free
+OS</a><br />
+by Cameron Laird and Kathryn Soraiz,
+<i><a href="http://www.linuxworld.com/">LinuxWorld</a></i>,
+December 1998.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,29416,00.html">
+Unix trounces Windows NT in testing</a><br />
+by Stephen Shankland,
+<i><a href="http://www.news.com">CNET News.Com</a></i>,
+1 December 1998.</p>
+
+<p><a href="http://www.abcnews.com/sections/tech/FredMoody/moody981120.html">
+Charge of the Linux Brigade</a><br />
+by Fred Moody,
+<i><a href="http://www.abcnews.com/">
+ABCNEWS.com</a></i>,
+20 November 1998.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,28215,00.html?st.ne.ni.lh">
+Microsoft: Linux a threat to NT</a><br />
+by Dan Goodin, Stephen Shankland, and Paul Festa,
+<i><a href="http://www.news.com">CNET News.Com</a></i>,
+2 November 1998.</p>
+
+<p><a href="http://www.opensource.org/halloween/">
+The Halloween Documents</a><br />
+&ldquo;Microsoft Confidential&rdquo; Documents with annotations and comments<br />
+by Eric S. Raymond, 30 October 1998.</p>
+
+<p><a href="http://www.techweb.com/wire/story/TWB19981029S0001">
+Unix Growth Still Outpaces Win NT</a><br />
+by Andy Patrizio,
+<i><a href="http://www.techweb.com/">TechWeb</a></i>, 28 October 1998.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,28065,00.html">
+Gates "on the warpath"</a><br />
+by Bloomberg News,
+<i><a href="http://www.news.com">CNET News.Com</a></i>,
+28 October 1998.</p>
+
+<p><a href="http://www.techweb.com/se/directlink.cgi?EET19981026S0028">
+Finding Unix ain&rsquo;t broke, chip side balks at NT</a><br />
+by Richard Goering,
+<i>EE Times</i>, Issue: 1032, Section: Special Report: Workstations And Windows NT,
+26 October 1998.</p>
+
+<p><a href="http://www.sjmercury.com/business/center/unix102798.htm">
+Unix back in the fight with NT</a><br />
+by Miguel Helft,
+<i><a href="http://www.sjmercury.com/">Mercury Center</a></i>,
+26 October 1998.</p>
+
+<p><a href="http://www.zdnet.com/windows/stories/main/0%2C4728%2C358782%2C00.html">
+Wall Street Is Bullish on NT</a><br />
+by Michael Moeller,
+<i><a href="http://www.zdnet.com/winpro/">WindowsPro Magazine</a></i>,
+16 October 1998.</p>
+
+<p><a href="http://www.zdnet.com/zdnn/stories/zdnn_smgraph_display/0,4436,2149216,00.html">
+Novell to unveil directory services on Linux</a><br />
+by Mary Jo Foley,
+<a href="http://www.zdnet.com/sr/">Sm@rt Reseller Online</a>,
+13 October 1998.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,26490,00.html">
+Intel pushing unified Unix</a><br />
+by Brooke Crothers, Staff Writer,
+<i><a href="http://www.news.com">CNET News.Com</a></i>,
+17 September 1998.</p>
+
+<p><a href="http://www.zdnet.com/sr/stories/issue/0,4537,349576,00.html">
+Quality Unix for FREE</a><br />
+by Brett Glass,
+<a href="http://www.smartreseller.com/">Sm@rt Reseller</a>,
+<i><a href="http://www.zdnet.com//">ZDNet</a></i>,
+7 September 1998.</p>
+
+<p><a href="http://www.sun.com.au/news/onsun/sept98/">
+ABC switches to Sun SAP environment:<br />
+The Australian Broadcasting Corporation (ABC) has successfully
+migrated its SAP development platform from NT to Solaris, running on
+Sun boxes</a><br />
+<a href="http://www.sun.com.au/">
+Sun Microsystems Australia</a>,
+<i>On#Sun</i>, vol. 5 issue 2, September 1998.</p>
+
+<p><a href="http://www.independent.co.uk/net/981005ne/index.html">
+Beware the penguin, Bill</a><br />
+by Charles Arthur,
+<i><a href="http://www.independent.co.uk/">The Independent</a></i>,
+5 October 1998.</p>
+
+<p><a href="http://www.computerworld.com/home/features.nsf/all/981005rc1">
+Intranets On A Shoestring</a><br />
+by Chris Lindquist,
+<i><a href="http://www.computerworld.com/">Computerworld</a></i>,
+5 October 1998.</p>
+
+<p><a href="http://www.idg.co.nz/nzweb/b252.html">
+Gates pushes hometown to Linux<br />
+Linux-based document system costs 10% of Windows NT solution</a><br />
+by Christine Burns,
+<i><a href="http://www.idg.co.nz/nzweb/nzweb.shtml">
+Computerworld News</a></i>,
+4 October 1998.</p>
+
+<p><a href="http://www.zdnet.com/windows/nt/security/ntbugtraq/">
+Service Pack 4 vs. NT 5 (a.k.a. NT2000)</a><br />
+by Russ Cooper,
+<i><a href="http://www.zdnet.com/">ZDNet</a></i>,
+29 September 1998.</p>
+
+<p><a href="http://www.performance-computing.com/opinions/throttle/9809.shtml">
+NT&rsquo;s Cloudy Future</a><br />
+by Mark Hall,
+<i><a href="http://www.performance-computing.com/">Performance Computing</a></i>,
+September 1998.</p>
+
+<p><a href="http://www.zdnet.com/zdnn/stories/zdnn_smgraph_display/0,4436,2140612,00.html">
+New Security Flap Over Windows NT</a><br />
+by Mary Jo Foley,
+<a href="http://www.smartreseller.com/">Sm@rt Reseller</a>,
+<i><a href="http://www.zdnet.com/zdnn/">ZDNN</a></i>,
+23 September 1998.</p>
+
+<p><a href="http://www.NikkeiBP.AsiaBizTech.com/Database/98_Sep/21/Fea.01.gwif.html">
+Linux Surfaces As Alternative to Windows NT</a><br />
+by Masahiro Nakamura, Staff Editor,
+<a href="http://nc.nikkeibp.co.jp/eng/">Nikkei Computer</a>,
+<i><a href="http://www.NikkeiBP.AsiaBizTech.com/">AsiaBizTech</a></i>,
+21 September 1998.</p>
+
+<p><a href="http://www.pbs.org/cringely/pulpit/pulpit19980910.html">
+A Fight to the Finnish<br />
+Why Linux Quite Appropriately Scares
+the Bejesus Out of Microsoft</a><br />
+by Robert X. Cringely,
+<i><a href="http://www.pbs.org/">PBS online</a></i>,
+10 September 1998.</p>
+
+<p><a href="http://www.msnbc.com/news/193825.asp">
+Dell ships PCs, servers with Linux</a><br />
+by Connie Guglielmo of
+<i><a href="http://www.zdnet.com/zdnn/">ZDNN</a></i>,
+<i><a href="http://www.msnbc.com/news/">MSNBC</a></i>,
+8 September 1998.</p>
+
+<p><a href="http://www.softwaremag.com/Sept98/sm098cv.htm">
+In LINUX We . . .</a><br />
+by Ann Harrison,
+<i><a href="http://www.softwaremagazine.com/">
+Software Magazine</a></i>, Cover Story, September 1998.</p>
+
+<p><a href="http://www.latimes.com/HOME/NEWS/CUTTING/lat_linux0824.htm">
+Linux, an Alternative to Microsoft Windows, Shows Value of
+Free Software</a><br />
+by Leslie Helm, Times Staff Writer,
+<i><a href="http://www.latimes.com/">Los Angeles Times</a></i>,
+24 August 1998.</p>
+
+<p><a href="http://www.wired.com/news/news/technology/story/14450.html">
+NASA Greets Beowulf</a><br />
+by Michael Stutz, <i><a href="http://www.wired.com/news/">Wired News</a></i>,
+17 August 1998.</p>
+
+<p><a href="http://www.zdnet.com/windows/wpro/9809/fs_datacenter_01.html">
+Is NT Ready for the Data Center?</a><br />
+by Joseph P. McGarvey,
+<i><a href="http://www.zdnet.com/winpro/">Windows Pro Magazine</a></i>,
+26 August 1998.</p>
+
+<p><a href="http://www.techweb.com/wire/story/TWB19980728S0004">
+Microsoft Admits NT Trails Solaris</a><br />
+by Barbara Darrow and Stuart Glascock,
+<i><a href="http://www.crn.com/">Computer Reseller News</a></i>,
+28 July 1998.</p>
+
+<p><a href="http://www2.computerworld.com/852564bb0045a5c0/69747ca2461a6aee852564ea0052c19c/7c87db1b2bb59d56852564ec00700a32?OpenDocument">
+NT vs. UNIX: An uphill battle</a><br />
+by Kevin Burden,
+<i><a href="http://www.computerworld.com/">Computerworld</a></i>,
+August 1998.</p>
+
+<p><a href="http://www.techweb.com/se/directlink.cgi?CRW19980817S0029">
+Open OS Provides Flexible, Stable Computing Platform &mdash;
+Linux Environment Offers Endless Possibilities</a><br />
+by Paula Rooney,
+<a href="http://www.techweb.com/">Computer Retail Week (<i>TechWeb</i>)</a>,
+17 August 1998, Issue: 215, Section: Business Solutions</p>
+
+<p><a href="http://www.lantimes.com/98/98aug/808b001a.html?st.ne.fd.mnaw">
+Linux legitimacy rallies NT skeptics</a><br />
+by R. Scott Raynovich and Polly Sprenger,
+<i><a href="http://www.lantimes.com/">LAN Times</a></i>,
+17 August 1998.</p>
+
+<p><a href="http://www.byte.com/art/9801/sec19/art4.htm">
+Putting Unix in All the Right Places:
+The reports of Unix&rsquo;s death are greatly exaggerated.</a><br />
+by John Montgomery,
+<i><a href="http://www.byte.com/">Byte</a></i>,
+January 1998.</p>
+
+<p><a href="http://www.news.com/News/Item/0,4,25013,00.html?st.ne.fd.gif.c">
+Report: Wait on NT 5.0</a><br />
+by Ben Heskett,
+<i><a href="http://www.news.com">CNET News.Com</a></i>,
+6 August 1998.</p>
+
+<p><a href="http://www.techweb.com/wire/story/TWB19980629S0013?st.ne.fd.mnaw">
+Users Should Skip NT 5.0, Analysts Say</a><br />
+by David Wilby, <i><a href="http://www.techweb.com/">TechWeb</a></i>,
+29 June 1998.</p>
+
+<p><a href="http://www.linuxgazette.com/issue31/raymond.html">
+Open Source&rsquo;s First Six Months</a><br />
+by Eric Raymond,
+<i><a href="http://www.linuxgazette.com/">Linux Gazette</a></i>,
+August 1998.</p>
+
+<p><a href="http://www.sunworld.com/sunworldonline/swol-08-1998/swol-08-linuxvnt.html">
+Linux versus NT:
+Are you getting the most from your OS?</a><br />
+by Cameron Laird,
+<i><a href="http://www.sunworld.com/">SunWorld Online</a></i>,
+August 1998.</p>
+
+<p><a href="http://cnnfn.com/hotstories/washun/9807/23/senate/">
+Foes fire at Microsoft</a> <br />
+<a href="http://www.real.com/">RealNetworks</a> exec tells
+Senate panel software giant &lsquo;breaks&rsquo; his product<br />
+by staff writer John Frederick Moore,
+<i><a href="http://cnnfn.com/">CNN Financial Network</a></i>,
+23 July 1998.</p>
+
+<p><a href="http://www.bootnet.com/youaskedforit/lip_linux_manifesto.html">
+Linux manifesto</a> (A
+<a href="http://www.bootnet.com/boot.html">boot</a>
+interview with Linus Torvalds)</p>
+
+<p><a href="http://www.infoworld.com/cgi-bin/displayStory.pl?980717.whorlinux.htm">
+Oracle to port database to Linux after all</a><br />
+by Paul Krill, <i><a href="http://www.infoworld.com/">
+InfoWorld Electric</a></i>, 17 July 1998.</p>
+
+<p><a href="http://www.infoworld.com/cgi-bin/displayStory.pl?980717.whinformix.htm">
+Informix gets set to embrace Linux</a><br />
+by Paul Krill, <i><a href="http://www.infoworld.com/">
+InfoWorld Electric</a></i>, 17 July 1998.</p>
+
+<p><a href="http://www.zdnet.com/zdnn/stories/zdnn_smgraph_display/0,3441,2120879,00.html">
+NT: One step forward, two steps back</a><br />
+by Mary Jo Foley, <a href="http://www.zdnet.com/zdnn/">ZDNN</a>,
+20 July 1998.</p>
+
+<p><a href="http://www.techweb.com/se/directlink.cgi?INW19980427S0003">
+NT Needs Patch To Comply With Y2K</a><br />
+by Ellis Booker, <a href="http://www.techweb.com/">TechWeb</a>
+(<i>InternetWeek</i>, issue 712), 27 April 1998.</p>
+
+<p><a href="http://www.isdmag.com/Editorial/1998/CoverStory9807.html">
+Engineers Speak Out: Linux vs. Windows NT, Part 1</a><br />
+by Murry Shohat, <i><a href="http://www.isdmag.com/">
+Intergrated System Design Magazine</a></i>, July 1998.</p>
+
+<p><a href="http://www.pcquest.com/editorial/edit-may98.html">
+The &ldquo;Decline&rdquo; and Rise of Unix</a><br />
+by Prasanto K. Roy, <a href="http://www.pcquest.com/">
+PC Quest</a>.</p>
+
+<p><a href="http://www.zdnet.com/pccomp/features/fea0797/nt/">
+NT Lies</a><br />
+by Ed Bott, <i><a href="http://www.zdnet.com/">ZDNet</a></i>, July 1997.</p>
+
+<p><a href="http://slashdot.org/articles/9804211730214.shtml">
+Sun Joins Linux International</a><br />
+<a href="http://slashdot.org/">Slashdot</a>, 21 May 1998.</p>
+
+<p><a href="http://slashdot.org/articles/980529098226.shtml">
+Update on Sun joining Linux International</a><br />
+<a href="http://slashdot.org/">Slashdot</a>, 29 May 1998.</p>
+
+<p>
+<a href="http://earthspace.net/~esr/writings/cathedral-paper.html">
+The Cathedral and the Bazaar</a><br />
+by Eric S. Raymond, 29 January 1998.</p>
+
+<p>
+<a href="http://www.aberdeen.com/research/comp/viewpnts/1997/v10n20/97090178.htm">
+Microsoft: The Joker of Enterprise IS Computing</a><br />
+by The
+<a href="http://www.aberdeen.com/">AberdeenGroup</a>,
+<i>Executive Viewpoint</i>, Volume 10 / Number 20, 29 September 1997.</p>
+
+<p>
+<a href="http://www.aberdeen.com/research/comp/whtpaper/1998/98031201/98031201.htm">
+Interoperability: Possibility or Elusive Dream? &mdash; An Executive White Paper</a><br />
+by The <a href="http://www.aberdeen.com/">AberdeenGroup</a>, March 1998.</p>
+
+<p>
+<a href="http://www.aberdeen.com/ab_abstracts/body1.htm">
+OnSite - Case Study: Migration Migraines</a><br />
+by The
+<a href="http://www.aberdeen.com/">AberdeenGroup</a>, 1997.</p>
+
+<p>
+<a href="http://www.aberdeen.com/ab_abstracts/body2.htm">
+Case Study: Horns of a Dilemma</a><br />
+by The
+<a href="http://www.aberdeen.com/">AberdeenGroup</a>.</p>
+
+<p>
+<a href="http://www.computerworld.com/home/online9697.nsf/all/970724windows">
+Windows NT no match for UNIX, IDC says</a><br />
+by Rob Guth, <i><a href="http://www.computerworld.com">Computerworld</a></i>, 24 July 1997.</p>
+
+<p>
+<a href="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/np102896.htm">
+It will take less drive to make most PC operating
+systems work like Unix</a><br />
+by Nicholas Petreley, <i><a href="http://www.infoworld.com/">InfoWorld</a></i>,
+28 October 1996.</p>
+
+<p>
+<a href="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.win3.htm#linux">
+1997 Product of the Year Award: Operating Systems - Network Operating System</a><br />
+by Eric Hammond, <i><a href="http://www.infoworld.com/">InfoWorld</a></i> Test Center.</p>
+
+<p>
+<a href="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.supp.htm">
+1997 Product of the Year Award: Best Technical Support Award</a><br />
+by Ed Foster, <i><a href="http://www.infoworld.com/">InfoWorld</a></i> Test Center.</p>
+
+<p><a href="http://odin.appliedtheory.com/linux-activism/">
+Linux Reviews and Articles</a> by Christopher Blizzard. <br />
+This page lists 65 articles or reviews of Linux.</p>
+
+<p><a href="http://currents.net:80/magazine/national/1524/inet1524.html">
+Linux Grows Up: Red Hat&rsquo;s commercial Linux beats NT at its own
+game</a>, by Maggie Biggs.<br />
+The author is a senior analyst in the
+<i><a href="http://www.infoworld.com/">InfoWorld</a></i> Test Center.
+She specializes in database technology and application
+design, development, and deployment via intranets and other networks.</p>
+
+<p><a href="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">
+Linux lines up for the enterprise:
+Is there a place in your shop for this inexpensive UNIX?</a><br />
+by Rick Cook, in:
+<i><a href="http://www.sun.com/sunworldonline/swol-01-1998/">SunWorld - January 1998</a></i>.</p>
+
+<p><a href="http://www.nwfusion.com/intranet/0330linux.html">
+Lookin&rsquo; into Linux</a><br />
+by Mark Gibbs, <i>Network World</i>, 30 March 1998.</p>
+
+<p><a href="http://guide.sbanetweb.com/press/nw818.html">
+Doing the math to resolve the NT vs. UNIX debate</a><br />
+by Wayne Spivak, <i>Network World</i>, 18 August 1997.</p>
+
+<p><a href="http://www.iserver.com/servers/compare/bsd_vs_nt.html">
+The advantages of using BSDI BSD/OS over Windows NT Server</a><br />
+iServer - Verio Web Hosting Inc. - Virtual Servers</p>
+
+<p><a href="http://www.zdnet.com/sr/business/opportunity/980211b.html">
+Linux: Not Just For Geeks And College Kids Anymore</a>, by Jason Perlow,
+<i><a href="http://www.zdnet.com/">ZDNet</a></i>, 11 February 1998.</p>
+
+<p><a href="http://www.zdnet.com/pcmag/issues/1613/pcmg0068.htm">
+Leaning Toward Linux: Powerful, robust, and free, Linux is worth
+investigating, especially if you plan to set up an Internet
+domain</a> by Neil Randall,
+<a href="http://www.zdnet.com/pcmag/issues/1613/contents.htm">
+ZDNet - <i>PC Magazine Online</i>, July 1997, Vol 16, No. 13.</a></p>
+
+<p><a href="http://citv.unl.edu/linux/LinuxPresentation.html">
+Replacing Windows NT Server with Linux</a> by Quinn P. Coldiron,
+Information Systems Department manager for the University of Nebraska
+Press.</p>
+
+<p><a href="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+An In-Depth Analysis of Five Commercial UNIX Operating Systems and
+Windows NT Server 4.0 (Enterprise Edition) by D.H. Brown Associates,
+Inc.</a></p>
+
+<p><a href="http://www.bsdi.com/white-papers/compare">
+Comparing BSDI and NT:
+Building Intranet and Internet Servers with BSDI and Windows NT</a></p>
+
+<p><a href="http://www.standishgroup.com/syst.html">
+The Standish Group - SUN Also Rises: Solaris Vs. NT</a></p>
+
+<p><a href="http://www.bitwizard.nl/unixnt.html">
+BitWizard B.V. "UNIX vs. NT"</a></p>
+
+<p><a href="http://pubsys.cmp.com/nc/701/701hreportb.html">
+THE H-REPORT: Which Operating System For Your &lsquo;Intranet&rsquo;?</a></p>
+
+<p><a href="http://www.ssc.com/lj/issue46/2494.html">
+Linux Helps Bring Titanic to Life</a><br />
+Daryll Strauss,
+<i><a href="http://www.ssc.com/lj/">LINUX Journal</a></i>,
+<a href="http://www.ssc.com/lj/issue46/">Issue #46</a>, February 1998.</p>
+
+</blockquote>
+
+<hr />
+
+<h2><a name="acknowledgments">Acknowledgments</a></h2>
+
+<p>I would like to welcome three new editors who are volunteering
+their services to the UNIX versus NT Organization: Bengt Kleberg,
+Gregory J. Pryzby, and Robert G. Werner.</p>
+
+<p>My very special thanks to Martin Vermeer, who, thanks to his advice
+on form, argumentation presented herein, as well as having provided
+numerous valuable and sometimes explosive links, has been,
+and continues to be, an invaluable contributor to the
+positive development of this dynamic project.  My deepest appreciation
+goes to the translators who have been generous enough to donate their
+time to this worthy cause: Brian Lin for the Traditional Chinese and
+Simplified Chinese versions, Davor Ocelic for the Croatian translation,
+Hanus Adler for the Czech translation,
+Kobayashi Osamu for the Japanese translation, Donghun Han for the
+Korean translation, Bruno H. Collovini for the Portuguese translation,
+and Ilgam Vasilyev for the Russian translation, and Carlos
+Liz&#225;rraga C. for the Spanish translation.
+My thanks also to Nat Makarevitch, Sebastien Blondeel, and
+Dennis Allard who are currently working on the French translation,
+and to Guglielmo Alfieri, Michele Dalla Silvestra,
+and Sergio Felleti who are working on the Italian translation.</p>
+
+<p>I would also like to thank the many readers who have contributed
+links to important new articles on this topic, for instance, Lance
+Bayless, Klaus A. Brunner,
+Radovan Bukoci,
+Peter Chen, Reinier de Vos,
+Martin Espinoza,
+Ariel Faigon, Paul Fischer, P. Gopalakrishnan,
+Colin Kabaara,
+Raj Mathur, Howard McKinney,
+Adrian Mikeliunas,
+Mike Miller, Mike Stephens, Jim Mohr,
+Gene Mosher, Philip Obbard,
+John Oram, Conrad Sanderson, Markus Senoner, Steve Sinnott,
+Ryan Sumner, Raj Warty, Ken Webster, and countless others.</p>
+
+<p>Equally appreciated is the constructive criticism from Keith H.J.
+Bevins, Joris Braakman, Marty Cawthon,
+Phillip Chu, Baruch Cochavy, Nicholas Donovan,
+Julian Elischer, Steve Fuller, Alex Gogan, Jake Hamby, Peter Jeremy,
+Adam Johnson, Geoffrey King, Hannu Krosing, Greg Lehey, Kimberly
+McBride, Richard Smith, and David Waine, to name just a few.</p>
+
+<p>No less important was the assistance provided by Leif Erlingsson and
+Damon Conway back around the end of March when I had to upgrade my
+connection and needed their mirroring services, both of whom continue
+to provide mirrors to this site.  Last but not least, my thanks to Ryan
+Sumner for his everlasting moral support on this project.</p>
+<hr />
+<div class="floatR">
+<p><a href="http://validator.w3.org/check?uri=referer" target="_blank"><img
+        src="/assets/vh40.gif"
+        alt="Valid XHTML 1.0 Transitional" border="0" /></a></p>
+</div>
+<p><a href="../legal.html">&#169;1998 John Kirch</a></p>
+</div>
+</body>
+</html>

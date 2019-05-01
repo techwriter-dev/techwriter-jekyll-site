@@ -1,0 +1,2335 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="UNIX versus Windows NT -
+	Information every manager should know when planning a corporate network or
+	the purchase of server hardware.">
+    <meta name="keywords" content="NT vs UNIX, UNIX vs NT, NT vs. UNIX,
+	UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail,
+	exchange server, microsoft, smp, aix, hp-ux, digital unix, solaris,
+	freebsd, bsdi, linux, windows nt, corporate network, mail servers,
+	operating systems, cost effective solutions, mission critical
+	operations, sendmail, apache, iis, system administration, microsoft">
+    <TITLE>Microsoft Windows NT Server 4.0 versus UNIX</TITLE>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<BODY TEXT="#006600" BGCOLOR="#DDFFDD" LINK="#333333" VLINK="#009900" ALINK="#FF9900">
+<div style='margin-left:10%;max-width:80%'>
+<CENTER>
+
+<TABLE CELLSPACING=0>
+<TD>
+<CENTER>
+
+<A HREF="/nt-vs-unix/cn/">
+Chinese</A>
+
+     
+
+Croatian
+     
+
+<A HREF="/nt-vs-unix/en.html">
+English</A>
+
+     
+<A HREF="/nt-vs-unix/fr.html">French</A>
+
+     
+
+<A HREF="/nt-vs-unix/de.html">German</A>
+
+Italian *
+
+<P>
+
+     
+
+<A HREF="/nt-vs-unix/jp.html">Japanese</A>
+
+     
+
+<A HREF="/nt-vs-unix/kr.html">Korean</A>
+
+     
+
+<A HREF="/nt-vs-unix/pt.html">Portuguese</A>
+
+     
+
+<A HREF="/nt-vs-unix/ru.html">Russian</A>
+
+     
+Spanish
+
+<P>
+* Translations are currently underway for these languages.
+
+</TABLE>
+
+</CENTER>
+
+<HR -1>
+
+<H1>Microsoft Windows NT Server 4.0 versus UNIX</H1>
+
+<H3>napsal John Kirch, Networking Consultant and
+Microsoft Certified Professional (Windows NT)</H3>
+
+<i>Poslední aktualizace 1. ledna 1999</i>
+
+<HR -1>
+
+<H4>Do češtiny přeložil <a href="mailto:had@penguin.cz">Hanuš Adler</a>,
+systémový specialista a Microsoft Certified Professional (Windows NT)</H4>
+<P><i>Poslední aktualizace českého překladu: 1. června 1998</I>
+<P>
+
+<FONT COLOR="#FF0000">
+Musím upozornit, že originál toho článku prošel od doby, kdy jsem ho
+překládal, značnými změnami a bohužel jsem neměl dost času k tomu,
+abych svůj překlad upravil. Doporučuji proto k přečtení i originál na
+adrese
+<a href="http://www.unix-vs-nt.org/kirch/">http://www.unix-vs-nt.org/kirch/</A>.
+</FONT>
+
+<p>
+
+<i><font size=-1>
+Překládání tohoto textu bylo poměrně náročné, protože jsem se snažil
+zároveň o co největší zachování původních konstrukcí a celkového
+vyznění, a zároveň jsem chtěl zachovat jeho popularizující charakter
+a čitelnost i pro netechnicky orientované čtenáře, což je zvlášť obtížné
+díky množství termínů z oblasti počítačů, které anglofonní čtenář lehce
+rozezná a chápe, a které přitom nemají jednotný a obecně vžitý český
+ekvivalent. Proto jsem se občas uchýlil k nemotornému opisu či dokonce
+k ponechání anglického termínu následovaného překladem v závorce. Někde
+naopak upřesňuji svůj překlad tím, že v závorce uvádím jeho původní
+znění.
+
+<p>
+
+Překlad vznikal v období, kdy jsem byl nesmírně zavalen prací a jen
+stěží jsem hledal volné chvilky, ve kterých jsem se mu mohl věnovat.
+Pokud najdete chybu nebo místo, o kterém jste přesvědčeni, že není
+dostatečně přesným překladem původního materiálu, pošlete mi prosím
+<a href="mailto:had@penguin.cz">návrh na opravu</a>.
+</font></i>
+
+<HR -1>
+
+<H2 ALIGN=CENTER>Úvodní shrnutí pro manažery</H2>
+
+<P>
+
+Manažeři a vedoucí oddělení informačních technologií jsou na celém
+světě postaveni před otázku, zda si pro firemní použití vybrat Microsoft
+Windows NT, nebo jeden z unixových systémů. Jak známo, Unix není
+jediný operační systém -- je to označení pro celou řadu operačních
+systémů, zahrnující např. AIX, BSDI, Digital UNIX, FreeBSD, HP-UX, IRIX,
+Linux, NetBSD, OpenBSD, Pyramid, SCO, Solaris, SunOS (to jsou pouze ty
+nejznámější). Windows NT Server je čím dál tím populárnější, ale otázka
+je, zda jeho použití zvýší produktivitu Vašeho oddělení. Ještě
+důležitější pro Vás, jako manažera, musí být odpověď na otázku, zda
+využitím řešení od Microsoftu zvyšujete zisky své společnosti.
+
+<P>
+
+V pozadí rozhodování stojí otázka, co je levnější. Cena hardware,
+licencí k použitému programovému vybavení, cena technické podpory,
+nových verzí a oprav, cena zvyšování výkonu hardware, zisky
+ztracené během každé hodiny nefunkčnosti systému, cena zaměstnanců
+potřebných k opravě a znovuvytvoření dat, ztracených díky
+chybné funkci operačního systému nebo hardware, a cena zaměstnanců
+potřebých k běžné obsluze systému jsou jen některé z faktorů,
+které přispějí k celkovým nákladům. Tyto faktory závisejí na Vašem
+rozhodnutí a nejsou to zanedbatelné částky.
+
+<P>
+
+Protože peníze jsou v pozadí každého rozhodnutí, které jako manažer
+činíte, je nutné vzít v úvahu výše uvedené faktory a uvědomit si, že
+technicky dokonalejší (a dražší) kombinace serverového hardware
+a software může být v dlouhodobé perspektivě levnější. Unix je vyspělý,
+technicky dokonalejší než NT a už dlouhá léta dokazuje svou výkonnost,
+spolehlivost a bezpečnost v serverovém prostředí. Téměř třicet let
+stále pokračujícího vývoje, často i ze strany dobrovolníků zapálených
+pro tuto práci, vyprodukovalo skupinu operačních systémů (a výkonného
+víceprocesorového hardware šitého na míru těmto systémům), které nejen
+splňují, ale často překonávají požadavky na ně kladené.
+
+<P>
+
+Otázka proč tedy Windows NT Server 4.0 stále ještě existuje ve firemním
+prostředí by byla tématem pro psychologické a marketingové studie,
+nikoli pro článek o informačních technologiích. Z technického pohledu
+Windows NT Server nedosahuje kvalit žádného unixového OS, dokonce ani
+nekomerčních BSD nebo Linuxu. Samozřejmě se neočekává, že by každý
+manažer měl za sebou patnáctiletou zkušenost systémového administrátora.
+Je proto cílem tohoto články poskytnout a doložit Vám fakta, která povedou
+k menším nákladům Vaší firmy a následně k nižším nákladům pro všechny
+spotřebitele.
+
+<P>
+
+Následující článek se opírá o zkušenosti, které jsem na tomto poli
+získával od roku 1979, a o přibližně 150 technických článků, dokumentací
+a popularizujících článků. Chtěl bych na tomto místě zmínit, že
+nepropaguji žádný produkt žádné firmy a ani můj zaměstnavatel nebude mít
+zvýšený příjem, rozhodnete-li se pro Unix. Mým cílem je snížit zatížení
+systémových administrátorů, propagovat efektivní a výhodné využívání
+výpočetní techniky a přispět k udržení volné soutěže na poli software.
+
+<HR -1>
+<TABLE>
+<TR><TD VALIGN="TOP">
+<H2>Obsah</H2>
+<UL>
+    <LI><A HREF="#intro">Úvod</A>
+    <LI><A HREF="#os">Operační systémy</A>
+    <UL>
+        <LI><A HREF="#costs">Ceny a licencování</A>
+        <LI><A HREF="#functionality">Funkčnost</A>
+        <LI><A HREF="#reliability">Spolehlivost</A>
+        <LI><A HREF="#management">Správa systému</A>
+        <LI><A HREF="#performance">Výkon</A>
+        <LI><A HREF="#security">Bezpečnost</A>
+    </UL>
+    <LI><A HREF="#misconceptions">Některé ,,obecně oblíbené omyly``</A>
+    <LI><A HREF="#views">Názory profesionálů z oboru informačních systémů</A>
+    <LI><A HREF="#web">WWW servery</A>
+    <LI><A HREF="#mta">Poštovní servery (MTA)</A>
+    <UL>
+	<LI><A HREF="#mta-views">Microsoft Exchange versus Sendmail: Názory profesionálů z oboru</A></LI>
+    </UL>
+    <LI><A HREF="#conclusion">Závěr</A>
+    <LI><A HREF="#compare">Rychlé srovnání Linuxu a NT Serveru</A>
+    <LI><A HREF="#bigguys">Jaké systémy používají velké společnosti?</A>
+    <LI><A HREF="#links">Odkazy</A>
+    <LI><A HREF="legal.html">Disclaimers and Other Legal Information</A>
+    <LI><A HREF="#acknowledgments">Poděkování</A>
+</UL>
+<TD VALIGN="TOP">
+<H2>Nejzajímavější části</H2>
+
+<ul>
+    <li><a href="#win95">Málo známý fakt o <b>windows95.com</b></a>
+    <li><a href="#cisco">Bude Cisco přecházet z Linuxu na Windows NT?</a>
+    <li><a href="#web">Software pro Web Server; Co má společného
+			královská rodina a FBI?</a>
+    <li><a href="#gui">Ukažte mi nějaký Unix, chci se <I>podívat</I>,
+			jak vypadá</a>
+    <li><a href="#mta">E-Mail: Microsoft Exchange Server vs. Sendmail
+			(UNIX). Co na to profesionálové</a>
+    <li><a href="#conclusion">Závěr</a>
+    <li><a href="#compare">Tabulka: Rychlé srovnání Linuxu a Windows NT</a>
+    <li><a href="#bigguys">Jaké systémy používají velké společnosti?</a>
+    <li><a href="#links">Odkazy na související zdroje</a>
+    <li><a href="#why">Proč jste napsal tento článek?  Jaký na tom máte zájem?</a>
+    <li><a href="legal.html">Disclaimers and Other Legal Information</a>
+</ul>
+</TABLE>
+
+<a name="intro"><H2>Úvod</H2></A>
+
+Pro manažery, kteří nemají dostatečnou kvalifikaci v oboru operačních
+systémů a administrace sítě, může být výběr serverové platformy poměrně
+složitou a neprůhlednou záležitostí. V tomto textu srovnáváme Microsoft
+Windows NT Server s Unixem, velkou skupinou komerčních i nekomerčních
+operačních systémů se společným základem a mnoha podobnostmi. Zaměříme
+se hlavně na oblast funkčnosti, spolehlivosti, správy systému a výkonu.
+Tento text se věnuje serverům, nikoli pracovním stanicím. Dotkneme
+se i cen, množství a kvality ,,přibaleného`` software, a popíšeme
+několik běžně se vyskytujících omylů. Budeme se snažit o co nejkompletnější
+pohled na srovnávané produkty. Informace, použité v tomto srovnání, byly
+získány z různých zdrojů: z technických zpráv, případových studií třetích
+stran, z článků v odborných časopisech a ze zkušeností odborníků na
+implementaci a administraci jak Microsoft Windows NT tak různých
+unixových systémů.
+
+<p>
+
+<!--
+Účelem této stránky je dát manažerům dostatek informací, které
+potřebují, aby byli schopni fundovaných rozhodnutí vztahujících se
+k hardware a software, co nejpopulárnější formou.
+Tyto informace se zakládají na zkušenostech profesionálů a měly by
+umožnit srovnat důsledky výběru jednoho či druhého operačního systému.
+<p>
+-->
+
+Na této stránce se stále ještě pracuje. Každý, kdo by si přál přispět,
+tak může učinit zasláním pošty na
+<A HREF="mailto:john@kirch.net"><B>tuto adresu</B></A>. Prosím posílejte
+pouze <i>konstruktivní</i> komentáře a kritiku.
+
+<A NAME="os"><H2>Operační systémy</H2></A>
+
+<A NAME="costs"><H3>Ceny a licencování</H3></A>
+
+Většina manažerů bude souhlasit, že samotná cena operačního systému
+je v globálním pohledu nicotnou položkou. Ačkoli Windows NT Server 4.0
+může být i dražší než některé komerční Unixové systémy (viz následující
+tabulku), lze jej získat na různých výstavách za mizivé částky.
+<P>
+<center><b>Ceny Windows NT (Zdroj:
+<A HREF="http://www.microsoft.com/ntserver/guide/ntsprice.asp?A=2&B=5#ntse">Microsoft</A>)</b>
+<table border=2>
+<tr>
+<th>Systém                                          <th>      Cena
+<tr>
+<td>NT Server 4.0 (5 uživatelů)                     <td align="right">   809 USD
+<tr>
+<td>NT Server 4.0 (10 uživatelů)                    <td align="right">  1129 USD
+<tr>
+<td>NT Server 4.0 Enterprise Edition (25 uživatelů) <td align="right">  3999 USD
+<tr>
+<td>NT Server 4.0 Enterprise Edition (50 uživatelů) <td align="right">  4799 USD
+<tr>
+<td>NT Server 4.0 Documentation Kit                 <td align="right"> 69.95 USD
+</table>
+</center>
+
+<p>
+
+Za nicotné se však zdaleka nedá považovat, že se síťový operační systém
+v této cenové hladině dodává bez telnetového serveru, poštovního serveru
+(SMTP), diskových kvót, serveru pro Usenet News, a bez dobře fungujícího
+DNS serveru (mnoho administrátorů NT cítí potřebu používat DNS servery
+jiných firem). Jen k tomu, aby NT Server dosáhl stejné funkčnosti, jakou
+má unixový systém BSDI dodávaný za 995 USD, je potřeba dokoupit pro něj
+od Microsoftu a dalších firem programové vybavení, díky kterému se
+konečná cena vyšplhá až k 4 000 USD (zdroj: <B><A
+HREF="http://www.bsdi.com/white-papers/compare">BSDI</A></B>). Maggie
+Biggs, specialistka časopisu InfoWorld na databázové technologie
+a tvorbu, vývoj a nasazení aplikací prostřednictvím intranetů a dalších
+sítí, odhaduje v <A
+HREF="http://currents.net:80/magazine/national/1524/inet1524.html">článku</A>
+zaměřeném na srovnání NT 4.0 a <i>komerčního</i> Linuxu firmy RedHat (za
+pouhých 49,95 USD), že <b>aby se NT staly srovnatelnými s Linuxem</b>,
+bylo by třeba do nich a doplňkových produktů <b>investovat až 4 636
+USD</b>. Je zde dobře vidět, jak úspěšná marketingová strategie často dokáže
+odvést zákazníky od skutečného posuzování funkčnosti produktů.
+
+<p>
+
+NT jsou často vybrána z důvodů nízkého rozpočtu. Mnoho zákazníků není
+ochotno platit za dražší hardware, který je potřeba pro většinu komerčních
+Unixů. Důležitější však je celková cena implementace, která zahrnuje
+správu systému a několik dalších faktorů jako časovou náročnost poruch
+a údržby, podporu, ztrátu dat způsobenou nespolehlivým systémem
+a pod. Studio Tippet, které obdrželo Oskara za nejlepší efekty ve filmu
+<i>Hvězdná pěchota</i>, používá 130 počítačů SGI
+(<A HREF="http://www.sgi.com/">Silicon Graphics, Inc.</A>)
+s operačním systémem
+<A HREF="http://www.sgi.com/origin/products/irix.html">IRIX</A>, unixovým
+systémem firmy SGI. Manažer tohoto studia vysvětluje, proč používají SGI
+a IRIX namísto NT:
+
+<BLOCKQUOTE>
+
+,,Na to, co všechno dělají, jsou SGI levné stroje,`` říká Jeff Stringer,
+manažer studia Tippet. ,,Cena správy NT je pěkně vysoká, když uvážíte,
+kolik systémáků k nim musíte zaměstnávat.``
+
+<p>
+
+,,Najímání lidí je pro tak malé studio zvlášť velký problém. Ve srovnání
+s velkými studii je studio Tippet --- které stvořilo brouky ohrožující
+lidstvo v Hvězdné pěchotě --- f/x boutique.``
+
+<br>-- Greg Lindsay,
+<A HREF="http://cgi.pathfinder.com/netly/editorial/0,1012,1770,00.html">
+Oscar Tech</A>, The Netly News, 27. února 1998.
+
+</BLOCKQUOTE>
+
+<p>
+
+Pro zákazníky, které nejvíce zajímá cena, bývá nejlepší
+<B><A HREF="http://www.linux.org">Linux</A></B>, <B><A
+HREF="http://www.freebsd.org">FreeBSD</A></B>, <B><A
+HREF="http://www.netbsd.org/">NetBSD</A></B>, nebo <B><A
+HREF="http://www.openbsd.org/">OpenBSD</A></B>. Tyto systémy <i>nestojí
+nic</i> a přitom jsou zrovna tak stabilní a nabízejí stejnou funkčnost
+jako komerční unixové systémy. Jeden čtenář mě upozornil, že zmínka
+o Linuxu uškodí důvěryhodnosti tohoto článku. Rád bych se od tohoto názoru
+distancoval. Existence takových faktů, jaké jsou zmíněny např. v článku
+<A HREF="http://www.techweb.com/wire/story/TWB19980402S0013"> Andreessen
+Sees Mozilla-Linux Upset of Windows</A> jasně ukazuje, že Linux posiluje
+své postavení v komerčním prostředí. (Pro nováčky: Mozilla je název
+zdrojového kódu Netscape Communicatoru a Marc Andreessen je
+spoluzakladatel firmy Netscape.) Velké firmy dříve nepoužívaly volně
+dostupný software (<i>free software</i>), protože panovalo přesvědčení,
+že co je zdarma, nemůže být k ničemu dobré. Poslední dobou se však
+v mnoha těchto firmách tento přístup změnil.
+
+<p>
+
+Například Hewlett-Packard používá Linux
+namísto svého vlastního systému HP-UX pro vývoj svých procesorů
+s architekturou PA-RISC. Schlumberger bude dodávat telefonní systém, který
+využívá pro svou práci Linux. Je zajímavé, že i <B><A
+HREF="http://www.sun.com/">SunWorld On-Line</A></B> se o Linuxu zmiňuje
+pozitivně v jednom ze svých článků, nazvaném <B> <A
+HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">
+Linux je připraven pro použití ve firmě</A></B>.  Protože tyto operační
+systémy jsou k dispozici
+zdarma i pro komerční prostředí, mnozí ISP (poskytovatelé připojení
+k Internetu) používají Linux nebo FreeBSD. NetBSD je dostupné prakticky na
+všem: DEC Alpha, Motorola 68k (Amiga, Atari, Mac, MVME, Sharp, Sun3),
+PowerPC, Intel, DEC VAX, Acorn RISC, MIPS (Sony NEWS, DECstation), atd.
+Hlavní zaměření OpenBSD je na přesnost a bezpečnost. Linux je z těchto
+systémů nejpopulárnější a je dostupný také na různém hardware: Sun,
+Intel, DEC Alpha, PowerPC, PowerMac, atd. V současné době je Linux možná
+nejrychleji rostoucím operačním systémem na trhu. Více informací o něm
+můžete získat na stránkách <B> <A
+HREF="http://www.linuxresources.com/">Linux Resources</A></B> nebo <B>
+<A HREF="http://www.redhat.com">Red Hat Software</A></B>.
+
+<P>Nicholas Petreley, hlavní redaktor <I>NC Worldu</I>, který
+publikuje také v časopisech <I>InfoWorld</I> a <I>NT World Japan</I>
+vysvětluje vzestup Linuxu a FreeBSD ve firmách takto:
+
+<BLOCKQUOTE>
+
+,,Včerejší studenti se učili Unix na Linuxu a FreeBSD. Dnes pracují
+pro počítačová oddělení různých firem a mnozí z nich jsou
+otevřeně nepřátelští jak k Microsoftu, tak k Windows NT.
+Důsledkem toho je, že Linux, BSD, Solaris a další unixové systémy se
+stále častěji objevují ve firemním prostředí; někdy otevřeně, jindy
+skrytě.
+
+<P>
+Jste si například jistí, že server, ke kterému se v práci
+připojujete, je skutečně NT Server? V mnoha případech se již stalo, že
+zaměstnanci tajně instalovali unixové servery zajišťující nativní služby
+Windows. Proč tak riskovat? Linux a FreeBSD jsou zdarma, stejně tak
+Samba --- software který zajišťuje služby Windows. Počítačové oddělení
+díky tomu může ušetřit peníze a manažeři jen stěží zjistí, že ve
+skutečnosti pracují s Unixem, protože si méně lidí bude stěžovat na
+dobu, kdy je server mimo provoz.
+
+<P>
+Méně lidí si bude stěžovat, protože tyto systémy jsou stabilnější než
+Windows NT. Linux, FreeBSD a BSDI Unix v mnohém překonávají Windows NT
+a nepotřebují k práci tak drahý hardware. Za jistých podmínek mohou
+pracovat stejně rychle nebo i rychleji než NT na nejlepším hardware.
+Unix na Intelech býval kdysi pozadu co se týče rozšiřitelnosti, ale nyní
+dohání a brzy pravděpodobně předežene Windows NT v počtu procesorů,
+které může používat a jak je využívá.``
+
+<br>-- Nicholas Petreley,
+<A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">
+The new UNIX alters NT's orbit: The re-emergence of UNIX threatens to modify the future direction of NT</A>,
+<A HREF="http://www.ncworldmag.com/ncworld/">
+<I>NC World</I></A>, duben 1998.
+</BLOCKQUOTE>
+
+<A NAME="functionality"><H3>Funkčnost</H3></A>
+
+Co můžete očekávat od čistých Windows NT a od čistého Unixu? NT umí
+komunikovat s nejrůznějšími typy počítačů. To samé umí Unix. NT umí
+zabezpečit citlivá data a nepustí do sítě neautorizované uživatele. To
+samé dělá Unix. Lze říct, že oba operační systémy splňují minimální
+požadavky na síťový operační systém. Stručně řečeno, Unix umí všechno,
+co dokážou Windows NT, a ještě mnohem více.
+
+<P>
+
+NT jsou považovány za ,,multiuživatelský`` operační systém, ale
+toto označení může být trochu zavádějící. NT Server <i>ověří</i> přihlášení
+uživatele, ale jakmile je uživatel přihlášen do sítě NT, může pouze
+používat sdílené disky a tiskárny. Uživatel NT nemůže spustit
+<i>žádnou</i> aplikaci na NT serveru (čímž by mohl využít větší
+výkonnost serveru). Na NT serveru mohou běžet pouze speciální aplikace,
+které byly napsány ve dvou kusech, t.j. takzvané klient/server aplikace.
+Když se uživatel přihlásí k unixovému serveru, může na něm spustit
+<i>jakoukoli</i> aplikaci (má-li k tomu potřebné oprávnění) a tak snížit
+zatížení své vlastní pracovní stanice. Toto je možné učinit
+i s grafickými aplikacemi, protože X Window je standardní na všech unixových
+operačních systémech.
+
+<P>
+
+Elektronický pošta (e-mail) se stala nepostradatelným nástrojem
+komunikace. Většina firem dnes má svůj vlastní interní a/nebo externí
+poštovní systém. Aby bylo možné provozovat poštovní systém na Windows
+NT, je potřeba dokoupit další software. Unixové operační systémy
+obsahují poštovní server, který se nazývá
+<B><A HREF="http://www.sendmail.org">Sendmail</A></B>.
+Existují i jiné poštovní servery (neboli <I>MTA</I>, Mail Transport
+Agent) pro Unix, ale tento je nejvíce používán a je zdarma.
+Někteří unixoví administrátoři mají za to, že
+<B><A HREF="http://www.exim.org/">exim</A></B> nebo
+<B><A HREF="http://www.qmail.org/">qmail</A></B>
+jsou lepší, protože jejich nastavování není tak složité, jako
+u sendmailu. Jak exim, tak qmail, jsou stejně jako senmail zdarma, dokonce
+i pro komerční použití.
+Mnoho společností založených na NT používá jako svůj poštovní server
+<B><A HREF="http://www.microsoft.com/exchange/default.asp">
+Microsoft Exchange Server</A></B>, drahé řešení s omezenou úspěšností ve
+firemních prostředích.
+<B>Microsoft Exchange Server Enterprise Edition s licencí pro 25
+poštovních klientů stojí 3 549 USD.</B> Máte-li více než 25
+zaměstnanců, to samé s <B>licencí pro 50 poštovních klientů vás přijde
+na 4 859 USD</B>. (Zdroj:
+<B><A HREF="http://www.microsoft.com/exchange/guide/erp.asp?A=2&">Microsoft</A></B>)
+
+Dále v tomto článku, v části nazvané
+<A HREF="#mta">Poštovní servery (MTA)</A>, najdete informace potřebné ke
+srovnání těchto dvou poštovních systémů.
+
+<P>
+
+Vzhledem k tomu, že Microsoft prosazuje NT jako životaschopnou
+alternativu jiných síťových operačních systémů včetně Unixů a Novellu,
+bylo by možné se domnívat, že v rámci NT jsou k dispozici všechny
+potřebné funkce pro zajištění nejzákladnějších potřeb: souborové
+a tiskové služby. Každý systémový a síťový administrátor z vlastní
+zkušenosti ví, že při provozování souborového serveru je potřeba
+nastavit
+dvě důležité věci: zabezpečení, t.j. hesla a přístupová práva, a kvóty
+limitující využití disku jednotlivými uživateli a skupinami uživatelů.
+Ačkoli NT zajišťují základní zabezpečení pomocí uživatelského hesla,
+na úrovni přístupových práv k souborům provádějí zabezpečení jen pokud
+se rozhodnete používat proprietární souborový systém NTFS. Některé firmy
+tento systém raději nepoužívají (přinejmenším na uživatelských
+pracovních stanicích), protože mají pocit, že tento systém ztěžuje
+opravení chyb v případě problémů s diskem. Často se setkáme s domněnkou,
+že disky se systémem NTFS nelze přečíst v operačním systému DOS, který
+bývá využíván při odstraňování problémů. Rune Knapstad mě informoval
+o dosovské utilitě, zvané
+<A HREF="http://www.ntinternals.com/ntfs20.htm">NTFSDOS</A>
+která dokáže číst disky s NTFS. Je zajímavé si povšimnout, že to není
+produkt Microsoftu.
+Důležitější než tyto problémy je ale fakt, že <b>NT neposkytují
+žádnou možnost omezit množství dat, která uživatel smí na disk zapsat!</b>
+Unix a Novell, na druhé straně, mají software provádějící tuto
+elementární funkci v základním vybavení. Microsoft již oznámil, že jeho
+ještě neuvolněný NT Server 5.0 bude mít ,,nové funkce správy disků jako
+např. diskové kvóty . . .`` (viz tiskovou zprávu
+<A HREF="http://www.microsoft.com/corpinfo/press/1997/sept97/winnt5pr.htm">
+Windows NT 5.0 Beta Delivered to Over 200,000 Developers</A>).
+
+<P>
+
+Unixové operační systémy jsou vybaveny skriptovacími jazyky
+(Bourne Shell, Korn Shell, C Shell, někdy také Perl, abychom uvedli
+alespoň některé)
+a programem ,,cron`` pro opakované spouštění programů v určitou dobu
+(třeba každých <I>n</I> minut, každých  <I>n</I> hodin, každý týden,
+měsíc a pod.). Cron je velmi flexibilní a není limitován na uvedené
+příklady. Krátce řečeno, skriptovací jazyky + cron = mocný nástroj pro
+administraci systému, jehož ekvivalent se v Microsoft Windows NT Serveru
+4.0 nenachází.
+Velká část administrace unixových systémů je automatizovaná
+a přizpůsobená místním potřebám díky využití těchto nástrojů. Výsledkem
+toho je úspora na personálu.
+
+<P>
+
+Shrnutí: Jakmile se připojíte do sítě NT, vše co můžete dělat, je sdílet
+soubory a tisknout. V unixovém prostředí, jakmile se připojíte na
+unixový server, <i>jste</i> na na něm a můžete dělat to samé, jako
+kdybyste seděli u jeho klávesnice. S Windows NT vůbec neplánujte, že
+byste mohli nastavit poštovní server jen s tím, co je součástí NT.
+Budete potřebovat dokoupit drahý software jako třeba Microsoft Exchange
+Server navíc. Bude-li váš NT server sloužit jako server pro sdílení
+souborů, nemyslete si, že budete moci zabránit uživatelům shodit server
+tím, že zaplní jeho disk(y) svými daty.
+
+
+<P>
+
+Dalším aspektem funkčnosti je snadná konfigurace a možnost změn
+v konfiguraci bez způsobení výpadku serverových služeb.
+
+<BLOCKQUOTE>
+
+,,Některé verze Unixu (např. Linux) podporují tzv. zaveditelné ovladače
+zařízení (loadable device modules). Znamená to, že můžete nastartovat
+Linux a překonfigurovat jeho podporu pro různý hardware a software za
+běhu. Například můžete nastartovat Linux bez podpory SCSI řadiče, který
+máte nainstalován a jednoduše pro něj nahrajete podporu ve chvíli, kdy
+potřebujete použít nějaké zařízení, které je na něj připojeno, třeba
+optický disk na zálohování. Když zařízení přestanete používat, můžete
+podporu SCSI opět odstranit. Stejně můžete na požádání nahrávat
+a odstraňovat podporu pro zvukové karty, síťová rozhraní, dokonce i pro
+souborové systémy jako HPFS, FAT, VFAT a další (NTFS se dokončuje).
+
+<P>
+Jakýkoli Unix podporující zaveditelné ovladače zařízení je proto
+přirozeně vhodnější pro využití jako server protože téměř žádné změny
+konfigurace nevyžadují restart.
+
+<P>
+,,Windows NT se k takovému stavu ani nepřibližují. Dokonce i bezvýznamné
+změny v konfiguraci Windows NT potřebují nebo vyžadují uzavření systému
+a restart k tomu, aby se projevily. Změňte IP adresu své implicitní
+brány a musíte restartovat. Nemůžete dokonce změnit ani druh modemu,
+který používáte pro PPP připojení bez restartu. Žádné takové omezení
+v Unixu neexistuje.``
+
+<br>-- Nicholas Petreley,
+<A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">
+The new UNIX alters NT's orbit: The re-emergence of UNIX threatens to modify the future direction of NT</A>,
+<A HREF="http://www.ncworldmag.com/ncworld/">
+<I>NC World</I></A>, duben 1998.
+</BLOCKQUOTE>
+
+<P>
+
+Dostaneme-li se k pokročilejší síťové funkčnosti, zdá se, že
+Microsoft's NT Server 4.0 Enterprise Edition není možné s vyspělými
+komerčními unixovými operačními sytémy srovnat. I když to není
+nejdůležitější pro rychlost síťové komunikace, unixové systémy dnes
+poskytují 64-bitovou architekturu, narozdíl od 32-bitového operačního
+systému NT). D.H. Brown Associates Inc. podává výsledky své analýzy
+následovně (následující citát včetně tabulky a tří grafů je výňatkem
+z webových stránek firmy Digital Equipment Corporation na adrese
+<A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+AIX 4.3 Leaps To 64-Bits In Dead Heat With Digital UNIX 4.0</A>):
+
+<BLOCKQUOTE>
+AIX 4.3 vede v dodávaném množství funkcí pro využití na Internetu
+a intranetu tím, že dodává nejobsáhlejší množinou rozšíření TCP/IP a navíc
+i server Lotus Notes. Druhý je v tomto srovnání Digital Unix, který má
+nejen podporu pro prohlížení, ale i tvorbu webových stránek (Navigator
+Gold) a solidní podporu TCP/IP. Digital Unix ale nepodporuje novější
+rozšíření NFS jako CacheFS a AutoFS. IRIX 6.4 je na třetím místě,
+s podporoou CacheFS a AutoFS a bezpečnostními funkcemi téměř tak dobrými
+jako má Digital Unix. V Irixu ale schází synchronizace času
+a implementace protokolů IPv6 a IPSec. Následuje Sun s dobrou podporou NFS
+a druhořadou podporou rozšíření TCP/IP. Sun se spoléhá na vlastní Web
+server (nikoli Netscape, Microsoft nebo Apache server) a schází mu
+prostředky pro tvorbu webových stránek i podpora důležitých služeb jako
+třeba Novelovského NDS. HP poskytuje v HP-UX silnou podporu Inernetu
+s pokročilými internetovými protokoly a zabezpečením, schází mu ale
+podpora pokročilejšího NFS. HP-UX, spolu s AIXem, vede v podpoře NDS.
+Zatímco podpora Microsoft NT 4.0 pro Internet/intranet se všeobecně
+označuje za ,,dobrou``, je pozadu za vedoucími producenty unixových
+systémů vzhledem k chabé podpoře adresářových služeb, síťové
+bezpečnosti, NFS a TCP/IP služeb. Microsoft se soustřeďuje na přidávání
+funkcí k svému WWW serveru a vylaďování svého JVM (Java Virtual
+Machine).
+
+</BLOCKQUOTE>
+
+<CENTER>
+          <TABLE BORDER="1">
+               <TR><TD WIDTH="226"></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">HP-UX
+                    11.0</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Solaris
+                    2.6</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">AIX
+                    4.3</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Irix
+                    6.4</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">Digital
+                    UNIX 4.0d</FONT></CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">NTS
+                    4.0/EE</FONT></CENTER> </TD>
+               </TR>
+               <TR><TD WIDTH="226"><B><FONT SIZE="2"
+COLOR="#000000">Rozšíření</FONT></B>
+                    </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"> </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IPSec</FONT></I>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IPv6</FONT></I>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">RSVP</FONT></I>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">část.</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IP
+                    Multiplexing</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">IP
+                    Multicast</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>část.</CENTER> </TD>
+               </TR>
+               <TR><TD WIDTH="226"><B><FONT SIZE="2" COLOR="#000000">Optimalizace výkonu</FONT></B> </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"> </TD>
+                    <TD WIDTH="62"></TD>
+                    <TD WIDTH="62"></TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Telnet
+                    in kernel</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Kernel
+                    Sockets</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">TCP
+                    Large Windows</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Zero
+                    Copy TCP/Hardware Checksum</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Path
+                    MTU Discovery</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">OpenShortestPathFirst
+                    (OSPF)</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">RTP:
+                    Real Time Protocol</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">RTCP:
+                    Real Time Control Protocol</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                     </TD>
+               </TR>
+               <TR><TD WIDTH="226"><I><FONT SIZE="2" COLOR="#000000">Parallelized
+                    TCP/IP</FONT></I> </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ano</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ano</FONT></CENTER>
+                    </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER> </TD>
+                    <TD WIDTH="62"><CENTER>ano</CENTER></TD>
+                    <TD WIDTH="62"><CENTER><FONT SIZE="2" COLOR="#000000">ne</FONT></CENTER>
+                    </TD>
+               </TR>
+          </TABLE>
+
+<A NAME="graphs"><H3>PODPORA PRO INTERNET/INTRANET</H3></A>
+<P><IMG SRC="/assets/AIX43_f.gif">
+
+<H3>SPOLEHLIVOST A ROZŠIŘITELNOST</H3>
+<P><IMG SRC="/assets/AIX43_h.gif">
+
+<H3>SPRÁVA SYSTÉMU</H3>
+<P><IMG SRC="/assets/AIX43_j.gif">
+
+<P>Copyright Digital Equipment Corporation 1995-1998. All Rights Reserved.
+
+</CENTER>
+
+
+<HR -1>
+
+<A NAME="reliability"><H3>Spolehlivost</H3></A>
+
+<p>
+
+V současném světě je spolehlivost často důležitější než rychlost.
+Protože rychlost je z velké části závislá na použitém hardware (viz
+násl. sekci), výběr operačního systému má největší vliv na
+<i>spolehlivost</i> systému. K čemu je dobré velké  množství funkcí,
+rozšiřitelnost a snadná správa, padá-li příliš často např. systém
+zajišťující finanční transakce v reálném čase.
+Analogie s rychlým, úsporným automobilem se spoustou doplňků
+a sportovním vzhledem, kterému se často v největším provozu vypne motor
+přesto, že jej opakovaně necháváme spravovat, velmi dobře sedí na systém
+Windows NT.
+
+<p>
+
+O Windows NT se často říká, že jsou ,,stabilní``. To ale není zcela
+přesné. Kdyby tomu tak bylo, nemohli bychom narazit na články, jako
+např.
+<B><A HREF="http://www.zdnet.com/pcweek/opinion/0330/30coff.html">Podniky
+potřebují stroje, které nikdy nepřestanou pracovat</A></B> (Peter
+Coffee, PC Week 30. března 1998) nebo
+<B><A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">Nemáme
+problémy s komunikací</A></B> (Peter Coffee, PC Week 13. dubna 1998).
+
+Když autor těchto článků položil otázku ,,Co používáte, když chyby
+nepřicházejí v úvahu?`` dostal trojnásobný počet odpovědí než obyčejně.
+Říká o nich:
+
+<BLOCKQUOTE>
+
+,,Především jsem nedostal ani jeden e-mail od nikoho, kdo by zastával
+názor, že Windows NT jsou k takovému účelu dostatečné. Vlastně
+naopak: Několik e-mailů unaveně vyjadřovalo očekávání, že Windows NT
+5.0 přijdou na trh obtěžkány množstvím neprozkoušených nových funkcí,
+ale aniž by dosáhly spolehlivosti na úrovni nutné pro firemní používání
+ve své základní funkčnosti.
+
+<P>
+
+Od jednoho čtenáře jsem se dozvěděl, že na jeho pracovišti výkon Linuxu
+na procesoru 486 převyšuje výkon Windows NT na 200MHz Pentiu, a že
+některé stroje s Linuxem běží bez přerušení déle, než jsou Windows NT
+4.0 vůbec na světě.
+
+<P>
+
+Také jsem se dozvěděl, že na mnoha důležitých pracovištích se Linux
+považuje za ověřené řešení, u něhož přístup ke zdrojovým kódům převažuje
+nad pochybnou výhodou tradiční podpory od výrobce. Co ostatní slibují do
+budoucna, to Linux dává mnoha uživatelům již nyní --- a za velmi
+výhodnou cenu.``
+
+<br>-- Peter Coffee,
+<A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">
+We do not have a failure to communicate</A>,
+<A HREF="http://www.zdnet.com/pcweek/">
+PC Week</A>, 13. dubna 1998.
+</BLOCKQUOTE>
+
+Ano, Windows NT jsou o hodně lepší než Windows 3.1 nebo Windows 95, ale
+ještě dlouho bude trvat, než dosáhnou takové úrovně stability, jakou
+dnes nabízí dokonce i zdarma dostupné unixové operační systémy.
+
+<p>
+
+Jak říká jeden profesionál v oboru, nedostatek stability Windows NT je
+známým problémem, nicméně manažeři s ním často zacházejí velmi
+diskrétně:
+
+<BLOCKQUOTE>
+
+,, ,Znám tři společnosti, které potichu přecházejí stále více na
+Unix . . . na úkor NT, jednoduše proto, že NT padají
+příliš často,` říká Peter Flynn, konzultant z Corku v Irsku. ,NT padají
+tak často, že to je příliš i na manažery. Typickou příčinou je přístup
+do špatného místa v paměti a chyby I/O.`
+<p>
+Tyto společnosti nechtějí o svých rozhodnutích příliš mluvit, ,protože
+je na ně vyvíjen tlak shora,` dodává Flynn. ,Uvažování typu <i>kupujeme
+jen Microsoft</i> bylo přejato z <i>kupujeme jen IBM</i> a manažeři,
+kteří rozhodli [přes záporné stanovisko technického personálu], že se
+budou používat NT místo Unixu, se teď obávají ztráty tváře.` ``
+
+<br>-- Mark Gibbs,
+<A HREF="http://www.nwfusion.com/intranet/0330linux.html">
+Lookin' into Linux</A>,
+<A HREF="http://www.nwfusion.com/">Network World</A>, March 30, 1998.
+</BLOCKQUOTE>
+
+<p>
+
+Každý profesionál, který kdy pracoval v prostředí s Windows NT, ví své
+o nechvalně známé ,,modré obrazovce smrti`` (Blue Screen of Death). Jedná
+se o stav, kdy normální okénka zmizí a obrazovka je zaplněna
+hexadecimálními čísly na modrém pozadí. <i>Jediná</i> možnost nápravy je
+v takovém případě vypnutí a zapnutí počítače. Tento stav je způsobován
+různými chybami a má zkušenost je, že mezi nimi mohou být následující
+věci:
+
+<UL>
+<LI>Je-li na síti používán protokol TCP/IP zároveň s protokolem IPX/SPX
+a technici zapnou NT se statickou IP adresou na špatném segmentu sítě,
+
+<LI>když některá šesnáctibitová aplikace ve Visual Basicu <i>neběží</i>
+v ,,odděleném adresovém prostoru.`` NT je v odděleném adresovém prostoru
+defaultně nepouští. K tomu je nutné <i>ručně</i> nastavit všechny
+šesnáctibitové aplikace na počítači.
+
+<LI>Některé značky paměťových modulů nebo keší jsou také zdrojem této
+chyby, přestože stejný hardware běží pod jiným operačním systémem (např.
+Windows 95) bez problémů.
+</UL>
+
+<P>Tento výčet v žádném případě není vyčerpávající. Popravdě řečeno,
+vývojář software pro Windows a Unix Tim Newsham považuje tento výčet za
+velmi zavádějící:
+
+<BLOCKQUOTE>
+V části BSOD zmiňujete několik možností, způsobujících BSOD. Domnívám
+se, že tento (krátký) seznam je pro čtenáře zavádějící. Existuje
+<i>tolik</i> cest vedoucích ke spadnutí NT, že uvedení tak malého počtu
+příkladů vytváří nesprávný dojem. Ještě nebezpečnější je, že Vaše
+příklady uvádějí hlavně situace, kdy je ke konzole NT přilogován někdo,
+kdo způsobí pád sytému nějakou špatnou činností. V reálném světě NT
+často padají zcela bez příčiny během své normální činnosti (jen
+ponechání systému v běhu po delší dobu, když na něm běží spousta
+aplikací, může způsobit bizardní pády systému s minimální možností
+zjistit, co přesně bylo příčinou). Navíc zlomyslní uživatelé mohou
+snadno působit pády sytému díky děravé implementaci softwarových modulů
+jako třeba loginu (LSA) nebo TCP/IP.
+
+</BLOCKQUOTE>
+
+,,Modrá obrazovka smrti`` je běžná v některých prostředích a je těžké
+zjistit její příčiny vzhledem k nepřehlednému nebo vůbec chybějícímu
+ohlašování chyb. Navíc k tomu jsou NT zvláště citlivé na virové útoky na
+intelové platformě. Pro operační systém, který musí bootovat z pevného
+disku (např. NT Server), je tzv. Master Boot Record na pevném disku tak
+důležitý, že jeho poškození může vést ke zničení celého systému. Linux
+a další operační systémy na Intelu mohou bootovat z diskety a tento
+problém tak obejít. Znamená to, že teoreticky je možné zničit NT Server
+pomocí viru, napsaného před deseti lety pro MS DOS. Každý, kdo plánuje
+nasazení NT Serveru v ,,mission critical`` prostředí by tento fakt měl
+vzít v úvahu. Osobně jsem se setkal s MBR viry ve firmě, kde se
+používaly pouze Windows NT (žádné Windows 95) a jejich účinky byly
+devastující. Navíc k tomu většina virů, které poškozují Windows, nemá na
+unixových platformách žádný efekt, protože k své činnosti potřebují
+MS Windows.
+
+<p>
+
+Jeden příklad, týkající se spolehlivosti NT, je popisován Quinnem P.
+Coldironem, manažerem oddělení informatiky tiskového oddělení University
+v Nebrasce:
+
+<BLOCKQUOTE>
+,,Po přechodu Cats [systém pro evidenci a vyřizování objednávek] na NT se
+můj život změnil v noční můru. Systém padal dvakrát i třikrát denně a nebyli
+jsme schopni zjistit příčinu. Neustále jsem byl v telefonickém spojení
+s Microsoftem a Cats, ale nikdo nám nepomohl. Microsoft mě nechal
+aplikovat Service Packy (opravy) jedna až tři a několik hotfixů, které
+pomohly, ale systém stále padal nejméně dvakrát za týden. Po mnoha
+týdnech a 1 500 dolarech za telefonní podporu Microsoftu mi
+jejich technický specialista řekl, že bych měl přejít z Cats Pajamas na
+lepší softwarový balík. To pro mě nebylo řešení, protože s tímto
+programem pracuje velké množství podobných podniků. Musel jsem
+nainstalovat zpátky starý Novell server než na něco
+přijdu . . . Dnes, po čtrnácti měsících, máme na našem
+serveru Linux.``
+
+</BLOCKQUOTE>
+
+<p>
+
+Unixový ekvivalent ,,modré obrazovky smrti`` se nazývá ,,kernel panic``
+(panika jádra). Jistě existuje, protože jsem o něm slyšel a četl,
+nicméněn nikdy za celou dobu v oboru jsem nebyl svědkem této chyby.
+Ačkoli jsem si jistý, že Unixy občas také spadnou, stává se to velmi
+zřídka. Když pak Unix spadne, je to téměř vždy díky nějaké chybě
+hardware. Softwarové problémy totiž na sebe v Unixu většinou dlouho
+dopředu upozorňují, třeba zpomalováním práce systému, a administrátor má
+dostatek času vystopovat zdroj problému, opravit jej a <i>restartovat
+příslušný proces</i> (téměř nikdy není třeba restartovat celý počítač!).
+Obecně je Unixový server nutno restartovat pouze v následujících
+případech:
+
+<UL>
+<LI>Vzhledem k hardwarové závadě, např. když přestane fungovat pevný
+disk,
+<LI>při instalaci nového hardware,
+<LI>jestliže byl přerušen přívod elektrického proudu na tak dlouhou
+dobu, že se vyčerpaly záložní zdroje,
+<LI>chceme-li nainstalovat novou verzi jádra systému.
+</UL>
+
+Když nenastane žádná z výše uvedených situací, Unix může běžet celé
+roky. NT však nemůže běžet tak dlouho, ani kdyby se někomu podařilo
+odstranit ,,modré obrazovky smrti``. Vadí v tom jejich vlastní design
+a používání obtížně opravitelných proprietárních binárních konfiguračních
+souborů, např. NT registry. Můžete si přečíst
+o  <A HREF="unix-nt/massive-nt-failure.html">závažné chybě NT</A>,
+která způsobila, že přes 10 000 NT stanic náhle bylo k ničemu pro
+jakoukoli úlohu, vyžadující síťové zdroje.
+
+<HR -1>
+
+<A NAME="management"><H3>Správa systému</H3></A>
+
+Argumenty, že Windows NT se lehce spravují díky svému GUI (grafickému
+uživatelskému rozhraní), nejsou podložené. Výhody, jsou-li nějaké,
+používání GUI oproti CLI (Command Line Interface = příkazová řádka) jsou
+sporné. Nicméně existuje domněnka, že Windows NT má oproti Unixu výhodu,
+protože má GUI. Ta domněnka je chybná. Unix má GUI také (viz
+<B> <A HREF= "http://citv.unl.edu/linux/LinuxPresentation.html#Ease of
+administration">tento příklad grafického rozhraní na Unixu</A></B>).
+
+<BLOCKQUOTE>
+
+,,NT měly dlouho výhodu intuitivního grafického uživatelského rozhraní
+pro správu jednotlivých systémů, přičemž nejvíce jim posloužilo to, že
+jejich GUI se podobá známému rozhraní Windows. Nicméně s tím, jak
+uživatelé začali používat větší množství serverů umístěných
+i geograficky daleko od sebe, začaly se projevovat i některé nedostatky
+v architektuře NT. Tyto nedostatky jsou primárně způsobeny tím, že NT byly
+vyvinuty jako jednouživatelský systém. Multiuživatelská stavba Unixu
+podporuje vzdálený přístup na mnoha úrovních, včetně možnosti vzdáleného
+přihlášení a editování konfiguračních souborů ze znakového terminálu
+nebo pomocí telnetu, vzdálené spouštění grafických utilit pomocí
+X Window a používání administrátorských nástrojů psaných jazykem
+Java. NT v současnosti neposkytují žádnou z těchto funkcí vzdálené
+správy. Vzdálená správa NT spíše znamená buď ,,instalování`` lokálního
+experta, což, jak Microsoft doufá, může být snadné vzhledem k velké
+rozšířenosti NT a jejich podobnosti s Windows, nebo je nutné spolehnout
+se na produkty Microsoftu nebo jiných producentů určené pro vzdálenou
+správu. Ani jedna možnost se ale nevyrovná efektivitou a jednoduchostí
+správě distribuovaných unixových systémů.``
+
+<br>-- Citováno z <A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+An In-Depth Analysis of Five Commercial UNIX Operating Systems and
+Windows NT Server 4.0 (Enterprise Edition) by D.H. Brown Associates, Inc.</A>
+</BLOCKQUOTE>
+
+<HR -1>
+
+<A NAME="performance"><H3>Výkon</H3></A>
+
+<P>
+
+Výkon počítače je převážně dán výkonem hardware, nikoli operačním
+systémem. Většina komerčních Unixů běží jen na velmi výkonných
+pracovních stanicích a serverech, nemá proto význam srovnávat výkon
+<A HREF="http://www.rs6000.ibm.com/hardware/largescale/index.html">
+IBM SP2</A> nebo
+<A HREF="http://www.sun.com/servers/ultra_enterprise/10000/spec.html">
+Sun Enterprise 10000</A>
+k čemukoli, co vyrábí Compaq nebo Dell. Unix je z historických důvodů
+operačním systémem pro špičkový hardware. Založit tvrzení, že výkon Unixu je vyšší
+než výkon NT, na srovnání rozdílného hardware by bylo nespravedlivé
+k Microsoftu. Na druhé straně, Microsoft snížil (namísto zvýšení) počet
+podporovaných platforem. NT pro MIPS se přestaly produkovat vzhledem
+k nezájmu zákazníků a podpora PowerPC je jen okrajová. NT, nyní jen pro
+procesory x86 a Alpha, zůstanou ,,serverem pro chudé``, jak se jim často
+říká v prostředí informačních technologií..
+
+<P>
+
+Abychom mohli výkon srovnávat spravedlivě, musíme srovnávat výkon NT
+serveru s výkonem Linuxu nebo FreeBSD, jelikož všechny tyto systémy běží
+na stejném hardware. Naneštěstí, skutečně objektivní srovnání výkonu by
+se muselo opírat o jeho testování pomocí benchmarků, kterých není mnoho
+a obyčejně se zaměřují jen na specifické oblasti jako např. výkon WWW
+serveru:
+<A HREF="http://www.caldera.com/newsletter/march98/mar98p2.html">Caldera
+OpenLinux vs. Windows NT: WebBench Performance Test</A>. Nicméně obecný
+konsensus mezi profesionály z oboru informačních technologií je, že
+Linux a FreeBSD výrazně překonávají svým výkonem NT. Když si uvědomíme,
+že jádra unixových operačních systémů jsou ,,kompilována na míru``
+a obsahují pouze ty funkce, které administrátor vyžaduje, Linux a FreeBSD
+mohou fungovat efektivněji než NT. Navíc každý operační systém, který
+potřebuje méně zdrojů, překoná více <i>nafouknutý</i> (bloated) systém
+jako NT. Unix nepotřebuje k běhu grafické rozhraní, NT ano. Každý ví, že
+grafika vyžaduje ohromná množství diskové kapacity a paměti. To samé lze
+říct of zvukových souborech, které se zdají tak důležité pro operační
+systémy Microsoftu.
+
+<p>
+
+Testy výkonu (benchmarks) provedené na podobných unixových systémech
+s využitím stejného hardware mohou být smysluplnější.
+<A HREF="http://www.tdl.com/~netex/mb/mb.html">Net Express</A>, firma
+prodávající hardware založený na procesorech x86, jejíž systémy jsou
+,,vyvinuty pro vědce, inženýry a telekomunikační průmysl,`` ukazuje,
+jakých výsledků je možné dosáhnout s vhodným operačním systémem:
+
+<BLOCKQUOTE>
+
+<HR>
+
+<H4><FONT SIZE=-1>Byte UNIX Benchmark 3.2 pro srovnávání operačních
+systémů:</FONT></H4>
+
+<P><FONT SIZE=-1>Představujeme výsledky měření výkonu tří populárních
+unixových operačních systémů na platformě Intel. Testy byly provedeny na
+počítači s procesorem Pentium 133MHz a 32MB paměti RAM s chipsetem
+Triton-II 430HX a SCSI řadičem BusLogic:</FONT><BR>
+</P>
+
+<CENTER><TABLE BORDER=1 >
+<TR>
+<TH align="left" bgcolor="#0000FF"><B><FONT COLOR="#FFFFFF">System</FONT></B></TH>
+
+<TH bgcolor="#0000FF"><B><FONT COLOR="#FFFFFF">Bytemarks</FONT></B></TH>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Linux na Pentiu 133MHz </FONT></TD>
+
+<TD align="center"><FONT SIZE=-1>12.2</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>BSD na Pentiu 133MHz </FONT></TD>
+
+<TD align="center"><FONT SIZE=-1>9.8</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris 2.5 na Pentiu 133MHz </FONT></TD>
+
+<TD align="center"><FONT SIZE=-1>6.2</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris na Sun Sparc-II Ultra 167MHz</FONT></TD>
+
+<TD align="center"><FONT SIZE=-1>13.7</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris 2.5 na Pentiu Pro 200MHz </FONT></TD>
+
+<TD align="center"><FONT SIZE=-1>13.5</FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<P><FONT SIZE=-1>Z těchto výsledků je zřejmé, že Linux je velmi
+efektivní OS. Hodnoty naměřené Linuxu na procesoru Pentium 133MHz byly
+téměř tak vysoké, jako hodnoty Solarisu na procesoru Sparc Ultra 167MHz
+nebo na Pentiu Pro 200MHz!!!</FONT></P>
+
+<CENTER><P><I><FONT SIZE=-1>Copyright &copy; 1996 Net Express All Rights
+Reserved. </FONT></I></P></CENTER>
+
+<HR -1>
+
+</BLOCKQUOTE>
+
+<P><A NAME="KickAss">Příklad</A> vysokého výkonu, kterého lze dosáhnout
+díky zvolení unixového operačního systému doplněného volně šiřitelným
+WWW serverem Apache je možné nalézt v článku Seana Fultona nazvaném
+<B><A HREF="http://www.techweb.com/se/directlink.cgi?CWK19970505S0103">
+Věže síly (Towers of Power) --- Testujeme pět silných WWW serverů
+zaměřených na špičkové intranetové aplikace</A></B>, který se objevil
+v Internetweeku 5. května 1997. Pro NT byly výsledky testů dosti
+podprůměrné.
+
+<BLOCKQUOTE>
+,,Telenet System Solutions byl zdrojem největšího překvapení našich
+testů --- s operačním systémem BSDi na jednom procesoru se držel na
+stejné nebo vyšší úrovni než dvouprocesorový stroj s Windows NT.
+
+<p>
+
+Rozdíl byl v tom, že na jednom stroji běžel operační systém BSDi 3.0
+a Apache WWW Server. Dvouprocesorové stroje měly nainstalován operační
+systém Windows NT 4.0 a Microsoft Internet Information Server 2.0.``
+
+</BLOCKQUOTE>
+
+<p>
+
+Zabýváme-li se výkonem WWW serverů, můžeme ještě dodat, že jak uvádí
+Ariel Faigon, světový rekord ve výkonu WWW serverů drží OS IRIX na
+stroji SGI:
+
+<BLOCKQUOTE>
+
+,,V dubnu 1998 byl nejlepší výsledek v testu SPECWeb 7214 operací za
+sekundu na osmiprocesorovém stroji Silicon Graphics Origin 2000
+s operačním systémem IRIX 6.5 a WWW serverem firmy Netscape.``
+
+<p>
+
+Detaily lze najít
+v <B><A HREF="http://www.sgi.com/newsroom/press_releases/1998/april/performance.shtml">
+tiskové zprávě SGI</A></B>.
+
+<p>
+
+,,Naproti tomu, nejlepší výsledek NT je 1878 operací za sekundu na
+čtyřprocesorovém serveru Hewlett-Packard NetServer LXr Pro 6/200
+s Microsoft IIS.``
+
+</BLOCKQUOTE>
+
+Připouštíme, že následující příklad není patrně z těch nejvědečtějších
+srovnání výkonu mezi Linuxem a NT, ale informace Richarda Betela nám
+mohou posloužit k tomu, abychom věděli, co můžeme očekávat při běžném
+používání:
+
+<BLOCKQUOTE>
+
+Asi dva měsíce už se účastním pokusů o hádání klíče pro šifru RC5, které
+probíhají na Internetu. Klientský program k tomuto účelu jsem
+nainstaloval na všechny servery, které mají dost volného strojového
+času. Mezi nimi jsou dva identické servery: Dual Pentium II na 300MHz,
+128MB RAM. Jeden z nich má nainstalovány NT a úplně nečinný Exchange
+Server (plánujeme, že ho začneme používat, ale v současné době je
+<i>zcela</i> mimo provoz), a na druhém je Linux (a ten je zatížen
+poměrně hodně --- běží na něm sdílení disků po SMB protokolu
+a kompilujeme na něm množství různých programů). Přitom všem Linux testuje
+klíče 1,8 krát rychleji než NT.
+
+</BLOCKQUOTE>
+
+<HR -1>
+
+<A NAME="security"><H3>Bezpečnost</H3></A>
+
+<P>Toto téma je příliš velké a složité na to, abychom se mu mohli
+detailně věnovat v tomnto článku. Bezpečnost je nicméně nesmírně
+důležitá. Jim Mohr se zmiňuje zajímavá fakta ve svém článku
+<A HREF="http://www.jimmo.com/Debate/intro.html">The Great Linux-vs-NT
+Debate</A>
+o <B><A HREF="http://www.jimmo.com/Debate/security.html">bezpečnosti</A></B>.
+Následující odkazy by Vám měly umožnit srovnat bezpečnostní problémy
+rozličných operačních systémů:
+
+<UL>
+<LI><A HREF="http://www.byte.com/art/9711/sec6/art3.htm">
+A BYTE article on Windows NT security problems</A>
+<LI><A HREF="http://www.secnet.com/ntinfo/linuxntf.htm">
+NT secured filesystem (NTFS) can be read from Linux, bypassing filesystem security.</A>
+<LI><A HREF="http://www.secnet.com/ntinfo/">Known NT Exploits</A>
+<LI><A HREF="http://www.it.kth.se/~rom/ntsec.html">
+NT Security - Frequently Asked Questions version 0.41</A>
+<LI><A HREF="http://afcert.csap.af.mil/os.html">
+AFCERT - Security Issues for various operating systems</A>
+</UL>
+
+<P><B>Malá zajímavost:</B>
+
+<P>
+11. května 1998 se na programu <A HREF="http://www.discovery.com/">Discovery
+Channel</A> vysílal pořad o Národní bezpečnostní službě (National
+Security Agency, NSA) Spojených států. Tento hodinový pořad byl uváděn
+sloganem ,,nejtajnější americká služba odhaluje tajemství ostatních díky
+technologické převaze``. V celém vysílání byly velmi dobře vidět
+pracovní stanice s logem <B>Sun Microsystems</B>, nejen
+v kryptografické laboratoři, ale i v operačním středisku.
+V místech, kde NSA vyrábí své vlastní čipy byly vidět monitory,
+zobrazující velké X --- logo systému X-Window, používaného na všech
+unixových systémech. Ke konci bylo vidět laptop, na kterém běžela jakási
+DOSová aplikace. Během celého vysílání byla vidět jen jedna pracovní
+stanice s logem Intelu. Byla použitá pro rozeznávání obličejů.
+Nicméně i na této stanici bylo podle okrajů oken zjevné, že ani
+tady se nepoužívá systém Windows od Microsoftu.
+
+<HR -1>
+
+<A NAME="misconceptions"><H2>Některé ,,obecně oblíbené omyly``</H2></A>
+
+<P><B>NT je jen hračka</B>
+
+<P>
+
+Na operační systém, který se <i>vyvinul</i> z hračky, nabízí poměrně
+dost profesionálních funkcí. Ačkoli je málo rozšiřitelný (výkon klesá
+s přidáním více než čtyř procesorů na server), prošel významnými
+vylepšeními. Sice bych jej nedoporučil jako primární operační systém
+v prostředí větších firem, v prostředí malých firem s méně než 250
+uživatelskými účty kde neběží žádné ,,mission critical`` procesy by měl
+být dostačující. Nezapomínejte ale na to, že pro 250 uživatelů jediný NT
+server nebude stačit. Obecné doporučení zní: Jeden PDC (Primary Domain
+Controller) a dva BDC (Backup Domain Controllers). Mít na PDC množství
+aplikací se nedpoporučuje. Potřebujete-li RDBMS, e-mail, WWW a další
+běžné služby, ani tři NT servery Vám velmi pravděpodobně nebudou stačit.
+
+<P><B>Kompletním přechodem na Windows NT může společnost eliminovat
+problémy užívání více operačních systémů v jednom prostředí.</B>
+
+<p>
+
+Zde se vychází z toho, že tzv. heterogení (smíšené) sítě jsou problémem.
+Pracoval jsem kdysi ve společnosti, kde spolu koexistoval Novell a NT
+téměř bez problémů. Důvodem pro jejich koexistenci bylo, že Novell
+překonával NT v oblasti sdílení souborů a tiskáren.
+Unix lze nastavit tak, že poskytuje souborové a tiskové služby způsobem
+kompatibilním s Microsoftem. Uživatelé nemusejí vůbec vědět, že tyto
+služby jim poskytujie Unix --- pro ně se tváří jako NT server. Tyto
+funkce poskytuje Sun Solaris. Linux k tomu účelu používá softwarový
+balík Samba, který je dodáván s většinou distribucí. Tento balík je, jak
+jinak, také zdarma.
+
+<P><B><a name="gui">Unix je zastaralý a složitý systém ovládaný jen
+z příkazové řádky</a></B>
+
+<p>
+
+Omyl! CDE (Common Desktop Environment) je grafické uživatelské rozhraní
+(t.j. můžete v něm používat myš, klikat, označovat, přesunovat [drag and
+drop] v okénkách a na pracovní ploše) --- prostě můžete dělat to samé,
+co se považuje za základ úspěchů Microsoftu. CDE se dodává s většinou
+komerčních Unixů: se systémem
+<B><A HREF="http://www.sun.com/solaris/">Solaris</A></B> firmy Sun, IBM
+<B><A HREF="http://www.rs6000.ibm.com/software/OS/aix43.html">AIX</A></B>,
+<B><A HREF="http://software.external.hp.com:80/OS_transition/WHYTRANS.HTM">HP-UX</A></B>,
+<B><A HREF="http://www.unix.digital.com/">Digital UNIX</A></B> firmy DEC
+a s dalšími.
+Za přibližně 90 USD můžete mít CDE pro Linux, pokud Vám nestačí výběr ze
+<b>čtyř GUI</b>, standardně dodávaných s Linuxem: OpenLook (bývalé
+rozhraní Solarisu), FVWM (volně šiřitelné rozhraní velmi podobné Windows
+3.1), FVWM-95 (další volně šiřitelné rozhraní, které lze nastavit tak,
+že je nerozeznáte od Windows 95) a TWM (předchůdce FVWM). Jestliže jste
+nikdy neměli možnost podívat se na počítač s Unixem, nabízíme na tomto
+místě <font color="red">několik obrázků</font> zmíněných grafických uživatelských rozhraní:
+
+<B><A HREF="http://www.PLiG.org/xwinman/screenshots/dtwm.gif">CDE</A></B>,
+<B><A HREF="images/ted.jpg">TED</A></B> (TriTeal's CDE for Linux),
+<B><A HREF="http://www.kde.org/kscreenshots.html">KDE</A></B>,
+<B><A HREF="http://mars.superlink.net/ekahler/fvwm1.desktop.html">FVWM 1.24</A></B>,
+<B><A HREF="http://mars.superlink.net/ekahler/fvwm2.desktop.html">FVWM 2.x</A></B>,
+<B><A HREF="http://www.terraware.net/ftp/pub/Mirrors/FVWM95/screenshot-full.gif">FVWM-95</A></B>,
+<B><A HREF="http://cslib.ecs.soton.ac.uk/wm/gfx/orig-olvwm.jpg">olvwm</A></B>(OpenLook Virtual Window Manger).
+
+Na tomto místě můžeme zmínit jen některá grafická prostředí Unixu; tzv.
+Window Managers (dále jen WM, doslovně přeloženo ,,správce oken``).
+Chcete-li podrobnější přehled, přečtěte si vynikajícího
+<A HREF="http://www.PLiG.org/xwinman/">Průvodce po WM pro
+systém X Window</A> od Matta Chapmana. Najdete tam řadu dalších
+informací a obrázků, které zde nejsou. Mějte přitom na paměti, že
+všechny tyto WM jsou konfigurovatelné do nejmenších detailů. Nemělo by
+Vás překvapit, uvidíte-li obrázky stejného WM vypadající úplně jinak.
+Jak Matt píše na své stránce, ,,uvědomme si, že lidé jsou různí a ti,
+kdo používají počítače je používají pro různé účely. Tak proč si někteří
+myslí, že bychom úplně všichni měli používat (či trpět) stejné
+rozhraní?`` Je paradoxní, že právě grafické uživatelské prostředí
+Microsoftu poskytuje nejmenší možnost konfigurace podle preferencí
+uživatele.
+
+<P>
+
+Co se týče tvrzení, že Unix je zastaralý, je nutné říct, že je to stále
+preferovaný operační systém pro vědu, konstrukci, výzkum a vyšší
+vzdělávání. Většina inženýrů volí bez váhání Unix namísto NT, protože
+jsou si plně vědomi jeho konfigurovatelnoti a možnosti optimalizace pro
+nejrůznější úlohy.
+
+<P><B>Stejně každý přechází na NT, tak bychom i my mohli postupně
+nahradit naše Unixové stroje NT servery. NT mají budoucnost</B>
+
+<p>
+
+Hovoříte-li s manažery informačních systémů některých velkých korporací,
+které před dvěma roky přešly z Unix + Novell na Unix + NT, zjistíte, že
+žádný z nich by se neobešel bez Unixových serverů.  Zdá se, že vysoké
+zatížení je stále lépe snášeno unixovými servery. Za celou dobu, co
+pracuji v oboru, jsem neviděl Oracle [databázi] na jiném než unixovém
+serveru. Nicméně dostal jsem e-mail od jednoho čtenáře, který píše:
+,,Spravuji několik instalací Oracle na NT. Problémy s výkonností
+a funkčností, se kterými se přitom běžně setkávám, jsem na Unixu (Pyramid)
+nikdy neměl.``
+
+<HR -1>
+
+<A NAME="views"><H2>Názory profesionálů z oboru informačních systémů</H2></A>
+
+<P><B>Robert Schindler, inženýr z Floridy, který pracuje posledních
+deset let jako konzultant na volné noze pro některé ze 100 největších
+firem na poli strukturální analýzy, píše:</B>
+
+<BLOCKQUOTE>
+,,Ještě dlouho potrvá, než mě uslyšíte chválit NT nebo jakýkoli jiný
+produkt MS. Věřím, že Gates se svým královstvím byl během mého života
+příčinou většího snížení standardů naší společnosti než cokoli jiného.
+Kdyby mé produkty měly stejnou kvalitu jako ty jeho, letadla by padaly
+z oblohy každou hodinu.``
+</BLOCKQUOTE>
+
+<P><B>Jiný profesionál, který si přeje zůstat anonymní, protože má
+obavu, že by mohl ztratit práci, píše:</B>
+
+<BLOCKQUOTE>
+,,Pracuji ve velké firmě, jedné z největších svého druhu na světě.
+Rozhodli jsme se používat síťový monitorovací a správní systém firmy
+Cabletron, který je k dispozici pro NT i Unix. Lidé, kteří se o tento
+systém měli starat, se rozhodli pro NT, protože s nimi měli více
+zkušeností než s Unixem. O rok a čtvrt miliónu dolarů později to vzdali,
+zbavili se NT a celé znovu to udělali na Solarisu. Proč? NT prostě
+nejsou rozšiřitelná.
+
+</BLOCKQUOTE
+
+<P><B>Tim Newsham píše v odpovědi na tento článek:</B>
+
+<BLOCKQUOTE>
+
+,,Vyvíjím software pro NT i pro Unix. Nesnáším NT. Je to příšerné
+zvěrstvo, má nedostatečný výkon a je příliš nastabilní. Některé části NT
+jsou napsány tak špatně, že většina práce při portování software na
+tento systém spočívá v obcházení chyb Microsoftu. Vadí mi, když vidím,
+kolik lidí přechází z Unixu na NT. Myslím, že časem, jakmile si
+management uvědomí, jak moc NT poškodily jejich organizace, vznikne
+proti NT silná zaujatost.``
+
+</BLOCKQUOTE>
+
+<P><B>Joseph Day, konzultant z Chicaga, v odpovědi na článek Jessieho
+Bersta:</B>
+
+<BLOCKQUOTE>
+,,Vyvíjím software jak pro NT, tak pro Windows 95. Nemohu pochopit, proč
+lidé každému vykládají, jak jsou tyto platformy
+skvělé . . .``<br>
+,,Podpora, kterou máte od lidí v linuxových diskuzních skupinách je
+o hodně lepší, než cokoli, co kdy uvidíte u produktů
+Microsoftu . . .``<br>
+,,NT musí ujít ještě dlouhou cestu, než dosáhnou stejné úrovně
+stability, jakou má Linux.``
+
+<br>-- Výňatky z dopisu Josepha Daye, nazvaného
+<A HREF="http://www.zdnet.com/anchordesk/talkback/talkback_72950.html">
+Kolik Vám Microsoft zaplatil za napsání tohoto článku?</A> Zdroj:
+<A HREF="http://www.zdnet.com/anchordesk/index.html">
+Jesse Berst's Anchor Desk.</A>  16. února 1998,
+<A HREF="http://www.zdnet.com/">ZDNet</A>.
+</BLOCKQUOTE>
+
+<P><B>Torsten Holvak, správce systému v Laramie, WY, odpovídá Jessiemu
+Berstovi:</B>
+
+<BLOCKQUOTE>
+,,Jesse, jsem si jistý, že Microsoft by stejně jako IBM v šedesátých
+létech rád donutil lidi věřit, že výběr konkurenčních produktů by mohl
+ohrozit jejich kariéru. Jenomže tak to prostě není! Já bych okamžitě
+vyhodil zaměstnance, který by pro ,,mission critical`` server elektronické
+pošty nebo WWW server zvolil NT místo Unixu. U nás používáme na všechno
+FreeBSD a není nic stabilnějšího. Nejenže jsou volně šiřitelné Unixy
+rychlejší, výkonnější a stabilnější než NT, ale mají i lepší podporu.
+Jen zkuste dostat odpověď z technika od Microsoftu aniž byste platil
+spoustu peněz a dlouho čekal. Považujte se za šťastného člověka,
+jestliže odpověď pak Váš problém vyřeší.
+Těžko mohu uvěřit, že se takový článek objevil na Vaší hlavní stránce.
+Je to hrozné. Rozhodně jsem si nemyslel, že Vy budete rozšiřovat
+Microsoft FUD (FUD je zkratka pro Fear, Uncertainty and Doubt = strach,
+nejistota a pochyby --- termín používaný ve spojení se ,,zastrašovací``
+taktikou některých firem, pozn.překl.).
+
+<br>-- Výňatky z dopisu Torstena Holvaka nazvaného
+<A HREF="http://www.zdnet.com/anchordesk/talkback/talkback_72969.html">
+Vyhodil bych zaměstnance za použití NT</A>. Zdroj:
+<A HREF="http://www.zdnet.com/anchordesk/index.html">
+Jesse Berst's Anchor Desk.</A>  February 16, 1998,
+<A HREF="http://www.zdnet.com/">ZDNet</A>.
+
+</BLOCKQUOTE>
+
+<P><B>Quinn P. Coldiron, manažer oddělení informatiky tiskového oddělení
+University v Nebrasce, píše o svých zkušenostech s Novellem, Windows NT
+a Linuxem: </B>
+
+<BLOCKQUOTE>
+,,Po vykonání ranních úloh obyčejně spouštíme zálohování celého systému
+Cats [systém pro evidenci a vyřizování objednávek] a teprve poté
+pokračujeme se zavíráním. To nám na Netware normálně trvalo dvě hodiny.
+Linuxový server zvládnul celou zálohu za 45 minut, což nám umožnilo
+zkrátit celkovou dobu zavírání na něco málo přes hodinu. Toto zvýšení
+rychlosti přitom bylo provázeno snížením nároků na hardware, protože
+zmíněný Linux běžel na stroji s pouhými 32 MB paměti a IDE disky,
+zatímco Netware měl 64 MB paměti a SCSI disky. Zvýšení rychlosti systému
+bylo zaznamenáno i během normální práce. Téměř denně slýchám poznámky
+o tom, že systém se zdá být rychlejší a spolehlivější.
+
+<P>
+
+Nedávno jsme provedli upgrade procesoru na Pentium 200MHz a doplnili
+jsme paměť na 64 MB, abychom se připravili na zvládnutí nejnovějšího
+plánu --- chceme, aby tento server nahradil i náš Windows NT server,
+používaný pro sdílení disků a tisk, protože NT padají přibližně dvakrát
+do měsíce bez jakéhokoli důvodu, dokonce přesto, že jsme dodatečně
+zaplatili Microsoftu 1 500 dolarů za technickou podporu. Náš jediný
+server s RedHat Linuxem tak nahradí jak náš Novell Netware3.11, tak
+Windows NT 4.0 a přitom celková náročnost na hardware poklesne.
+S nedávnými pokroky týmu, který programuje balík Samba, v oblasti podpory
+doménové struktury NT a s prosincovým uvolněním linuxové distribuce
+RedHat verze 5.0 očekávám, že budeme mít velmi výkonný a levný server
+pro naše klientské počítače se systémy Windows 95, Windows NT a MacOS.
+
+<br>-- Citováno z článku
+<B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html">
+Nahrazujeme Windows NT Linuxem</A></B>
+
+</BLOCKQUOTE>
+
+<P><B>29. září 1997 Nick Johnson napsal v diskuzním fóru
+<A HREF="http://dev4.byte.com/joncon/_fmsg00441.html">Byte Forum</A>:</B>
+
+<BLOCKQUOTE>
+,,Z pohledu administrátora je pro mne obtížné brát vážně operační
+systém, který potřebuje 128 mega paměti, dva 200MHz procesory a 8 giga
+místa na disku jen proto, aby na něm mohl běžen malý intranetový WWW
+server, zvlášť když ten systém padá a restartuje se po napadení
+jednoduchým, standardním TCP paketem. Není prostě možné uvažovat o NT
+nikde, kde je potřeba spolehlivost a rychlost. Tu samou úlohu, kterou
+jsem uvedl, by zvládla 386 se 16 MB paměti a FreeBSD, a přitom by nebylo
+potřeba platit vysokou cenu Microsoftu.``
+</BLOCKQUOTE>
+
+<P><b>
+Mike Hucka, administrátor Unixu a programátor z Michiganu píše:</B>
+
+<BLOCKQUOTE>
+,,Co mě děsí je <i>proč</i> lidé investují tolik peněz do NT, když
+existuje tolik důkazů, že Unixy jsou vyspělejší, stabilnější, levnější
+a o tolik výkonnější! Proč? Co se těm lidem děje?
+
+<p>Copak nevědí, jaké jsou možnosti Unixu?
+
+<p>Možná jsem zaujatý, ale když vidím pracovní prostředí jako CDE na
+Sunech nebo KDE, myslím, že jsou velmi blízká tomu, co má uživatel na PC
+nebo Macovi. Navíc je pro Unix k dispozici obrovské množství dokumentace
+--- jen uvažte, kolik knih vydalo nakladatelství
+O'Reilly & Associates, nebo on-line manuály Sunu na
+<B><A HREF="http://docs.sun.com">http://docs.sun.com</A></B>, nebo
+kterékoli ze stovek stránek s informacemi o každém představitelném
+aspektu Unixu.
+
+<P>
+
+A nejen to, dokonce můžete mít zdarma volně šiřitelné verze Unixu, které
+jsou srovnatelné v rychlosti a stabilitě se Solarisem a poměrně dobře
+poběží i na obyčejném PC, budete-li si to přát.
+
+<P>A navíc k tomu všemu máte k dispozici zdrojové kódy.
+
+<P>Proč proboha lidé stále dál zkoušejí používat NT?``
+
+</BLOCKQUOTE>
+
+<HR -1>
+
+<A NAME="web"><H2>WWW Servery</H2></A>
+
+<P>Životní mízou Internetu jsou WWW stránky. Je to ta část Internetu,
+kterou veřejnost vnímá. Je-li Váš WWW server pomalý, má-li technické
+problémy nebo je-li nedosažitelný, má to jistě nepříznivé účinky.
+Vzhledem k tomu, že většina korporací se orientuje na Unix, běžně
+používají jako software pro WWW server Apache nebo Netscape-Enterprise.
+<B><A HREF="http://www.apache.org/">Apache</A></B>
+byl počat s Unixem na mysli. Je volně šiřitelný a v současné době vládne
+Internetu. Přibližně <i>polovina</i> WWW serverů na Internetu používá
+Apache (viz
+<A HREF="http://www.netcraft.co.uk/Survey/"><B>průzkum od firmy Netcraft
+o používání WWW serverů.</B></A>).
+WWW server IIS od Microsoftu nepokrývá ani celou čtvrtinu
+Internetu. Apache nyní používají například následující organizace
+a instituce:
+<A HREF="http://java.sun.com/">Javasoft</A>,
+<A HREF="http://www.fbi.gov/">FBI</A>,
+<A HREF="http://www.ft.com/">Financial Times</A>,
+<A HREF="http://www.imdb.com/">Filmová databáze</A>,
+<A HREF="http://www.w3.org/">W3 Consortium</A>,
+<A HREF="http://www.royal.gov.uk/">Britská královská rodina</A>,
+<A HREF="http://www.lib.ox.ac.uk/">knihovní systém Oxfordské university</A>,
+<A HREF="http://www.mit.edu/">M.I.T.</A>,
+<A HREF="http://www.harvard.edu/">Harvardská universita</A>,
+<A HREF="http://www.utexas.edu/">Texasská universita v Austinu</A>.
+Netcraft také zmiňuje fakt, že
+<A HREF="http://www.rapidsite.com/">Rapidsite</A>, společnost pronajímající
+prostor na WWW Serverech jiným firmám, je nyní na pátém místě
+v průzkumu. Jejich systém, na kterém běží upravená verze Apache, podporuje
+44 280 doménových jmen na 39 905 různých IP adresách. Je to
+pravděpodobně největší světový systém pro pronajímání WWW prostoru.
+Jistě si vzpomínáte, že v tomto článku v části věnované rychlosti
+<A HREF="#KickAss">spojení Unixu a Apache překonává spojení NT a IIS </A>.
+Apache je nejen rychlý, ale je také zdarma.
+
+<P>
+
+Potřebuje-li organizace co nejrobustnější WWW server,
+Netscape-Enterprise je skvělé řešení. Ačkoli není zdarma jako Apache,
+bude stačit i na ty největší požadavky. Netscape-Enterprise používá
+třeba
+<A HREF="http://www.bmw.de/">BMW</A>,
+<A HREF="http://www.dilbert.com/">Dilbert</A>,
+<A HREF="http://www.sgi.com/">Silicon Graphics</A>,
+<A HREF="http://www.shell.com/">Shell</A>,
+<A HREF="http://www.sun.com">Sun Microsystems</A>,
+<A HREF="http://www.sybase.com/">Sybase</A>,
+<A HREF="http://www.ferrari.it/">Ferrari</A>
+a <A HREF="http://www.vatican.va/">Vatikán</A>.
+
+<p>IIS od Microsoftu je jedna z mála věcí, které se vlastně s Windows NT
+dodávají. Nemá žádnou významnou či zvláštní vlastnost, která by nebyla
+dávno implementována v jiných WWW serverech. Nevyniká ani rychlostí, ani
+popularitou, ani počtem současných uživatelů, které je schopen
+zvládnout. V současnosti jej používá např.
+<A HREF="http://www.compaq.com/">Compaq</A>,
+<A HREF="http://www.nasdaq.com/">Nasdaq</A>,
+<A HREF="http://www.nfl.com/">Národní fotbalová liga</A>,
+<A HREF="http://www.exxon.com/">Exxon</A>,
+<A HREF="http://shop.tesco.co.uk/">Tesco</A>.
+
+Z faktu, že Microsoft vděčí za velkou část svého úspěchu levnému
+hardware, tedy počítačům na platformě
+<A HREF="http://www.intel.com/">Intel</A>, byste mohli vyvozovat, že
+tento velký partner Microsoftu používá IIS. Ale není tomu tak.
+<B><A HREF="http://www.intel.com/">www.intel.com</A> používá
+<A HREF="http://home.netscape.com/comprod/server_central/product/fast_track/fast_track_data.html">Netscape FastTrack Server</A></B>.
+
+<p><A NAME="win95">Pro</A> uživatele Windows 95 a Windows NT je jedním
+z nejznámějších zdrojů software na Internetu
+<b><A HREF="http://www.windows95.com">www.windows95.com</A></B>. Ohromná
+popularita tohoto serveru nutně vyžaduje robustní operační systém
+a výkonný WWW server. Jelikož veškerý software nabízený na tomto serveru
+je výhradně pro Windows 95 nebo NT a celkový tón serveru je k Microsoftu
+velmi přátelský, někdo by se mohl domnívat, že zde je používán NT server
+a IIS. Inu, není tomu tak. Zde uvádíme
+<A HREF="http://www.windows95.com/about/faq.html">citát z jedné jejich
+vlastní WWW stránky </A>:
+
+<blockquote>
+<b>Jaký hardware a software je používán pro Windows95.com?</B>
+<blockquote>
+Používáme počítače s procesorem Pentium Pro na kterých běží operační
+systéme BSDI Unix a WWW server Apache. Naše servery jsou k Internetu
+připojené několika linkami T3.
+</blockquote>
+</blockquote>
+Poznámka: Tento citát je z února 1998. Nedávno se Windows95.com
+přejmenoval na WinFiles.com, ale stále ještě je dostupný pod původním
+názvem. Tato změna proběhla v březnu 1998.
+
+<HR -1>
+
+<A NAME="mta"><H2>Poštovní servery (MTA)</H2></A>
+
+<A NAME="mta-views"><H3>Microsoft Exchange versus Sendmail: Názory
+profesionálů z oboru informačních technologií</H3></A>
+
+<P><B>Billy Bob Thornton píše:</B>
+
+<BLOCKQUOTE>
+Exchange má také tu ,,výhodu,`` že Vás nutí platit Microsoftu za každé
+spojení k serveru (per seat). Můžete dát dohromady systém, používající
+řekněme Sun Ultra 1 (kolem 7 000 USD) a Solaris Internet Mail
+Server (který je součástí Solarisu 2.6) a poskytovat POP a IMAP dvěma
+tisícům uživatelů. Ještě jsem nepotkal nikoho, kdo by nebyl úplný
+marketingový trouba, kdo by mi radil, abych za dvojnásobnou cenu
+udělal to samé s použitím NT a Exchange.
+</BLOCKQUOTE>
+
+<P><B>Brad Van Orden, systémový a síťový konzultant, píše:</B>
+
+<BLOCKQUOTE>
+. . . Jak jsem již výše zmínil, dokonce i když nebudete
+počítat cenu nákupu a nastavení, Exchange Vás přijde na mnohem víc během
+normálního provozu. Musíte mít někoho, kdo ho bude aktivně spravovat.
+Používáte-li unixovou poštu, jakmile správně nastavíte sendmail.cf,
+jediná činnost kterou budete dělat je přidávání a odstraňování
+uživatelů. Je to obrovský rozdíl v ceně správy.
+</BLOCKQUOTE>
+
+<P><B>Tom Moore z Daytonu v Ohiu píše:</B>
+
+<BLOCKQUOTE>
+Zdá se, že současný trend je mít jako administrátory ,,trouby``. Právě
+jsem si přečetl článek, který tvrdí, že i přestože je dnes Apache
+nejrozšířenější WWW server na Internetu, je ,,pravděpodobně nevhodný``
+pro firemní použití částečně proto, že nemá grafické uživatelské
+prostředí pro administraci a tedy potřebuje zkušeného administrátora,
+který jej zkonfiguruje. Vyplývá z toho tvrzení, že stačí mít grafické
+uživatelské prostředí a kdokoli si může začít myší klikat a nastaví
+všechno správně.
+
+<P>
+
+Stejná ,,logika`` se nejspíš aplikuje na srovnání sendmailu s MS
+Exchange. Jelikož sendmail má textový konfigurační soubor, potřebuje
+zkušeného administrátora. Exchange má GUI, takže zkušeného
+administrátora nepotřebuje. Jelikož jsem pracoval s oběma produkty,
+nevěřím tomu. Obojí se nastaví poměrně snadno do základního nastavení.
+Obojí vyžaduje zkušeného správce na nastavení čehokoli složitějšího.
+Když ale chcete používat skutečně komplikované funkce, jako je třeba
+filtrování spamů, Exchange na to nestačí.
+</BLOCKQUOTE>
+
+<P><B>Jeden čtenář pociťuje mé srovnání MS Exchange s MTA jako
+nespravedlivé:</B>
+
+<BLOCKQUOTE>
+,,Srovnávání Exchange a běžného MTA (Mail Transfer Agent --- program
+doručující poštu) je v nejlepším případě překroucení fakt. Exchange není
+a nikdy nebyl nabízen jako MTA, je to spíš server pro firemní
+komunikaci.``
+</BLOCKQUOTE>
+
+MS Exchange má i některé funkce, které v běžných MTA nejsou.
+Nicméně účelem tohoto článku je ukázat, jaké poštovní servery jsou
+dodávány v rámci každého operačního systému. Odpověď zní: V Unixu je to
+sendmail, ve Windows NT 4.0 není nic; přitom, chcete-li řešení od
+Microsoftu, nemáte na výběr nic jiného než Exchange Server.
+
+<p>Microsoft Exchange Server není jediný komunikační server, který má
+takové funkce. Podívejme se, jaký výběr je v oblasti serverů IMAP4
+dostupných pro firmy a srovnejme je:
+
+<p>
+
+<TABLE BORDER=1>
+<TR>
+<TH>
+<TH>
+<A HREF="http://www.lotus.com/home.nsf/tabs/domino/">
+Lotus Domino 4.6a</A>
+<TH>Microsoft Exchange Server 5.0<BR>
+       Enterprise Edition
+<TH>
+<A HREF="http://search.netscape.com/comprod/server_central/">
+Netscape Suitespot Server 3.5</a>
+</TR>
+<TR>
+<TD>Podporované platformy:
+<TD>AIX, HP-UX, Netware, OS/2, OS/400, Solaris, S/390, Windows NT, Windows 95
+<TD>Windows NT Server
+<TD>AIX, Digital UNIX, HP-UX, IRIX, Solaris, Windows NT
+</TR>
+<TR>
+<TD>Cena serveru a 50 klientských licencí
+<TD ALIGN=CENTER>4 240 USD
+<TD ALIGN=CENTER>4 859 USD
+<TD ALIGN=CENTER>4 100 USD
+</TR>
+</TABLE>
+
+Můžete zkusit <B>
+<A HREF="http://search.netscape.com/comprod/server_central/product/pricing/comparison.html">tento
+odkaz</A></B>, chcete-li dostat detailnější cenové srovnání.
+
+
+<HR -1>
+
+
+<A NAME="conclusion"><H2>Závěr</H2></A>
+
+<P>Je paradoxní, že se podle zkušených správců systémů zdá, že Unix je
+správnou volbou všude, kde je nízký rozpočet, a zároveň v obrovských
+podnicích, které požadují špičkové multiprocesorové servery
+a rozšiřitelný operační systém. Novinářka Elizabeth Corcoranová
+z <i>Washington Postu</i> nám dává příklady z praxe:
+
+<BLOCKQUOTE>
+Informační systém Cincinnati Bell například již několik let používá
+pracovní stanice a servery Sun pro zpracování šeků. Nedávno bylo
+přikoupeno několik nejvýkonnějších serverů, které Sun dodává, aby bylo
+možné zpracovat milión účtů denně. Jak říká James Holtman, na výběr jsme
+měli servery společnosti Sun nebo sálové počítače IBM. Technologie
+Microsoftu ,,ještě není dost pokročilá. Ještě musí dlouho růst, aby se
+vyrovnala systémům takové velikosti``.
+
+<br>-- <I>The Washington Post</I>, neděle 8. února 1998; strana H01
+</BLOCKQUOTE>
+
+Jedná-li se o společnost malou až středně velkou, která má jen málo
+,,mission-critical`` procesů, chce najmout další administrátory pro své
+Exchange a IIS a má dostatečný rozpočet k pokrytí licencí ,,per server``
+nebo ,,per seat,`` potom je správným řešením NT.
+Společnost <b><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>
+publikovala vynikající
+<B><A HREF="http://www.aberdeen.com/research/comp/onsite/case1/body.htm">případovou
+studii</A></B> migrace na Windows NT.
+
+<P>
+NT je také vynikající řešení pro manažery, kteří potřebují prokázat, že
+plně využili svého rozpočtu na hardwarové a softwarové výdaje.
+Pravděpodobně je právě toto důvodem, proč federální úřady nepotřebují
+nechat si schvalovat jejich nákup: ,,NT se staly neoficiálním
+standardním operačním systémem federální vlády. Federální úřady,
+odpovědné mimo jiné za nákup počítačového vybavení vyžadují písemné
+schválení shora před objednáním jakéhokoli unixového operačního systému
+nebo hardware, na kterém neběží Windows NT. Pro nákup intelového
+hardware nebo Windows NT není potřeba žádné předběžné schválení.``
+(oznámeno prodejcem řešení firmy Sun, který si přeje zůstat
+v anonymitě).
+
+
+<P>
+Malé obchody nebo pokročilejší uživatelé s malým rozpočtem,
+a dokonce i střední a velké firmy, které začínají unikat ze sevření
+starých představ, že výkon je nejlépe měřen počtem číslic na účtě, mohou
+využít Linux nebo FreeBSD, které lehce překonávají výkon a funkčnost
+řešení postavených na NT. Mohou přitom využít levný hardware Intelu
+a mohou tak učinit zadarmo, za cenu, kterou Bill Gates jen stěží dokáže
+přebít. Proč investovat do operačního systému NT, který vyžaduje drahé
+školení a pak nová školení s každou novou verzí?
+Unixových administrátorů je dostatek a jsou většinou na vyšší úrovni než
+jejich Windowsové protějšky (většina unixových administrátorů umí
+programovat, což lze mezi novou generací ,,NT admins`` vidět jen
+zřídkakdy.) K čemu utrácet téměř 5 000 dolarů za MS Exchange Server
+(tato cena pokrývá pouhých 50 klientských licencí), který jak se zdá je
+schopen pokrýt poštu několika málo stovek zaměstnanců, když můžete
+použít poštovní program sendmail, který je součástí Unixu, a jedná se
+o vyzkoušenou a prověřenou aplikaci, schopnou pokrýt požadavky tisíců
+zaměstnanců.
+
+<p>
+
+Co se týče funkčnosti a výkonu těchto dvou operačních systémů, zdá se,
+že Unix má bezpochyby převahu. Lze si vybrat mezi mnoha výrobci (nehrozí
+tedy monopol). Nabízí rozšiřitelnost, efektivní využití systémových
+zdrojů, administraci i používání na dálku, je multiuživatelský, je pro
+něj k dispozici ohromné množství software, používá stejné standardy
+nezávisle na výrobci (POSIX). Je možné kontrolovat využití disku
+uživateli (narozdíl od NT), neshodí ho deset let staré viry.
+To nejdůležitější, co byste si z tohoto článku měli pamatovat pro
+chvíli, kdy se budete snažit rozhodnout mezi Windows NT a jedním
+z unixových systémů je zde:
+
+<BLOCKQUOTE>
+Operační systém <B>Unix</B> vám dá <B>flexibilitu</B>:
+Můžete si vybrat hardware, používat příkazovou řádku i grafické
+prostředí, můžete ho koupit nebo získat zdarma, máte na vybranou
+i  to, od kterého výrobce byste ho chtěli. Je <b>dynamický</b>, t.j. umožní
+Vám nastavit jádro systému tak, aby se hodilo přesně pro Vaše potřeby.
+<P><B>Windows NT</B> Vám dají <B>omezení</B>:
+jen Intel nebo Alpha, bez možnosti vypnout grafické prostředí, navíc
+dokonce jen jedno grafické prostředí (nemáte na vybranou z množství
+,,okénkových`` systémů, které jsou k dispozici pro Unix X-Window). Pouze
+komerční MTA, jediný výrobce (nebo jste snad slyšeli o klonech Windows
+NT?). NT server je <b>statický</b>, t.j. nikdy Vám neumožní nastavení,
+vhodné právě pro Vás. Jedna velikost sedí jen málokomu.
+</BLOCKQUOTE>
+
+<P>I když Microsoft není jediným producentem ,,omezujícího`` software,
+podporujícím pouze svá vlastní proprietární řešení, lze doufat, že
+organizace, které se zaměřují na podporu otevřených systémů a řešení se
+prosadí. Jednou z firem, podporujících otevřenost v kontrastu
+s omezující politikou Microsoftu je například Netscape:
+
+<BLOCKQUOTE>
+Naše strategie je v ostrém kontrastu se strategií firem jako Microsoft,
+jejichž obchodní plán je závislý na tom, aby zákazník stále přecházel na
+nejnovější verzi každého jejich operačního systému. Všimněte si, že
+komponentový model Microsoftu --- ActiveX --- a jeho součásti byly
+vyvinuty tak, aby je šlo používat jen na 32 bitových Windows. Velké
+množství API od Microsoftu je také pouze pro 32 bitové Windows.
+Například aplikace, která používá ADSI (API od Microsoftu pro přístup
+k protokolu LDAP), nemůže běžet ani na 16 bitových Windows a už vůbec ne
+na Macintoshi nebo Unixových systémech. Naproti tomu LDAP API od
+Netscape je k dispozici na 17 platformách v jazyce C a na mnoha dalších
+v Javě. Navíc nové služby vyvíjené Microsoftem, jako třeba zpracování
+transakcí ,,Viper``, nebo předávání zpráv ,,Falcon``, běží pouze na
+platformě NT 5.0 --- například databáze Oracle běžící na Unixu není
+podporována. Rozdíl je jasný: s Microsoftem vývojáři píší programy pro
+Windows, zatímco s Netscape píší programy pro Internet.
+
+<br>-- Netscape,
+<A HREF="http://developer.netscape.com/docs/wpapers/crossware/#advantages">Netscape
+ONE Advantages</A>
+</BLOCKQUOTE>
+
+<p>Zdálo by se, že na základě informací, které jsme zde uvedli, by mělo
+být jasné, který operační systém vybrat. Přesto se každý den některý
+schopný administrátor někde na světě dozvídá od svého nadřízeného, že
+firma se rozhodla přejít na Windows NT. Administrátor je překvapen
+a zmaten, protože informace, které jsme zde uvedli, dávno zná. Proto je
+tento článek určen právě manažerům Vaší společnosti. Až příliš často se
+stává, že vedení bezdůvodně rozbije fungující, stabilní, efektivní
+a technicky dokonalejší systém, když náhle objeví, že se nějaký čas
+používal bez jejich vědomí:
+
+<BLOCKQUOTE>
+,,Manažer oddělení IT se jeden den zeptá, co je to za počítač támhle
+v rohu a dostane odpověď, že je to intranetový WWW server, který tam běží
+už rok a půl, a mimochodem běží na něm Linux. Jeho normální reakce je,
+že přikáže přejít na NT. Obyčejně se ale po nějakém čase vrací k Linuxu,
+protože zjistí, že poklesla výkonnost.
+
+<br>-- <A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">
+Linus Torvalds talks economics and operating systems</A>, InfoWorld, April 9, 1998.
+</BLOCKQUOTE>
+
+Přesně taková situace se stala ve firmě
+<A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco Systems
+Inc.</A></B>, nicméně přesto, že vedení rozhodlo o přechodu na NT, stále
+ještě tam používají Linux (přečtěte si o tom
+<B><A HREF="#cisco">víc</A></B>). Zjevně někdo ze zaměstnanců odmítl splnit
+příkaz. Proč myslíte, že by někdo riskoval ztrátu zaměstnání z takového
+důvodu? Necháme odpověď na Vás.
+
+<p>Jste-li manažer, pokuste se využít těchto informací k zlepšení stavu
+výpočetní techniky ve Vaší firmě. Promluvte si se svými technickými
+specialisty a zeptejte se jich, co je nejlepší. Rozhodněte se správně
+a nenechte se ošálit prodejci, kteří hýří odbornými výrazy, ale nejsou
+schopni je ani vysvětlit, natož pak vysvětlit jejich význam pro potřeby
+a cíle <i>Vaší společnosti</i>. Zkuste vyhledat společnosti, které pro
+řešení podobných potřeb implementovaly <i>obě</i> řešení --- Microsoft
+i Unix. Zkuste se sejít s jejich technickým personálem a získat tak
+objektivní zprávy z první ruku o vhodnosti, problémech s implementací
+a počátečními a průběžnými náklady na takové řešení, jaké potřebujete.
+
+<HR -1>
+
+<H2><A NAME="compare">Rychlé srovnání Linuxu a NT Serveru</A></H2>
+
+<P>Jelikož NT jsou často zvoleny proto, že používají levný hardware,
+srovnáváme zde NT s Linuxem, který je také optimalizován pro hardware
+Intelu.
+
+<p>Poznámka: V tomto srovnání uvádíme jen součásti a vlastnosti, které
+se přímo <i>dodávají</i> s daným operačním systémem. Například Perl 5.0
+je dostupný na všech platformách, ale Microsoft ho se svým operačním
+systémem nedodává. Stejně tak většina distribucí Linuxu obsahuje kolem
+čtyř grafických uživatelských rozhraní (správců oken), a přitom (jak
+bylo uvedeno výše) je to jen malá část toho, co je ve skutečnosti pro
+Linux (a jakýkoli jiný Unix) k dispozici.
+
+<table width=100% border=on>
+
+<tr>
+<td width=20%><strong>Součást</strong></td>
+<td width=30%><strong>Linux</strong></td>
+<td width=50%><strong>Windows NT Server 4.0</strong></td>
+</tr>
+<tr>
+<td>Operační systém</td>
+<td>Zdarma nebo přibližně 50 USD za CDROM</td>
+<td>5 uživatelů: 809 USD<BR>
+   10 uživatelů: 1129 USD<BR>
+   Enterprise Edition pro 25 uživatelů 3 999 USD</td>
+</tr>
+<tr>
+<td>,,Online`` technická podpora zdarma</td>
+<td>Ano, např.
+<A HREF="http://www.linux.org/help/howto.html">
+Linux Online</A> nebo
+<A HREF="http://www.redhat.com/">
+Redhat</A></td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>Zdrojové kódy jádra</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>WWW server</td>
+<td>Apache Web Server</td>
+<td>IIS</td>
+</tr>
+<tr>
+<td>FTP server</td>
+<td>Ano</td>
+<td>Ano</td>
+</tr>
+<tr>
+<td>Telnet server</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>SMTP/POP3 server</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Ano</td>
+<td>Ano, ale podle mnoha zdrojů jde o chybnou implementaci s omezenou
+funkčností.</td>
+</tr>
+<tr>
+<td>Podpora sítí</td>
+<td>TCP/IP, IPv6, NFS, SMB, IPX/SPX, NCP Server (NetWare server),
+AppleTalk a řada dalších protokolů</td>
+<td>TCP/IP, SMB, IPX/SPX, AppleTalk a řada dalších protokolů</td>
+</tr>
+<tr>
+<td>X Window server<BR>
+(Vzdálené spouštění<BR>
+grafických aplikací)</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>Nástroje pro<br>vzdálenou správu</td>
+<td>Ano, všechny nástroje</td>
+<td>Jen ,,User Manager for Domains``
+a ,,Server Manager``</td>
+</tr>
+<tr>
+<td>News server</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>Překladač C a C++</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>Perl 5.0</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>Podpora pro práci s různými verzemi dokumentů</td>
+<td>Ano, např.
+<A HREF="http://sunsite.unc.edu/LDP/HOWTO/mini/RCS.html">
+RCS</A></td>
+<td>Ne</td></tr>
+<tr>
+<td>Počet podporovaných souborových systémů</td>
+<td>32</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Podpora diskových kvót</td>
+<td>Ano</td>
+<td>Ne</td>
+</tr>
+<tr>
+<td>Počet uživatelských rozhraní na vybranou</td>
+<td>4</td>
+<td>1</td>
+</tr>
+</table>
+
+<HR -1>
+
+<A NAME="bigguys"><H2>Jaké systémy používají velké společnosti?</H2></A>
+
+<P><B><A HREF="http://www.amazon.com/">Amazon.com</A></B>
+<P>Amazon.com Books je největší světový obchod s knihami na Internetu,
+otevřený 24 hodin denně. Spoléhá se na operační systém Digital Unix na
+systémech AlphaServeru 2000. Data jsou přístupná zákazníkům díky
+technologii Digital VLM64: ,,Základem pro náš rychlý růst byly
+vynikající vlastnosti WWW serveru z řady Digital AlphaServer a snadný
+přechod na nové verze.``
+
+<P><B><A HREF="http://www.boeing.com/">Boeing</A></B>
+<P>Operační systémy: HP-UX, IRIX, Solaris, a víc NT než by si jeho
+technický personál přál.<BR>
+Přečtěte si,
+<B><A HREF="#boeing">co o Boeingu říká Linus Torvalds!</A></B><BR>
+WWW server: Netscape-Enterprise 2.01
+
+<P><B><A HREF="http://www.dallascowboys.com">Dallas Cowboys</A></B>
+<P>Operační systémy: <B>
+<A HREF="http://www.sgi.com/Products/hardware/servers/products/Irix.html">IRIX</A></B>
+(Silicon Graphics UNIX Operating System) a Unix System V Release 4.0<BR>
+Poštovní server: Netscape Messaging Server 3.01<BR>
+WWW server: Netscape-Enterprise 3.0
+
+<P><B><A HREF="http://www.dow.com/">Dow Corning</A></B>
+<P>,,Naše firma operuje v globálním měřítku a vždy používala sálové
+počítače. Přechod na Sun byl riskantnější než jiné možnosti, ale jejich
+technologie a energičnost na nás udělala ten nejlepší dojem. Teď, když
+už víme, jaká je spolupráce s firmou Sun, kdybychom se měli znovu
+rozhodovat, vůbec bychom nebrali v úvahu jiné možnosti. Sun odvádí
+vynikající práci.``
+
+<br>-- Mark Smith, Manager of Information Technology Systems, Dow Corning
+
+<P><A NAME="ms-solaris"><B><A HREF="http://www.hotmail.com">Hotmail</A></B></A>, now owned by
+<B><A HREF="http://www.microsoft.com">The Microsoft Corporation</A></B>
+<P>Hotmail je na WWW volně dostupná poštovní služba. Pro svůj provoz
+používá operační systémy Sun Solaris a FreeBSD. Jako WWW server
+používají Apache 1.2.1. V roce 1997 koupil firmu Hotmail Microsoft
+a pokusil se přejít na NT, ale ,, . . . deset miliónů
+uživatelů se ukázalo být pro NT příliš a Solaris byl vrácen zpátky.``
+Přečtěte si o tom v článku
+<A HREF="unix-nt/hotmail.html">Solaris calls Hotmail shots for Microsoft</A>.
+
+<A NAME="usps"><P><B><A HREF="http://www.usps.gov/">United States Postal Service</A></B></A>
+<P>,,Poštovní služba Spojených států rozmístila v roce 1997 ve Spojených
+státech na 900 linuxových systémů, které automaticky rozeznávají adresy
+na obálkách. Každý systém se skládá z pěti počítačů s dvěma procesory
+Pentium Pro 200 MHz (PP200) a jednoho jednoprocesorového PP200. Na všech
+běží Linux.
+
+<br>-- John Taves,
+<A HREF="http://members.aa.net/~jtaves/linux.htm">
+Linux is reading your mail</A>, 8. dubna 1998
+
+<P><B><A HREF="http://www.yahoo.com">Yahoo!</A></B>
+<P>,, . . . O několik dnů později jsme přidali
+k našim WWW serverům jeden s operačním systémem FreeBSD. Nejenže překonal
+svým výkonem všechny ostatní, ale byl i stabilnější. O několik týdnů
+později jsme mu už úplně propadli. Přestože jeho cena je jistě
+atraktivní, hlavním důvodem, který nás přesvědčil, byla jeho stabilita,
+výkon a přístup ke zdrojovým kódům. Od té doby používáme téměř výhradně
+FreeBSD, na Internetu i pro náš vlastní vývoj.``
+
+<br>-- David Filo, spoluzakladatel Yahoo! (<I>FreeBSD News</I>, číslo 1)
+
+<P></A><B>
+<A HREF="http://www.m-tech.ab.ca/linux-biz/">Seznam firem, používajících
+Linux pro svou normální práci,</A></B> se snaží informovat veřejnost
+o tom, že Linux je reálnou a životaschopnou alternativou ke komerčním
+unixovým operačním systémům. Zmíněny jsou i firmy jako
+<B><A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco Systems Inc.</A></B>,
+<B><A HREF="http://www.m-tech.ab.ca/linux-biz/sony.html">Sony WorldWide Networks</A></B>,  <B>
+<A HREF="http://www.m-tech.ab.ca/linux-biz/mercedes.html">Mercedes-Benz</A></B>, and <B>
+<A HREF="http://www.m-tech.ab.ca/linux-biz/taxi1.html">Yellow Cab Service Corporation</A></B>
+Každý záznam je doplněn popisem situace, ve které je Linux používán.
+
+<P><A NAME="cisco">InfoWorld nedávno publikoval článek, zmiňující se
+o tom, že </A>
+<B><A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco Systems Inc.</A></B>
+možná přechází z Linuxu na Windows NT:
+
+<BLOCKQUOTE>
+,,Když už mluvíme o změnách platforem, Cisco Systems bude možná měnit
+své interní tiskové servery. Současná infrastruktura firmy je založena
+na Linuxu a funguje velmi dobře. Manažerům to ale nebrání v touze po
+změnách. Dozvěděl jsem se, že ve světle stále lepších vztahů Cisca
+s Microsoftem se vrcholový management rozhodl vydat příkaz, že existující
+systémy se vyhodí a nahradí se Windows NT. Koluje ale zpráva, že
+i přesto systémem tiskových serverů zůstal --- hádáte dobře --- Linux.
+
+<br>-- Robert X. Cringley,
+"No Sunday in the Park: Rain Pushes platforms closer to the precipice," in:
+<A HREF="http://www.infoworld.com/">InfoWorld</A>, 23. února 1998, vol.
+20, issue 8, p. 115.
+</BLOCKQUOTE>
+
+<P><A NAME="boeing">Linus Torvalds, otec Linuxu, se v interview</A>
+které poskytl InfoWorldu zmiňuje o tom, že Linux je v mnohých firmách
+často ,,neoficiálně schválen``:
+
+<BLOCKQUOTE>
+,,Jen málo lidí chce oficiálně potvrdit, že používají Linux.
+<B><A HREF="http://www.hq.nasa.gov/">NASA</A></B> velmi otevřeně
+podporuje Linux, podobně se chovají univerzity. Vím, že Linux je
+užíván ve firmách jako třeba
+<B><A HREF="http://www.boeing.com/">Boeing</A></B>, ale nemohu lidi
+odkázat na WWW stránku, která by to potvrdila.
+
+<br>-- <A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">
+Linus Torvalds talks economics and operating systems</A>, InfoWorld, April 9, 1998.
+</BLOCKQUOTE>
+
+<HR -1>
+
+<A NAME="links"><H2>Odkazy</H2></A>
+
+<P><B>
+<A HREF="http://earthspace.net/~esr/writings/cathedral-paper.html">
+The Cathedral and the Bazaar</A></B><BR>
+by Eric S. Raymond, 29 January 1998.
+
+<P><B>
+<A HREF="http://www.aberdeen.com/research/comp/viewpnts/1997/v10n20/97090178.htm">
+Microsoft: The Joker of Enterprise IS Computing</B></A><BR>
+by The <B>
+<A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>,
+Executive Viewpoint, Volume 10 / Number 20, September 29, 1997.
+
+<P><B>
+<A HREF="http://www.aberdeen.com/research/comp/whtpaper/1998/98031201.htm">
+Interoperability: Possibility or Elusive Dream? --- An Executive White Paper</B></A><BR>
+by The <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>, March 1998.
+
+<P><B>
+<A HREF="http://www.aberdeen.com/research/comp/onsite/case1/body.htm">
+<I>OnSite</I> - Case Study: Migration Migraines</B></A><BR>
+by The <B>
+<A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>, 1997.
+
+<P><B>
+<A HREF="http://cwlive.cw.com:8080/home\online9697.nsf/All/970724windows">
+Windows NT no match for UNIX, IDC says</A></B><BR>
+by Rob Guth, <B><A HREF="http://www.computerworld.com">Computerworld</A></B>, 7-24-97.
+
+<P><B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.win3.htm#linux">
+1997 Product of the Year Award: Operating Systems - Network Operating System</A></B><BR>
+by Eric Hammond, <A HREF="http://www.infoworld.com/">InfoWorld</A> Test Center.
+
+<P><B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.supp.htm">
+1997 Product of the Year Award: Best Technical Support Award</A></B><BR>
+by Ed Foster, <A HREF="http://www.infoworld.com/">InfoWorld</A> Test Center.
+
+<P><B><A HREF="http://odin.appliedtheory.com/linux-activism/">
+Linux Reviews and Articles</A></B> by Christopher Blizzard. <BR>
+This page lists 65 articles or reviews of Linux.
+
+<P><B><A HREF="http://currents.net:80/magazine/national/1524/inet1524.html">
+Linux Grows Up: Red Hat's commercial Linux beats NT at its own
+game</A></B>, by Maggie Biggs.<BR>
+The author is a senior analyst in the
+<A HREF="http://www.infoworld.com/">InfoWorld</A>
+ Test Center.  She specializes in database technology and application
+design, development, and deployment via intranets and other networks.
+
+<P><B><A HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">
+Linux lines up for the enterprise:
+Is there a place in your shop for this inexpensive UNIX?</A></B><BR>
+by Rick Cook, in:
+<A HREF="http://www.sun.com/sunworldonline/swol-01-1998/">SunWorld - January 1998</A>.
+
+<P><B><A HREF="http://www.nwfusion.com/intranet/0330linux.html">
+Lookin' into Linux</A></B><BR>
+by Mark Gibbs, Network World, March 30, 1998.
+
+<P><B><A HREF="http://guide.sbanetweb.com/press/nw818.html">
+Doing the math to resolve the NT vs. UNIX debate</A></B><BR>
+by Wayne Spivak, Network World, August 18, 1997
+
+<P><B><A HREF="http://www.iserver.com/servers/compare/bsd_vs_nt.html">
+The advantages of using BSDI BSD/OS over Windows NT Server</A></B><BR>
+iServer - Verio Web Hosting Inc. - Virtual Servers
+
+<P><B><A HREF="http://www.zdnet.com/sr/business/opportunity/980211b.html">
+Linux: Not Just For Geeks And College Kids Anymore</A></B>, by Jason Perlow,
+<A HREF="http://www.zdnet.com/">ZDNet</A>, February 11, 1998.
+
+<P><B><A HREF="http://www.zdnet.com/pcmag/issues/1613/pcmg0068.htm">
+Leaning Toward Linux: Powerful, robust, and free, Linux is worth
+investigating, especially if you plan to set up an Internet
+domain</A></B> by Neil Randall,
+<A HREF="http://www.zdnet.com/pcmag/issues/1613/contents.htm">
+ZDNet - PC Magazine Online, July 1997, Vol 16, No. 13.</A>
+
+<P><B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html">
+Replacing Windows NT Server with Linux</A></B> by Quinn P. Coldiron,
+Information Systems Department manager for the University of Nebraska
+Press.
+
+<P><B><A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">
+An In-Depth Analysis of Five Commercial UNIX Operating Systems and
+Windows NT Server 4.0 (Enterprise Edition) by D.H. Brown Associates,
+Inc.</A></B>
+
+<P><B><A HREF="http://www.bsdi.com/white-papers/compare">
+Comparing BSDI and NT:
+Building Intranet and Internet Servers with BSDI and Windows NT</A></B>
+
+<P><B><A HREF="http://www.standishgroup.com/syst.html">
+The Standish Group - SUN Also Rises: Solaris Vs. NT</A></B>
+
+<P><B><A HREF="http://www.bitwizard.nl/unixnt.html">
+BitWizard B.V. "UNIX vs. NT"</A></B>
+
+<P><B><A HREF="http://pubsys.cmp.com/nc/701/701hreportb.html">
+THE H-REPORT: Which Operating System For Your 'Intranet'?</A></B>
+
+<P><B><A HREF="http://www.ssc.com/lj/issue46/2494.html">
+Linux Helps Bring <I>Titanic</I> to Life</A></B><BR>
+Daryll Strauss,
+<A HREF="http://www.ssc.com/lj/">LINUX Journal</A>,
+<A HREF="http://www.ssc.com/lj/issue46/">Issue #46</A>, February 1998.
+
+<HR -1>
+
+<A NAME="acknowledgments"><H2>Poděkování</H2></A>
+
+<P>Zvláštní poděkování patří Martinu Vermeerovi, jehož expertní znalosti
+byly a jsou neocenitelnou pomocí při vývoji tohoto dynamicky se
+rozvíjejícího projektu. Hluboce si vážím překladatelů, kteří věnovali
+svůj čas tomuto dílu: Český překlad pořídil Hanuš Adler, japonský
+Kobayashi Osamu, portugalský Bruno H. Collovini, španělský překlad
+zajistil Miguel Angel Sepulveda a provedl José M. Laveda. Mé díky patří
+také Natu Makarevitchovi a Cyrilovi Bouthorsovi, kteří v současné době
+pracují na francouzském překladu a Michele Dalla Silvestra, pracující na
+italském překladu.
+
+<P>Dále bych rád poděkoval mnoha čtenářům, kteří mi poslali odkazy na
+nové důležité články, které se k tomuto tématu váží, například Peter
+Chen, Ariel Faigon, Paul Fischer, Jim Mohr, John Oram, Raj Warty a mnoho
+dalších.
+
+<P>Stejně tak oceňuji konstruktivní kritiku od následujících čtenářů:
+Keith H.J. Bevins, Joris Braakman, Phillip Chu, Baruch Cochavy, Nicholas
+Donovan, Julian Elischer, Steve Fuller, Alex Gogan, Jake Hamby, Peter
+Jeremy, Adam Johnson, Geoffrey King, Hannu Krosing, Greg Lehey, Kimberly
+McBride, Richard Smith, David Waine a další.
+
+<P>Stejně důležitá pro mě byla asistence Leifa Erlingssona a Damona
+Conwaye koncem března, kdy jsem upgradoval své připojení na Internet
+a potřeboval jejich mirrorování. Oba provádějí i nadále mirror tohoto
+textu. Konečně děkuji Ryanu Sumnerovi za jeho nekončící morální podporu
+tomuto projektu.
+</div>
+</BODY>
+</HTML>

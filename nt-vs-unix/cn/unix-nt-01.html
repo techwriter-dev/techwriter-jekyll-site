@@ -1,0 +1,523 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+   <META NAME="description" CONTENT="UNIX versus Windows NT -Information every manager should know when planning a corporate network or the purchase of server hardware.">
+   <META NAME="keywords" CONTENT="NT vs UNIX, UNIX vs NT, NT vs. UNIX,UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail,exchange server, microsoft, smp, aix, hp-ux, digital unix, solaris,freebsd, bsdi, linux, windows nt, corporate network, mail servers,operating systems, cost effective solutions, mission criticaloperations, sendmail, apache, iis, system administration, microsoft">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [tw] (Win95; I) [Netscape]">
+   <TITLE>當Microsoft Windows NT Server 4.0 對上 UNIX</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" leftmargin="50" TEXT=#0000FF>
+<CENTER><A HREF=http://www.okstation.com><IMG SRC=okstation-roadsign.gif border=0></A></CENTER>
+<HR>
+<CENTER>
+<A HREF=unix-nt.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-02.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+<A NAME="os"></A>
+<center><FONT SIZE=+2>作業系統</FONT></center>
+<A NAME="costs"></A>
+
+<P><ADDRESS><FONT SIZE=+1>產品價格及版權問題</FONT></ADDRESS>
+
+<P>大多數管理人員都會同意, 當著眼看整體的時候,
+作業系統的價格是可以不用考慮的.
+
+<P>雖然Windows NT Server 4.0比起有些商業UNIX系統更貴
+(NT 4.0 Server五人版 - $809;
+十人版 $1129;
+Windows NT Server, 企業版4.0, 25人版 - $3,999;
+企業版4.0, 50人版 - $4,799;
+NT Server 4.0文件套件 - $69.95;
+資料來源:
+<A HREF="http://www.microsoft.com/NTServer/Basics/Pricing/RetailPrice.asp">Microsoft</A>),
+NT Server真得值這個價格嘛? 請看<B>
+<A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub6.html">
+NT謊言: 謊言6 - NT Server價格不止於此</A></B>.
+
+<P>在交易上, 它算是小筆的金額. 那麼究竟什麼是不可忽略的呢?
+<P>即該網路作業系統, 即Windows NT, 以此價格是不會給您以下這些該有的東西,
+telnet server, SMTP server (e-mail), disk quotas, news server,
+或者至少該有個DNS server用來解決客戶的需求(許多NT管理人員都被強迫,去支援廠商找DNS解決方案).
+
+<P>為了要有這些功能, 許多的NT解決方案大約都在$4,000左右
+(根據<B><A HREF="http://www.bsdi.com/white-papers/compare">BSDI, Building Intranet and Internet Servers with BSDI and Windows NT</A></B>).
+
+<P>InfoWorld的資料庫系統及程式設計的資深分析師Maggie Biggs,
+她在開發及部署intranet及其它網路有著豐富經驗,
+估計<B>一個可勘用的Windows NT4.0解決方案價格在$4,636</B>.
+在其<B><A HREF="http://currents.net:80/magazine/national/1524/inet1524.html">文章(Linux Grows Up, Red Hat Linux Versus NT)</A></B>
+比較了NT 4.0及Red Hat的<I>商用版</I>Linux(僅<B>$49.95</B>).
+
+<P>在此您可看見成功的行銷, 通常可非常成功的混淆客戶, 在其所需功能上的注意力.
+
+<P>若考慮NT是有限預算下的最佳選擇, 因為大部份客戶, 不願意付大筆的錢,
+買昂貴的機器來跑UNIX.
+其實更重要的是全面的所需要下的成本,
+包含系統管理, 電話支援服務, 資料流失導致系統不穩定等等.
+
+<P>曾得到過奧斯卡最佳特效獎, 負責<I>Starship Trooper</I>的繪圖公司, Tippett Studio,
+使用130部SGI(<A HREF="http://www.sgi.com/">Silicon Graphics, Inc.</A>)
+執行<A HREF="http://www.sgi.com/origin/products/irix.html">IRIX</A>,
+(SGI的專屬UNIX作業系統).
+<P>Tippett's studio作業經理解釋了,為何使用SGI及IRIX而不用NT解決方案:
+<BLOCKQUOTE>Tippett的作業經理, Jeff Stringer說
+"'SGIs是對我們在做的事來說是最便宜的,',
+ '維護NT系統的費用相當高,尤其當你考慮到系統管理人員的數量的時候.'"
+
+<P>"對Tippett來說,雇用人員是個很大的事. 不像其它超級工作室, Tippett --
+這家在Starship Troopers電影中, 設計嚇人的虫子們的這家公司 -- 可是個人員素質精品店."
+
+<P>-- Greg Lindsay, <A HREF="http://cgi.pathfinder.com/netly/editorial/0,1012,1770,00.html">Oscar
+Tech</A>, The Netly News, February 27, 1998.</BLOCKQUOTE>
+對多數對價格有概念的客戶來說,
+<B><A HREF="http://www.linux.org">Linux</A></B>,
+<B><A HREF="http://www.freebsd.org">FreeBSD</A></B>,
+<B><A HREF="http://www.netbsd.org/">NetBSD</A></B>,
+或<B><A HREF="http://www.openbsd.org/">OpenBSD</A></B>
+是很明顯的選擇.
+他們價格為<I>0</I>,
+而且還提供了比商業UNIX版本還更多的功能.
+
+<P>現有的聯盟關係如在
+<B><A HREF="http://www.techweb.com/wire/story/TWB19980402S0013">Andreessen見Mozilla-Linux的組合令Windows失色</A></B>
+一文所提到的,
+明白的顯示出其在商業環境下的翩翩風儀.
+(這個圈子的新進者可能不知道,
+Mozilla是Netscape/Communicator的程式正名,
+此外Marc Andreessen是Netscape的共同創立人及產品執行副總裁.)
+此外更值一提的結盟關係是<A HREF="http://www.sun.com/">Sun Microsystems</A>
+及<A HREF="http://www.li.org/">Linux International</A>.
+(<A HREF="http://slashdot.org/">Slashdot</A>: <B><A HREF="http://slashdot.org/articles/9804211730214.shtml">Sun Joins Linux International</A></B>, 21 May 1998)
+最近的特別關係則是 <A HREF="http://www.corel.com/">Corel</A>與Linux:
+
+<BLOCKQUOTE>
+". . . <A HREF="http://www.corel.com/">Corel</A>,
+最近宣佈要建立Linux為基礎的網路電腦計劃,
+並說下個月將要發佈免費的Linux-base開發工具.
+在它的網站上,加入許多以Linux為基礎的開放系統."
+<BR>-- Erich Luening,
+<B><A HREF="http://www.news.com/News/Item/0,4,21929,00.html">Corel joins Linux fest</A></B>,
+<A HREF="http://www.news.com">CNET News.Com</A>, May 8, 1998.
+</BLOCKQUOTE>
+就以往的記錄, 大公司會刻意避開免費軟體.
+由於其前提就是免費的, 因此毫無價值可言,
+最近的趨勢, 在有許多公司都使用這些廉價的作業系統.
+Hewlett-Packard使用Linux替代其自身的HP-UX作業系統
+"來移植Carnegie Mellon Mach核心到HP PA-RISC以便使用其系統."
+(<A HREF="http://www.ssc.com/lj/issue44/2355.html">full story</A>)
+
+Schlumberger選擇Linux取代SCO來做為其新售電腦的作業系統.
+(<A HREF="http://www.ssc.com/lj/"> Linux Journal</A>, November 1997, Issue 43, pp. 83-4)
+
+有趣的是<B><A HREF="http://www.sun.com/">SunWorld On-Line</A></B>給了Linux正面的評價 - 
+<B><A HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">Linux蓄勢待發為企業服務</A></B>.
+
+<P>既然這些作業系統都是免費的,甚至可用於商業用途.
+
+許多的ISP就用Linux或FreeBSD. NetBSD也可在許多有用的系統上執行: DEC Alpha,
+Motorola 68k (Amiga, Atari, Mac, MVME, Sharp, Sun3), PowerPC, Intel, DEC
+VAX, Acorn RISC, MIPS (Sony NEWS, DECstation), etc.
+OpenBSD的主要焦點則在於正確性及安全.
+
+<P>Linux是最普遍並且可在廣泛硬體上執行: Sun, Intel, DEC Alpha, PowerPC, PowerMac,等等.
+Paul Krill最近的文章指出(<A HREF="http://www.infoworld.com/">InfoWorld</A>
+<B><A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980710.whlinux.htm">
+Linux picking up steam</A></B>及<B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980715.ehlinux.htm">
+Linux supporters rally around freeware OS</A></B>)Linux受到幾個主要的大製造廠商
+的焦點關注, 未來並將投入更多的支援. 例如, Intel's 64-bit Merced processor.
+
+目前,可能是在市場上最快速成長的作業系統.
+詳情請見<B><A HREF="http://www.linuxresources.com/">Linux Resources</A></B>
+或<B><A HREF="http://www.redhat.com">Red Hat Software</A></B>.
+
+<P>甚至<A HREF="http://www.economist.com/">經濟學家網路</A>現在都在報導Linux
+快速上昇的使用率:
+<BLOCKQUOTE>
+"Oracle, 著名的資料庫公司, 正計畫出版Linux版本的許多套該公司過去著名的軟體
+即使不用背書, Linux也達到了很令人驚訝的成就. 在幾年間, 由玩家手中脫胎換骨,
+成為在技術上遠遠超越Windows NT的功能.
+-- Stephen Morley, <B>
+<A HREF="http://www.economist.com/editorial/freeforall/current/index_wb9493.html">
+玩家的復仇</A></B>,
+<A HREF="http://www.economist.com/">經濟學家網路</A>,
+July 11th - 17th 1998.
+</BLOCKQUOTE>
+
+<P>Nicholas Petreley, <I>NC World</I>的editor-in-chief及 <I>InfoWorld</I>及<I>NT
+World Japan</I>專欄作家,提供了Linux及FreeBSD 在IT領域快速成長的解釋:
+<BLOCKQUOTE>"昨日的大學生, 藉由Linux及FreeBSD來學習UNIX系統.
+今天他們在IT領域工作, 而且大多數他們都對Microsoft及Windows NT懷有敵意.
+因此, Linux, BSD, Solaris, 及其它型式的UNIX則找到了進入IT領域的道路, 公開而巧妙地.
+
+<P>"例如說, 您確定您要連上的NT主機能動嗎?
+IS雇員在許多公司都秘密地安裝上UNIX系統來提供道地NT的服務.
+幹嗎要冒這個風險?
+
+Linux及FreeBSD都是免費的, SAMBA也是, SAMBA可提供NT服務.
+因此IS部門省下不少錢.
+其次, 經理也不太可能發現UNIX藏在後面, 因為很少人會抱怨主機的速度.
+
+<P>"很少人會抱怨的原因是這些主機都比Windows NT更穩定.
+Linux, FreeBSD, 及BSDI UNIX, 都可用很有限的硬體, 表現比Windows NT更好,
+並支援廣泛的硬體系列. 並且在某些狀況下, 這些有限的硬體下執行UNIX系統,
+都可以相當於或超越NT在最佳的硬體上的執行效率.
+
+一旦這些特色可達到, 在Intel上跑UNIX系統,
+便很快的超越NT在同樣硬體狀況下的執行效率.
+
+<P>-- Nicholas Petreley,
+<A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">新的UNIX改變NT的軌道:
+UNIX再現江湖, 威脅並改變NT的原定方向</A>,
+<I><A HREF="http://www.ncworldmag.com/ncworld/">NC World</A></I>, April 1998.</BLOCKQUOTE>
+<A NAME="functionality"></A>
+
+<P><ADDRESS><FONT SIZE=+1>功能</FONT></ADDRESS>
+
+<P>你會預期Windows NT Server及UNIX會您做什麼事?
+<UL>
+<LI>NT可與不同種類的電腦連線. UNIX也能.</LI>
+<LI>NT可安全地處理敏感資料, 並使未授權的使用者, 無法進入網路. UNIX也能.</LI>
+</UL>
+基本上, 兩者均可達到最低的網路作業系統要求.
+簡單的說, UNIX可為NT所能為, 而且能做到更強.
+
+<P><ADDRESS><FONT SIZE=+1>多使用者及遠端執行</FONT></ADDRESS>
+
+<P>NT通常被認為是個"多使用者"的作業系統, 但這是完全是誤導.
+NT主機可授權一個使用者. 一旦這個使用者進入這台電腦,
+他/她所能做的僅僅是存取檔案及印表.
+這位NT使用者, 不能在該電腦上執行任何程式(用以利用該電腦的較高檔的硬體處理能力).
+NT使用者只能執行一些特別的軟體, 這些軟體被寫成兩段,
+例如主/從軟體....
+<P>當一位使用進入UNIX主機,
+他/她可以執行<I>任何</I>軟體 (當然了,該使用者需要有執行權限),
+並且將該行程負載讓主機分擔.
+這還包含了圖形界面,因為X-Server軟體在所有UNIX系統是標準.
+
+<P><ADDRESS><FONT SIZE=+1>電子郵件伺服器</FONT></ADDRESS>
+
+<P>對大多數公司來說, e-mail己經成為通訊的必要工具,
+而且大多數公司跑他們自己的internal/external e-mail系統.
+用Windows NT, 您需要自己去買軟體來設定e-mail主機.
+
+<P>UNIX系統從來就附帶一個程式稱為<B><A HREF="http://www.sendmail.org">Sendmail</A></B>.
+其它還有許多mail軟體(or <I>MTAs</I>, Mail Transport Agents)在UNIX上可取得,
+但這個是最被廣泛使用的, 而且是免費的.
+有些UNIX管理者認為<B><A HREF="http://www.exim.org/">exim</A></B>
+或<B><A HREF="http://www.qmail.org/">qmail</A></B>是更好的選擇,因為更容易設定.
+exim及qmail, 就像sendmail一樣, 都是免費的,不管您是不是用於商業上.
+
+<P>許多NT-based公司使用
+<B><A HREF="http://www.microsoft.com/exchange/default.asp">Microsoft Exchange Server</A></B>來做為其MTA.
+這是個很昂貴的解決方案, 並僅在少數企業中做得起來.
+<B>Microsoft Exchange Server企業版 - 25人版$3,549.00.</B>
+若您有超過25個雇員, 同樣一樣的東西要<B>50人版$4,859.00</B>
+(資料來源: <B><A HREF="http://www.microsoft.com/exchange/guide/erp.asp?A=2&">Microsoft</A></B>)
+在本文稍後, 有一節叫做<A HREF="#mta">郵件伺服器(MTAs)</A>, 提供了比較及比對這兩套系統.
+
+<P><ADDRESS><FONT SIZE=+1>網管功能</FONT></ADDRESS>
+
+<P>既然微軟將NT看成是個搖錢樹, 可成為其它網路系統的替代品, 包括了UNIX及Novell.
+有人會假設NT會有必要的工具來完成這些最基本的任務: 檔案及列表分享.
+
+<P>任何的系統/網路管理者從經驗得知, 當在設定檔案伺服器及新增網路使用者時,
+有兩項重要的事在設定上是必須要做的: 安全問題, 例如密碼,檔案存取權限;
+網路硬碟空間配額(disk quota), 用來限制使用者的網路存取空間上限.
+
+<P>雖然NT提供了基本的密碼保護, 它只提供基本的檔案層次的安全,
+且僅僅在您選擇了使用微軟獨有的檔案系統, 稱為NTFS.
+有些MIS部門, 心不甘情不願地去開發這個檔案系統,
+因為他們覺得該檔案系統經常性垮掉, 而需要重建, 成為一個很大的使用上的阻礙.
+
+<P>一般相信NTFS的格式是不能被DOS所讀取.
+Rune Knapstad則告訴我DOS有個工具程式稱為
+<A HREF="http://www.sysinternals.com/ntfs20.htm">NTFSDOS</A>
+則可掛上NTFS的檔案系統.很有趣的是,這是個支援廠商的產品而非微軟所製.
+
+<P>更重要的是<FONT COLOR=#FF0000>NT不提供任何機制來限制使用者的硬碟使用空間!</FONT>
+
+<P>在另一方面, UNIX及Novell, 提供軟體來達此目的, 並視此為基本功能.
+
+<P>微軟宣稱, 在尚未完成的NT Server 5.0,
+將提供該"'新'的存取管理功能, 例如磁碟配額(disk quotas) . . ."
+(見press release,
+<A HREF="http://www.microsoft.com/corpinfo/press/1997/sept97/winnt5pr.htm">Windows
+NT 5.0 Beta Delivered to Over 200,000 Developers</A>).
+
+<P><ADDRESS><FONT SIZE=+1>排程管理功能</FONT></ADDRESS>
+
+<P>還有, UNIX作業系統都會附上一些scripting languages
+(Bourne Shell, Korn Shell, C Shell, 有時還有Perl, Perl事實上也是Free的, 在此僅提及其中的幾個)
+及一個稱為"cron"的機制來做固定時間間隔的事務(間隔<I>n</I>分鐘, 間隔<I>n</I>小時, 每週, 每月,等等).
+Cron scheduling是高度的可規畫,而且不僅僅是在做這些事而已.
+光是這些,高階描述語言+corn=系統管理的強大工具, 類似的功能在Microsoft NT Server 4.0根本找不到.
+系統管理的重要任務可自動執行,可根據需求來規畫這些自動管理工作,直接的影響到雇員數量及預算.
+
+<P>有個讀者指出, NT確實有個"Scheduler"及一個"at"指令, 並且Perl在NT也可取得.
+沒錯,這是事實,但我不認為NT有限的cmd.exe scripting environment結合"Scheduler"或"at"
+可以達到上述可在UNIX上達成的功能.
+
+<P>執行自動的任務僅在scripts/tasks/executables能夠在不需人介入的條件下,自動執行完成.
+大多數在NT下執行的程式是GUI-based,並且需要系統管理者的介入.
+
+看到現實層面,這些自動管理程式都是由系統管理人員根據該機器的特性所寫出來的.
+
+基於我個人在產業上的經驗, 很少有NT會去安裝Perl,此外NT管理人員大多數不知道什麼是Perl.
+
+<P>我想驅策NT成長的因素應該是,買便宜的硬體及雇用最廉價的NT管理人員是很方便的事.
+此外,就是買個NT, 因為您所需要做的事只有point and click!
+
+<P>總結, 一但你logon到NT網路, 您所能做的只有讀取檔案及列印.
+
+<P>在UNIX環境下, 一但你login到UNIX主機,
+你可以把您現在所用的機器當成是該UNIX主機, 就有如您正坐在彼端UNIX電腦上一樣.
+
+<P>使用NT, 別夢想要如UNIX一樣方便而免費的設定E-mail伺服器.
+您可要去另外去買一套, 很昂貴的郵件似服器如Microsoft Exchange Server.
+
+<P>如果您的NT Server要當成檔案伺服器(除此以外,還能做什麼?)
+ - 別夢想要避免因為使用者將您主機硬碟空間填滿而造成主機垮掉.
+
+<P><ADDRESS><FONT SIZE=+1>減少規劃設定頻率, 並且不會因為設定主機而造成負面因素, 是另一方面的功能:</FONT></ADDRESS>
+
+<BLOCKQUOTE>"有些版本的UNIX (例如Linux) 支援可動態載入的模組.
+這意味著您可啟動Linux並在它執行的時候重新規畫軟硬體.
+
+例如, 當您啟動Linux時, 軟體尚不支援您才剛裝進去的SCSI卡.
+您只要在需要的時後載入支援SCSI卡的驅動程式, 例如MO機, 用以備份.
+當您結束時可將該驅動程式移除, 其過程不需重新開機.
+您可以任何的載入任何如音效卡, 網路卡, 甚至檔案系統,
+如HPFS, FAT, VFAT, 及其它(NTFS也在內).
+
+<P>"任何支援可動態載入模組的UNIX, 都是更加適合於使用於主機的環境,
+因為所有規劃過程, 都可以不用重新開機, 對主機來說是非常重要的.
+
+<P>"Windows NT可完全沒辦法. 任何最小的變動都要求關機重開, 以使該改變生效.
+改個default gateway IP address, 您需要重新開機.
+換個外接式modem, 也無法不重新開機而能夠播號上線.
+這些限制在UNIX上是從來沒有過的.
+
+<P>-- Nicholas Petreley, <A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">
+新的UNIX改變NT的軌道: UNIX再現江湖, 威脅並改變NT的原定方向
+</A>, <I><A HREF="http://www.ncworldmag.com/ncworld/">NC
+World</A></I>, April 1998.</BLOCKQUOTE>
+當網路功能變得越來越複雜的時候, Microsoft's NT Server 4.0企業版,
+看來就無法與較成熟的商業UNIX作業系統相比.
+雖然對網路速度並非必要, 64-bit計算功能今天已經在許多UNIX上執行(與NT的32-bit相反).
+
+D.H. Brown Associates Inc.
+報告以下分析結果(以下擷自Digital Equipment Corporation, <A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">AIX 4.3 Leaps To 64-Bits In Dead Heat With Digital UNIX 4.0</A>):
+<BLOCKQUOTE>AIX 4.3在Internet/intranet網路領頭, 
+提供了廣泛的TCP/IP功能及隨系統附上的Notes伺服器.
+
+Digital UNIX則第二位, 以其強大的網路安全功能,  連帶有不僅僅是網頁瀏覽功能, 
+而且網頁製作功能的Navigator Gold,  及其一系列TCP/IP功能.
+
+不過,  Digital UNIX缺乏NFS的特性, 如CacheFS及AutoFS.
+IRIX 6.4排第三,  附有CacheFS及AutoFS,  網路安全特性幾乎與Digital UNIX一樣強.
+但IRIX缺乏network time facilities (NTP)及部分TCP/IP能力(如IPv6 and IPSec).
+
+Sun緊接其次, 其在NFS功能的良好支援及位處第二群位的TCP/IP能力.
+
+不過,  Sun依靠其自己的網站伺服器,  而不用Netscape,  Microsoft 或 Apache, 
+且缺乏網頁製作工具及其它如Novell's NDS目錄服務.
+
+HP以HP-UX提供強大的Internet支援,  加以其高檔的Internet協定功能及網路安全, 
+同樣地也對NFS支援不足.
+
+HP-UX,  及AIX, 同樣在支援NDS上領先.
+當Microsoft NT 4.0提供的一些Internet/intranet支援, 
+在這些被列為"Good"的系統比較下. NT遠遠落後於這些領先的UNIX廠商, 
+因為NT貧乏可笑的支援,  如缺乏目錄服務,  網路安全,  NFS,  及僅僅數項的TCP/IP功能.
+
+Microsoft實在太過專注於將其網站伺服器, 
+加入一些補強功能,  並'調整'其Java Virtual Machine.</BLOCKQUOTE>
+　
+<CENTER><TABLE BORDER=0 CELLSPACING=4 CELLPADDING=0 BGCOLOR=#FFCCCC>
+<TR>
+<TD WIDTH="226">&nbsp;</TD>
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>HP-UX 11.0</FONT></FONT></CENTER>
+</TD>
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Solaris 2.6</FONT></FONT></CENTER>
+</TD>
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>AIX 4.3</FONT></FONT></CENTER>
+</TD>
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Irix 6.4</FONT></FONT></CENTER>
+</TD>
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Digital UNIX 4.0d</FONT></FONT></CENTER>
+</TD>
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>NTS 4.0/EE</FONT></FONT></CENTER>
+</TD>
+</TR>
+<TR>
+<TD WIDTH="226"><B><FONT COLOR="#000000"><FONT SIZE=-1>Extension</FONT></FONT></B>　</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IPSec</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IPv6</FONT></FONT></I>　</TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RSVP</FONT></FONT></I>　</TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Partial</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IP Multiplexing</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IP Multicast</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Partial</CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><B><FONT COLOR="#000000"><FONT SIZE=-1>Performance Optimizations</FONT></FONT></B>　</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+<TD WIDTH="62">&nbsp;</TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Telnet in kernel</FONT></FONT></I>　</TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Kernel Sockets</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>TCP Large Windows</FONT></FONT></I>　</TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Zero Copy TCP/HardwareChecksum</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Path MTU Discovery</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>OpenShortestPathFirst(OSPF)</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RTP: Real Time Protocol</FONT></FONT></I>　</TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RTCP: Real Time Control Protocol</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Parallelized TCP/IP</FONT></FONT></I></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Yes</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Yes</FONT></FONT></CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER>Yes</CENTER></TD>
+<TD WIDTH="62"><CENTER><FONT COLOR="#000000"><FONT SIZE=-1>No</FONT></FONT></CENTER></TD>
+</TR>
+</TABLE></CENTER>
+<CENTER><A NAME="graphs"></A></CENTER>
+<CENTER><H3>INTERNET/INTRANET NETWORKING FEATURES</H3></CENTER>
+<CENTER><IMG SRC="/assets/AIX43_f.gif" ></CENTER>
+<CENTER><H3>RELIABILITY AND SCALABILITY</H3></CENTER>
+<CENTER><IMG SRC="/assets/AIX43_h.gif" ></CENTER>
+<CENTER><H3>系統管理</H3></CENTER>
+<CENTER><IMG SRC="/assets/AIX43_j.gif" ></CENTER>
+<CENTER>Copyright Digital Equipment Corporation 1995-1998. All Rights Reserved.</CENTER>
+<HR>
+<CENTER>
+<A HREF=unix-nt.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-02.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+</BODY>
+</HTML>
+

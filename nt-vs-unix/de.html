@@ -1,0 +1,2682 @@
+<!doctype html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <META NAME="description"
+          CONTENT="UNIX versus Windows NT -Informationen, die jeder Manager bei der Planung von Firmen-Netzwerken oderbei der Anschaffung von Server-Hardware ber�cksichtigen sollte">
+    <META NAME="keywords"
+          CONTENT="NT vs UNIX, UNIX vs NT, NT vs. UNIX, UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail, exchange server, smp, aix, hp-ux, digital unix, solaris, freebsd, bsdi, linux, windows nt, Firmen-Netzwerk, Firmen Netzwerk, Mail Server, Mailserver, Betriebssystem, wirtschaftliche L�sungen, mission critical operations, sendmail, apache, iis, System-Administration, Systemadministration, microsoft">
+    <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [de]C-DT  (Win95; I) [Netscape]">
+    <title>Microsoft Windows NT Server 4.0 versus UNIX</title>
+    <style type="text/css"> @import "/style.css"; </style>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<div style='margin-left:10%;max-width:80%'>
+<BODY BGCOLOR="#FFFFFF" BACKGROUND="lotbgper.jpg">
+
+<CENTER><A HREF="/nt-vs-unix/cn/">Chinesisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="/nt-vs-unix/en.html">Englisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A>Kroatisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="/nt-vs-unix/cz.html">Tschechisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="/nt-vs-unix/fr.html">Franz&ouml;sisch</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="/nt-vs-unix/de.html">Deutsch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="/nt-vs-unix/jp.html">Japanisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="/nt-vs-unix/kr.html">Koreanisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="/nt-vs-unix/pt.html">Portugiesisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <A HREF="/nt-vs-unix/ru.html">Russisch</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Spanisch *
+</CENTER>
+
+<CENTER>* &Uuml;bersetzungen f&uuml;r diese Sprachen sind zur Zeit unterwegs.&nbsp;
+    <HR>
+    <B><A HREF="/nt-vs-unix/updates.html">Neue Updates</A></B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <B><A>Zugriffsz&auml;hler
+            (<I>Originalseite</I>)</A></B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <B><A>Spiegel</A></B>&nbsp;
+    <HR WIDTH="100%">
+</CENTER>
+
+<CENTER><A HREF="http://www.lot-germany.com/index.htm">Zur Homepage der
+        LOT Software GmbH, Hamburg</A>&nbsp;
+    <HR>
+</CENTER>
+
+<H1>
+    Microsoft Windows NT Server 4.0 versus UNIX</H1>
+
+<H3>
+    von John Kirch, Networking Consultant und Microsoft Certified Professional
+    (Windows NT)</H3>
+<I>Letzte Aktualisierung: 28. Juli 1998</I>
+<H3>
+    &Uuml;bersetzung: J. Trippler LOT Software GmbH mit freundlicher Genehmigung
+    des Autors</H3>
+<I>Stand: 05. August 1998</I>&nbsp;
+<HR>
+<CENTER>
+    <H2>
+        Zusammenfassung</H2></CENTER>
+Die DV-Manager werden zur Zeit weltweit mit der Frage konfrontiert, ob
+es mit Microsoft Windows NT Server oder einem der UNIX-Betriebssysteme
+weitergehen soll! Wie Sie vielleicht wissen, ist UNIX kein einzelnes Betriebssystem;
+es verweist auf eine Familie von Betriebssystemen wie AIX, BSDI, Digital
+UNIX, FreeBSD, HP-UX, IRIX, Linux, NetBSD, OpenBSD, Pyramid, SCO, Solaris,
+SunOS, um einige der bekannteren zu nennen (<I>in Deutschland z&auml;hlt
+    dazu sicherlich auch SINIX - d. &Uuml;.</I>). Der Windows NT-Server steigt
+in seiner Bekanntheit, aber steigert er auch die Produktivit&auml;t in
+Ihrer DV-Abteilung? Das Wichtigste f&uuml;r Sie als Manager ist: Steigern
+Sie den Profit der Firma, wenn Sie Microsoft-L&ouml;sungen einsetzen?
+
+<P>Die Hauptfrage ist: Was kostet es? Hardwarekosten, Softwarelizenzen,
+    Kosten des technischen Supports, Preise f&uuml;r Updates und Service-Packs,
+    Kosten f&uuml;r Hardware-Erweiterungen, verlorener Gewinn bei jeder Stunde
+    Ausfallzeit, Personalkosten f&uuml;r das Wiederherstellen oder Neuerfassen
+    von Daten, die aufgrund von Fehlern des Betriebssystems oder der von diesem
+    geforderten Hardware verlorengehen und Personalkosten f&uuml;r Systemadministratoren
+    - dies sind nur einige der Faktoren, welche die aus Ihrer Entscheidung
+    resultierenden Gesamtkosten bestimmen. Es ist keine leichte Entscheidung.
+
+<P>Obwohl das Geld das Hauptkriterium f&uuml;r Ihre Entscheidung darstellt,
+    kann - unter Ber&uuml;cksichtigung der eben genannten Faktoren eine technologisch
+    bessere Kombination aus Server-Hardware und Betriebssystem &uuml;ber einen
+    l&auml;ngeren Zeitraum betrachtet billiger sein. UNIX ist eine Gruppe von
+    ausgereiften und technologisch hochentwickelten Betriebssystemen mit einem
+    H&ouml;chstma&szlig; an Performance, Verf&uuml;gbarkeit und Sicherheit
+    in einer Server-Umgebung. Eine mehr als drei&szlig;ig Jahre dauernde kontinuierliche
+    Weiterentwicklung, oft durch Leute vorangetrieben, die an das glaubten
+    was sie taten, hat diese Gruppe von Betriebssystemen hervorgebracht - und
+    extrem leistungsf&auml;hige, auf diese Systeme optimierte Server-Hardware,
+    deren Performance von Intel-Hardware unerreicht ist - die nicht nur den
+    Erfordernissen heute gen&uuml;gt sondern sie in vielen F&auml;llen &uuml;bersteigt.
+
+<P>Warum der Windows NT Server 4.0 weiterhin in Firmen existiert, w&auml;re
+    ein interessantes Thema f&uuml;r eine psychologische oder Marketing-Untersuchung,
+    nicht f&uuml;r einen Artikel &uuml;ber Informationstechnik. Technisch gesehen
+    ist der Windows NT Server 4.0 kein Gegner f&uuml;r ein beliebiges UNIX-Betriebssystem,
+    auch nicht f&uuml;r die nichtkommerziellen Versionen BSD oder Linux. Von
+    einem Manager werden keine technischen Kenntnisse und 15 Jahre Berufserfahrung
+    erwartet. Es liegt keine Schande darin, diese Fakten nicht zu kennen, aber
+    darin, sie zu ignorieren und damit das Geld Ihrer Firma oder Ihrer Kunden
+    zu gef&auml;hrden. Das Anliegen dieses Artikels ist es, Ihnen diese Fakten
+    zu geben - und zu pr&uuml;fen, ob es auch Fakten sind, denn &uuml;ber Tatsachen
+    kann man nicht diskutieren.
+
+<P>Der folgende Artikel beruht auf meinen Erfahrungen in dieser Industrie,
+    die 1979 mit "Chevron Geosciences Company" begannen und auf ungef&auml;hr
+    150 Verweisen auf andere technische Artikel, White Papers und &Uuml;bersichten.
+    An diesem Punkt sollte darauf hingewiesen werden, da&szlig; ich nicht das
+    Produkt einer Firma vermarkte, auch wird mein Arbeitgeber mich nicht bezahlen
+    wenn Sie UNIX w&auml;hlen. Mein Ziel ist es, die Last der Systemadministratoren
+    zu erleichtern, eine effizientere und kosteng&uuml;nstigere DV weltweit
+    zu unterst&uuml;tzen und eine gerechtere und vielf&auml;ltigere Palette
+    von Software verschiedener Hersteller zu f&ouml;rdern.&nbsp;
+<HR>
+<TABLE BORDER=0>
+    <TR>
+        <TD VALIGN=TOP>
+            <H2>
+                Inhalt</H2>
+
+            <UL>
+                <LI>
+                    <A HREF="#intro">Einf&uuml;hrung</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#os">Betriebssysteme</A>&nbsp;</LI>
+
+                <UL>
+                    <LI>
+                        <A HREF="#costs">Produktkosten und Lizenzfragen</A>&nbsp;</LI>
+
+                    <LI>
+                        <A HREF="#functionality">Funktionalit&auml;t</A>&nbsp;</LI>
+
+                    <LI>
+                        <A HREF="#reliability">Verf&uuml;gbarkeit</A>&nbsp;</LI>
+
+                    <LI>
+                        <A HREF="#management">System-Management</A>&nbsp;</LI>
+
+                    <LI>
+                        <A HREF="#performance">Performance</A>&nbsp;</LI>
+
+                    <LI>
+                        <A HREF="#security">Sicherheit</A>&nbsp;</LI>
+                </UL>
+
+                <LI>
+                    <A HREF="#misconceptions">Einige verbreitete Mi&szlig;verst&auml;ndnisse</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#views">Ansichten anderer DV-Fachleute</A>&nbsp;</LI>
+
+                <UL>
+                    <LI>
+                        <A HREF="http://www.kirch.net/unix-nt/feedback/">Feedback von Lesern dieses
+                            Artikels (<I>Originalseite</I>)</A>&nbsp;</LI>
+                </UL>
+
+                <LI>
+                    <A HREF="#web">Web-Server</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#mta">Mail-Server (MTAs)</A>&nbsp;</LI>
+
+                <UL>
+                    <LI>
+                        <A HREF="#mta-views">Microsoft Exchange versus Sendmail: Ansichten anderer
+                            DV-Fachleute</A>&nbsp;</LI>
+                </UL>
+
+                <LI>
+                    <A HREF="#conclusion">Schlu&szlig;folgerungen</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#compare">Linux und NT Server 4.0 im &Uuml;berblick</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#bigguys">Was setzen gro&szlig;e Firmen ein?</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#links">Verwandte Verweise</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="http://www.kirch.net/legal.html">Gegenerkl&auml;rungen und andere
+                        rechtliche Informationen (<I>Originalseite des Autors - d. &Uuml;.</I>)</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="http://www.kirch.net/unix-nt.html #acknowledgments">Danksagungen
+                        des Autors (<I>Originalseite des Autors - d. &Uuml;.</I>)</A>&nbsp;</LI>
+            </UL>
+        </TD>
+
+        <TD VALIGN=TOP>
+            <H2>
+                Highlights in diesem Artikel</H2>
+
+            <UL>
+                <LI>
+                    <A HREF="#ms-solaris">Warum Microsoft Solaris anstelle von NT nutzt</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#graphs">Grafischer Vergleich der verschiedenen Betriebssysteme</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#stability">Welche Betriebssysteme nutzen Fachleute, wenn die
+                        Stabilit&auml;t der wichtigste Faktor ist?</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#win95">Eine wenig bekannte Tatsache &uuml;ber <B>windows95.com</B></A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#KickAss">UNIX auf einem Einprozessorsystem ist schneller als
+                        ein Dual-Prozessor NT-Rechner?</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#cisco">Cisco wechselt von Linux zu Windows NT?</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#usps">Linux und die Post der Vereinigten Staaten</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#web">Web-Server-Software: Was haben die k&ouml;nigliche Familie
+                        und das FBI gemein?</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="#gui">Zeig mir was von UNIX, ich m&ouml;chte <I>sehen</I> wie
+                        es aussieht!</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="http://www.kirch.net/cgi-bin/siteinfo">Womit l&auml;uft diese
+                        Site?</A>&nbsp;</LI>
+
+                <LI>
+                    <A HREF="http://www.kirch.net/unix-nt/vendors.html">Wo kann ich Linux/FreeBSD
+                        erhalten, um sie auszuprobieren?</A></LI>
+
+                <BR><A HREF="http://www.kirch.net/unix-nt/vendors.html">Wo kann ich Workstations
+                    / Server mit vorinstalliertem Linux/FreeBSD kaufen?</A>
+                <BR><B><A HREF="http://www.kirch.net/unix-nt/vendors.html">Linux/FreeBSD-freundliche
+                        Anbieter</A></B>&nbsp;
+                <LI>
+                    <B><A HREF="http://consult.cyrius.com/">Linux-Berater weltweit</A></B>&nbsp;</LI>
+            </UL>
+        </TD>
+    </TR>
+</TABLE>
+
+<HR>
+<H2>
+    <A NAME="intro"></A>Einf&uuml;hrung</H2>
+Die Auswahl einer geeigneten Server-Plattform kann f&uuml;r Entscheidungstr&auml;ger,
+die nicht &uuml;ber tiefgehende Kenntnisse in den Bereichen Betriebssysteme
+und Netzwerke verf&uuml;gen, ein schwieriges Unterfangen werden.In diesem
+Artikel wird der Microsoft NT-Server mit UNIX, einer gro&szlig;en Familie
+von kommerziellen und frei verf&uuml;gbaren Betriebssystemen mit gemeinsamer
+Basis und vielen &Auml;hnlichkeiten, verglichen. Der Schwerpunkt der Gegen&uuml;berstellung
+liegt in den Bereichen Funktionalit&auml;t, Zuverl&auml;ssigkeit, System-Management
+und Performance. Dieser Artikel behandelt Server, keine Workstations. Andere
+Faktoren, wie Produktpreise, Umfang und Qualit&auml;t der mitgelieferten
+Software sowie ein Abschnitt &uuml;ber verbreitete Mi&szlig;verst&auml;ndnisse
+beiden "Arten" von Betriebssystemen gegen&uuml;ber erg&auml;nzen den Artikel,
+um den &Uuml;berblick zu vervollst&auml;ndigen. Die in diesem Vergleich
+genutzten Informationen stammen aus verschiedenen Quellen: White Papers,
+Fallstudien anderer Organisationen, Artikel aus Fachzeitschriften und Beobachtungen
+von IT-Fachleuten, die sie bei der Einf&uuml;hrung und Betreuung sowohl
+von Windows NT als auch von verschiedenen UNIX-Systemen machten.
+
+<P>Diese Seite sollte als "in Arbeit befindlich" verstanden werden. Jeder,
+    der an diesem Projekt mitwirken m&ouml;chte ist aufgefordert, eine <B><A HREF="mailto:john@kirch.net">e-mail</A></B>
+    an den Autor zu schicken. Bitte beschr&auml;nken Sie E-Mails auf <I>konstruktive</I>
+    Kommentare und Kritiken.
+<H2>
+    <A NAME="os"></A>Betriebssysteme</H2>
+
+<H3>
+    <A NAME="costs"></A>Produktkosten und Lizenz-Fragen</H3>
+Viele Manager werden zustimmen, da&szlig; die augenscheinlichen Kosten
+eines Betriebssystems als gering erscheinen, wenn man lediglich auf das
+Preisschild sieht. Obwohl Windows NT Server 4.0 teurer als einige kommerzielle
+UNIX-Betriebssysteme werden kann (NT 4.0 Server 5-Benutzer-Lizenz - $809;
+10-Benutzer-Lizenz - $1.129; Windows NT Server, Enterprise Edition 4.0
+25-Benutzer-Lizenz - $3.999; Enterprise Edition 4.0 50-Benutzer-Lizenz
+- $4.799; NT Server 4.0 Dokumentation - $69,95; Quelle: <A
+    HREF="http://www.microsoft.com/NTServer/Basics/Pricing/RetailPrice.asp">Microsoft</A>),
+kann man es auf Messe-Veranstaltungen f&uuml;r wenig Geld erhalten. Ist
+der NT-Server sein Geld wert? Siehe <B><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub6.html">NT
+        Lies: Lie 6 - NT server is more worth</A></B>.Was nicht mehr so trivial
+ist, ist der Umstand, da&szlig; ein Netzwerk-Betriebssystem ohne Telnet-Server,
+SMTP-Server (E-Mail), Einschr&auml;nkung des verf&uuml;gbaren Festplattenplatzes,
+News-Server oder zumindest einen DNS-Server, der zur Zufriedenheit des
+Kunden arbeitet (viele NT-Administratoren f&uuml;hlen sich zum Einsatz
+eines DNS-Servers einer anderen Firma gezwungen) ausgeliefert wird. Wer
+eine kosteneffektive kommerzielle L&ouml;sung sucht, dem bietet BSD (Berkeley
+Software Design) ein UNIX-Betriebssystem mit erheblich mehr Funktionalit&auml;t
+als Windows NT f&uuml;r nur $995. Um die Funktionalit&auml;t der BSD-Installation
+zu erreichen sind zus&auml;tzliche Produkte von Microsoft und anderen Herstellern
+zu erwerben, die einen ad&auml;quaten Preis einer gleichwertigen NT-L&ouml;sung
+von ca. $4.000 ergeben (nach Meinung von <B><A HREF="http://www.bsdi.com/white-papers/compare">BSDI</A></B>).
+Maggie Biggs, eine Analytikerin von InfoWorld, die auf Datenbank-Technologien
+und Anwendungs-Design sowie Entwicklung und Einsatz von Intranets und anderen
+Netzwerken spezialisiert ist, sch&auml;tzt die Kosten eines mit dem <I>kommerziellen</I>
+Linux der Firma Red Hat (f&uuml;r nur <B>$49,95</B>) vergleichbaren Windows
+NT 4.0 auf <B>$4.636</B> in ihrem <B><A
+        HREF="http://currents.net:80/magazine/national/1524/inet1524.html">Artikel</A></B>,
+der die beiden Betriebssysteme miteinander vergleicht. Daran kann man auch
+erkennen, wie erfolgreiches Marketing viele Anwender von ihren eigentlichen
+Bed&uuml;rfnissen nach Funktionalit&auml;t ablenkt.
+
+<P>NT wird oft aus Kostengr&uuml;nden gew&auml;hlt, weil die Anwender nicht
+    bereit sind, die teurere Hardware zu kaufen, die die meisten kommerziellen
+    UNIX-Versionen brauchen. Wichtiger sind aber die Gesamtkosten, die sich
+    aus der Systemadministration und anderen Faktoren wie Ausfallzeiten, Kosten
+    f&uuml;r den Telefonsupport, Datenverluste usw. zusammensetzen. Tippett
+    Studio, verantwortlich f&uuml;r die Grafiken in <I>Starship Troopers</I>,
+    der eine Oscar-Nominierung f&uuml;r die besten Special Effects erreichte,
+    benutzt 130 SGI (<A HREF="http://www.sgi.com/">Silicon Graphics, Inc.</A>)
+    Rechner mit <A HREF="http://www.sgi.com/origin/products/irix.html">IRIX</A>,
+    SGI's eigenem UNIX-Betriebssystem. Der Produktionsmanager von "Tippett's
+    Studio" erkl&auml;rt, warum SGI mit IRIX anstelle einer NT-L&ouml;sung
+    eingesetzt wird:
+    <BLOCKQUOTE>"'SGI-Rechner sind billig f&uuml;r ihre Leistung', sagt Jeff
+        Stringer, Tippett's Produktionsmanager. 'Die Kosten f&uuml;r die Betreuung
+        eines NT-Systems sind sehr hoch, wenn Sie an alle die Systemadministratoren
+        denken, die Sie einstellen m&uuml;ssen'."
+
+<P>"Die Einstellung von Mitarbeitern ist eine gro&szlig;e Sache f&uuml;r
+    ein kleines Studio. Trotz der Super Studios ist Tippett - das die Wanzen
+    gemacht hat, die in "Starship Troopers" die Menschen angreifen - eine F/X-Boutique."
+
+<P>-- Greg Lindsay, <A HREF="http://cgi.pathfinder.com/netly/article/0,2334,13125,00.html">Oscar
+        Tech</A>, The Netly News, 27. Februar 1998.</BLOCKQUOTE>
+    F&uuml;r den kostenbewu&szlig;ten Anwender w&auml;ren <B><A HREF="http://www.linux.org">Linux</A></B>,
+    <B><A HREF="http://www.freebsd.org">FreeBSD</A></B>, <B><A HREF="http://www.netbsd.org/">NetBSD</A></B>
+    oder <B><A HREF="http://www.openbsd.org/">OpenBSD</A></B> die offenkundig
+    beste Wahl. Diese Betriebssysteme kosten <I>nichts</I>, doch ihre Stabilit&auml;t
+    und Funktionalit&auml;t ist vergleichbar mit der der kommerziellen UNIX-Systeme,
+    &uuml;berbietet sie teilweise sogar. Ein Leser schrieb mir, da&szlig; die
+    Seriosit&auml;t dieses Artikels bei Erw&auml;hnung von Linux sinke. Ich
+    wage dies zu bezweifeln. Wie im Artikel <B><A HREF="http://www.techweb.com/wire/story/TWB19980402S0013">Andreessen
+            sieht Mozilla-Linux Windows ersch&uuml;ttern</A></B> gezeigt wird, st&auml;rkt
+    Linux seine Pr&auml;senz im kommerziellen Bereich (f&uuml;r Einsteiger
+    in diesem Bereich: Mozilla ist der Name des Netscape/Communicator Codes
+    und Marc Andreessen ist Mitbegr&uuml;nder und leitender Produktmanager
+    bei Netscape). Genauso bemerkenswert ist eine neue Allianz zwischen <A HREF="http://www.sun.com/">Sun
+        Microsystems</A> und <A HREF="http://www.li.org/">Linux International</A>.
+    (<A HREF="http://slashdot.org/">Slashdot</A>: <B><A HREF="http://slashdot.org/articles/9804211730214.shtml">Sun
+            joins Linux International</A></B>, 21. Mai 1998)&nbsp;&nbsp; Eine andere
+    aktuelle Entwicklung besteht in <A HREF="http://www.corel.com/">Corel</A>'s
+    speziellen Beziehungen zu Linux:
+<BLOCKQUOTE>". . . <A HREF="http://www.corel.com/">Corel</A>, die bereits
+    Pl&auml;ne zum Bau eines Linux-basierten Netzwerk-Computers bekanntgaben,
+    sagten, da&szlig; sie im kommenden Monat freie Linux-basierte Entwicklungstools
+    auf ihrer Web-Site ver&ouml;ffentlichen w&uuml;rden, um damit Softwarehersteller
+    zur Mitarbeit im 'Linux Open Source'-Umfeld zu bewegen."
+    <BR>-- Erich Luening, <B><A HREF="http://www.news.com/News/Item/0,4,21929,00.html">Corel
+            joins Linux fest</A></B>, <A HREF="http://www.news.com">CNET News.Com</A>,
+    8. Mai 1998.
+</BLOCKQUOTE>
+Bisher haben gro&szlig;e Firmen die Finger von frei verf&uuml;gbarer Software
+gelassen, frei nach der unbegr&uuml;ndeten Meinung, was nichts kostet,
+kann nichts taugen. Neuerdings tendieren jedoch einige Unternehmen dazu,
+diese kosteng&uuml;nstigen Betriebssysteme zu nutzen. Hewlett-Packard nutzte
+Linux anstelle seines eigenen HP-UX UNIX-Systems "f&uuml;r die Bildbearbeitung
+zur Portierung des Carnegie Mellon Mach Kernels auf HP PA-RISC". (<A HREF="http://www.ssc.com/lj/issue44/2355.html">
+    Die komplette Geschichte</A>)&nbsp;&nbsp; Schlumberger w&auml;hlte Linux
+vor SCO f&uuml;r seine neuen "Point-Of-Sale"-Computer. (<A HREF="http://www.ssc.com/lj/">Linux
+    Journal</A>, November 1997, Ausgabe 43, S. 83-4) . Es ist interessant zu
+vermerken, da&szlig; <B><A HREF="http://www.sun.com/">SunWorld On-Line</A></B>
+Linux in einem ihrer Artikel positiv beurteilt: <B><A
+        HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">Linux
+        tritt in Unternehmen an</A></B>. Weil diese Betriebssysteme auch f&uuml;r
+den Einsatz in kommerziellen Umgebungen frei sind, laufen viele ISPs (<I>Internet
+    Service provider - d. &Uuml;</I>) auf Linux- oder FreeBSD-Systemen. NetBSD
+l&auml;uft praktisch &uuml;berall: DEC Alpha, Motorola 68k (Amiga, Atari,
+Mac, MVME, Sharp, Sun3), PowerPC, Intel, DEC VAX, Acorn RISC, MIPS (Sony
+NEWS, DECstation) usw. OpenBSD legt am meisten Wert auf Sicherheit und
+Akkuratesse. Linux ist das popul&auml;rste System und unterst&uuml;tzt
+eine gro&szlig;e Auswahl an Hardware: Sun, Intel, DEC Alpha, PowerPC, PowerMac,
+usw. Paul Krill's neueste Artikel in <A HREF="http://www.infoworld.com/">InfoWorld</A>
+(<B><A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980710.whlinux.htm">
+        Linux picking up steam</A></B> und <B><A
+        HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980715.ehlinux.htm">Linux
+        supporters rally around freeware OS</A></B>) konzentrieren sich auf den
+st&auml;ndig wachsenden Support gro&szlig;er Anbieter und k&uuml;nftige
+Pl&auml;ne erweiterter Funktionalit&auml;t, z. B. die Unterst&uuml;tzung
+von Intel's 64-bit Merced Prozessor. Zur Zeit ist Linux das wahrscheinlich
+am schnellsten wachsende Betriebssystem am Markt. Mehr Informationen dazu
+auf <B><A HREF="http://www.linuxresources.com/">Linux Ressourcen</A></B>
+oder <B><A HREF="http://www.redhat.com">Red Hat Software</A></B>.
+
+<P>Nicholas Petreley, Chefredakteur von <I>NC World</I> und Kommentator
+    f&uuml;r <I>InfoWorld</I> und <I>NT World Japan</I> lieferte eine Erkl&auml;rung
+    f&uuml;r den Wachstum von Linux und FreeBSD in DV-Abteilungen:
+    <BLOCKQUOTE>"Gestern sammelten Studenten ihre UNIX-Erfahrungen auf Linux
+        und FreeBSD. Heute arbeiten sie in DV-Abteilungen und viele von ihnen treten
+        offen sowohl Microsoft als auch Windows NT feindlich gegen&uuml;ber. Als
+        ein Ergebnis daraus finden Linux, BSD, Solaris und andere Formen von UNIX
+        ihren Weg in die DV-Abteilungen, unverhohlen oder heimlich."
+
+<P>"Sind Sie sich zum Beispiel sicher, da&szlig; es wirklich ein NT-Server
+    ist, auf den Sie bei der Arbeit zugreifen? DV-Mitarbeiter in vielen Unternehmen
+    haben insgeheim UNIX-Server installiert, die NT-eigene Dienste anbieten.
+    Warum sie ein solches Risiko eingehen? Linux und FreeBSD sind frei verf&uuml;gbar,
+    genauso SAMBA, eine Software, die NT-Dienste anbietet. So spart die DV-Abteilung
+    Geld. Und das Management findet wahrscheinlich erst dann heraus, da&szlig;
+    UNIX im Hintergund t&auml;tig ist, weil sich weniger Mitarbeiter &uuml;ber
+    Server-Ausf&auml;lle beschweren."
+
+<P>"Es werden sich weniger Leute &uuml;ber Ausf&auml;lle beschweren, weil
+    diese Server stabiler arbeiten als Windows NT. Linux, FreeBSD und BSDI-UNIX
+    &uuml;berbieten die Performance von Windows NT um L&auml;ngen auf weniger
+    leistungsf&auml;higer Hardware und sie laufen unter Umst&auml;nden genauso
+    schnell oder schneller als NT auf der besten Hardware. Zur Frage der Skalierbarkeit:
+    UNIX auf Intel-Hardware holt NT bei der Anzahl unterst&uuml;tzter Prozessoren
+    und der Art und Weise, wie es diese benutzt, ein und wird es - wahrscheinlich
+    bald - &uuml;berholen."
+
+<P>-- Nicholas Petreley, <A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">Das
+        neue UNIX ver&auml;ndert den NT-Orbit: Die Wiederauferstehung von UNIX
+        droht die zuk&uuml;nftige Richtung von NT zu &auml;ndern</A>, <I><A HREF="http://www.ncworldmag.com/ncworld/">NC
+            World</A></I>, April 1998.</BLOCKQUOTE>
+    Auch <A HREF="http://www.economist.com/">The Economist</A> berichtet jetzt
+    &uuml;ber die wachsende Popularit&auml;t von Linux:
+    <BLOCKQUOTE>"Oracle, ein Datenbankhersteller, plant Linux-Versionen von
+        einigen seiner Softwareprodukte anzubieten. . . . Auch ohne derartige Erkl&auml;rungen
+        hat Linux einen me&szlig;baren Erfolg erreicht. In nur wenigen Jahren hat
+        sich das Programm von einem Spielzeug f&uuml;r Hacker zu einer Software
+        entwickelt, die - zumindest teilweise - Windows NT &uuml;berlegen ist.
+
+<P>-- Stephen Morley, <B>Revenge of the hackers</B>* <A HREF="http://www.economist.com/">The
+        Economist</A>, 11. - 17. Juli 1998.
+    <BR>* Der Verweis ist nicht mehr g&uuml;ltig. Kann von <I>The Economist</I>
+    &uuml;ber ihr Online-Archiv bezogen werden.</BLOCKQUOTE>
+
+<H3>
+    <A NAME="functionality"></A>Funktionalit&auml;t</H3>
+Was k&ouml;nnen Sie von Windows NT Server und UNIX nach dem Auspacken erwarten?
+NT kann mit vielen Typen von Computern kommunizieren. Das kann UNIX auch.
+NT kann sensitive Daten sch&uuml;tzen und unberechtigte Benutzer aus dem
+Netzwerk heraushalten. Das kann UNIX auch. Also erf&uuml;llen beide Betriebssysteme
+die Mindestforderungen an eine Arbeit im Netzwerk. Kurz gesagt, UNIX kann
+alles das, was NT kann und mehr.
+
+<P>NT wird oft als "multi user"-Betriebssystem (<I>Mehrbenutzer-System,
+        d. h. mehrere Benutzer k&ouml;nnen gleichzeitig am System arbeiten - d.
+        &Uuml;.</I>) betrachtet, aber dies ist sehr irref&uuml;rend. Ein NT-Server
+    wird einen berechtigten Benutzer <I>best&auml;tigen</I>, aber alles was
+    der/die Benutzer(in) nach dem Anmelden tun kann, ist es, auf Dateien und
+    Drucker des Servers oder Netzwerks zugreifen. Der NT-Benutzer kann <I>keine</I>
+    Anwendung auf dem NT-Server laufen lassen (um zum Beispiel von der h&ouml;heren
+    Rechenleistung des Servers zu profitieren). Ein NT-Benutzer kann nur solche
+    Anwendungen benutzen, die in zwei Teilen geschrieben wurden (Client/Server-Anwendungen).
+    Wenn sich ein Benutzer an einem UNIX-Server anmeldet, kann er/sie <I>jede</I>
+    Anwendung starten (vorausgesetzt er ist dazu berechtigt) und damit die
+    Last von der Arbeitsstation fernhalten. Dies schlie&szlig;t auch grafische
+    Oberfl&auml;chen ein, da die dazu n&ouml;tige X-Server-Software zum Standardlieferumfang
+    der meisten UNIX-Systeme geh&ouml;rt (<I>Anm. d. &Uuml;b: sicherlich bilden
+        heute rein serverbasierte Programme nicht mehr den Hauptteil der Anwendungen,
+        aber f&uuml;r Aufgaben wie Administration oder rechenintensive Batchabl&auml;ufe
+        ist ein direkter Serverzugriff unzweifelhaft von Vorteil.</I>).
+
+<P>In den meisten Unternehmen hat heute E-Mail eine entscheidende Rolle
+    in der Kommunikation gewonnen und viele Unternehmen haben eigene interne
+    / externe E-Mail-Systeme. Mit Windows NT m&uuml;ssen Sie ein separates
+    Software-Paket zur Installation eines E-Mail-Servers kaufen. UNIX-Systeme
+    werden mit einem Programm namens <B><A HREF="http://www.sendmail.org">Sendmail</A></B>
+    ausgeliefert. Es sind noch weitere Mail-Server-Pakete (oder <I>MTAs</I>,
+    Mail Transport Agents) f&uuml;r UNIX verf&uuml;gbar, aber dieses ist das
+    am weitesten verbreitete und es kostet nichts. Einige UNIX-Administratoren
+    denken, da&szlig; <B><A HREF="http://www.exim.org/">exim</A></B> oder <B><A
+            HREF="http://www.qmail.org/">qmail</A></B>
+    die bessere Wahl darstellen, weil sie nicht so kompliziert zu betreuen
+    sind wie sendmail. Sowohl exim als auch qmail sind wie sendmail frei verf&uuml;gbar,
+    auch f&uuml;r die Nutzung in kommerziellem Einsatz. Viele NT-basierte Unternehmen
+    nutzen den <B><A HREF="http://www.microsoft.com/exchange/default.asp">Microsoft
+            Exchange Server</A></B> als MTA. Das ist eine teure L&ouml;sung mit begrenztem
+    Erfolg. <B>Die Microsoft Exchange Server Enterprise Edition - 25-Benutzerlizenz
+        kostet $3.549,00.</B> Wenn Sie mehr als 25 Besch&auml;ftigte haben, dann
+    kostet das selbe Paket f&uuml;r <B>50 Benutzer $4.859,00</B> (Quelle: <B><A
+            HREF="http://www.microsoft.com/exchange/guide/erp.asp?A=2&">Microsoft</A></B>)
+    Weiter unten im Abschnitt <A HREF="#mta">Mail-Server (MTAs)</A> wird eine
+    Basis zum Vergleich dieser beiden Systeme geboten.
+
+<P>Da Microsoft NT als realistische Alternative zu allen anderen netzwerkf&auml;higen
+    Betriebssystemen auf dem Markt sieht - UNIX und Novell eingeschlossen,
+    sollte man annehmen, da&szlig; NT mit allen Tools zum Erf&uuml;llen der
+    wichtigsten Grundaufgaben ausgestattet sei: Datei- und Druckerdienste.
+    Jeder System- oder Netzwerk-Administrator wei&szlig; aus Erfahrung, da&szlig;
+    zwei grundlegende Dinge beim Setup eines Dateiservers oder dem Einrichten
+    eines Benutzers im Netzwerk zu bedenken sind: Sicherheit, also Pa&szlig;w&ouml;rter
+    und Zugriffsberechtigungen; und die Einschr&auml;nkung des verf&uuml;gbaren
+    Festplattenplatzes durch neue oder existierende Benutzer und Gruppen. Obwohl
+    NT grunds&auml;tzlich Pa&szlig;wortsicherheit bietet, steht Sicherheit
+    nur dann auf Dateiebene zur Verf&uuml;gung, wenn sein propriet&auml;res
+    Dateisystem NTFS genutzt wird. Einige DV-Abteilungen setzen dieses Dateisystem
+    nur ungern ein (am wenigsten auf Arbeitsplatzrechnern), weil sie meinen,
+    da&szlig; das Wiederherstellen von Festplatten durch NTFS erschwert wird.
+    Im Allgemeinen k&ouml;nnen NTFS-formatierte Festplatten nicht von DOS gelesen
+    werden, einem wichtigen Betriebssystem bei solchen Problemen. Rune Knapstad
+    informierte mich &uuml;ber ein DOS-Utiltiy namens <A HREF="http://www.sysinternals.com/ntfs20.htm">NTFSDOS</A>,
+    welches NTFS-Partitionen lesen kann. Es ist ein interessanter Punkt, da&szlig;
+    dies ein Produkt einer anderen Firma ist, kein Microsoft-Produkt. Wichtiger
+    als diese Tatsache ist aber, da&szlig; <B>NT keine Mechansimen zur Begrenzung
+        des f&uuml;r Benutzer verf&uuml;gbaren Festplattenplatzes bietet! </B>UNIX
+    und Novell auf der anderen Seite bieten diese elementare Funktionalit&auml;t.
+    Microsoft hat allerdings angek&uuml;ndigt, da&szlig; der noch nicht freigegebene
+    NT Server 5.0 "neue Speicher-Management-Features wie Plattenlimitierung
+    . . ." bieten wird (siehe die Pressemitteilung <A
+        HREF="http://www.microsoft.com/corpinfo/press/1997/sept97/winnt5pr.htm">"Windows
+        NT 5.0 Beta an &uuml;ber 200.000 Entwickler ausgeliefert"</A>).
+
+<P>Eine andere Schw&auml;che im Festplattendesign der Microsoft- Betriebssysteme
+    is die antiquierte Nutzung der "Laufwerks-Buchstaben", zum Beispiel Laufwerk
+    C:, Laufwerk D: usw. Dieses Schema b&uuml;rdet den Systemadministatoren
+    und Benutzern gleicherma&szlig;en hardware-bedingte Grenzen auf. Das ist
+    h&ouml;chst unpassend f&uuml;r Client/Server-Umgebungen, in denen Dateisysteme
+    und Netzwerk-Resourcen f&uuml;r die Benutzer notwendige Hierarchien repr&auml;sentieren
+    m&uuml;ssen. UNIX gestattet es, gemeinsame Netzwerk-Dateisysteme an jeden
+    Punkt der Verzeichnis-Struktur zu "mounten" (<I>einzuh&auml;ngen und damit
+        verf&uuml;gbar zu machen - d. &Uuml;.</I>). Eine Netzwerk-Resource kann
+    unter UNIX auch mehrere Festplatten (oder auch verschiedene Rechner!) umfassen
+    und gestattet damit dem Administrator, existierende und den Benutzern bekannte
+    Verzeichnisstrukturen beizubehalten und trotzdem den verf&uuml;gbaren Festplattenspeicher
+    auf dem Server f&uuml;r den Benutzer transparent zu erweitern. Dieser eine
+    Unterschied zwischen den UNIX- und Windows-Betriebssystemen unterstreicht
+    einmal mehr die urspr&uuml;nglichen Absichten ihrer jeweiligen Entwickler.
+    UNIX wurde als Client/Server-Betriebssystem f&uuml;r die professionelle
+    Nutzung entwickelt, w&auml;hrend Windows und seine Nachfolger von DOS abstammen,
+    einem Betriebssystem, welches niemals f&uuml;r den Einsatz in Client/Server-Umgebungen
+    gedacht war, noch weniger als Server. Detailliertere Informationen zu diesem
+    Thema sind in Nicholas Petreley's Artikel zu finden: <B><A
+            HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/np102896.htm">Man
+            braucht weniger Laufwerke um PC-Betriebssysteme wie Unix laufen zu lassen</A></B>.
+
+<P>Au&szlig;erdem sei erw&auml;hnt, da&szlig; UNIX-Systeme mit diversen
+    Script-Sprachen (Bourne Shell, Korn Shell, C Shell, manchmal Perl - um
+    nur einige zu nennen) und einem "cron"-Mechanismus zum Starten von Jobs
+    zu festgelegten Zeiten (alle <I>n</I> Minuten, alle <I>n</I> Stunden, w&ouml;chentlich,
+    monatlich usw.) ausgestattet sind. Der Cron-Mechanismus ist vielseitig
+    konfigurierbar und nicht auf die genannten Beispiele begrenzt. Kurzgefa&szlig;t:
+    High-Level Scriptsprachen + cron = ein m&auml;chtiges Instrument zur Systemadministration,
+    das in diesem Umfang nicht im Microsoft NT Server 4.0 vorhanden ist. Ein
+    gro&szlig;er Teil der Administrationsaufgaben auf einem UNIX-System kann
+    durch die Nutzung dieser Werkzeuge automatisiert und an die speziellen
+    Bed&uuml;rfnisse angepa&szlig;t werden, was im Endeffekt zu einer Reduzierung
+    der Personalkosten f&uuml;hrt.
+
+<P>Zusammengefa&szlig;t: Wenn Sie sich in einem NT-Netzwerk anmelden, k&ouml;nnen
+    Sie lediglich Dateien lesen und drucken. In einer UNIX-Umgebung k&ouml;nnen
+    sie nach der Anmeldung an einem UNIX-Server auf dieser Maschine <I>sein</I>
+    und alles das tun, was sie k&ouml;nnen, wenn Sie direkt mit seiner Tastatur
+    <I>und Maus</I> arbeiten. Planen Sie nicht, unter NT einen E-Mail-Server
+    mit der mitgelieferten Software installieren zu k&ouml;nnen. Sie m&uuml;ssen
+    teure Zusatzsoftware wie den Microsoft Exchange Server kaufen. Wenn Ihr
+    NT-Server als Dateiserver fungieren soll - was k&ouml;nnen Sie damit auch
+    sonst machen? - gehen Sie nicht davon aus, die Benutzer daran hindern zu
+    k&ouml;nnen, den Server zum Absturz zu bringen, indem sie die Platten mit
+    ihren Daten f&uuml;llen.
+
+<P>Einfache Konfiguration ohne unn&ouml;tige Ausfallzeiten ist ein weiterer
+    wichtiger Aspekt der Funktionalit&auml;t:
+    <BLOCKQUOTE>"Einige Versionen von UNIX (z. B. Linux) unterst&uuml;tzen
+        ladbare Ger&auml;tetreiber. Das bedeutet, da&szlig; man Linux booten kann
+        und die Hardware-Unterst&uuml;tzung im laufenden Betrieb &auml;ndern kann.
+        Sie k&ouml;nnen zum Beispiel Linux ohne Treiber f&uuml;r die installierte
+        SCSI-Karte booten. Sie laden diese Treiber einfach, wenn Sie Zugriff auf
+        die daran angeschlossenen Ger&auml;te, z. B. eine optische Platte zur Datensicherung
+        ben&ouml;tigen. Sie k&ouml;nnen den Treiber wieder entladen, wenn Sie fertig
+        sind. Sie k&ouml;nnen auch Treiber f&uuml;r Sound- oder Netzwerkkarten
+        laden und entladen -- genauso wie f&uuml;r Dateisysteme wie HPFS, FAT,
+        VFAT und andere (ein NTFS-Treiber ist in Arbeit)."
+
+<P>"Jedes UNIX mit Unterst&uuml;tzung f&uuml;r ladbare Treiber ist deshalb
+    naturgem&auml;&szlig; besser als Server-Umgebung geeignet, weil es bei
+    Konfigurations&auml;nderungen keinen Reboot erzwingt."
+
+<P>"Windows NT kommt daran nicht heran. Jede siginfikante &Auml;nderung
+    an der Windows NT-Konfiguration fordert oder erzwingt einen Reboot um die
+    &Auml;nderungen wirksam werden zu lassen. &Auml;ndern Sie die IP-Adresse
+    des Default-Gateways und Sie m&uuml;ssen rebooten. Sie k&ouml;nnen den
+    Modemtyp Ihrer Dialup-PPP-Verbindung (<I>Netzwerkverbindung &uuml;ber ein
+        Modem - d. &Uuml;</I>) nicht ohne Reboot &auml;ndern. Keine dieser Einschr&auml;nkungen
+    existiert in UNIX."
+
+<P>-- Nicholas Petreley, <A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">Das
+        neue UNIX ver&auml;ndert den NT-Orbit: Die Wiederauferstehung von UNIX
+        droht die zuk&uuml;nftige Richtung von NT zu &auml;ndern</A>, <I><A HREF="http://www.ncworldmag.com/ncworld/">NC
+            World</A></I>, April 1998.</BLOCKQUOTE>
+    Wenn man die anspruchsvolleren Netzwerkfunktionen betrachtet, kann scheinbar
+    Microsoft's NT Server 4.0 Enterprise Edition den ausgereifteren kommerziellen
+    UNIX-Systemen nicht das Wasser reichen. Obwohl nicht allein entscheidend
+    f&uuml;r die Netz-Performance, ist 64-Bit-Verarbeitung heute normal bei
+    diesen UNIX-Systemen (verglichen mit dem 32-Bit-System NT). D.H. Brown
+    Associates Inc. fa&szlig;t die Ergebnisse ihrer Analyse wie folgt zusammen
+    (Die folgenden Ausz&uuml;ge einschl. der Tabelle und der drei folgenden
+    Grafiken sind von einer Web-Seite der Digital Equipment Corporation mit
+    dem Titel <A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">AIX
+        4.3 Leaps To 64-Bits In Dead Heat With Digital UNIX 4.0</A>):
+<BLOCKQUOTE>AIX 4.3 f&uuml;hrt bei Internet/Intranet-Features durch Unterst&uuml;tzung
+    des breitesten Umfangs von TCP/IP-Erweiterungen und seine Kombination mit
+    einem Notes-Server. Digital UNIX kommt an zweiter Stelle mit soliden Netzwerk-Sicherheits-Features,
+    kombiniert mit Web-Browser und Tools zur Erstellung von Web-Seiten, mit
+    dem Navigator Gold und einem soliden Satz von TCP/IP-Erweiterungen. Jedoch
+    fehlen Digital UNIX erweiterte NFS-Features (<I>Netzwerk-Dateisystem -
+        d. &Uuml;.</I>) wie CacheFS und AutoFS. IRIX 6.4 liegt auf Platz drei,
+    es enth&auml;lt CacheFS und AutoFS sowie Netzwerk-Sicherheitsfeatures im
+    selben Umfang wie Digital's. Aber IRIX fehlen einige Netzwerkeinrichtungen
+    wie NTP und TCP/IP-M&ouml;glichkeiten wie IPv6 und IPSec. Sun folgt mit
+    gutem NFS-Support und dem zweitbesten Umfang von TCP/IP-Erweiterungen.
+    Sun besteht jedoch auf seinem eigenen Web-Server, nicht auf Netscape, Microsoft
+    oder Apache und l&auml;&szlig;t Web-Editoren genauso wie so bedeutende
+    Dienste wie Novell's NDS-Directoryservice vermissen. HP bietet einen umfassenden
+    Internet-Support in HP-UX, gest&uuml;tzt auf seine guten Leistungen bei
+    erweiteren Internet-Funktionen und Netzwerksicherheit w&auml;hrend es im
+    Bereich der erweiteren NFS-Funktionen zur&uuml;ckliegt. HP-UX liegt wie
+    AIX in F&uuml;hrung bei der Unterst&uuml;tzung der NDS. W&auml;hrend Microsoft
+    NT 4.0 einen allgemein "guten" Internet/Intranet-Support bietet, liegt
+    es hinter den f&uuml;hrenden UNIX-Herstellern zur&uuml;ck durch unzureichenden
+    Support von Directory-Diensten, Netzwerksicherheit und NFS und wenigen
+    TCP/IP-Erweiterungen Microsoft hat sich weitgehend auf seinen Web-Server
+    und die Verbesserung der Java Virtual Machine konzentriert.
+</BLOCKQUOTE>
+&nbsp;
+<CENTER>
+    <TABLE BORDER>
+        <TR>
+            <TD WIDTH="226"></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>HP-UX 11.0</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Solaris 2.6</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>AIX 4.3</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Irix 6.4</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Digital UNIX 4.0d&nbsp;</FONT></FONT></CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>NTS 4.0/EE</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><B><FONT COLOR="#000000"><FONT SIZE=-1>Erweiterung</FONT></FONT></B></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IPSec</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IPv6</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RSVP</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>z. T.</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><FONT COLOR="#000000"><FONT SIZE=-1><I>IP Multiplexing</I>&nbsp;</FONT></FONT></TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><FONT COLOR="#000000"><FONT SIZE=-1><I>IP Multicast</I>&nbsp;</FONT></FONT></TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>z. T.&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><B><FONT COLOR="#000000"><FONT SIZE=-1>Performance Optimierungen</FONT></FONT></B></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+
+            <TD WIDTH="62"></TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Telnet im Kernel</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Kernel Sockets</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>TCP Large Windows</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Zero Copy TCP/Hardware
+                            Checksum</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Path MTU Discovery</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>OpenShortestPathFirst
+                            (OSPF)</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RTP: Real Time Protocol</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RTCP: Real Time
+                            Control Protocol</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+
+        <TR>
+            <TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Parallelized TCP/IP</FONT></FONT></I></TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Ja</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Ja</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER>Ja&nbsp;</CENTER>
+            </TD>
+
+            <TD WIDTH="62">
+                <CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Nein</FONT></FONT>&nbsp;</CENTER>
+            </TD>
+        </TR>
+    </TABLE>
+</CENTER>
+
+<CENTER>
+    <H3>
+        <A NAME="graphs"></A>INTERNET/INTRANET NETZWERK FEATURES</H3></CENTER>
+
+<CENTER><IMG SRC="/assets/AIX43_f.gif" HEIGHT=149 WIDTH=576 ALIGN=BOTTOM></CENTER>
+
+<CENTER>
+    <H3>
+        ZUVERL&Auml;SSIGKEIT UND SKALIERBARKEIT</H3></CENTER>
+
+<CENTER><IMG SRC="/assets/AIX43_h.gif" HEIGHT=149 WIDTH=576 ALIGN=BOTTOM></CENTER>
+
+<CENTER>
+    <H3>
+        SYSTEM-MANAGEMENT</H3></CENTER>
+
+<CENTER><IMG SRC="/assets/AIX43_j.gif" HEIGHT=149 WIDTH=576 ALIGN=BOTTOM></CENTER>
+
+<CENTER></CENTER>
+
+<CENTER>Copyright Digital Equipment Corporation 1995-1998. All Rights Reserved.&nbsp;
+    <HR ALIGN="CENTER" -1>
+</CENTER>
+
+<H3>
+    <A NAME="reliability"></A>Zuverl&auml;ssigkeit</H3>
+Heutzutage ist Zuverl&auml;ssigkeit oft wichtiger als Geschwindigkeit.
+W&auml;hrend Performance zum gro&szlig;en Teil von der Hardware-Plattform
+abh&auml;ngt (siehe den n&auml;chsten Abschnitt), ist der Bereich der <I>Zuverl&auml;ssigkeit</I>
+weitgehend vom gew&auml;hlten Betriebssystem abh&auml;ngig. Was nutzt es,
+wenn ein Betriebssystem mehr Funktionen, bessere Skalierbarkeit und eine
+einfachere Administration bietet, wenn ein Server, der in Echtzeit finanzielle
+Transaktionen bearbeitet, regelm&auml;&szlig;ig abst&uuml;rzt und damit
+Ausfallzeiten verursacht? Der Vergleich mit einem schnellen, sparsamen
+Sportwagens mit vielen Extras, der trotz wiederholter Reparaturen in einer
+Fachwerkstatt st&auml;ndig stehenbleibt und Windows NT ist zur Zeit ziemlich
+angebracht.&nbsp;<A NAME="stability"></A>
+
+<P>Man h&ouml;rt oft vom Windows NT Server, es sei ein "stabiles" Betriebssystem,
+    aber das ist nicht ganz korrekt. W&auml;re es so, w&uuml;rden wir Artikel
+    wie <B><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub5.html">NT
+            Lies: Lie 5 - NT is robust and crash-proof</A></B>, <B><A
+            HREF="http://www.gcn.com/gcn/1998/July13/cov2.htm">Software
+            glitches leave Navy Smart Ship dead in the water</A></B> (Gregory Slabodkin,
+    <A HREF="http://www.gcn.com/">Government Computer News</A>, 7-13-98), <B><A
+            HREF="http://www.zdnet.com/pcweek/opinion/0330/30coff.html">Corporate
+            IT needs an engine that never quits</A></B> (Peter Coffee, PC Week 3-30-98)
+    oder <B><A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">We
+            do not have a failure to communicate</A></B> (Peter Coffee, PC Week 04-13-98).
+    nicht lesen. Als der Autor dieser Artikel die Frage stellte: "Was benutzen
+    Sie, wenn Ausf&auml;lle kein Thema sind?" wurde er mit "dreifachen Menge
+    als sonst &uuml;blich von leidenschaftlichen E-Mail-Antworten" bombardiert.
+    Diese Antworten betreffend stellt er fest:
+    <BLOCKQUOTE>"Wohlgemerkt, ich habe keine einzige Nachricht von jemandem
+        erhalten, der die Meinung vertrat, da&szlig; Windows NT gut genug sei.
+        Im Gegenteil: Verschiedene Nachrichten vertraten die resignierte Erwartung,
+        da&szlig; Windows NT 5.0 aus der T&uuml;r schwanken werde, &uuml;berladen
+        mit vielf&auml;ltigen Zusatzdiensten aber ohne in seinen Basis-Funktionen
+        eine f&uuml;r Firmen ausreichende Stabilit&auml;t zu bieten."
+
+<P>"Ich h&ouml;rte von einem Leser, da&szlig; seine Web-Site mit Linux
+    auf einem 486-er schneller l&auml;uft als Windows NT auf einem 200MHz Pentium,
+    und er hat Linux-Rechner, die ohne Unterbrechung l&auml;nger laufen als
+    Windows NT 4.0 auf dem Markt verf&uuml;gbar ist."
+
+<P>"Ich h&ouml;rte auch von Firmen, bei denen Linux aufgrund der Verf&uuml;gbarkeit
+    des Source-Codes die bessere Wahl darstellt als es der zweifelhafte Vorteil
+    des traditionellen H&auml;ndlersupports ist. Was andere immer wieder versprechen,
+    gibt Linux vielen Anwendern heute -- zu einem Sonderpreis."
+
+<P>-- Peter Coffee, <A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">We
+        do not have a failure to communicate</A>, <A HREF="http://www.zdnet.com/pcweek/">PC
+        Week</A>, 30.3.98.</BLOCKQUOTE>
+    Windows NT ist in der Tat ein gro&szlig;er Fortschritt gegen&uuml;ber Windows
+    3.1 oder Windows 95, aber es hat noch eine lange Entwicklung vor sich,
+    bis es den Grad der Stabilit&auml;t der freien UNIX-Systeme erreicht.
+
+<P>Windows NT's fehlende Stabilit&auml;t ist ein bekanntes Problem, das
+    vom Management in diskreter Weise behandelt wird, berichtete ein DV-Fachmann:
+    <BLOCKQUOTE>"'Ich kenne drei Firmen, die unauff&auml;llig mehr und mehr
+        auf UNIX verlagern. . . auf Kosten von NT, ganz einfach deshalb, weil NT
+        zu oft ausf&auml;llt,' sagt Peter Flynn, ein Berater aus Cork, Irland.
+        NT ist bekannt daf&uuml;r, da&szlig; es f&uuml;r den Geschmack von DV-Kr&auml;ften
+        zu oft abst&uuml;rzt. Typische Ursachen sind Zugriffsverletzungen und I/O-Fehler."
+
+<P>"Diese Firmen m&ouml;chten wegen 'des Drucks von Oben,' nicht &uuml;ber
+    ihre Entscheidung sprechen, sagt Flynn. 'Der Kaufe-nur-Microsoft-Ethos
+    kommt vom Kaufe-nur-IBM und die Manager, die (gegen den Rat der DV-Abteilungen)
+    beschlossen, NT anstelle von UNIX einzusetzen, wollen nun ihr Gesicht nicht
+    verlieren', f&uuml;gt er hinzu."
+
+<P>-- Mark Gibbs, <A HREF="http://www.nwfusion.com/intranet/0330linux.html">Lookin'
+        into Linux</A>, <A HREF="http://www.nwfusion.com/">Network World</A>, 30.
+    M&auml;rz 1998.</BLOCKQUOTE>
+    Jeder DV-Fachmann, der schon mit Windows NT arbeitete, kennt den infamen
+    "Blue Screen of Death", eine Situation, in dem sich der normale Arbeitsplatz
+    vollkommen verabschiedet und durch einen blauen Bildschirm mit Hexadezimalzahlen
+    ersetzt wird, sehr genau. Die <I>einzige</I> Methode ist in diesem Fall,
+    den Rechner abzuschalten und neu zu booten. Was diese "blue screens" in
+    NT verursacht, variiert. Nach meiner eigenen Erfahrung k&ouml;nnen folgende
+    Ursachen dazu f&uuml;hren:
+<UL>
+    <LI>
+        Wenn sowohl IPX/SPX als auch TCP/IP genutzt werden und ein Techniker einen
+        Rechner mit einer statischen IP-Adresse in ein anderes Teilnetz h&auml;ngt;
+    </LI>
+
+    <LI>
+        Wenn einige 16-Bit-Visual-Basic-Anwendungen <I>nicht</I> in einem eigenen
+        Speicherbereich laufen. NT l&auml;&szlig;t sie per Voreinstellung nicht
+        in einem separaten Speicherbereich laufen. Dies ist <I>manuell</I> f&uuml;r
+        jede 16-Bit-Anwendung zu konfigurieren;
+    </LI>
+
+    <LI>
+        Speicher- oder Cache-Module verschiedener Marken rufen Fehler hervor, obwohl
+        sie auf anderen Betriebssystemen wie Windows 95 problemlos funktionieren.
+    </LI>
+</UL>
+In einigen Situationen wird sich auch Linux &uuml;ber seine Hardware beklagen.
+Ich habe damit keine pers&ouml;nlichen Erfahrungen, obwohl ich Linux bereits
+auf einer Vielzahl von Hardware-Plattformen installiert habe, aber es kann
+passieren. Es passiert anscheinend vor allem dann, wenn man einen Kernel
+auf einem Rechner mit defektem Hauptspeicher kompiliert. Mehr Informationen
+sind unter <A HREF="http://www.bitwizard.nl/sig11/">Signal 11</A> zu finden.
+Diese Aufz&auml;hlung ist bei weitem nicht komplett. Tim Newsham zum Beispiel,
+ein Software-Entwickler sowohl f&uuml;r Windows als auch UNIX, hielt diese
+kurze Liste f&uuml;r irref&uuml;hrend:
+<BLOCKQUOTE>Im BSOD-Bereich finden Sie ein paar Wege wie BSOD zum Absturz
+    gebracht werden kann. Ich denke, diese (kurze) Liste verfehlt den Sinn
+    f&uuml;r den Leser. Es gibt <I>soviele</I> Wege, ein NT-System zum Absturz
+    zu bringen, da&szlig; durch Nennen einer kleinen Anzahl davon ein falscher
+    Eindruck vermittelt wird. Gef&auml;hrlicher ist der Fakt, da&szlig; Sie
+    in Ihren F&auml;llen voraussetzen, da&szlig; jemand an der Konsole etwas
+    SCHLECHTES tut, um den Absturz hervorzurufen. Viele der Ursachen zum Absturz
+    eines NT-Rechners resultieren aus den tagt&auml;glichen Operationen des
+    Systems (das System zu lange eingeschaltet zu lassen, wenn viele Anwendungen
+    laufen, kann bizarre Abst&uuml;rze hervorrufen - mit nur geringen Anhaltspunkten
+    auf ihre Ursache). Au&szlig;erdem k&ouml;nnen b&ouml;swillige Benutzer
+    aufgrund schludriger Implementationen in Software-Modulen wie dem Loginprogramm
+    (LSA) oder dem TCP/IP-Stack Abst&uuml;rze provozieren.
+</BLOCKQUOTE>
+Der "Blue Screen of Death" kann in einigen Umgebungen allt&auml;glich sein
+und er ist oft wegen der kryptischen oder fehlenden Fehlermeldungen schwer
+zu verfolgen. Au&szlig;erdem ist NT teilweise auf Intel-basierter Hardware
+anf&auml;llig f&uuml;r Virus-Attacken. Microsoft l&auml;&szlig;t seine
+Betriebssysteme nach wie vor den MBR (<I>Bootsektor der Festplatte - d.
+    &Uuml;.</I>) lesen. F&uuml;r Betriebssysteme, die vom MBR booten m&uuml;ssen
+wie der NT Server kann der MBR der Festplatte der Tod des ganzen Betriebssystems
+sein. Linux, wie auch andere UNIX-Betriebssysteme, die auf Intel-basierter
+Hardware laufen, kann einen komprimierten Kernel von einer Diskette booten
+und so dieses Problem umgehen. Das hei&szlig;t, da&szlig; ein NT-Server
+theoretisch von einem Virus befallen werden kann, der vor 10 Jahren f&uuml;r
+MS-DOS-Rechner geschrieben wurde. Jeder, der einen NT-Server f&uuml;r eine
+unternehmenskritische Aufgabe einsetzen will, sollte sich diesen Fakt vor
+Augen halten. Ich habe pers&ouml;nlich Viren in einer Windows NT 4.0-Umgebung
+gefunden (keine Windows 95-Clients!) und ihre Wirkung war verheerend. Dazu
+mu&szlig; man sagen, da&szlig; die Viren, die ein Windows-Betriebssystem
+lahmlegen k&ouml;nnen, meist keinen Einflu&szlig; auf UNIX-Betriebssysteme
+haben, da sie oft die MS Windows-Umgebung brauchen um t&auml;tlich werden
+zu k&ouml;nnen.
+
+<P>Eine reale Situation in Bezug auf die Zuverl&auml;ssigkeit von NT wurde
+    vom Leiter der DV-Abteilung der "University of Nebraska Press" Quinn P.
+    Coldiron, beschrieben. Er schreibt:
+<BLOCKQUOTE>Das Leben nach der Umstellung von Cats (ein Auftragserfassungs-
+    und Lagersystem) auf NT war ein Alptraum. Das System st&uuml;rzte 2 bis
+    3 mal t&auml;glich ab, ohne da&szlig; ich eine Ursache finden konnte. Ich
+    hatte st&auml;ndigen telefonischen Kontakt zu Microsoft und Cats, aber
+    keiner konnte etwas herausfinden. Microsoft lie&szlig; mich die Service-Packs
+    eins bis drei sowie verschiedene Hot-Fixes einsetzen - die auch halfen,
+    aber der Rechner st&uuml;rzte immer noch mindestens zweimal pro Woche mit
+    dem "Blue Screen of Death" ab. Nach vielen Wochen und Ausgaben von $1500,00
+    f&uuml;r Telefon-Support von Microsoft sagte mir ein Support-Techniker,
+    ich solle eine bessere Software als Cat's Pajamas finden. Das war nicht
+    die L&ouml;sung, die ich mir vorgestellt hatte, denn mit diesem Paket l&auml;uft
+    landesweit eine betr&auml;chtliche Anzahl unserer Pressen, so da&szlig;
+    ich unseren alten Novell-Server wieder in Betrieb nehmen mu&szlig;te, bis
+    ich etwas herausfinden w&uuml;rde. . . . Jetzt, vierzehn Monate sp&auml;ter,
+    haben wir einen Linux-Server im Einsatz.
+</BLOCKQUOTE>
+Das UNIX-&Auml;quivalent des "Blue Screen of Death" w&uuml;rde man "kernel
+panic" nennen. Dies existiert wohl, ich habe n&auml;mlich davon gelesen
+und geh&ouml;rt, aber ich bin davon in meinem Beruf nie Zeuge gewesen.
+Obwohl ich sicher bin, da&szlig; UNIX-Server bei Gelegenheit auch abst&uuml;rzen,
+sind es sehr seltene Ereignisse. Wenn ein UNIX-Server abst&uuml;rzt, ist
+meist ein Hardware-Fehler die Ursache. Software-basierte Probleme in einer
+UNIX-Umgebung machen sich immer nach einiger Zeit bemerkbar, zum Beispiel
+durch allgemeines Absinken der Performance und geben dem Administrator
+ausreichend Zeit zum Finden und Korrigieren des Fehlers und dem Stoppen
+/ Neustarten des <I>Prozesses</I> (sehr selten des Rechners!) um das Problem
+zu l&ouml;sen. Generell wird ein UNIX-Server nur in folgenden Situationen
+angehalten:
+<UL>
+    <LI>
+        Wegen eines Hardware-Fehlers, z. B. eines Festplattenausfalls;
+    </LI>
+
+    <LI>
+        Eine Hardware-Erweiterung ist notwendig;
+    </LI>
+
+    <LI>
+        Ein l&auml;ngerer Stromausfall findet statt und die Resourcen der Notstromversorgung
+        sind ersch&ouml;pft;
+    </LI>
+
+    <LI>
+        Ein Update des Kernels findet statt.
+    </LI>
+
+    <LI>
+        Ein Beta-Kernel wird getestet (nicht zu empfehlen in Produktionsumgebungen)
+    </LI>
+</UL>
+Wenn keines der o.g. Ereignisse stattfindet, kann die Laufzeit eines UNIX-Servers
+in Jahren gemessen werden. NT kann mit solchen Zeiten unterbrechungsfreier
+Arbeit nicht dienen. Selbst wenn jemand den "Blue Screen of Death" eliminieren
+k&ouml;nnte, wird NT durch sein eigenes Design und die Probleme bei der
+Nutzung seiner propriet&auml;ren bin&auml;ren Konfigurationsdateien - wie
+der Registry - behindert. Lesen Sie von einem <A HREF="http://www.kirch.net/unix-nt/massive-nt-failure.html">massiven
+    NT-Versagen</A>, der dazu f&uuml;hrte, da&szlig; 10.000 NT-Rechner keine
+Aufgaben mehr erf&uuml;llen konnten, die irgendwelche Netzwerkresourcen
+ben&ouml;tigten.&nbsp;
+<HR>
+<H3>
+    <A NAME="management"></A>System-Management</H3>
+Das Argument, da&szlig; NT wegen seiner grafischen Oberfl&auml;che leichter
+zu administrieren sei, ist unbegr&uuml;ndet. Der Vorteil - wenn es einer
+ist - eines GUI gegen&uuml;ber einem CLI (command line interface, d. h.
+die Kommandos m&uuml;ssen manuell eingegeben werden) ist fraglich. Die
+erste Annahme ist, da&szlig; Windows NT einen Vorteil gegen&uuml;ber UNIX
+wegen seines GUI hat. Das ist falsch. UNIX-Betriebssysteme haben genauso
+ein GUI (siehe dieses <B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html#Ease of administration">grafische
+        Beispiel</A></B>).
+<BLOCKQUOTE>"NT hat sich lange eines intuitiven Benutzer-Interfaces erfreut
+    und dabei zum gro&szlig;en Teil von der engen Verwandtschaft mit dem Windows
+    Look-and-Feel profitiert, da&szlig; von NT angenommen wurde. Seitdem jedoch
+    die Benutzer gro&szlig;e Zahlen von - teilweise geografisch dezentral gelegenen
+    - Servern nutzen, werden einige M&auml;ngel der NT-Architektur, die prim&auml;r
+    aus seinem Aufbau als Einzelplatzsystem resultieren, offensichtlich. Das
+    Multi-User-Design von UNIX bietet Remote-Access (<I>Fernzugriff &uuml;ber
+        Netzwerk oder Modem ... - d. &Uuml;.</I>), inklusive der M&ouml;glichkeit,
+    sich in einer zeichenorientierten Oberfl&auml;che via Telnet anzumelden,
+    Konfigurationsdateien zu editieren, grafische Werkzeuge &uuml;ber das netzwerkf&auml;hige
+    X-Windows-System und jetzt auch mit Java-Versionen zu nutzen. NT besitzt
+    zur Zeit keines dieser Features. Remote-Management von NT bedeutet entweder
+    das Hinzuziehen eines lokalen Experten - wobei Microsoft hofft, da&szlig;
+    dies mit zunehmender Installationsbasis und aufgrund der &Auml;hnlichkeit
+    mit gel&auml;ufigen Windows-Versionen zunehmend leichter wird - oder man
+    ist auf separate System-Management-Tools von Microsoft oder anderen Herstellern
+    angewiesen. Keine dieser M&ouml;glichkeiten ist ann&auml;hernd so effektiv
+    wie die Verwaltung verteilter UNIX-Systeme."
+    <BR>-- Auszug aus: <A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">Eine
+        Grundlagenanalyse von f&uuml;nf kommerziellen UNIX-Betriebssystemen und
+        Windows NT Server 4.0 (Enterprise Edition) von D.H. Brown Associates, Inc.</A>
+
+    <P>Siehe auch: <B><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub9.html">NT
+                Lies: Lie 9 - Zero administration is here.</A></B></BLOCKQUOTE>
+
+<HR>
+<H3>
+    <A NAME="performance"></A>Performance</H3>
+Die Rechenleistung h&auml;ngt wesentlich st&auml;rker von der Hardware
+als vom Betriebsystem ab. Da die meisten kommerziellen UNIX-Systeme nur
+auf Highend-Workstations oder Servern laufen, w&auml;re es l&auml;cherlich,
+eine <A HREF="http://www.rs6000.ibm.com/hardware/largescale/index.html">IBM
+    SP2</A> oder eine <A HREF="http://www.sun.com/servers/ultra_enterprise/10000/spec.html">Sun
+    Enterprise 10000</A> mit Produkten von Compaq oder Dell zu vergleichen.
+UNIX ist traditionell ein Betriebssystem f&uuml;r Highend-Hardware. Es
+w&auml;re unfair gegen Microsoft zu behaupten, da&szlig; UNIX schneller
+als NT ist, wenn unterschiedliche Hardware die Basis darstellt. Auf der
+anderen Seite hat Microsoft die Anzahl der unterst&uuml;tzten Hardware-Plattformen
+verringert statt erh&ouml;ht. NT f&uuml;r MIPS wurde wegen Mangel an Kunden
+eingestellt und der PowerPC-Support ist nur marginal. NT, nun reduziert
+auf Intel- und Alpha-Architektur wird der "Server des armen Mannes" bleiben,
+als der er gemeinhin in DV-Kreisen bezeichnet wird.
+
+<P>NT's mangelnde Stabilit&auml;t wird nur von seinem Mangel an Skalierbarkeit
+    &uuml;bertroffen. Die ausgezeichnete Skalierbarkeit der kommerziellen UNIX-Systeme
+    auf ihrer Hardware ist der Grund daf&uuml;r, da&szlig; Firmen mit hohen
+    Anspr&uuml;chen an die Rechenleistung nicht nach NT wechseln k&ouml;nnen,
+    selbst wenn sie es wollten. Mary Hubley, Forschungsdirektor bei der <B><A HREF="http://www.gartner.com/">GartnerGroup</A></B>,
+    meint in ihrem Artikel <B><A HREF="http://www.gartner.com/public/static/datapro/industry/indnews6.html">NT
+            und UNIX: Bestechende Kraft vs. Unbewegliches Objekt</A></B> (Januar 1998),
+    da&szlig; die allzu positive Wahrnehmung der F&auml;higkeiten von NT in
+    der &Ouml;ffentlichkeit zum gro&szlig;en Teil auf einem Marketing-Hype
+    beruht:
+<BLOCKQUOTE>"Viele Menschen glauben, da&szlig; NT leichter zu benutzen
+    sei als es derzeit ist, besser skalierbar sei als es ist und so leistungsf&auml;hig
+    sei, um das zu tun was UNIX kann. Aber die meisten dieser Meinungen beruhen
+    auf dem Marketing von Microsoft und sind nicht real."
+</BLOCKQUOTE>
+Die <A HREF="http://www.ugraf.com/">European MikroGraf Corporation</A>
+hat die Ergebnisse ihres eigenen <B><A HREF="http://www.ugraf.com/unix-nt/unix-nt.nob.html">UNIX
+        vs NT</A></B> Performance-Vergleichs ver&ouml;ffentlicht und erkl&auml;rt
+warum:
+<BLOCKQUOTE>"Mehrmals monatlich fragen uns Kunden aus der Druckindustrie,
+    welche Plattform sie nutzen sollen: Unix oder Windows NT. Windows NT w&auml;re
+    vielleicht akzeptabel bei der Erledigung der allt&auml;glichen Aufgaben
+    im Durchschnittsgesch&auml;ft, aber es bew&auml;ltigt die Last nicht, die
+    Verlage typischerweise ihren Servern zumuten."
+</BLOCKQUOTE>
+Ein interessanter Aspekt von MikroGraf's <A HREF="http://www.ugraf.com/unix-nt/unix-nt.nob.html">UNIX
+    vs NT Vergleich</A> ist, da&szlig; in zwei von vier Tests identische Hardware
+genutzt wurde: ein Digital Model 2100: einmal mit Digital UNIX als Betriebssystem,
+dann mit Windows NT auf der selben Hardware.
+
+<P>Um gerecht zu sein, sollte man die Performance von NT mit Linux oder
+    FreeBSD vergleichen, da diese drei Systeme auf der gleichen Hardware funktionieren.
+    Ein realer Vergleich ist allerdings nur mit Hilfe von Benchmark-Tests m&ouml;glich,
+    aber diese gibt es nur sp&auml;rlich und sie konzentrieren sich auf Teilbereiche
+    wie die Web-Performance: <A HREF="http://www.caldera.com/news/features/971222.keylabs.html">Caldera
+        OpenLinux vs. Windows NT: WebBench Performance Test</A>. Der generelle
+    Konsens in DV-Kreisen ist aber, da&szlig; Linux und FreeBSD wesentlich
+    schneller als NT sind. Aufgrund des Umstandes, da&szlig; die UNIX-Kernels
+    so konfiguriert werden k&ouml;nnen, da&szlig; sie nur den ben&ouml;tigten
+    Funktionsumfang bieten, k&ouml;nnen Linux und FreeBSD wesentlich effizienter
+    funktionieren als NT. Jedes Betriebssystem, welches weniger Resourcen verbraucht
+    wird ein <I>aufgebl&auml;htes</I> Betriebssystem wie NT &uuml;bertreffen.
+    UNIX braucht f&uuml;r seine Funktion keine grafische Oberfl&auml;che. NT
+    schon. Jeder wei&szlig;, da&szlig; Grafik sowohl Festplattenplatz als auch
+    Hauptspeicher belegt. Das gleiche gilt f&uuml;r Sound-Dateien, die f&uuml;r
+    die Microsoft-Betriebssysteme so wichtig zu sein scheinen.
+
+<P>Benchmarks zum Vergleich von UNIX-Systemen auf der gleichen Hardware
+    sind aussagekr&auml;ftiger. <A HREF="http://www.tdl.com/~netex/mb/mb.html">Net
+        Express</A>, ein Internet-Verk&auml;ufer von Intel-Hardware, dessen Systeme
+    f&uuml;r "Wissenschaftler, Ingenieure und die Telekommunikationsindustrie
+    designed sind", zeigt, welche Resultate mit dem passenden Betriebssystem
+    erreicht werden k&ouml;nnen:
+    <BLOCKQUOTE>
+        <HR ALIGN="CENTER">
+        <H4>
+            <FONT SIZE=-1>Byte UNIX Benchmark 3.2 zum Betriebssystem-Vergleich:</FONT></H4>
+        <FONT SIZE=-1>Zus&auml;tzlich pr&auml;sentieren wir diese Byte UNIX Benchmark
+            3.2 Ergebnisse zum Vergleich von drei verbreiteten UNIX-Betriebssystemen.
+            Die Tests wurden auf Pentium-133-MHz-Rechnern mit 32 MB RAM, dem Triton-II
+            430HX Chipsatz und einem BusLogic SCSI-Controller durchgef&uuml;hrt:</FONT>
+        <CENTER>
+            <TABLE BORDER>
+                <TR>
+                    <TH ALIGN=LEFT BGCOLOR="#0000FF"><FONT COLOR="#FFFFFF">System</FONT>&nbsp;</TH>
+
+                    <TH BGCOLOR="#0000FF"><FONT COLOR="#FFFFFF">Bytemarks</FONT></TH>
+                </TR>
+
+                <TR>
+                    <TD><FONT SIZE=-1>Linux auf einem Pentium 133MHz</FONT></TD>
+
+                    <TD ALIGN=CENTER>
+                        <CENTER><FONT SIZE=-1>12.2</FONT>&nbsp;</CENTER>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD><FONT SIZE=-1>BSD auf einem Pentium 133MHz</FONT></TD>
+
+                    <TD ALIGN=CENTER>
+                        <CENTER><FONT SIZE=-1>9.8</FONT>&nbsp;</CENTER>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD><FONT SIZE=-1>Solaris 2.5 auf einem Pentium 133MHz</FONT></TD>
+
+                    <TD ALIGN=CENTER>
+                        <CENTER><FONT SIZE=-1>6.2</FONT>&nbsp;</CENTER>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD><FONT SIZE=-1>Solaris auf einer Sun Sparc-II Ultra 167MHz&nbsp;</FONT></TD>
+
+                    <TD ALIGN=CENTER>
+                        <CENTER><FONT SIZE=-1>13.7</FONT>&nbsp;</CENTER>
+                    </TD>
+                </TR>
+
+                <TR>
+                    <TD><FONT SIZE=-1>Solaris 2.5 auf einem Orion Pentium Pro 200MHz&nbsp;</FONT></TD>
+
+                    <TD ALIGN=CENTER>
+                        <CENTER><FONT SIZE=-1>13.5</FONT>&nbsp;</CENTER>
+                    </TD>
+                </TR>
+            </TABLE>
+        </CENTER>
+        <FONT SIZE=-1>Aus diesen Resultaten ist zu sehen, da&szlig; Linux ein sehr
+            effizientes Betriebssystem ist. Die Werte von Linux auf dem Pentium 133
+            waren fast so gut wie die von Solaris 2.5 auf einer 167MHz Sparc Ultra
+            oder einem 200MHz Pentium Pro!!!</FONT>
+        <CENTER></CENTER>
+
+        <CENTER><I><FONT SIZE=-1>Copyright &copy; 1996 Net Express All Rights Reserved.</FONT></I></CENTER>
+
+
+<P>
+<HR>
+</BLOCKQUOTE>
+<A NAME="KickAss"></A>Vielleicht ein Beispiel f&uuml;r die Performance-Verbesserung,
+die man bei der Kombination eines UNIX-Systems mit dem freien Apache WebServer
+erwarten kann, ist in einem Artikel von Sean Fulton (INTERNETWEEK vom 5.
+Mai 1997) zu lesen: <B><A HREF="http://www.techweb.com/se/directlink.cgi?CWK19970505S0103">Towers
+        of Power -- Wir testen f&uuml;nf leistungsf&auml;hige Web-Server f&uuml;r
+        Highend-Intranetanwendungen</A></B>. Unter NT waren die Testergebnisse
+ziemlich niederschmetternd:
+<BLOCKQUOTE>"Telenet System Solutions erzielte die &uuml;berraschendsten
+    Testergebnisse mit einem BSDi-Betriebssystem auf einem Einprozessor-Rechner,
+    der genauso schnell - und in einigen F&auml;llen schneller als ein Doppelprozessorsystem
+    mit Windows NT war."
+
+    <P>"Der Unterschied war hier das BSDi 3.0 Betriebssystem auf dem Rechner
+        und die Apache- HTTP-Server-Software. Alle Doppelprozessor-Rechner liefen
+        unter Windows NT 4.0 mit dem Microsoft Internet Information Server 2.0."</BLOCKQUOTE>
+Zum Thema Web-Server-Performance teilt Ariel Faigon mit da&szlig; eine
+SGI-Maschine mit IRIX zur Zeit den Weltrekord auf diesem Gebiet h&auml;lt:
+<BLOCKQUOTE>"Im April 1998 ist das beste SPECWeb-Ergebnis: 7214 HTTP-Operationen
+    pro Sekunde auf einem 8-Prozessor-Silicon Graphics Origin 2000-Server mit
+    IRIX 6.5 und dem Netscape Web-Server."
+
+    <P>Mehr Details sind in SGI's <A HREF="http://www.sgi.com/newsroom/press_releases/1998/april/performance.html"><B>Pressemitteilung</B>
+        </A>zu finden<B>.</B>
+
+    <P>"Zum Vergleich: Der beste NT-Wert ist 1878 ops/sec auf einem 4-CPU Hewlett-Packard
+        NetServer LXr Pro 6/200 mit dem Microsoft IIS."</BLOCKQUOTE>
+Zugegeben, das folgende Beispiel zum Performance-Vergleich zwischen Linux
+und NT d&uuml;rfte nicht sehr wissenschaftlich sein, aber Richard Betel's
+Information gibt einem eine Idee davon, was man in der Realit&auml;t zu
+erwarten hat:
+<BLOCKQUOTE>Ich lasse den "distributed.net RC5 cracking client" (<I>ein
+        Programm zum Knacken von Codes nach dem RC5-Standard, ziemlich rechenintensiv
+        - d. &Uuml;.</I>) nun seit &uuml;ber 2 Monaten laufen... Er ist auf jedem
+    Server installiert, der ein gewisses Ma&szlig; an freier Rechenzeit hat.
+    Das schlie&szlig;t zwei identische Rechner ein: Beides sind Dual-Pentium
+    II mit 300MHz und 128MB RAM. Auf einem l&auml;uft NT und ein ungenutzter
+    Exchange-Server (wir planen einen Dienst damit anzubieten, aber im Moment
+    ist er <I>total</I> ungenutzt), auf dem anderen l&auml;uft Linux (wir pr&uuml;fen
+    ihn gerade auf Herz und Nieren. Es ist ein Samba-Server und wir kompilieren
+    alles M&ouml;gliche auf ihm). Der Linux-Rechner bearbeitet die Schl&uuml;ssel
+    1,8 mal so schnell wie der NT-Rechner.
+</BLOCKQUOTE>
+
+<HR>
+<H3>
+    <A NAME="security"></A>Sicherheit</H3>
+Dieser Bereich ist zu umfangreich und komplex, um in einem Artikel wie
+diesem vollst&auml;ndig behandelt werden zu k&ouml;nnen. Sicherheit ist
+sehr sehr wichtig. Jim Mohr f&uuml;hrt in seinem Artikel <A HREF="http://www.jimmo.com/Debate/intro.html">Die
+    gro&szlig;e Linux vs. NT-Debatte</A> zur <B><A HREF="http://www.jimmo.com/Debate/security.html">Sicherheit</A></B>
+einige interessante Fakten an. Die folgenden Verweise sind exzellente Ausgangspunkt
+f&uuml;r einen Vergleich der Sicherheitsl&uuml;cken der verschiedenen Betriebssysteme:
+<UL>
+    <LI>
+        <A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/980713np.htm">Probing
+            into C2 security claims: Is NT as secure as Microsoft has said it is?</A></LI>
+
+    <LI>
+        <A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub2.html">NT
+            Lies: Lie 2 - NT is less secure than UNIX</A></LI>
+
+    <BR>(Wirkliche Sicherheit bedeutet, den Server vom Netzwerk zu trennen
+    und abzuschlie&szlig;en!)
+    <LI>
+        <A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub4.html">NT
+            Lies: Lie 4 - NT Meets Military Standards</A></LI>
+
+    <LI>
+        <A HREF="http://www.byte.com/art/9711/sec6/art3.htm">Ein BYTE-Artikel &uuml;ber
+            Windows NT Sicherheitsprobleme</A></LI>
+
+    <LI>
+        <A HREF="http://www.secnet.com/ntinfo/linuxntf.htm">Das NT-Dateisystem
+            (NTFS) kann von Linux aus unter Umgehung der Dateisystemsicherheit gelesen
+            werden.</A></LI>
+
+    <LI>
+        <A HREF="http://www.secnet.com/ntinfo/">Bekannte NT Exploits</A></LI>
+
+    <LI>
+        <A HREF="http://www.it.kth.se/~rom/ntsec.html">NT Sicherheit - Frequently
+            Asked Questions Version 0.41 (<I>oft gestellte Fragen = FAQ - d. &Uuml;.</I>)</A></LI>
+
+    <LI>
+        <A HREF="http://afcert.csap.af.mil/os.html">AFCERT - Sicherheitsfragen
+            verschiedener Betriebssysteme</A></LI>
+</UL>
+<B>Eine interessante Beobachtung:</B>
+
+<P>Am 11. Mai 1998 sendete der <A HREF="http://www.discovery.com/">Discovery
+        Channel</A> ein Programm &uuml;ber die <B>National Security Agency</B>
+    als Teil seiner "Discovery Signature Series". Seine Kurzbeschreibung dieser
+    einst&uuml;ndigen Sendung (gesendet um 9 Uhr Central Time) lautete: "Amerikas
+    geheimste Agentur enttarnt die Geheimnisse Anderer mit High-Tech-Helfern."
+    Das Bemerkenswerteste an dieser Sendung war das st&auml;ndige Auftauchen
+    von Rechnern mit dem <B><A HREF="http://www.sun.com/">Sun Microsystems</A></B>
+    Logo, nicht nur im Kryptografie-Klassenraum sondern auch in ihren Missions-Kontrollr&auml;umen.
+    In einem Bereich, in dem die NSA ihre eigenen Mikro-Chips herstellt, zeigten
+    die Monitore ein gro&szlig;es "X", das Logo des X-Window-Systems, welches
+    von allen UNIX-Betriebssystemen genutzt wird. Am Ende der Sendung war ein
+    Laptop zu sehen, auf dem eine DOS-Anwendung lief. Nur ein Rechner mit dem
+    Intel-Logo tauchte w&auml;hrend der ganzen Sendung auf. Er wurde nicht
+    f&uuml;r kryptografische Aufgaben genutzt. Es lief eine Gesichtserkennung,
+    aber die Fensterrahmen schienen auf ein Nicht-MS-Windows-System hinzuweisen.
+
+<P>
+<HR>
+<H2>
+    <A NAME="misconceptions"></A>Einige verbreitete Mi&szlig;verst&auml;ndnisse</H2>
+<B>NT ist ein Spiele-Betriebssystem</B>
+
+<P>F&uuml;r ein Betriebssystem, welches sich aus einem Spiele-Betriebssystem
+    entwickelt <I>hat</I>, zeigt es einiges an professioneller Funktionalit&auml;t.
+    Obwohl die Skalierbarkeit nicht gut ist -- die Performance sinkt bei mehr
+    als 4 CPUs pro Server -- hat es einen weiten Weg zur&uuml;ckgelegt. Obwohl
+    ich es nicht als prim&auml;res Betriebssystem im Unternehmensumfeld empfehlen
+    w&uuml;rde, sollte es in kleineren Unternehmen mit weniger als 250 Benutzern
+    eine zufriedenstellende Performance liefern, wenn keine gesch&auml;ftskritischen
+    Prozesse ablaufen sollen. Bedenken Sie dabei, da&szlig; ein einzelner NT-Server
+    nicht ausreicht, um 250 Benutzer zu bedienen. Die generelle Empfehlung
+    lautet, da&szlig; ein PDC (<I>Windows NT Primary Domain Controller = Prim&auml;rer
+        Domain-Server - d. &Uuml;.</I>) und zwei BDCs (<I>Backup Domain Controllers
+        = Sekund&auml;re Server - d. &Uuml;.</I>) vorhanden sein sollten. Andere
+    Server-Anwendungen auf dem PDC zu installieren wird ebenfalls nicht empfohlen.
+    Sind ein RDBMS (<I>Datenbankserver - d. &Uuml;.</I>), E-Mail, Web und andere
+    typische Serveranwendungen gefordert, dann k&ouml;nenn sogar drei NT-Server
+    nicht ausreichend sein.
+
+<P><B>Durch eine Konvertierung nach Windows NT kann ein Unternehmen die
+        Probleme einer heterogenen Netzwerkumgebung eliminieren.</B>
+
+<P>Die erste Annahme hier ist, da&szlig; ein heterogenes Netzwerk ein Problem
+    ist. Ich habe einmal in einer Firma gearbeitet, in der NT und Novell mit
+    nur sehr wenigen Konflikten koexistierten. Eine Hauptursache f&uuml;r diese
+    Koexistenz war tats&auml;chlich, da&szlig; Novell im Bereich des Datei-
+    und Druckersharings gegen&uuml;ber NT bessere Performance brachte. Unter
+    UNIX kann man Microsoft-kompatibles Datei- und Druckersharing so implementieren,
+    da&szlig; kein Anwender &uuml;berhaupt etwas von der Existenz des UNIX-Servers
+    merkt. So wie sie es sehen, ist es ein NT-Server. Diese Funktionen werden
+    u. a. in Sun's UNIX, Solaris angeboten. Linux kann ein Softwarepaket namens
+    <A HREF="http://samba.anu.edu.au/samba/">Samba</A> nutzen, welches mit
+    den meisten Distributionen geliefert wird. Samba ist auf praktisch allen
+    UNIX-Systemen verf&uuml;gbar. Es wurde auch portiert auf VMS, MVS, OS/2,
+    Stratus-VOS, Amiga, Novell und MPE/iX . Und noch einmal: Es ist frei verf&uuml;gbar.
+
+<P><A NAME="gui"></A><B>UNIX ist diese veraltete, kryptische, kommandozeilenbasierte
+        Betriebssystem.</B>
+
+<P>Falsch! CDE (Common Desktop Environment) ist ein GUI-Desktop (Graphical
+    User Interface: man benutzt eine Maus f&uuml;r "point and click", oder
+    "drag and drop" auf einem bunten "Desktop"; das ist die Basis f&uuml;r
+    Microsoft's Erfolg.). CDE wird mit den meisten kommerziellen UNIX-Systemen
+    geliefert: Sun's <B><A HREF="http://www.sun.com/solaris/">Solaris</A></B>,
+    IBM's <B><A HREF="http://www.rs6000.ibm.com/software/OS/aix43.html">AIX</A></B>,
+    Hewlett Packard's <B><A HREF="http://software.external.hp.com:80/OS_transition/WHYTRANS.HTM">HP-UX</A></B>,
+    DEC's <B><A HREF="http://www.unix.digital.com/">Digital UNIX</A></B>, um
+    nur ein paar zu nennen. F&uuml;r ungef&auml;hr $90 kann man ein CDE f&uuml;r
+    Linux erhalten, wenn man mit den bei Linux mitgelieferten <B>vier GUI-Systemen</B>
+    nicht zufrieden ist: OpenLook, das GUI welches in Solaris genutzt wird;
+    FVWM, ein Freeware-GUI mit vielen Gemeinsamkeiten mit dem Windows 3.1-GUI;
+    oder FVWM-95, ein anderes Freeware-GUI mit dem Look-and-Feel von Windows
+    95 (beim Betrachten eines einzelnen Fensters kann man nicht zwischen FVWM-95
+    und Windows 95 unterscheiden). TWM ist der Vorg&auml;nger der diversen
+    FVWM-Window-Manager die ebenso in Linux enthalten sind. Wenn Sie noch nie
+    die Gelegenheit hatten, an einem UNIX-System zu arbeiten, k&ouml;nnen Sie
+    sich hier einige <B><FONT COLOR="#FF0000">SCREENSHOTS</FONT></B> dieser
+    Window-Manager anschauen: <B><A HREF="http://www.PLiG.org/xwinman/screenshots/dtwm.gif">CDE</A></B>,
+    <B><A HREF="images/ted.jpg">TED</A></B> (TriTeal's CDE for Linux), <B><A
+            HREF="http://www.kde.org/kscreenshots.html">KDE</A></B>,
+    <B><A HREF="http://mars.superlink.net/ekahler/fvwm1.desktop.html">FVWM
+            1.24</A></B>, <B><A HREF="http://mars.superlink.net/ekahler/fvwm2.desktop.html">FVWM
+            2.x</A></B>, <B><A
+            HREF="http://www.terraware.net/ftp/pub/Mirrors/FVWM95/screenshot-full.gif">FVWM-95</A></B>,
+    <B><A HREF="http://cslib.ecs.soton.ac.uk/wm/gfx/orig-olvwm.jpg">olvwm</A></B>(OpenLook
+    Virtual Window Manger). Das sind nur einige der f&uuml;r UNIX-Anwender
+    verf&uuml;gbaren GUI's. Matt Chapman's <A HREF="http://www.PLiG.org/xwinman/">Guide
+        to Window Managers for The X Window System</A> ist eine ausgezeichnete
+    Quelle zu diesem Thema. Sie werden dort mehr Screenshots sehen, als ich
+    hier auff&uuml;hren kann. Bedenken Sie, da&szlig; alle diese GUI's umfangreich
+    konfigurierbar sind; Sie sollten nicht &uuml;berrascht sein, wenn Sie Screenshots
+    derselben Window-Manager sehen, die v&ouml;llig unterschiedlich aussehen.
+    Wie Matt auf seiner Homepage sagt: "Menschen sind unterschiedlich, und
+    Menschen benutzen Computer in unterschiedlicher Weise f&uuml;r unterschiedliche
+    Aufgaben. Warum also sind einige der Meinung, wir sollten alle das selbe
+    Interface benutzen (oder darunter leiden)?" Ironischerweise ist es Microsoft's
+    Oberfl&auml;che, der es an Konfigurationsm&ouml;glichkeiten mangelt.
+
+<P>Entgegen der Behauptung, da&szlig; UNIX nicht mehr aktuell ist, ist
+    es nach wie vor das Betriebssystem der Wahl f&uuml;r Wissenschaft, Forschung,
+    Entwicklung und Bildung. Die meisten Ingenieure w&uuml;rden ohne Z&ouml;gern
+    UNIX NT vorziehen. Sie kennen seine F&auml;higkeiten zur Anpassung und
+    seine M&ouml;glichkeiten, optimal auf die Erfordernisse spezialisierter
+    Rechenaufgaben abgestimmt werden zu k&ouml;nnen. Leserzuschriften an <A HREF="http://www.isdmag.com/">isd</A>
+    best&auml;tigen diese Haltung:
+    <BLOCKQUOTE>"Wie wir erwarteten, sind die Entwickler hart: Sie wollen,
+        da&szlig; ihre EDA-Tools unter Unix laufen. Au&szlig;erdem sagen sie, da&szlig;
+        Linux in jeder Hinsicht technisch einwandfrei ist und NT ist es einfach
+        nicht. Schmerzlich dessen bewu&szlig;t, da&szlig; technische Qualit&auml;t
+        keine Marktanteile garantiert, sagen viele Leser, diesmal sollte es so
+        sein."
+
+<P>"Obwohl die Meinungen der Leser &uuml;berw&auml;ltigend Linux unterst&uuml;tzten,
+    waren wir von der Qualit&auml;t der Zusendungen beeindruckt . . . ."
+
+<P><B><A HREF="http://www.isdmag.com/Editorial/1998/CoverStory9807.html">Engineers
+            Speak Out: Linux vs. Windows NT, Part 1</A></B>
+    <BR>-- Murry Shohat, <A HREF="http://www.isdmag.com/"><I>Intergrated System
+            Design</I> Magazine</A>, Juli 1998.</BLOCKQUOTE>
+    <B>Jedermann migriert heute nach NT, wir k&ouml;nnen unsere UNIX-Server
+        schrittweise durch NT-Server ersetzen. Dies ist der zeitgem&auml;&szlig;e
+        Weg.</B>
+
+<P>Wenn Sie mit IT-Managern einiger gro&szlig;er Firmen sprechen, die noch
+    vor 2 Jahren UNIX und Novell einsetzen und dann ihre Novell-Server durch
+    NT-Server ersetzten, werden Sie feststellen, da&szlig; keiner ohne seine
+    UNIX-Server auskommt. Es scheint, da&szlig; anspruchsvolle Aufgaben auf
+    den UNIX-Servern besser aufgehoben sind. Soweit ich mich erinnern kann,
+    lief jeder Oracle-Server, den ich gesehen habe, auf einem UNIX-Server.
+    Wie auch immer, ein IT-Mitarbeiter sandte mir eine E-Mail mit dem Inhalt:
+    "Ich betreue verschiedene ORACLE-Installationen auf NT. Ich begegne funktionalen
+    und Performance-Ergebnissen, die ich unter UNIX (Pyramid) niemals sah."&nbsp;
+<HR>
+<H2>
+    <A NAME="views"></A>Ansichten anderer IT-Fachleute</H2>
+<B>Robert Schindler, ein Ingenieur aus Florida, der in den letzten zehn
+    Jahren f&uuml;r verschiedene Fortune-100-Firmen als freier Berater auf
+    dem Gebiet der Strukturanalyse arbeitete, schreibt:</B>
+<BLOCKQUOTE>"Es wird eine lange Zeit vergehen, bevor Sie mich NT oder ein
+    anderes MS-Produkt loben h&ouml;ren werden. Ich glaube, da&szlig; Gates
+    und sein Imperium mehr zum Sinken der Standards unserer Gesellschaft beigetragen
+    haben als alles andere in meinem Leben. Wenn meine Produkte die gleiche
+    Qualit&auml;t h&auml;tten wie seine, dann w&uuml;rden die Flugzeuge st&uuml;ndlich
+    vom Himmel fallen."
+</BLOCKQUOTE>
+<B>Ein Fachmann, der aus Angst um seinen Job anonym bleiben m&ouml;chte,
+    schreibt:</B>
+<BLOCKQUOTE>"Ich arbeite in einem gro&szlig;en Unternehmen. Es ist eines
+    der gr&ouml;&szlig;ten seiner Art weltweit. Wir entschieden uns, ein Netzwerk-&Uuml;berwachungs-
+    und Verwaltungspaket von Cabletron einzusetzen. Es ist unter NT und Unix
+    verf&uuml;gbar. Man gab ihnen freie Hand f&uuml;r das System zur Installation
+    unter NT, weil sie NT besser kannten als Unix. Mehr als ein Jahr und eine
+    Viertelmillion Dollar sp&auml;ter gaben sie NT auf und installierten es
+    auf Solaris. Warum? NT l&auml;&szlig;t sich nicht skalieren."
+</BLOCKQUOTE>
+<B>Tim Newsham schreibt als Antwort zu diesem Artikel:</B>
+<BLOCKQUOTE>"Ich entwickle Software f&uuml;r NT und UNIX. Ich verabscheue
+    NT. Es ist ein furchtbares Biest mit sehr, sehr d&uuml;rftiger Performance
+    und es ist viel zu instabil. Einige Teile von NT sind so kaputt, da&szlig;
+    die Portierung von Software auf das System haupts&auml;chlich daraus besteht,
+    Microsofts Fehler zu umgehen. Es st&ouml;rt mich, da&szlig; so viele Leute
+    von UNIX zu NT migrieren. Ich kann mir nur vorstellen, da&szlig; eventuell
+    einmal eine gewaltige Anti-NT-Reaktion erfolgt, wenn das Management begreift,
+    wie sehr NT ihren Organisationen geschadet hat."
+</BLOCKQUOTE>
+<B>Joseph Day, ein Berater aus Chicago, anwortet an Jessie Berst:</B>
+<BLOCKQUOTE>"Ich mache viel Software-Entwicklung sowohl unter NT als auch
+    Windows 95. Ich kann nicht verstehen, warum Menschen diese Plattformen
+    so bejubeln. . . . Der Support, den Sie in der Linux-Gemeinde &uuml;ber
+    Netnews erhalten ist weit besser als alles, was Sie mit Microsoft-Produkten
+    erleben. . . . NT hat noch einen weiten Weg vor sich, bis es den Stand
+    an Stabilit&auml;t wie Linux erreicht hat."
+    <BR>-- Ausz&uuml;ge aus einem Brief von Joseph Day mit dem Titel: <A
+        HREF="http://www.zdnet.com/anchordesk/talkback/talkback_72950.html">Wieviel
+        hat Ihnen Microsoft f&uuml;r diesen Artikel gezahlt?</A>, Quelle: <A
+        HREF="http://www.zdnet.com/anchordesk/index.html">Jesse
+        Berst's Anchor Desk.</A> 16. Februar 1998, <A HREF="http://www.zdnet.com/">ZDNet</A>.
+</BLOCKQUOTE>
+<B>Torsten Holvak, ein Systemadministrator in Laramie, WY antwortet an
+    Jessie Berst:</B>
+<BLOCKQUOTE>"Jesse: Ich bin sicher da&szlig; Microsoft, wie IBM in den
+    60-ern, sich &uuml;ber Leute freuen w&uuml;rde, die glauben, da&szlig;
+    es das Aus f&uuml;r ihre Karriere w&auml;re, wenn sie Software anderer
+    Hersteller einsetzten. Das ist nicht so! Ich w&uuml;rde jeden feuern, der
+    gesch&auml;ftskritische Anwendungen oder E-Mail- oder Webserver auf einem
+    NT-Rechner statt einer UNIX-Kiste laufen l&auml;&szlig;t. Wir nutzen FreeBSD
+    f&uuml;r alles - und nichts ist stabiler. Freie UNIX-Server sind nicht
+    nur schneller, leistungsf&auml;higer und stabiler als NT, auch der Support
+    ist besser. Versuchen Sie eine Auskunft von einem Microsoft-Techniker zu
+    erhalten ohne eine Menge Geld zu bezahlen oder endlos am Telefon zu warten.
+    Und sch&auml;tzen Sie sich gl&uuml;cklich, wenn damit Ihr Problem behoben
+    ist. Ich kann nur schwer glauben, da&szlig; diese Geschichte auf Ihrer
+    Titelseite erscheint. Es ist peinlich. I sure didn't THINK you were into
+    spreading Microsoft <A HREF="http://sagan.earthspace.net/jargon/jargon_21.html#TAG712">FUD</A>".
+    <BR>-- Ausz&uuml;ge aus einem Brief von Torsten Holvak mit dem Titel: <A
+        HREF="http://www.zdnet.com/anchordesk/talkback/talkback_72969.html">Ich
+        w&uuml;rde jeden feuern, der NT benutzt</A>, Quelle: <A HREF="http://www.zdnet.com/anchordesk/index.html">Jesse
+        Berst's Anchor Desk.</A> 16. Februar 1998, <A HREF="http://www.zdnet.com/">ZDNet</A>.
+</BLOCKQUOTE>
+<B>Quinn P. Coldiron, Leiter der IT-Abteilung der "University of Nebraska
+    Press", schreibt &uuml;ber seine Erfahrungen mit Novell, Windows NT und
+    Linux:</B>
+<BLOCKQUOTE>"Nach der Erledigung der t&auml;glichen Aufgaben lassen wir
+    normalerweise ein komplettes Cats-Backup (ein Auftragserfassungs- und Lagerbestandssystem)
+    laufen, welches ca. 2 Stunden auf einem Netware-Server braucht. Der Linux-Rechner
+    schafft das gesamte Backup in 45 Minuten, damit k&ouml;nnen wir mehr als
+    eine Stunde fr&uuml;her Feierabend machen. Diese Geschwindigkeitssteigerung
+    kam trotz einer Hardware-Reduzierung, da der Linux-Server nur 32 MB RAM
+    und IDE-Festplatten hat, w&auml;hrend der Netware-Server 64 MB RAM und
+    SCSI-Platten besa&szlig;. Die Performance-Steigerung kann man auch im Tagesbetrieb
+    bemerken. Ich h&ouml;re fast t&auml;glich Bemerkungen, da&szlig; das System
+    schneller und zuverl&auml;ssiger ist."
+
+    <P>"Wir haben k&uuml;rzlich unsere CPU auf einen 200Mhz-Pentium-Prozessor
+        und den Hauptspeicher auf 64 MB aufger&uuml;stet, um unseren Plan umzusetzen,
+        unseren Windows NT-Datei- und Druckserver zu ersetzen, der grundlos mehr
+        als zweimal monatlich abst&uuml;rzt, auch nach Ausgaben von $1.500 f&uuml;r
+        technischen Support von Microsoft. Dieser einzelne Computer mit Red Hat
+        Linux wird sowohl unseren Novell Netware 3.11-Server als auch den Windows
+        NT 4.0-Server ersetzen, mit kleineren Hardware-Anspr&uuml;chen. Mit der
+        neuesten Entwicklung des Samba-Teams (Unterst&uuml;tzung der NT-Domain-Struktur)
+        und dem Red Hat 5.0-Release vom Dezember 1997 erwarte ich, einen leistungsf&auml;higen
+        und kosteng&uuml;nstigen Server f&uuml;r die Windows 95-, Windows NT- und
+        Macintosh-Arbeitspl&auml;tze zu besitzen."
+        <BR>-- Auszug aus: <B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html">Austausch
+                eines Windows NT-Servers durch Linux</A></B></BLOCKQUOTE>
+<B>Am 29. September 1997 schrieb Nick Johnson im <A HREF="http://dev4.byte.com/joncon/_fmsg00441.html">Byte
+        Forum</A>:</B>
+<BLOCKQUOTE>"Als Systemadministrator f&auml;llt es mir schwer ein Betriebssystem
+    ernstzunehmen, welches 128 MB RAM, zwei 200-Mhz-Prozessoren und 8 GB Festplattenplatz
+    ben&ouml;tigt, nur um einen kleinen Intranet-Server laufen zu lassen, besonders
+    dann, wenn das Betriebssystem durch ein simples TCP-Paket zum Absturz und
+    Reboot gebracht werden kann. NT kann unm&ouml;glich in Betracht gezogen
+    werden, wenn Verf&uuml;gbarkeit und Geschwindigkeit gefordert sind. Sie
+    k&ouml;nnen die o. g. Aufgabe auf einem 386-er mit 16 MB RAM und dem Betriebssystem
+    FreeBSD erf&uuml;llen, ohne die hohen Microsoft-Preise zu zahlen."
+</BLOCKQUOTE>
+<B>Mike Hucka, UNIX-Administrator und Programmierer in Michigan, schreibt:</B>
+<BLOCKQUOTE>"Was mir nicht in den Kopf will ist: <I>Warum</I> investieren
+    die Leute soviel in NT L&ouml;sungen wenn es soviele Beweise daf&uuml;r
+    gibt, da&szlig; UNIX-L&ouml;sungen ausgereifter, stabiler, billiger (<I>im
+        Fall Linux und FreeBSD - d. &Uuml;.</I>) sind und schneller laufen? Warum?
+    Was ist los mit den Leuten?"
+
+    <P>"Wissen die Menschen wirklich nichts von den M&ouml;glichkeiten von
+        UNIX?"
+
+    <P>"Denken die Leute, da&szlig; UNIX-Systeme zu kompliziert sind? Ich mag
+        befangen sein, aber wenn ich mir Oberfl&auml;chen wie CDE auf einer Sun
+        oder KDE anschaue, denke ich, das ist dasselbe, was Sie auf einem PC oder
+        Mac finden. Und es gibt eine <I>gewaltige</I> Menge an Dokumentation f&uuml;r
+        UNIX -- denken Sie nur an alle die B&uuml;cher, die von <A HREF="http://www.oreilly.com/">O'Reilly
+            &amp; Associates</A> herausgegeben wurden oder die Online-Manuals auf der
+        Sun-Site <B><A HREF="http://docs.sun.com">http://docs.sun.com</A></B> oder
+        eine der hunderten von Seiten mit Informationen &uuml;ber jeden denkbaren
+        Aspekt von UNIX."
+
+    <P>"Und nicht nur das, Sie k&ouml;nnen auch frei verf&uuml;gbare Versionen
+        von UNIX erhalten, die in ihrer Stabilit&auml;t und Leistungsf&auml;higkeit
+        mit Solaris vergleichbar sind, und sie laufen hervorragend auf PC-Hardware,
+        wenn Sie wollen."
+
+    <P>"Und zu allem &Uuml;berflu&szlig; kriegen Sie auch noch den Source-Code."</BLOCKQUOTE>
+
+<H3>
+    <A HREF="http://www.kirch.net/unix-nt/feedback/">Feedback von Lesern dieses
+        Artikels (<I>Originalseite</I>)</A></H3>
+Dies ist ein neuer, externer Abschnitt, der einige der besten Zuschriften
+enth&auml;lt, die ich zu diesem Artikel erhalten habe.
+
+<P>
+<HR>
+<H2>
+    <A NAME="web"></A>Webserver</H2>
+Das Herz des Internet ist das Web (<I>WWW - d. &Uuml;.</I>). Es ist das,
+was das Publikum sieht. Wenn Ihre Home-Page langsam, mit technischen Fehlern
+gespickt oder nicht erreichbar ist, hat das einen abschreckenden Effekt.
+Da die meisten gro&szlig;en Firmen UNIX-orientiert sind, nutzen sie meist
+Webserver-Software wie Apache oder Netscape-Enterprise. <B><A HREF="http://www.apache.org/">Der
+        Apache</A></B> wurde mit Blick auf UNIX entwickelt. Er ist frei verf&uuml;gbar
+und beherrscht zur Zeit das Internet. Ungef&auml;hr <I>die H&auml;lfte</I>
+der Webserver im Internet laufen mit dem Apache (siehe <B><A HREF="http://www.netcraft.co.uk/Survey/">Die
+        Netcraft Webserver-Umfrage</A></B>). Microsoft's IIS Webserver wird auf
+weniger als einem Viertel der im Internet laufenden Webserver eingesetzt.
+Apache wird derzeit eingesetzt bei <A HREF="http://java.sun.com/">Javasoft</A>,
+<A HREF="http://www.fbi.gov/">FBI</A>, <A HREF="http://www.ft.com/">Financial
+    Times</A>, <A HREF="http://www.imdb.com/">The Movies Database</A>, <A HREF="http://www.w3.org/">W3
+    Consortium</A>, <A HREF="http://www.royal.gov.uk/">The Royal Family</A>,
+<A HREF="http://www.lib.ox.ac.uk/">Oxford University Libraries Automation
+    Service</A>, <A HREF="http://www.mit.edu/">M.I.T.</A>, <A HREF="http://www.harvard.edu/">Harvard
+    University</A> und der <A HREF="http://www.utexas.edu/">University of Texas
+    at Austin</A>. Netcraft erw&auml;hnt auch, da&szlig; die "Virtual hosting
+company <A HREF="http://www.rapidsite.com/">Rapidsite</A> nun den f&uuml;nften
+Platz in der Umfrage einnimmt. Ihr Hostsystem, auf dem eine personalisierte
+Version des Apache l&auml;uft, bedient 44.280 Domain-Namen mit 39.905 verschiedenen
+IP-Adressen. Eine bemerkenswerte Leistung und wahrscheinlich das weltweit
+gr&ouml;&szlig;te Hostsystem". Sie werden sich aus dem Performance-Abschnitt
+dieses Artikels erinnern, da&szlig; die Kombination <A HREF="#KickAss">UNIX-Apache
+    die von NT-IIS besch&auml;mt</A>. Der Apache ist nicht nur schnell, er
+ist auch Freeware.
+<BR>Apache's Rolle im Internet wurde auch von <A HREF="http://www.ibm.com/">IBM</A>
+untersucht, die nun eine Partnerschaft mit Apache eingegangen sind:
+<BLOCKQUOTE><B>IBM Teams Up With Apache</B>
+    <BR>"IBM wird den Apache HTTP-Server mit dem IBM WebSphere Application
+    Server ausliefern und damit den derzeitigen Apache-Anwendern helfen, E-Business-L&ouml;sungen
+    zu entwickeln. Als Teil des WebSphere Application Server Pakets wird IBM
+    kommerziellen Firmen-Support f&uuml;r den Apache HTTP Server anbieten.
+    Au&szlig;erdem wird IBM vollwertiger Teilnehmer am Apache HTTP Server Projekt,
+    einer gemeinsamen Entwicklungsgemeinschaft und wird dazu beitragen, die
+    F&auml;higkeiten des Apache HTTP Servers zu erweitern."
+    <BR><A HREF="http://www.ibm.com/News/1998/06/223.phtml">IBM helps companies
+        turn simple web sites into powerful e-business solutions</A>, IBM News,
+    22 June, 1998.
+</BLOCKQUOTE>
+Wenn ein sehr robuster Webserver ben&ouml;tigt wird, dann ist Netscape-Enterprise
+eine gute Wahl. Obwohl er keine Freeware wie Apache ist, wird er den meisten
+Anforderungen gerecht. Netscape-Enterprise wird eingesetzt von Firmen wie:
+<A HREF="http://www.bmw.de/">BMW</A>, <A HREF="http://www.dilbert.com/">Dilbert</A>,
+<A HREF="http://www.sgi.com/">Silicon Graphics</A>, <A HREF="http://www.shell.com/">Shell</A>,
+<A HREF="http://www.sun.com">Sun Microsystems</A>, <A HREF="http://www.sybase.com/">Sybase</A>,
+<A HREF="http://www.ferrari.it/">Ferrari</A> und <A HREF="http://www.vatican.va/">The
+    Vatican</A>.
+
+<P>Microsoft's IIS ist eines der wenigen Dinge, die zur Zeit mit Windows
+    NT geliefert werden. Er besitzt keine speziellen oder einmaligen Funktionen,
+    die andere Webserver nicht auch bieten. Er besticht weder in der Geschwindigkeit,
+    noch in seiner Popularit&auml;t noch in der Anzahl der m&ouml;glichen gleichzeitigen
+    Zugriffe. Er wird derzeit eingesetzt von: <A HREF="http://www.compaq.com/">Compaq</A>,
+    <A HREF="http://www.nasdaq.com/">Nasdaq</A>, <A HREF="http://www.nfl.com/">The
+        National Football League</A>, <A HREF="http://www.exxon.com/">Exxon</A>
+    und <A HREF="http://shop.tesco.co.uk/">Tesco</A>. Aufgrund der Tatsache,
+    da&szlig; Microsoft einen gro&szlig;en Teil seines Erfolgs preiswerter
+    PC-Hardware verdankt, z. B. <A HREF="http://www.intel.com/">Intel</A>-basierten
+    Rechnern, w&uuml;rde man denken, da&szlig; dieser bedeutende Microsoft-Partner
+    den IIS im Einsatz habe. Okay, raten Sie nochmal! <B><A HREF="http://www.intel.com/">www.intel.com</A>
+    </B>nutzt den<B> <A HREF="http://home.netscape.com/comprod/server_central/product/fast_track/fast_track_data.html">Netscape
+            FastTrack Server</A></B>.Um meinen Eindruck zu untermauern, da&szlig; der
+    Microsoft IIS nicht schnell ist: Beim Test der G&uuml;ltigkeit der o. g.
+    Sites entdeckte ich, da&szlig; <A HREF="http://shop.tesco.co.uk/">Tesco</A>
+    am Montag, dem 22. Juni 1998 zwischen 00:02:53 und 00:53:07 GMT keine Anfrage
+    beantworten konnte. Ihr Server lieferte die Meldung "<B>HTTP/1.1 Server
+        Too Busy</B>" trotz meiner wiederholten Versuche aus meiner Domain und
+    von anderen Domains, in die ich mich per Telnet eingeloggt hatte. Der Server
+    konnte nie ihre Home-Page senden. Ich gab einfach auf, nachdem ich 50 Minuten
+    lang die gleiche Fehlermeldung auf verschiedenen Clients in diversen Domains
+    gesehen hatte. Ich habe diese Meldung bisher nur von IIS-Webservern erhalten.
+    <A HREF="http://shop.tesco.co.uk/">Tesco</A> benutzt den Microsoft-IIS/4.0.
+    Beim direkten Anmelden an ihrem Webserver &uuml;ber Telnet auf Port 80
+    entdeckte ich einen anderen unprofessionellen Aspekt ihrer Site. Trotz
+    der breiten Verf&uuml;gbarkeit von ntp-Servern weltweit ging ihre Systemuhr
+    8 Minuten und 51 Sekunden nach.
+
+<P><A NAME="win95"></A>F&uuml;r Windows 95 und NT-Anwender ist eine der
+    popul&auml;rsten Webseiten zum Download von Freeware und Shareware eine
+    Seite namens <B><A HREF="http://www.windows95.com">www.windows95.com</A></B>.
+    Wegen seiner gro&szlig;en Popularit&auml;t braucht diese Seite ein robustes
+    Betriebssystem und einen auf hohe Performance ausgerichteten Webserver.
+    Da die hier angebotene Software exklusiv f&uuml;r Windows 95 oder NT ist
+    und die allgemeine Stimmung dort in Richtung "pro-Microsoft" tendiert,
+    sollte man vermuten, da&szlig; NT-Server und der IIS die logische Konstellation
+    des Webservers ist. Also, hier ist <A HREF="http://www.windows95.com/about/faq.html">ein
+        Ausschnitt aus einer ihrer eigenen Webseiten</A>:
+<BLOCKQUOTE><B>Auf welcher Hard- und Software l&auml;uft Windows95.com?</B>
+    <BLOCKQUOTE>Wir nutzen Pentium-Pro-Computer, auf denen ein BSDI UNIX-Betriebssystem
+        mit dem Apache Webserver l&auml;uft. Unsere Server sind mit dem Internet
+        via T3-Verbindungen verbunden.
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+Anmerkung: Dieser Auszug ist vom Februar 1998. Der Name wurde k&uuml;rzlich
+von Windows95.com zu WinFiles.com ge&auml;ndert, obwohl sie weiterhin den
+windows95.com Domain-Namen nutzen. Diese &Auml;nderung fand im M&auml;rz
+1998 statt.
+
+<P>Zur &Uuml;berpr&uuml;fung der zu einer beliebigen Zeit laufenden Server
+    auf einer Internet-Site habe ich ein CGI-Script geschrieben, die Web-Server
+    und Mail Exchangers nach ihrer geladenen Software abfragt Dieses Tool k&ouml;nnten
+    Sie zu diesem und dem folgenden Thema passend finden.
+<CENTER><B><A HREF="http://www.kirch.net/cgi-bin/siteinfo">Womit l&auml;uft
+            diese Site?</A></B></CENTER>
+
+<HR>
+<H2>
+    <A NAME="mta"></A>Mailserver (MTAs)</H2>
+Dieser Abschnitt ist das Resultat meines Interesses an einer UseNet-Gruppe,
+deren Thema "Sendmail versus Microsoft Exchange Server" war. Passend zum
+Hauptanliegen dieses Artikels wird Exchange in NT-dominierten Umgebungen
+meist als Mail-Sever eingesetzt. Sendmail ist Bestandteil der meisten UNIX-Betriebssysteme.
+Es hat den Ruf, schwierig in der Konfiguration zu sein, aber dar&uuml;ber
+kann man bei Standardinstallationen diskutieren. Exchange hat allerdings
+andere mit ihm assoziierte Eigenschaften. Obwohl Exchange einige Funktionen
+bietet, die in generischen MTA's wie sendmail nicht vorhanden sind, beeintr&auml;chtigen
+sein Mangel an Robustheit und die vergleichsweise d&uuml;rftige Performance
+bei einem hohen E-Mail-Aufkommen sein &uuml;berst&uuml;rzt aufgekommenes
+Image.
+
+<P>Das Management einer gro&szlig;en Firma - bestehend aus "weit &uuml;ber
+    20.000 DV-Anwendern" -- beschlo&szlig; auf den Microsoft Exchange Server
+    umzustellen. Diese Entscheidung f&uuml;hrte zu allem, aber nicht zum Erfolg.
+    Die "Umstellung auf Exchange ist zu mehr als der H&auml;fte abgeschlossen",
+    aber um zu diesem Punkt zu kommen, wurden 3 Millionen Dollar ausgegeben.
+    Um mehr &uuml;ber dieses "bedeutende Problem mit 12.000 Anwendern und Hunderten
+    von Servern" zu erfahren, lesen Sie von der <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>
+    die Studie <B><A HREF="http://www.aberdeen.com/research/comp/onsite/case2/body.htm">Fallstudie:
+            Eine Zwickm&uuml;hle</A></B>.
+<H3>
+    <A NAME="mta-views"></A>Microsoft Exchange versus Sendmail: Ansichten anderer
+    IT-Fachleute</H3>
+<B>Ein anonymer Systemadministrator schreibt:</B>
+<BLOCKQUOTE>Exchange hat auch den "Vorteil", da&szlig; Sie an Microsoft
+    f&uuml;r jede Verbindung zum Server Lizenzgeb&uuml;hren zahlen m&uuml;ssen
+    (pro Sitzung). Sie k&ouml;nnen ein System aufbauen, z. B. mit einer Sun
+    Ultra 1 ($7000) und dem Solaris Internet Mail Server (wird mit Solaris
+    2.6 geliefert) und damit POP und IMAP f&uuml;r einige tausende Benutzer
+    bereitstellen. Ich habe noch keinen erz&auml;hlen h&ouml;ren, das dies
+    auch nur zum doppelten Preis mit NT-Servern und Exchange m&ouml;glich w&auml;re.
+</BLOCKQUOTE>
+<B>Brad Van Orden, System- und Netzwerkberater, schreibt:</B>
+<BLOCKQUOTE>. . . wie ich vorher erkl&auml;rte, wird der Betrieb von Exchange
+    Sie, wenn man einmal die Anschaffungskosten beiseite l&auml;&szlig;t, wesentlich
+    mehr kosten. Sie ben&ouml;tigen jemanden, der die Anwendung aktiv betreut.
+    Wenn Sie UNIX Mail nutzen, ist das Einzige, was Sie normalerweise tun m&uuml;ssen
+    das Anlegen oder Entfernen von Mail-Aliasen, solange die sendmail.cf korrekt
+    installiert ist. Das ist ein gewaltiger Unterschied bei den laufenden Kosten.
+</BLOCKQUOTE>
+<B>Tom Moore aus Dayton, Ohio schreibt:</B>
+<BLOCKQUOTE>Es scheint einen Trend zu geben, der alle Administratoren zu
+    "Dummies" erkl&auml;rt. Ich las gerade einen Artikel &uuml;ber Webserver,
+    in dem erkl&auml;rt wurde, da&szlig; der Apache Webserver, obwohl er im
+    Web dominiert, "wahrscheinlich nicht geeignet" f&uuml;r eine Firmennutzung
+    sei, da er nicht &uuml;ber eine GUI zur Administration verf&uuml;ge und
+    deshalb einen erfahrenen Administrator zur Konfiguration ben&ouml;tige.
+    Die Folgerung daraus scheint zu sein, da&szlig; allein eine GUI bedeutet,
+    einfach mit Klicken jede Administration und jedes Setup korrekt durchf&uuml;hren
+    zu k&ouml;nnen.
+
+    <P>Die selbe "Logik" wird wahrscheinlich beim Vergleich "sendmail vs MS
+        Exchange" angewandt. Weil sendmail eine Text-Konfigurationsdatei hat, braucht
+        es einen erfahrenen Administrator. Exchange hat eine GUI, also braucht
+        es keinen. Ich habe mit beiden gearbeitet und glaube es nicht. Beide sind
+        mit ihrer Default-Konfiguration einfach zu installieren. Beide erfordern
+        administrative Erfahrung zum Ausf&uuml;hren komplexerer Aufgaben. Wenn
+        Sie wirklich komplizierte Dinge, wie SPAM-Filter (<I>Filtern von Werbemail
+            - d. &Uuml;.</I>) realisieren wollen, k&ouml;nnen Sie das mit Exchange
+        nicht tun.</BLOCKQUOTE>
+<B>Ein Leser fand, da&szlig; mein Vergleich von MS Exchange mit MTAs unfair
+    ist:</B>
+<BLOCKQUOTE>"Exchange mit anderen beliebigen MTA's zu vergleichen ist eine
+    falsche Darstellung. Exchange ist kein MTA und wurde auch nie als solcher
+    vermarktet; er ist vielmehr ein Nachrichtenserver f&uuml;r Firmen."
+</BLOCKQUOTE>
+MS Exchange besitzt einige Funktionen, die in "generischen" MTAs nicht
+vorhanden sind; wie auch immer - dieser Artikel untersucht, welche Mail-Systeme
+mit den Betriebssystemen ausgeliefert werden. Die Antwort ist: F&uuml;r
+UNIX Sendmail; f&uuml;r Windows NT Server 4.0 keiner; wenn Sie eine Microsoft-L&ouml;sung
+wollen, sind Sie stark an Exchange Server gebunden.
+
+<P>Der Microsoft Exchange Server ist nicht der einzige Nachrichtenserver
+    mit dieser Funktionalit&auml;t. Lassen Sie uns einen Blick auf die Alternativen
+    von - f&uuml;r Firmen verf&uuml;gbaren - IMAP4-Servern werfen und sie vergleichen:
+<TABLE BORDER>
+    <TR>
+        <TH></TH>
+
+        <TH><A HREF="http://www.lotus.com/home.nsf/tabs/domino/">Lotus Domino 4.6a</A></TH>
+
+        <TH>Microsoft Exchange Server 5.0
+            <BR>Enterprise Edition
+        </TH>
+
+        <TH><A HREF="http://search.netscape.com/comprod/server_central/">Netscape
+                Suitespot Server 3.5</A></TH>
+    </TR>
+
+    <TR>
+        <TD>Unterst&uuml;tzte Plattformen:</TD>
+
+        <TD>AIX, HP-UX, Netware, OS/2, OS/400, Solaris, S/390, Windows NT, Windows
+            95
+        </TD>
+
+        <TD>Windows NT Server</TD>
+
+        <TD>AIX, Digital UNIX, HP-UX, IRIX, Solaris, Windows NT</TD>
+    </TR>
+
+    <TR>
+        <TD>Preis eines Servers mit 50 Client-Lizenzen</TD>
+
+        <TD ALIGN=CENTER>
+            <CENTER>$4.240&nbsp;</CENTER>
+        </TD>
+
+        <TD ALIGN=CENTER>
+            <CENTER>$4.859&nbsp;</CENTER>
+        </TD>
+
+        <TD ALIGN=CENTER>
+            <CENTER>$4.100&nbsp;</CENTER>
+        </TD>
+    </TR>
+</TABLE>
+Versuchen Sie diesen <B><A HREF="http://search.netscape.com/comprod/server_central/product/pricing/comparison.html">Verweis</A></B>
+um einen detaillierteren Preisvergleich zu erhalten.&nbsp;
+<HR>
+<H2>
+    <A NAME="conclusion"></A>Schlu&szlig;folgerung</H2>
+Ironischerweise scheint nach den Beobachtungen erfahrener Systemadministratoren
+UNIX das Betriebssystem der Wahl sowohl f&uuml;r Installationen mit knappen
+Budgets als auch f&uuml;r gro&szlig;e Unternehmen mit der Forderung nach
+Hochleistungs-Multiprozessor-Servern, welche ein skalierbares Betriebssystem
+ben&ouml;tigen, zu sein. Die <I>Washington Post</I> Korrespondentin Elizabeth
+Corcoran zeigt uns ein reales Beispiel:
+<BLOCKQUOTE>Die Firma "Cincinnati Bell Information Systems" setzt zum Beispiel
+    Sun-Workstations und Server seit etlichen Jahren zur Rechnungsverarbeitung
+    ein. Sie kaufte k&uuml;rzlich einige Hochleistungsserver von Sun, um 1
+    Million Rechnungen t&auml;glich verarbeiten zu k&ouml;nnen. Die Wahl, sagte
+    James Holtman, CBIS Vizepr&auml;sident, bestand zwischen Sun-Servern oder
+    IBM-Mainframes. Microsoft's Technologie "ist noch nicht soweit. Sie haben
+    noch einen Weg zu gehen, um mit Systemen dieser Gr&ouml;&szlig;e mithalten
+    zu k&ouml;nnen", sagte er.
+    <BR>(<I>The Washington Post</I>, Sunday, February 8, 1998; Page H01)
+</BLOCKQUOTE>
+Vorausgesetzt, es handelt sich um eine kleine bis mittlere Firma, die nur
+wenige kritische Anwendungen laufen l&auml;&szlig;t, gewillt ist, zus&auml;tzliche
+Administratoren f&uuml;r ihre(n) Microsoft Exchange und Internet Information
+Server einzustellen und ein ausreichendes Budget f&uuml;r Microsofts "pro
+Server" oder "pro Arbeitsplatz" Lizenzschema hat, dann w&auml;re NT das
+Betriebssystem der Wahl. Die <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>
+hat eine exzellente <B>Fallstudie zur Migration nach Windows NT </B>ver&ouml;ffentlicht.
+
+<P>NT ist auch eine exzellente Wahl f&uuml;r Manager, die nachweisen m&uuml;ssen,
+    da&szlig; sie ihr Jahresbudget f&uuml;r Hard- und Softwareausgaben aufgebraucht
+    haben. Wahrscheinlich, weil daf&uuml;r keine vorherige Kaufgenehmigung
+    vorliegen mu&szlig;, ist "NT zum 'inoffiziellen' Standard-Betriebssystem
+    der Bundesregierung (<I>der USA - d. &Uuml;.</I>) geworden. Bundesbeamte,
+    zu deren Aufgaben die Beschaffung von Computerhard- und Software geh&ouml;rt,
+    ben&ouml;tigen eine vorherige schriftliche Bewilligung von oben, um UNIX-Betriebssysteme
+    oder Hardware, die nicht mit Windows NT l&auml;uft, bestellen zu k&ouml;nnen.
+    F&uuml;r Intel-Hardware oder Windows NT ist diese Bewilligung nicht n&ouml;tig."
+    (berichtet von einem Anbieter von Sun-L&ouml;sungen, der anonym bleiben
+    m&ouml;chte)
+
+<P>F&uuml;r kleine Gesch&auml;fte und Power-User mit begrenztem Budget,
+    oder f&uuml;r mittlere und gro&szlig;e Firmen, die anfangen, die antiquierte
+    Meinung zu vergessen, da&szlig; der beste Ma&szlig;stab f&uuml;r die Performance
+    die Endsumme auf der Rechnung ist, kann Linux oder FreeBSD leicht die Leistung
+    und Funktionalit&auml;t einer NT-L&ouml;sung &uuml;berbieten, und zwar
+    mit billiger Intel-Hardware und zu einem Preis von $0,00, den Bill Gates
+    schwerlich unterbieten kann. Warum in ein Betriebssystem investieren, da&szlig;
+    intensive Schulung und Weiterbildung mit jedem neuen NT-Release erfordert?
+    UNIX/Linux-Administratoren gibt es reichlich und sie sind in der Regel
+    technisch versierter als ihre NT-Pendanten (die meisten UNIX-Administratoren
+    haben einige Programmier- und Skript-Kenntnisse, die man selten bei der
+    neuen Generation von "NT admins" findet). Warum &uuml;ber $5.000 f&uuml;r
+    den MS Exchange Server ausgeben (dieser Preis beinhaltet nur 50 Client-Zugriffe)
+    wie in einigen Firmen, nur um die E-Mail einiger hundert Besch&auml;ftigter
+    zu bearbeiten, wenn Sie den eingebauten "Sendmail"-Mailserver von Linux
+    nutzen k&ouml;nnen - einer gepr&uuml;ften und bew&auml;hrten Anwendung,
+    welche die E-Mail von tausenden Besch&auml;ftigten bew&auml;ltigen kann?
+
+<P>Von der Gesamtheit der Funktionen und der Performance her gewinnt UNIX
+    anscheinend m&uuml;helos. Es bietet eine Vielzahl von Anbietern (keine
+    Gefahr eines Monopols), Skalierbarkeit, effektivere Nutzung der Systemressourcen,
+    Fernbetreuung, Fernbedienung (<I>Nutzung per Modem oder ISDN - d. &Uuml;.</I>),
+    Multiuser-F&auml;higkeit, eine gro&szlig;e Palette von (professionellen)
+    Software-Ressourcen, anbieterunabh&auml;ngige Standards (POSIX), Limitierung
+    der Festplattenauslastung durch die Benutzer (im Gegensatz zu NT) und es
+    kann nicht zum Absturz gebracht werden durch Viren, die 10 Jahre vorher
+    f&uuml;r DOS-Computer geschrieben wurden. Aber das Wichtigste, an das man
+    sich aus diesem Artikel erinnern sollte, wenn man sich zwischen Windows
+    NT und einem der vielen UNIX-Betriebssysteme entscheiden mu&szlig;, ist
+    dies:
+    <BLOCKQUOTE><B>UNIX</B>-Betriebssysteme lassen Ihnen die <B>Wahl</B>: (nahezu)
+        beliebige Hardware, CLI (<I>kommandozeilenorientierte Oberfl&auml;che -
+            d. &Uuml;.</I>) oder GUI (<I>grafische Oberfl&auml;che - d. &Uuml;.</I>),
+        kommerziell oder GNU (<I>frei verf&uuml;gbar - d. &Uuml;.</I>), Auswahl
+        zwischen verschiedenen Anbietern. UNIX ist <B>dynamisch</B>, d. h. Sie
+        k&ouml;nnen einen Kernel erzeugen, der genau Ihren Systemanforderungen
+        entspricht.
+
+<P><B>Windows NT</B> gibt Ihnen <B>Restriktionen</B>: nur Intel- oder Alpha-Hardware;
+    kein CLI, nur GUI (versuchen Sie mal, NT im CLI-Mode zu booten!) und dann
+    nur eine GUI (keine Auswahl an Oberfl&auml;chen wie unter X); nur kommerzielle
+    MTAs, nur Microsoft (oder haben Sie jemals von einem "NT Server clone"
+    geh&ouml;rt?), usw. Der NT Server ist <B>statisch</B>, d. h. Sie k&ouml;nnen
+    keine Kernelanpassungen vornehmen. Eine einzige Gr&ouml;&szlig;e pa&szlig;t
+    selten.</BLOCKQUOTE>
+    Obwohl Microsoft nicht der einzige "Restriktionen-orientierte" Softwarehersteller
+    ist, der nur seine eigenen propriet&auml;ren L&ouml;sungen unterst&uuml;tzt,
+    sollte man hoffen, da&szlig; Organisationen, die offene Systeme unterst&uuml;tzen
+    &uuml;berwiegen. Netscape ist ein Anbieter, der verschiedene Systeme unterst&uuml;tzt
+    und auf Microsoft's Politik der Beschr&auml;nkung und fehlenden Wahl bez&uuml;glich
+    verschiedener Produkte hinweist:
+<BLOCKQUOTE>"[Unsere] Strategie steht in scharfem Kontrast zu Herstellern
+    wie Microsoft, deren Gesch&auml;ftsmodell vom Anwender den Upgrade auf
+    die jeweils aktuellste Version des Betriebssystems fordert. Man mu&szlig;
+    bedenken, da&szlig; Microsoft's Component model, ActiveX und die zugrundeliegenden
+    Komponenten nur f&uuml;r 32-Bit-Windows entwickelt wurden. Viele Microsoft-APIs
+    (<I>Programmierschnittstellen - d. &Uuml;.</I>) laufen ebenfalls nur auf
+    32-Bit Windows. Eine Anwendung beispielsweise, die ADSI (Microsoft's API
+    zum Zugriff auf das LDAP Verzeichnisprotokoll) nutzt, wird auf den existierenden
+    Win16-Clients nicht funktionieren, noch weniger auf Macintosh oder Unix-Systemen.
+    Netscape's LDAP API ist f&uuml;r 17 Plattformen in C und f&uuml;r viele
+    mehr in Java verf&uuml;gbar. Au&szlig;erdem funktionieren Microsoft's zuk&uuml;nftige
+    Dienste wie "Viper's" Transaktionsverarbeitung und "Falcon's" Nachrichtendienst
+    nur unter NT 5.0 - eine Oracle- Datenbank unter Unix zum Beispiel wird
+    nicht unterst&uuml;tzt. Der Unterschied ist klar: Mit Microsoft programmieren
+    die Entwickler f&uuml;r Windows-Plattformen, mit Netscape schreiben sie
+    f&uuml;r das Internet."
+    <BR>-- Netscape, <A HREF="http://developer.netscape.com/docs/wpapers/crossware/#advantages">Netscape
+        ONE Advantage</A></BLOCKQUOTE>
+Es scheint so, als w&auml;re die Frage nach der Wahl des passenden Betriebssystems
+eine rein akademische, aber jeden Tag erf&auml;hrt irgendwo ein hochqualifizierter
+System- oder Netzwerkadministrator von seinem Vorgesetzten, da&szlig; die
+Firma auf Windows NT umstellt. Der Administrator ist sprachlos und verwirrt,
+weil er die Informationen dieses Artikel bereits kennt. Es ist das Management
+der Unternehmen, das diesen Artikel lesen sollte. Viel zu oft schaukelt
+das Management das Boot und zerst&ouml;rt die Harmonie der stabilen, &ouml;konomischen
+und technisch &uuml;berlegenen Implementationen, um dann pl&ouml;tzlich
+festzustellen, da&szlig; ein unerprobtes System einige Zeit in Gebrauch
+war - einzig und allein aus politischen Gr&uuml;nden:
+<BLOCKQUOTE>"Der IT-Manager des Unternehmens fragt eines Tages nach der
+    Box in der Ecke und man erz&auml;hlt ihm da&szlig; es der Abteilungs-Webserver
+    sei, der seit ein und einem halben Jahr laufe, und nebenbei: er laufe unter
+    Linux. Eine normale Reaktion ist das sofortige Upgrade auf NT, aber was
+    dann passiert, ist die R&uuml;ckkehr zu Linux, weil die Performance zusammenbricht."
+    <BR>-- <A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">Linus
+        Torvalds spricht &uuml;ber die Wirtschaft und Betriebssysteme</A>, InfoWorld,
+    April 9, 1998.
+</BLOCKQUOTE>
+Diese Art von Vorfall ereignete sich bei <B><A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco
+        Systems Inc.</A></B> aber entgegen der Anweisung des Managements, zu NT
+zu wechseln, wird weiter Linux eingesetzt (dazu die <B><A HREF="#cisco">Einzelheiten</A></B>).
+Offensichtlich wurde diese Anweisung von einigen Mitarbeitern der IT-Abteilung
+abgelehnt. Was denken Sie: Warum riskierten diese Mitarbeiter ihren Job
+wegen dieses Falls? Ich &uuml;berlasse die Antwort Ihnen.
+
+<P>Wenn Sie Manager sind, dann versuchen Sie die Informationen dieses Artikels
+    beim Ausbau Ihrer DV zu Ihrer Unterst&uuml;tzung zu nutzen. Sprechen sie
+    mit den Technikern und fragen Sie, was funktioniert. Treffen Sie die richtige
+    Entscheidung. Lassen Sie sich nicht durch Verk&auml;ufer verwirren, die
+    Schlagworte benutzen aber sie nicht erkl&auml;ren k&ouml;nnen, lassen Sie
+    nur ihre Relevanz f&uuml;r die Belange <I>Ihrer Firma</I> erkl&auml;ren.
+    Suchen Sie Firmen, die sowohl Microsoft- <I>als auch</I> UNIX-Server f&uuml;r
+    die Art von Anwendungen im Einsatz haben, die Sie brauchen. Versuchen Sie,
+    von ihren Technikern objektive Erfahrungsberichte &uuml;ber die Machbarkeit,
+    Schwierigkeiten bei der Implementation, Anfangs- und laufende Wartungskosten
+    zu erhalten.&nbsp;
+<HR>
+<H2>
+    <A NAME="compare"></A>Linux und NT Server 4.0 im &Uuml;berblick</H2>
+Weil NT oft als Basis f&uuml;r kosteng&uuml;nstige Hardware-L&ouml;sungen
+gew&auml;hlt wird, soll Linux das UNIX-System in diesem Vergleich sein,
+da es auf Intel-Hardware l&auml;uft.
+
+<P>Hinweis: Nur die Features, die aktuell mit jedem Betriebssystem <I>geliefert</I>
+    werden, sind hier aufgef&uuml;hrt. Perl 5.0 ist zum Beispiel f&uuml;r alle
+    Plattformen verf&uuml;gbar, aber Microsoft vertreibt es nicht mit seinen
+    Betriebssystemen. Aus dem selben Grund: Die meisten Linux-Distributionen
+    werden nur mit 4 GUIs (grafischen Benutzeroberfl&auml;chen) zur Auswahl
+    ausgeliefert, obwohl Sie aus einem fr&uuml;heren Abschnitt dieses Artikels
+    wissen, da&szlig; dies nur eine kleine Auswahl der m&ouml;glichen GUIs
+    von Linux oder einem anderen UNIX-System ist.
+<TABLE BORDER WIDTH="100%">
+    <TR>
+        <TD WIDTH="33%"><B>Komponente</B></TD>
+
+        <TD WIDTH="33%"><B>Linux</B></TD>
+
+        <TD WIDTH="34%"><B>Windows NT Server 4.0</B></TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Betriebssystem</TD>
+
+        <TD WIDTH="33%">Frei, oder ca. $49,95 f&uuml;r eine CD-ROM-Distribution</TD>
+
+        <TD WIDTH="34%">5-User Version $809
+            <BR>10-User Version $1.129
+            <BR>Enterprise Edition 25-User Version $3.999
+        </TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Kostenloser techn. Online-Support</TD>
+
+        <TD WIDTH="33%">Ja, <A HREF="http://www.linux.org/help/howto.html">Linux
+                Online</A> oder <A HREF="http://www.redhat.com/">Redhat</A></TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Kernel-Quellcode</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Web Server</TD>
+
+        <TD WIDTH="33%">Apache Web Server</TD>
+
+        <TD WIDTH="34%">IIS</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">FTP Server</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Ja</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Telnet Server</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">SMTP/POP3 Server</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">DNS</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Ja, wobei von einer Implementation mit begrenzten Funktionen
+            berichtet wird
+        </TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Netzwerk</TD>
+
+        <TD WIDTH="33%">TCP/IP, IPv6, NFS, SMB, IPX/SPX, NCP Server (NetWare Server),
+            AppleTalk und viele andere Protokolle
+        </TD>
+
+        <TD WIDTH="34%">TCP/IP, SMB, IPX/SPX, AppleTalk und viele andere Protokolle</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">X Window Server
+            <BR>(Um entfernte GUI-basierte
+            <BR>Anwendungen laufen zu lassen)
+        </TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Remote Management Tools</TD>
+
+        <TD WIDTH="33%">Ja, alle Tools</TD>
+
+        <TD WIDTH="34%">Nur "User Manager for Domains"&nbsp;
+            <BR>und "Server Manager"
+        </TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">News Server</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">C und C++ Compiler</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Perl 5.0</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Revision Control</TD>
+
+        <TD WIDTH="33%">Ja, <A HREF="http://sunsite.unc.edu/LDP/HOWTO/mini/RCS.html">RCS</A></TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Anzahl unterst&uuml;tzter Dateisysteme</TD>
+
+        <TD WIDTH="33%">32</TD>
+
+        <TD WIDTH="34%">3</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Unterst&uuml;tzung von Plattenlimits</TD>
+
+        <TD WIDTH="33%">Ja</TD>
+
+        <TD WIDTH="34%">Nein</TD>
+    </TR>
+
+    <TR>
+        <TD WIDTH="33%">Anzahl GUI's zur Auswahl</TD>
+
+        <TD WIDTH="33%">4</TD>
+
+        <TD WIDTH="34%">1</TD>
+    </TR>
+</TABLE>
+
+<HR>
+<H2>
+    <A NAME="bigguys"></A>Was setzen gro&szlig;e Firmen ein?</H2>
+<B><A HREF="http://www.amazon.com/">Amazon.com</A></B>
+
+<P>Amazon.com Books, der weltweit gr&ouml;&szlig;te Online-Buchversand,
+    verl&auml;&szlig;t sich auf DIGITAL UNIX und AlphaServer-2000-Systeme,
+    um ihr Internetgesch&auml;ft rund um die Uhr zu gew&auml;hrleisten. DIGITAL-VLM64-Technologie
+    h&auml;lt die Daten jederzeit f&uuml;r die Kunden bereit. "Die weitreichenden
+    F&auml;higkeiten der DIGITAL-AlphaServer-Serie als Webserver, gekoppelt
+    mit einem reibungslosen Upgrade-Pfad, bot die perfekte L&ouml;sung f&uuml;r
+    unser rapide wachsendes Gesch&auml;ft."
+
+<P><B><A HREF="http://www.boeing.com/">Boeing</A></B>
+
+<P>Betriebssysteme: HP-UX, IRIX, Solaris, und mehr NT als einige der IT-Fachleute
+    bevorzugen.
+    <BR><A HREF="#boeing"><B>Lesen Sie, was Linus Torvalds zu Boeing zu sagen
+            hat!</B></A>
+    <BR>Webserver: Netscape-Enterprise 2.01
+
+<P>The <B><A HREF="http://www.dallascowboys.com">Dallas Cowboys</A></B>
+
+<P>Betriebssysteme: <B><A HREF="http://www.sgi.com/Products/hardware/servers/products/Irix.html">IRIX</A></B>
+    (Silicon Graphics UNIX Betriebssystem) und UNIX System V Release 4.0
+    <BR>MTA: Netscape Messaging Server 3.01
+    <BR>Web: Netscape-Enterprise 3.0
+
+<P><B><A HREF="http://www.dow.com/">Dow Corning</A></B>
+
+<P>"Wir operieren global und haben immer Mainframes genutzt. Auf Sun zu
+    setzen war ein h&ouml;heres Risiko als andere Alternativen, aber sie haben
+    uns mit ihrer Technologie und ihrem Engagement wirklich &uuml;berzeugt.
+    Nachdem wir nun mit Sun arbeiten, w&uuml;rden wir uns auf keinen Fall anders
+    entscheiden, wenn wir dieselbe Entscheidung noch einmal treffen m&uuml;&szlig;ten.
+    Sun leistet ausgezeichnete Arbeit."
+    <BR>-- Mark Smith, Manager of Information Technology Systems, Dow Corning
+
+<P><A NAME="ms-solaris" HREF="http://www.hotmail.com"></A><B><A HREF="http://www.hotmail.com"
+                                                                NAME="ms-solaris">Hotmail</A></B>,
+    nun zur <B><A HREF="http://www.microsoft.com">Microsoft Corporation</A></B>
+    geh&ouml;rend.
+
+<P>Dieser kostenlose, Web-basierende E-Mail-Service l&auml;uft auf einem
+    Mix aus Sun Solaris und FreeBSD. Apache 1.2.1 ist der Web-Server. Nachdem
+    Microsoft die Firma im Dezember 1997 kaufte, versuchten sie auf NT zu migrieren,
+    aber ". . . die Forderung, 10 Millionen Benutzer zu bedienen, &uuml;berforderte
+    NT nachweislich und Solaris wurde reinstalliert." Lesen Sie die komplette
+    Geschichte: <A HREF="http://www.kirch.net/unix-nt/hotmail.html">Solaris
+        calls Hotmail shots for Microsoft</A>.
+
+<P><A NAME="usps" HREF="http://www.usps.gov/"></A><B><A HREF="http://www.usps.gov/" NAME="usps">Der
+            Postdienst der Vereinigten Staaten</A></B>
+
+<P>"Die Post der USA betreibt mehr als 900 Linux-basierte Systeme seitdem
+    die USA 1997 die automatische Erkennung der Zieladressen auf Postst&uuml;cken
+    einf&uuml;hrten. Jedes System besteht aus 5 Pentium Pro 200MHz (PP200)-Doppelprozessorsystemen
+    und einem Einprozessor-Rechner PP200, auf denen &uuml;berall Linux l&auml;uft."
+    <BR>-- John Taves, <A HREF="http://members.aa.net/~jtaves/linux.htm">Linux
+        liest Ihre Post</A>, April 8, 1998
+
+<P><B><A HREF="http://www.yahoo.com">Yahoo!</A></B>
+
+<P>". . . Ein paar Tage sp&auml;ter f&uuml;gten wir einen FreeBSD-Rechner
+    zu unserem Webserver-Cluster hinzu. Er war nicht nur schneller als der
+    Rest unserer Maschinen, er war auch stabiler. Nach einigen Wochen dieses
+    Experiments waren wir begeistert. Obwohl der Preis sicher attraktiv war,
+    waren es die Stabilit&auml;t, Performance und die Verf&uuml;gbarkeit des
+    Source-Codes, die uns begeisterten. Seitdem nutzen wir FreeBSD fast ausschlie&szlig;lich
+    sowohl f&uuml;r die Produktion als auch f&uuml;r unsere Entwicklungsumgebung."
+    <BR>-- David Filo, Mitbegr&uuml;nder von Yahoo! (<I>FreeBSD News</I>, Issue
+    1)
+
+<P>Diese Liste der <B><A HREF="http://www.m-tech.ab.ca/linux-biz/">Unternehmen,
+            die Linux in ihrer t&auml;glichen Arbeit nutzen</A></B>, versucht die &Ouml;ffentlichkeit
+    &uuml;ber Linux als m&ouml;gliche Alternative zu kommerziellen UNIX-Betriebssystemen
+    zu informieren. Firmen wie <B><A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco
+            Systems Inc.</A></B>, <B><A HREF="http://www.m-tech.ab.ca/linux-biz/sony.html">Sony
+            WorldWide Networks</A></B>, <B><A
+            HREF="http://www.m-tech.ab.ca/linux-biz/mercedes.html">Mercedes-Benz</A></B>,
+    und <B><A HREF="http://www.m-tech.ab.ca/linux-biz/taxi1.html">Yellow Cab
+            Service Corporation</A></B> sind erw&auml;hnt. Eine Beschreibung des Umfanges,
+    in dem Linux eingesetzt wird, begleitet jede Firmen-Seite.
+
+<P><A NAME="cisco"></A>InfoWorld berichtete j&uuml;ngst &uuml;ber die M&ouml;glichkeit,
+    da&szlig; <B><A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco
+            Systems Inc.</A></B> von Linux zu Windows NT wechseln w&uuml;rde:
+<BLOCKQUOTE>"Zum Thema Plattformwechsel: Cisco Systems wechselt m&ouml;glicherweise
+    sein internes Druckserver-Netzwerk. Offenbar basiert die heutige Infrastruktur
+    auf Linux und arbeitet sehr gut, dies war f&uuml;r die "obere Etage" jedoch
+    kein Grund, sie nicht &uuml;ber den Haufen zu werfen. Mir wurde erz&auml;hlt,
+    da&szlig; im Lichte der immer w&auml;rmeren Beziehungen von Cisco mit Microsoft
+    das Management die Aufgabe stellte, das bestehende System zugunsten eines
+    Windows NT-basierten zu verwerfen. Es wird gesagt, da&szlig; die Tr&auml;gheit
+    gewonnen hat und trotz der Order von oben das Druckersystem heute - Sie
+    ahnen es - Linux-basiert ist."
+    <BR>-- Robert X. Cringley, "Kein Sonntag im Park: Der Regen sp&uuml;lt
+    Plattformen in den Abgrund," in: <A HREF="http://www.infoworld.com/">InfoWorld</A>,
+    February 23, 1998, vol. 20, issue 8, p. 115.
+</BLOCKQUOTE>
+<A NAME="boeing"></A>Linus Torvalds, der Begr&uuml;nder von Linux, meinte
+in einem Interview mit InfoWorld, da&szlig; Linux oft auf der "inoffiziell
+anerkannten Liste" einiger Firmen stehen kann:
+<BLOCKQUOTE>"Aber nur wenige Leute sind bereit offen zuzugeben, da&szlig;
+    sie Linux einsetzen. Die <B><A HREF="http://www.hq.nasa.gov/">NASA</A></B>
+    unterst&uuml;tzt offen Linux, genau wie Universit&auml;ten. Ich wei&szlig;,
+    da&szlig; Linux an Stellen wie <B><A HREF="http://www.boeing.com/">Boeing</A></B>
+    eingesetzt wird, aber ich kann die Leute auf keine Webseite hinweisen,
+    die dies best&auml;tigt."
+    <BR>-- <A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">Linus
+        Torvalds spricht &uuml;ber die Wirtschaft und Betriebssysteme</A>, InfoWorld,
+    April 9, 1998.
+</BLOCKQUOTE>
+
+<HR>
+<H2>
+    <A NAME="links"></A>Verwandte Verweise</H2>
+<B><A HREF="http://cnnfn.com/hotstories/washun/9807/23/senate/">Foes fire
+        at Microsoft</A></B>
+<BR><B>"<A HREF="http://www.real.com/">RealNetworks</A> exec tells Senate
+    panel software giant 'breaks' his product"</B>
+<BR>by staff writer John Frederick Moore, <A HREF="http://cnnfn.com/">CNN
+    Financial Network</A>, 23 July 1998.
+
+<P><B><A HREF="http://www.bootnet.com/youaskedforit/lip_linux_manifesto.html">Linux
+            manifesto</A></B> (A <B><A HREF="http://www.bootnet.com/boot.html">boot</A></B>
+    interview with Linus Torvalds)
+
+<P><B><A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980717.whorlinux.htm">Oracle
+            to port database to Linux after all</A></B>
+    <BR>by Paul Krill, <A HREF="http://www.infoworld.com/">InfoWorld Electric</A>,
+    17 July 1998.
+
+<P><B><A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980717.whinformix.htm">Informix
+            gets set to embrace Linux</A></B>
+    <BR>by Paul Krill, <A HREF="http://www.infoworld.com/">InfoWorld Electric</A>,
+    17 July 1998.
+
+<P><B><A HREF="http://www.zdnet.com/zdnn/stories/zdnn_smgraph_display/0,3441,2120879,00.html">NT:
+            One step forward, two steps back</A></B>
+    <BR>by Mary Jo Foley, <A HREF="http://www.zdnet.com/zdnn/">ZDNN</A>, 20
+    July 1998.
+
+<P><B><A HREF="http://www.techweb.com/se/directlink.cgi?INW19980427S0003">NT
+            Needs Patch To Comply With Y2K</A></B>
+    <BR>by Ellis Booker, <A HREF="http://www.techweb.com/">TechWeb</A> (InternetWeek,
+    issue 712), 27 April 1998.
+
+<P><B><A HREF="http://www.isdmag.com/Editorial/1998/CoverStory9807.html">Engineers
+            Speak Out: Linux vs. Windows NT, Part 1</A></B>
+    <BR>by Murry Shohat, <A HREF="http://www.isdmag.com/"><I>Intergrated System
+            Design</I> Magazine</A>, July 1998.
+
+<P><B><A HREF="http://www.pcquest.com/editorial/edit-may98.html">The "Decline"
+            and Rise of Unix</A></B>
+    <BR>by Prasanto K. Roy, <A HREF="http://www.pcquest.com/">PC Quest</A>.
+
+<P><B><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/">NT Lies</A></B>
+    <BR>by Ed Bott, <A HREF="http://www.zdnet.com/">ZDNet</A>, July 1997.
+
+<P><B><A HREF="http://slashdot.org/articles/9804211730214.shtml">Sun Joins
+            Linux International</A></B>
+    <BR><A HREF="http://slashdot.org/">Slashdot</A>, 21 May 1998.
+
+<P><B><A HREF="http://slashdot.org/articles/980529098226.shtml">Update
+            on Sun joining Linux International</A></B>
+    <BR><A HREF="http://slashdot.org/">Slashdot</A>, 29 May 1998.
+
+<P><B><A HREF="http://earthspace.net/~esr/writings/cathedral-paper.html">The
+            Cathedral and the Bazaar</A></B>
+    <BR>by Eric S. Raymond, 29 January 1998.
+
+<P><B><A HREF="http://www.aberdeen.com/research/comp/viewpnts/1997/v10n20/97090178.htm">Microsoft:
+            The Joker of Enterprise IS Computing</A></B>
+    <BR>by The <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>,
+    Executive Viewpoint, Volume 10 / Number 20, September 29, 1997.
+
+<P><B><A HREF="http://www.aberdeen.com/research/comp/whtpaper/1998/98031201.htm">Interoperability:
+            Possibility or Elusive Dream? -- An Executive White Paper</A></B>
+    <BR>by The <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>,
+    March 1998.
+
+<P><B><A HREF="http://www.aberdeen.com/research/comp/onsite/case1/body.htm"><I>OnSite</I>
+            - Case Study: Migration Migraines</A></B>
+    <BR>by The <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>,
+    1997.
+
+<P><B><A HREF="http://www.aberdeen.com/research/comp/onsite/case2/body.htm">Case
+            Study: Horns of a Dilemma</A></B>
+    <BR>by The <B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>.
+
+<P><B><A HREF="http://cwlive.cw.com:8080/home\online9697.nsf/All/970724windows">Windows
+            NT no match for UNIX, IDC says</A></B>
+    <BR>by Rob Guth, <B><A HREF="http://www.computerworld.com">Computerworld</A></B>,
+    7-24-97.
+
+<P><B><A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/np102896.htm">It
+            will take less drive to make most PC operating systems work like Unix</A></B>
+    <BR>by Nicholas Petreley, <A HREF="http://www.infoworld.com/">InfoWorld</A>,
+    28 October 1996.
+
+<P><B><A HREF="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.win3.htm#linux">1997
+            Product of the Year Award: Operating Systems - Network Operating System</A></B>
+    <BR>by Eric Hammond, <A HREF="http://www.infoworld.com/">InfoWorld</A>
+    Test Center.
+
+<P><B><A HREF="http://www.infoworld.com/cgi-bin/displayTC.pl?/97poy.supp.htm">1997
+            Product of the Year Award: Best Technical Support Award</A></B>
+    <BR>by Ed Foster, <A HREF="http://www.infoworld.com/">InfoWorld</A> Test
+    Center.
+
+<P><B><A HREF="http://odin.appliedtheory.com/linux-activism/">Linux Reviews
+            and Articles</A></B> by Christopher Blizzard.
+    <BR>This page lists 65 articles or reviews of Linux.
+
+<P><B><A HREF="http://currents.net:80/magazine/national/1524/inet1524.html">Linux
+            Grows Up: Red Hat's commercial Linux beats NT at its own game</A></B>,
+    by Maggie Biggs.
+    <BR>The author is a senior analyst in the <A HREF="http://www.infoworld.com/">InfoWorld</A>
+    Test Center. She specializes in database technology and application design,
+    development, and deployment via intranets and other networks.
+
+<P><B><A HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">Linux
+            lines up for the enterprise: Is there a place in your shop for this inexpensive
+            UNIX?</A></B>
+    <BR>by Rick Cook, in: <A HREF="http://www.sun.com/sunworldonline/swol-01-1998/">SunWorld
+        - January 1998</A>.
+
+<P><B><A HREF="http://www.nwfusion.com/intranet/0330linux.html">Lookin'
+            into Linux</A></B>
+    <BR>by Mark Gibbs, Network World, March 30, 1998.
+
+<P><B><A HREF="http://guide.sbanetweb.com/press/nw818.html">Doing the math
+            to resolve the NT vs. UNIX debate</A></B>
+    <BR>by Wayne Spivak, Network World, August 18, 1997
+
+<P><B><A HREF="http://www.iserver.com/servers/compare/bsd_vs_nt.html">The
+            advantages of using BSDI BSD/OS over Windows NT Server</A></B>
+    <BR>iServer - Verio Web Hosting Inc. - Virutal Servers
+
+<P><B><A HREF="http://www.zdnet.com/sr/business/opportunity/980211b.html">Linux:
+            Not Just For Geeks And College Kids Anymore</A></B>, by Jason Perlow, <A
+        HREF="http://www.zdnet.com/">ZDNet</A>,
+    February 11, 1998.
+
+<P><B><A HREF="http://www.zdnet.com/pcmag/issues/1613/pcmg0068.htm">Leaning
+            Toward Linux: Powerful, robust, and free, Linux is worth investigating,
+            especially if you plan to set up an Internet domain</A></B> by Neil Randall,
+    <A HREF="http://www.zdnet.com/pcmag/issues/1613/contents.htm">ZDNet - PC
+        Magazine Online, July 1997, Vol 16, No. 13.</A>
+
+<P><B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html">Replacing
+            Windows NT Server with Linux</A></B> by Quinn P. Coldiron, Information
+    Systems Department manager for the University of Nebraska Press.
+
+<P><B><A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">An
+            In-Depth Analysis of Five Commercial UNIX Operating Systems and Windows
+            NT Server 4.0 (Enterprise Edition) by D.H. Brown Associates, Inc.</A></B>
+
+<P><B><A HREF="http://www.bsdi.com/white-papers/compare">Comparing BSDI
+            and NT: Building Intranet and Internet Servers with BSDI and Windows NT</A></B>
+
+<P><B><A HREF="http://www.standishgroup.com/syst.html">The Standish Group
+            - SUN Also Rises: Solaris Vs. NT</A></B>
+
+<P><B><A HREF="http://www.bitwizard.nl/unixnt.html">BitWizard B.V. "UNIX
+            vs. NT"</A></B>
+
+<P><B><A HREF="http://pubsys.cmp.com/nc/701/701hreportb.html">THE H-REPORT:
+            Which Operating System For Your 'Intranet'?</A></B>
+
+<P><B><A HREF="http://www.ssc.com/lj/issue46/2494.html">Linux Helps Bring
+            <I>Titanic</I> to Life</A></B>
+    <BR>Daryll Strauss, <A HREF="http://www.ssc.com/lj/">LINUX Journal</A>,
+    <A HREF="http://www.ssc.com/lj/issue46/">Issue #46</A>, February 1998.&nbsp;
+<HR ALIGN="CENTER" -1>
+<CENTER><A HREF="http://www.lot-germany.com/index.htm">Zur Homepage der
+        LOT Software GmbH, Hamburg</A>&nbsp;
+    <HR ALIGN="CENTER" -1>
+</CENTER>
+</div>
+</BODY>
+</HTML>

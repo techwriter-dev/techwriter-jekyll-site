@@ -1,0 +1,264 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+   <META NAME="description" CONTENT="UNIX versus Windows NT -Information every manager should know when planning a corporate network or the purchase of server hardware.">
+   <META NAME="keywords" CONTENT="NT vs UNIX, UNIX vs NT, NT vs. UNIX,UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail,exchange server, microsoft, smp, aix, hp-ux, digital unix, solaris,freebsd, bsdi, linux, windows nt, corporate network, mail servers,operating systems, cost effective solutions, mission criticaloperations, sendmail, apache, iis, system administration, microsoft">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [tw] (Win95; I) [Netscape]">
+   <TITLE>當Microsoft Windows NT Server 4.0 對上 UNIX</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" leftmargin="50" TEXT=#0000FF>
+<CENTER><A HREF=http://www.okstation.com><IMG SRC=okstation-roadsign.gif border=0></A></CENTER>
+<HR>
+<CENTER>
+<A HREF=unix-nt-04.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-06.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+<A NAME="conclusion"></A>
+<CENTER><H2>結論</H2></CENTER>
+諷刺地,  從有經驗的系統管理者的觀察, UNIX才是作業系統的選擇. 不管是在預算緊縮的小公司或是肥碩的大公司需要一個高檔的主機.
+UNIX都還是唯一的選擇. <I>Washington Post</I> Staff Writer,  Elizabeth Corcoran, 
+提供了一個真實世界的例子:
+<BLOCKQUOTE>例如Cincinnati Bell Information Systems已經用Sun工作站 及主機來處理其支票很多年了.它最近買了Sun最高檔的機器來處理其每日近百萬的帳單.
+CBIS副總裁James Holtman說, "這個選擇是Sun或IBM mainframe. 微軟的技術還不到那個程度.
+它倒是有辦法把系統容量塞到很大."
+<BR>(<I>The Washington Post</I>,  Sunday,  February 8,  1998; Page H01)</BLOCKQUOTE>
+提供給中小型企業,  有一些重要任務的行程需要執行,  願意雇用額外的管理人員給
+Microsoft Exchange 及 Internet Information Server(s),  有充足預算給Microsoft的
+"per server"或"per seat"版權費,  那麼NT就可能是您的作業系統選擇.
+<B><A HREF="http://www.aberdeen.com/">Aberdeen<I>Group</I></A></B>
+已經出版一個很好的移植到Windows NT系統上的
+<B><A HREF="http://www.aberdeen.com/research/comp/onsite/case1/body.htm">個案研究</A></B>文件.
+
+<P>當經理人員想要用掉他們的年度預算時, NT也是個很好選擇.
+或者這就是為何聯邦機構買NT時不須要過層層關卡簽證;
+"NT已經成為聯邦政府'非正式'標準的作業系統. 聯邦雇員在購買UNIX系統時須要過層層關卡來認證.
+而Intel-based硬體或Windows NT,  則不需要."(由一位希望匿名的Sun解決方案的廠商所透露的消息)
+
+<P>對小商家或是功力深厚的使用者, 在小預算或甚至中小型以至於大型公司,
+已經開始脫離過時的 - 效能是與價格成正比的觀念.
+
+<P>Linux或FreeBSD在效能及功能上, 可以很容易的超過NT解決方案,
+在便宜的Intel-based硬體上做同樣的事,  而且可以$0.00來達到,
+這個價位相信Bill Gates很難將其擊敗.
+為什麼要花錢投資在一個這樣的需要昂貴硬體的作業系統, 而每次新版NT一出現,
+管理人員還需要花錢重新訓練?
+
+<P>UNIX/Linux管理人員比起NT來說, 技術也高超的多了.
+(大多數UNIX管理人員有許多寫程式的能力, 這在新一代的"NT admins"很難找得到.).
+為何要花幾乎$5, 000在MS Exchange Server上(而且這個價格只給50人版用)?
+尤其當你可以用Linux內建的"Sendmail"郵件伺服器來處理數百人的郵件時,
+且"Sendmail"被證明可輕鬆處理數千人的e-mail的時候?
+
+<P>在比較這兩種作業系統的所有功能及效能時, 看來UNIX贏了這場較勁.
+
+它提供了許多不同的廠商(可沒有壟斷的威脅), 可塑性, 更有效的使用系統資源,
+遠端管理, 遠端計算, 多使用者功能, 大量專業軟體資源,
+與製造廠商無相關的標準(POSIX), 控制使用者硬碟空間的能力(不像NT),
+而且不會被10年前所寫的DOS病毒所侵襲.
+
+但更該記住重要的事是, 從本文資訊來選擇Windows NT或UNIX系統時:
+
+<BLOCKQUOTE><B>UNIX</B>作業系統給您<B>選擇</B>:
+任何型式的硬體, 命令列或圖型介面, 商業或免費, 各種製造廠.
+它是<B>活性的</B>, 例如, 您可以建起各種適合您自己使用的核心程式來適應您的應用所需.
+
+<P><B>Windows NT</B>作業系統給您<B>限制</B>: 只有Intel或Alpha;
+沒有命令列, 只有圖形介面(試試看將NT開機到只有命令列的模式)
+而且只有一種圖形介面
+(不像X Windows那樣有許多種選擇); 只有商業MTAs,  只有Microsoft
+(有聽說過其他公司做"NT Server同型"作業系統嗎?),  等等.
+NT Server是<B>不可動的</B>,
+例如,  你沒辦法去建一個適合自己需要的核心程式. 就是只有那麼一個.</BLOCKQUOTE>
+
+雖然Microsoft並非唯一"restrictions-oriented"的軟體製造商,  標榜其封閉,  獨有的解決方案,
+大家都會希望標榜開放系統及流行的解決方案.
+
+Netscape是其中一個標榜及指出Microsoft在許多產品上的超級限制, 反"可選擇"態度:
+<BLOCKQUOTE>[我們]的策略是清楚的對比出那些廠商,  像微軟,  其公司的模式是要
+靠顧客昇級到最近的作業系統.
+
+看看微軟的元件模式, 如ActiveX, 及其下的元件僅設計用於在32-bit Windows上執行.
+
+許多Microsoft APIs程式庫也只能在32-bit Windows下執行.
+
+例如,  使用ADSI的程式(Microsoft's API to access the LDAP directory protocol), 
+無法在Windows 3.1執行,  像這些在Macintosh或Unix系統上很少見.
+
+Netscape的LDAP API在17種平台上以C或Java均可執行.
+
+此外,  Microsoft的未來平台如"Viper's"交易處理及"Falcon's"的訊息處理只能在NT 5.0上執行
+ - 無法像諸如Oracle資料系統支援在UNIX上一樣.
+
+這差別是很明顯的: 跟Microsoft,  開發者只能在Windows平台上,  跟Netscape,  他們是在Internet平台上.
+<BR>-- Netscape,  <A HREF="http://developer.netscape.com/docs/wpapers/crossware/#advantages">Netscape
+ONE Advantages</A></BLOCKQUOTE>
+到目前看起來, 我提出的"選擇作業系統"的問題, 我所提供的資訊似乎都有點學術化, 
+可是每日有些高性能的系統/網路管理人員, 被告知要將公司系統轉換到NT上.
+這些管理人員都會傻住, 並且弄不清. 對他/她來說, 已經知道本文的許多資訊.
+而這正是該公司主管該讀本文的時機.
+太多的主管機僅僅基於政策理由, 老是在船上搖搖晃晃的, 打破穩定的諧和,  經濟及技術優越, 
+尤其當他們發現有個未受認定的作業系統已經跑了好一陣子.
+
+<BLOCKQUOTE>"該公司IT主管有一天注意到在角落有個小箱子.
+技術人員說那是部門的網站伺服器. 而且已經跑了一年半了,  順便一提, 它是跑Linux.
+一個很自然反應是將它'昇級'至NT, 但後來所發生的事, 是又把它換回Linux.
+因為換成NT後, 其速度降得不可忍受."
+<BR>-- <A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?/interviews/980409torvalds.htm">Linus
+Torvalds talks economics and operating systems</A>,  InfoWorld,  April 9, 
+1998.</BLOCKQUOTE>
+這唯一的插曲發生在<A HREF="http://www.m-tech.ab.ca/linux-biz/cisco.html">Cisco Systems Inc.</A>
+但雖然轉換到NT系統命令由資深經理所下的,  他們依舊還是跑Linux (看看<B><A HREF="#cisco">細節</A></B>).
+明顯地,  部份技術人員拒絕順從這項命令.
+您何以認為這些技術人員甘冒失去其職務的風險? 我將這個問題留給您自己去回答.
+
+<A NAME="be_smart"></A>
+<CENTER><H2>經理人員 - 做出明智的決擇</H2></CENTER>
+
+<P>如果您是經理,  試著用這些資訊來明智地加強您的電腦環境.
+
+<P>跟您的技術人員談談, 看看什麼可行. 做下正確的決定,
+別被銷售員用一些無法解釋的小道消息愚弄,
+
+讓他們適當的解說您公司的電腦環境需求.
+
+<P>找出那些與您需求目標相近的公司, 看看他們在Microsoft及UNIX上, 所使用的狀況.
+
+<P>試著與您的技術人員溝通, 在您的需求目標上, 就其可行性, 實現難易度, 
+初步及持續性的花費上, 給出客觀, 第一手的報告.
+<HR -1>
+<CENTER><H2><A NAME="compare"></A>Linux與NT Server 4.0的粗略比較</H2></CENTER>
+既然NT經常被選為有限預算內的選擇,  Linux則是在這方面UNIX系統的代表, 因為它在Intel硬體上跑得很好.
+
+<P>注意: 只有items/features會一起到使用者手上的才會列在這裡. 例如Perl 5.0在所有平台上都有, 除了Microsoft以外.
+同樣地, 所有Linux都有4種GUI界面可以選擇.
+<TABLE BORDER CELLSPACING=0 WIDTH="100%" >
+<TR>
+<TD WIDTH="33%"><B>元件</B></TD>
+<TD WIDTH="33%"><B>Linux</B></TD>
+<TD WIDTH="34%"><B>Windows NT Server 4.0</B></TD>
+</TR>
+<TR>
+<TD WIDTH="33%">作業系統</TD>
+<TD WIDTH="33%">免費,  或大約$49.95美金買一套CD-ROM</TD>
+<TD WIDTH="34%">五人版$809　　　
+<BR>十人版$1129　　　
+<BR>企業版, 25人版$3, 999</TD>
+</TR>
+
+<TR>
+<TD>免費線上支援</TD>
+<TD>有,  <A HREF="http://www.linux.org/help/howto.html">Linux Online</A>
+或 <A HREF="http://www.redhat.com/">Redhat</A></TD>
+<TD>No</TD>
+</TR>
+<TR>
+<TD>核心程式原始碼</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+</TR>
+
+<TR>
+<TD WIDTH="33%">網站伺服器</TD>
+<TD WIDTH="33%">Apache Web Server, 免費</TD>
+<TD WIDTH="34%">IIS</TD>
+</TR>
+
+<TR>
+<TD WIDTH="33%">FTP伺服器</TD>
+<TD WIDTH="33%">Yes</TD>
+<TD WIDTH="34%">Yes</TD>
+</TR>
+
+<TR>
+<TD WIDTH="33%">Telnet伺服器</TD>
+<TD WIDTH="33%">Yes</TD>
+<TD WIDTH="34%">No</TD>
+</TR>
+
+<TR>
+<TD>SMTP/POP3伺服器</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+</TR>
+
+<TR>
+<TD>DNS</TD>
+<TD>Yes</TD>
+<TD>Yes,  雖然報告指出, 其功能有限, 並且程式寫得很差.</TD>
+</TR>
+
+<TR>
+<TD>Networking</TD>
+<TD>TCP/IP,  IPv6,  NFS,  SMB,  IPX/SPX,  NCP Server (NetWare Server),  AppleTalk, 
+plus many other protocols</TD>
+<TD>TCP/IP,  SMB,  IPX/SPX,  AppleTalk,  外加許多其它網路協定</TD>
+</TR>
+
+<TR>
+<TD>X Window Server　　　
+<BR>(用於執行遠端圖形介面程式)</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+</TR>
+
+<TR>
+<TD>遠端管理工具</TD>
+<TD>全部都有</TD>
+<TD>只有 "User Manager for Domains"　　　
+<BR>及 "Server Manager"</TD>
+</TR>
+
+<TR>
+<TD>News伺服器</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+</TR>
+
+<TR>
+<TD>C and C++編譯器</TD>
+<TD>Yes,  免費</TD>
+<TD>No,  要另外買,  如Visual C/C++,  Borland C/C++,  Watcom等等</TD>
+</TR>
+
+<TR>
+<TD>Perl 5.0</TD>
+<TD>有</TD>
+<TD>沒有</TD>
+</TR>
+
+<TR>
+<TD>版本管理程式</TD>
+<TD>有,  <A HREF="http://sunsite.unc.edu/LDP/HOWTO/mini/RCS.html">RCS</A></TD>
+<TD>沒有,  要向支援廠商另外購買</TD>
+</TR>
+
+<TR>
+<TD>支援的檔案系統種類</TD>
+<TD>32種</TD>
+<TD>3種</TD>
+</TR>
+
+<TR>
+<TD>硬碟空間配額控制</TD>
+<TD>有</TD>
+<TD>沒有</TD>
+</TR>
+
+<TR>
+<TD>可選擇的圖形介面管理程式的數量</TD>
+<TD>4種免費, 其它有多種商業版</TD>
+<TD>1種</TD>
+</TR>
+</TABLE>
+<hr>
+<CENTER>
+<A HREF=unix-nt-04.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-06.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+</BODY>
+</HTML>
+

@@ -1,0 +1,1886 @@
+<!doctype html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.07 [en] (X11; I; Linux 2.2.9 i586) [Netscape]">
+   <META NAME="Author" CONTENT="john@kirch.net, webmaster@adhi.findhere.com">
+   <META NAME="Description" CONTENT="Informasi yang setiap manajer perlu tahu saat merencanakan jaringan perusahaan, pembelian dari perangkat keras server.">
+   <meta name="keywords" content="NT vs UNIX, UNIX vs NT, NT vs. UNIX,
+	UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail,
+	exchange server, microsoft, smp, aix, hp-ux, digital unix, solaris,
+	freebsd, bsdi, linux, windows nt, corporate network, mail servers,
+	operating systems, cost effective solutions, mission critical
+	operations, sendmail, apache, iis, system administration, microsoft">
+   <title>Microsoft Windows NT Server 4.0 versus UNIX</title>
+   <style type="text/css"> @import "/style.css"; </style>
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF" LINK="#0000EF" VLINK="#55188A" ALINK="#FF0000">
+<div style='margin-left:10%;max-width:80%'>
+&nbsp;
+<CENTER><TABLE CELLSPACING=0 WIDTH="85%" >
+<TR>
+<TD>
+
+<CENTER>
+<A HREF="/nt-vs-unix/cn/">
+Cina
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A>
+Kroasia
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="/nt-vs-unix/cz.html">
+Ceko
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<!--A HREF="http://www.eleves.ens.fr/home/blondeel/traduc/kirch/unix-vs-nt.html"-->
+<A HREF="/nt-vs-unix/fr.html">
+Prancis
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="/nt-vs-unix/de.html">
+Jerman
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+Indonesia
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+Italia *&nbsp;
+<P>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="/nt-vs-unix/jp.html">
+Jepang
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="/nt-vs-unix/kr.html">
+Korea
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="/nt-vs-unix/pt.html">
+Portugis
+<!--A HREF="translations/russian.html"-->
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A HREF="/nt-vs-unix/ru.html">
+Rusia
+</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<A>
+Spanyol
+</A>
+<P>* Terjemahan sedang dilakukan di bawah bahasa-bahasa ini.
+<HR>
+
+<B><A HREF="/nt-vs-unix/updates.html">Kronologi Update</A></B>
+
+&nbsp; &nbsp; &nbsp;
+
+<B><A>
+Kounter Akses</A></B>
+
+&nbsp; &nbsp; &nbsp;
+
+<B><A>
+Mirror</A></B>
+
+<HR>
+
+</CENTER>
+
+<BR>&nbsp;</TD>
+</TR>
+</TABLE>
+</CENTER>
+
+<B><FONT SIZE=+3>Microsoft Windows NT Server 4.0 versus UNIX</FONT></B>
+<P><B><FONT SIZE=+1>oleh John Kirch, Konsultan Jaringan Komputer dan Profesional
+yang mendapatkan Sertifikasi Microsoft
+(Microsoft Certified) dari Microsoft (Windows NT)</FONT></B>
+<P><I>Diupdate terakhir kalinya : 25 April 1999 oleh John Kirch</I>
+<P><I>Diterjemahkan pertama kali : 16 Juli 1998 oleh Adhi eN</I>
+<BR><I>Diupdate terakhir kali : 3 Agustus 1999 oleh Adhi eN</I><I></I>
+<P>
+<HR WIDTH="100%"><B><FONT SIZE=+2></FONT></B>
+<P><B><FONT SIZE=+2>Ringkasan</FONT></B>
+<BR>&nbsp;
+<DT>
+Manajer IT di seluruh dunia sedang dalam konfrontasi dengan pertanyaan
+ini, apakah kita akan bekerja dengan Microsoft Windows NT Server atau satu
+dari beberapa Sistem Operasi UNIX yang ada? Sebagaimana dengan hal yang
+mungkin sudah anda ketahui, UNIX bukanlah Sistem Operasi tunggal; mengacu
+kepada keluarga sistem operasi tersebut yang termasuk AIX, BSDI, Digital
+UNIX, FreeBSD, HP-UX, IRIX, Linux, NetBSD, OpenBSD, Pyramid, SCO, Solaris,
+SunOS, itu semua adalah yang terutama. Windows NT Server sedang mengembangkan
+kepopulerannya, tetapi apakah NT meningkatkan produktivitas operasi Sistem
+Informasi Manajemen (SIM) anda? Yang terlebih penting, meskipun, untuk
+anda sebagai manajer adalah, apakah anda meningkatkan keuntungan perusahaan
+anda saat anda memilih solusi Microsoft?</DT>
+
+<BR>&nbsp;
+<DT>
+Pokok pembicaaannya adalah, yang mana yang lebih murah? Dalam biaya perangkat
+keras, lisensi perangkat lunak, perjanjian dukungan teknis, biaya upgrade/service
+pack, biaya upgrade perangkat keras, keuntungan yang hilang setiap jam
+dalam downtime, biaya untuk memulihkan/membuat data ulang karena produk
+yang jelek dalam sistem operasi dan/atau platform perangkat keras yang
+disyaratkan oleh pilihan sistem operasi anda, dan biaya personil untuk
+sistem administrator, itu semua hanya beberapa dari banyak faktor yang
+[dapat] memiliki kontribusi dalam semua budget yang dikeluarkan sebagai
+hasil pilihan anda. Ini bukanlah pertimbangan yang biasa-biasa saja.</DT>
+
+<BR>&nbsp;
+<DT>
+Meskipun uang adalah pokok pembicaraan utama anda sebagai manajer, memberikan
+faktor-faktor kompleks seperti yang baru saja saya bicarakan, sebuah kombinasi
+perangkat keras server dan sistem operasi yang unggul dalam teknis dapat
+membuktikan memerlukan biaya lebih murah dalam waktu yang lama. UNIX itu
+dewasa, grup sistem operasi yang unggul dalam teknis dengan track record
+untuk kinerja yang telah terbukti, keandalan, dan keamanan dalam sebuah
+lingkungan server. Hampir tiga puluh tahun dari pengembangan yang berkelanjutan,
+dilaksanakan seringkali oleh para perintis yang percaya akan apa yang mereka
+sedang perbuat, telah memproduksi sebuah grup sistem operasi--dan sebuah
+perangkat keras buatan sendiri, yaitu server multi prosesor yang sangat
+bertenaga untuk memenuhi kebutuhan mereka, dimana kinerjanya masih belum
+dapat ditandingi oleh perangkat keras Intel--hal tersebut tak hanya memenuhi
+kebutuhan komputasi masa sekarang, tapi dalam banyak kasus melampaui dari
+yang diharapkan.</DT>
+
+<BR>&nbsp;
+<DT>
+Mengapa Windows NT Server 4.0 masih hidup dalam enterprise (perusahaan)
+akan menjadi topik untuk laporan investigasi dalam bahasan psikologi atau
+pemasaran, bukan artikel tentang teknologi informasi. Secara teknis, Windows
+NT Server 4.0 bukanlah tandingan yang sepadan untuk sistem operasi UNIX
+apa pun, bahkan untuk *nix non-komersial seperti BSD dan Linux sekali pun.
+Seorang manajer tak diharapkan memiliki keahlian teknis seperti seorang
+administrator sistem yang telah bergelut dengan dunia industri selama 15
+tahun. Tujuan dari artikel ini adalah memberikan kepada anda sumber daya
+yang akan mendorong anda untuk membuat pilihan yang benar-benar dipikirkan
+secara serius untuk perencanaan Teknologi Informasi organisasi anda serta
+operasi-operasinya.</DT>
+
+<BR>&nbsp;
+<DT>
+Artikel selanjutnya adalah berdasarkan atas pengalaman saya dalam industri
+ini, yang dimulai tahun 1979 dengan Chevron Geosciences Company dan 150
+kaitan lainnya ke artikel-artikel teknis, white papers, dan executive summaries.&nbsp;
+Pada point ini saya nyatakan bahwa saya tidak sedang mempromosikan produk
+dari salah satu perusahaan, dan juga memperoleh keuntungan seandainya anda
+memilih UNIX. Tujuan saya adalah kemudahan bagi administrator sistem, mempromosikan
+komputasi yang lebih efisien dan ekonomis, dan memberikan semangat yang
+lebih adil bagi komunitas vendor perangkat lunak.</DT>
+
+<BR>
+<HR WIDTH="100%">
+<BR>&nbsp;
+<TABLE BORDER=0 WIDTH="95%" NOSAVE >
+<TR NOSAVE>
+<TD NOSAVE><B><FONT SIZE=+2>Daftar Isi</FONT></B>
+<UL>
+<LI>
+<A HREF="#perkenalan">Perkenalan</A>
+</LI>
+
+<LI><A HREF="#so">
+Sistem Operasi</A>
+</LI>
+
+<UL>
+<LI><A HREF="#harga">
+Isu harga produk dan lisensi</A>
+</LI>
+
+<LI><A HREF="#fungsionalitas">
+Fungsionalitas</A></LI>
+
+<LI><A HREF="#keandalan">
+Keandalan</A></LI>
+
+<LI><A HREF="#manajemen">
+Manajemen Sistem</A></LI>
+
+<LI><A HREF="#kinerja">
+Kinerja</A></LI>
+
+<LI><A HREF="#keamanan">
+Keamanan</A></LI>
+</UL>
+
+<LI><A HREF="ID-unix-vs-nt2.html#konsepslh">
+Beberapa pengertian umum yang salah</A>
+</LI>
+
+<LI><A HREF="ID-unix-vs-nt2.html#pandangan">
+Pandangan dari Profesional MIS (SIM) lainnya</A>
+</LI>
+
+<UL>
+<LI>
+<A HREF="http://www.unix-vs-nt.org/kirch/feedback/">
+Umpan balik dari pembaca-pembaca artikel ini
+</A>
+</LI>
+</UL>
+
+<LI><A HREF="ID-unix-vs-nt2.html#web">
+Server web
+</A>
+</LI>
+
+<LI><A HREF="ID-unix-vs-nt2.html#conclusion">
+Kesimpulan</A>
+</LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#compare">Tabel : Sekilas Linux dan server NT
+4.0</A></LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#bigguys">
+Apakah yang dimanfaatkan oleh sebagian besar perusahaan ?
+</A></LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#kaitan">
+Kaitan-kaitan yang berhubungan</A></LI>
+
+<LI>
+<A HREF="http://www.unix-vs-nt.org/legal.html">Disclaimer dan Informasi Legal
+lainnya</A></LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#acknowledgements">Acknowledgements</A></LI>
+</UL>
+</TD>
+
+<TD NOSAVE><B><FONT SIZE=+2>
+<A NAME="highlights">Pokok-pokok dalam Artikel ini
+</A>
+</FONT></B>
+<UL>
+<LI>
+<A HREF="ID-unix-vs-nt2.html#ms-solaris">
+Mengapa Microsoft memakai Solaris sebagai ganti dari NT
+</A></LI>
+
+<LI>
+<A HREF="#ms-summit">
+Microsoft mengakui bahwa NT membuntuti Solaris
+</A>
+</LI>
+
+<LI>
+<A HREF="#graphs">
+Perbandingan grafis dari sistem operasi yang bervariasi
+</A></LI>
+
+<LI><A HREF="#stabilitas">
+Sistem operasi mana yang dipilih oleh para profesional saat stabilitas
+adalah isu yang paling penting?</A>
+</LI>
+
+<LI><A HREF="ID-unix-vs-nt2.html#win95">
+Fakta kecil yang diketahui tentang windows95.com</A></LI>
+
+<LI>
+<A HREF="#kickass">
+UNIX di atas PC single processor mengalahkan sebuah mesin NT dual processor?</A></LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#cisco">Cisco berpindah dari Linux ke Windows
+NT ?</A></LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#usps">Linux dan United States Postal Service
+(Kantor Pos USA)</A></LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#web">Perangkat Lunak server web; apakah yang
+Keluarga Kerajaan dan FBI punyai secara umum ?</A></LI>
+
+<LI>
+<A HREF="ID-unix-vs-nt2.html#gui">Tunjukkan saya beberapa UNIX, saya ingin
+melihat seperti apakah kelihatannya !</A></LI>
+
+<LI>
+<A HREF="http://www.netcraft.com/cgi-bin/Survey/whats">
+Dengan apakah situs tersebut dijalankan?</A></LI>
+
+<LI>
+<A HREF="http://www.unix-vs-nt.org/resources.html">
+Sumber daya FreeBSD dan Linux dengan jawaban-jawaban
+untuk pertanyaan-pertanyaan ini :</A></LI>
+
+<UL>
+<LI>
+Di manakah saya dapat memperoleh Linux/FreeBSD
+untuk dicoba?</LI>
+
+<LI>
+Di manakah saya dapat membeli workstation/server
+dengan Linux/FreeBSD yang <I>pre-installed</I></LI>
+
+<LI>
+Di manakah saya dapat menemukan konsultan
+untuk sistem operasi-sistem operasi tersebut?</LI>
+</UL>
+</UL>
+</TD>
+</TR>
+</TABLE>
+
+<HR WIDTH="100%"><B><FONT SIZE=+2></FONT></B>
+<P><B><FONT SIZE=+2>
+<A NAME="perkenalan">Perkenalan</A>
+</FONT></B>
+<P>Pemilihan <I>platform </I>server dapat menjadi sesuatu yang sukar untuk
+para manajer yang tidak dilatih secara khusus dalam sistem dan administrasi
+jaringan. Dalam <I>paper</I> ini, Microsoft Windows NT diperbandingkan
+dengan UNIX, sebuah keluarga besar sistem operasi komersial dan non-komersial
+dengan pewarisan sifat yang umum dan kesamaan yang banyak. Fokus utama
+dari perbandingan adalah dalam area fungsionalitas, keandalan, manajemen
+sistem, dan kinerja. <I>Paper</I> ini adalah berbicara tentang server bukan
+workstation. Faktor-faktor lainnya, seperti harga produk, kuantitas dan
+kualitas dari perangkat lunak yang dibundelkan serta sebuah bagian tentang
+konsep umum yang salah tentang kedua grup sistem operasi akan dihadirkan
+untuk menyediakan pandangan yang lebih lengkap mengenai produk-produk ini.
+Informasi yang dipergunakan dalam perbandingan ini diambil dari beberapa
+sumber yang bervariasi: <I>white papers</I>, studi kasus oleh pihak ketiga,
+artikel dari majalah teknik berkala, dan pengamatan yang dilakukan oleh
+para profesional TI yang mempunyai pengalaman industri dalam implementasi
+dan administrasi dari baik Microsoft Windows NT dan sistem operasi UNIX
+yang bervariasi.
+<P>Artikel ini seharusnya dipertimbangkan sebagai sebuah pekerjaan yang
+masih dalam tahap perkembangan. Siapa pun yang menginginkan berkontribusi
+dengan proyek ini, dipersilakan untuk mengirim e-mail kepada
+<A HREF="mailto:feedback@unix-vs-nt.org">John Kirch</A>.
+Mohon batasilah e-mail anda untuk hal dan kritikan yang <I>konstruktif.</I>
+<P>
+<HR WIDTH="100%">
+<P><B><FONT SIZE=+2>
+<A NAME="so">Sistem Operasi</A>
+</FONT></B>
+<P><B><FONT SIZE=+1>
+<A NAME="harga">Isu harga produk dan lisensi
+</A>
+</FONT></B>
+<P>Semua manajer akan setuju bahwa harga tidak akan menjadi masalah dalam
+sistem operasi saat melihat gambar yang besar. Meskipun Windows NT Server
+4.0 dapat menjadi lebih mahal dibandingkan dengan beberapa Sistem Operasi
+UNIX komersial ini dapat menjadi jumlah yang sepele saat pertunjukan perdagangan.
+<CENTER>
+<P><B>Daftar Harga untuk Windows NT Server 4.0 (Sumber :
+<A HREF="http://www.microsoft.com/products/prodref/458_pr_st.htm">Microsoft</A>)</B></CENTER>
+
+<CENTER><TABLE BORDER WIDTH="55%" NOSAVE >
+<TR>
+<TD>
+<CENTER><B>Produk</B></CENTER>
+</TD>
+
+<TD>
+<CENTER><B>Harga (dalam US-$)</B></CENTER>
+</TD>
+</TR>
+
+<TR NOSAVE>
+<TD NOSAVE>NT Server 4.0 (5-user version)&nbsp;</TD>
+
+<TD ALIGN=RIGHT NOSAVE>$809&nbsp;</TD>
+</TR>
+
+<TR NOSAVE>
+<TD NOSAVE>NT Server 4.0 (10-user version)&nbsp;</TD>
+
+<TD ALIGN=RIGHT NOSAVE>$1,129&nbsp;</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>NT Server 4.0 Enterprise Edition (25-user version)&nbsp;</TD>
+
+<TD ALIGN=RIGHT NOSAVE>$3,999</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>NT Server 4.0 Enterprise Edition (50-user version)&nbsp;</TD>
+
+<TD ALIGN=RIGHT NOSAVE>$4,799&nbsp;</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>NT Server 4.0 Documentation Kit&nbsp;</TD>
+
+<TD ALIGN=RIGHT NOSAVE>$69.95&nbsp;</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>20 Quantity Client License&nbsp;</TD>
+
+<TD ALIGN=RIGHT NOSAVE>$32</TD>
+</TR>
+
+<TR NOSAVE>
+<TD>Single Quantity Client License&nbsp;</TD>
+
+<TD ALIGN=RIGHT NOSAVE>$19.95&nbsp;</TD>
+</TR>
+</TABLE></CENTER>
+
+<P>Apakah server NT mempunyai nilai sebanding dengan harganya? Lihatlah
+<B><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub6.html">
+NT Lies: Lie 6 - NT Server is worth more.</A></B> Apa yang tidak biasa, namun,
+apakah sebuah sistem operasi jaringan yang berada dalam kisaran harga itu
+sebaiknya dijual tanpa sebuah server telnet, server SMTP (e-mail), disk
+quota, server news, atau setidaknya sebuah server DNS yang bekerja untuk
+kepuasan pelanggan (banyak administrator NT merasa sangat tertarik untuk
+mengerjakannya dengan solusi DNS dari pihak ketiga). Agar sesuai atau menyamai
+dengan pemasangan BSDI, produk tambahan Microsoft dan solusi pihak ketiga
+akan membawa harga akhir atas solusi NT di sekitar US$4.000, acuan dari
+<A HREF="http://www.bsdi.com/white-papers/compare">BSDI.</A>
+Maggie Biggs, analis senior InfoWorld yang mempunyai spesialiasi dalam
+teknologi database (basis data) dan desain aplikasi, pengembangan dan pemanfaatannya
+via intranet dan jaringan komputer lainnya, memperkirakan selisih harga
+<B>US$4.636
+untuk perbandingan solusi Windows NT 4.0</B> dalam
+<A HREF="http://currents.net:80/magazine/national/1524/inet1524.html">artikelnya</A>,
+yang dibandingkan dengan versi Linux komersial Red Hat (yang harganya
+hanya US$49.95). Di sini orang dapat melihat bahwa penjualan yang sukses
+dapat seringkali mengalihkan pikiran pelanggan dari pertimbangan kebutuhan
+mereka untuk fungsionalitas.
+<P>NT sering dipilih untuk alasan budget sejak banyak pelanggan tidak bersedia
+membayar untuk perangkat keras yang lebih mahal yang disyaratkan oleh kebanyakan
+(rasa) UNIX komersial. Lebih penting, namun, ini meliputi semua harga dari
+implementasi yang termasuk administrasi sistem sepanjang waktu dengan beberapa
+faktor seperti downtime (waktu down), panggilan support melalui telpon,
+data yang hilang disebabkan oleh ketidakandalan, dsb. Untuk diskusi yang
+lebih detil mengenai biaya-biaya tersembunyi NT, lihat artikel
+<A HREF="http://www.informationweek.com/">
+InformationWeek</A> berikut ini:
+
+<BLOCKQUOTE>"Sistem Windows NT mempunyai harga jual yang lebih murah dibandingkan
+dengan Unix, tetapi pemeliharaan selanjutnya dan persyaratan dukungan dapat
+membuat mereka membiayai lebih banyak agar dapat berjalan."
+<P>-- Martin J. Garvey, <B>
+<A HREF="http://www.informationweek.com/692/92iuhid.htm">
+The Hidden Cost Of NT</A></B>, <A HREF="http://www.informationweek.com">
+InformationWeek</A>, 20 July
+1998.
+</BLOCKQUOTE>
+
+Tippett Studio, perusahaan yang bertanggung jawab atas grafis dalam <I>Starship
+Trooper</I>, yang menerima nominasi Oscar, menggunakan mesin SGI (<A HREF="http://www.sgi.com/">Silicon
+Graphics, Inc.</A>) berjumlah 130 buah yang menjalankan <A HREF="http://www.sgi.com/origin/products/irix.html">IRIX</A>,
+yaitu sistem operasi milik SGI sendiri. Manajer operasi Tippett menjelaskan
+mengapa mereka lebih memilih SGI dengan IRIX yang terpasang di dalamnya,
+dan tidak memilih NT :
+<UL>"'SGI adalah murah untuk apa yang mereka (dapat) kerjakan', kata Jeff
+Stringer, manajer operasi studio Tippett. 'Harga perawatan sebuah sistem
+NT adalah sangat tinggi, saat anda memikirkan semua sistem administrator
+yang harus anda sewa.'"
+<P>"Penyewaan adalah kecemasan yang besar untuk studio yang kecil. Tak
+seperti studio super, Tippett -- yang mendesain kutu yang mengancam (ke)manusia(an)
+dalam "Starship Trooper" -- adalah butik f/x."
+<P>-- Greg Lindsay, <A HREF="http://cgi.pathfinder.com/netly/editorial/0,1012,1770,00.html">Oscar
+Tech</A>, The Netly News, 27 Februari 1998</UL>
+Untuk pelanggan yang lebih 'sadar',
+<B><A HREF="http://www.linux.org">Linux</A>,
+<A HREF="http://www.freebsd.org">FreeBSD</A>,
+<A HREF="http://www.netbsd.org">NetBSD</A>
+</B>atau
+<B><A HREF="http://www.openbsd.org">OpenBSD</A>
+</B>adalah
+pilihan yang mudah dilihat. Mereka <I>tidak memerlukan biaya berapa pun</I>,
+belum lagi mereka sestabil dan mempunyai penawaran sefungsionalitas, jika
+tak boleh saya katakan bahkan melebihi, sistem UNIX komersial.
+<P>Jurnalis R. Scott Raynovich dan Polly Sprenger pada <I>LAN Times</I>
+secara tidak langsung menggarisbawahi kefleksibelan dari konsep <B>
+<A HREF="http://www.opensource.org/">Open
+Source (Keterbukaan terhadap kode sumber program)</A></B> dalam artikel mereka
+baru-baru ini tentang Linux dan bagaimana organisasi komersial mendapatkan
+keuntungan darinya:
+
+<BLOCKQUOTE>"...Linux dapat didownload secara gratis melalui Internet atau
+diperoleh dengan murah tanpa dukungan dan dokumentasi dari sejumlah vendor
+komersial. Ini membuat sebuah produk yang menarik untuk perusahaan-perusahaan
+yang sedang mengurangi biaya lisensi dan pengaturan sistem operasi."
+<P>-- R. Scott Raynovich and Polly Sprenger,
+<B><A HREF="http://www.lantimes.com/98/98aug/808b001a.html?st.ne.fd.mnaw">
+Linux legitimacy rallies NT skeptics</A></B>,
+<A HREF="http://www.lantimes.com/">LAN Times</A>, 17 August 1998.
+</BLOCKQUOTE>
+
+Dalam sampul muka
+<A HREF="http://www.softwaremagazine.com/">Software Magazine</A> baru-baru ini tentang Linux, Ann Harrison
+menunjukkan bagaimana perusahaan besar bahkan menemukan sebuah pembiayaan
+alternatif selain Microsoft dalam pengembangan server Linux:
+
+<BLOCKQUOTE>"Randy Kessell, manajer dari analisis teknik untuk pusat operasi
+Southwestern Bell, mencatat bahwa karena Linux mengizinkan perusahaannya
+untuk mengerjakan administrasi jaringan secara jarak jauh (remote) dan
+<I>load</I>
+perangkat lunak (menjalankan perangkat lunak secara remote - Adhi) [lebih
+besar dan baik] dibandingkan dengan kemungkinan lainnya baik melalui produk
+Microsoft maupun NetWare, [sehingga] Linux telah mengurangi pembiayaan
+manajemen jaringannya."
+<P>-- Ann Harrison,
+<B><A HREF="http://www.softwaremag.com/Sept98/sm098cv.htm">
+In LINUX We . . .</A></B>, <A HREF="http://www.softwaremagazine.com/">
+Software Magazine</A>, Cover Story,
+September 1998.
+</BLOCKQUOTE>
+
+Seorang pembaca menginformasikan pada saya bahwa dengan menyebutkan Linux
+akan mengurangi kredibilitas dari artikel ini. Saya minta maaf. Keberadaan
+dari beberapa aliansi seperti yang disebutkan dalam artikel
+<B><A HREF="http://www.techweb.com/wire/story/TWB19980402S0013">Andreessen
+Sees Mozilla-Linux Upset of Windows</A> </B>dengan jelas menunjukkan Linux
+memperkuat kehadirannya dalam lingkungan komersial. (Untuk pendatang baru
+yang datang ke dalam arena ini, Mozilla adalah nama kode dari Netscape/Communicator
+dan Marc Andreessen adalah Executive VP dari produk Netscape.) Patut diperhatikan
+lagi yaitu aliansi baru antara
+<A HREF="http://www.sun.com/">Sun Microsystems</A> dan
+<A HREF="http://www.li.org/">Linux International</A>.
+(<A HREF="http://slashdot.org/">Slashdot</A>:
+<A HREF="http://slashdot.org/articles/9804211730214.shtml">
+Sun Joins Linux International</A>, 21 May 1998)&nbsp; Perkembangan
+terbaru lainnya adalah hubungan khusus
+<A HREF="http://www.corel.com/">Corel</A> dengan Linux:
+
+<BLOCKQUOTE>"...<A HREF="http://www.corel.com/">
+Corel</A>, yang telah mengumumkan rencana untuk membangun jaringan
+komputer berbasiskan Linux, mengatakan bahwa Corel akan mengeluarkan versi
+<I>free</I>
+untuk alat bantu (tool) pengembangan untuk Web sitenya, bergabung dengan
+sejumlah perusahaan perangkat lunak yang mendukung gerakan open source
+Linux."
+<P>-- Erich Luening,
+<B> <A HREF="http://www.news.com/News/Item/0,4,21929,00.html">
+Corel joins Linux fest</A></B>, <A HREF="http://www.news.com/">CNET News.Com</A>,
+8 May 1998.
+</BLOCKQUOTE>
+
+<I>Headline</I> yang terbaru itu menunjukkan bahwa Linux berada dalam jalan
+yang benar ke arah pemain besar: <B>
+<A HREF="http://www.zdnet.com/zdnn/stories/zdnn_smgraph_display/0,3441,2121004,00.html">
+Informix, Oracle ready to port to Linux</A></B>
+(<A HREF="http://www.zdnet.com/pcweek/">PCWeek Online</A>, 20 July 1998),
+<B><A HREF="http://www.zdnet.com/pcweek/news/0720/20morac.html">
+Oracle to port database to Linux</A></B>
+(<A HREF="http://www.zdnet.com/pcweek/">PCWeek Online</A>, 20 July 1998),
+dan <B><A HREF="http://www.news.com/News/Item/0,4,20863,00.html?st.ne.ni.rel">
+Netscape: Linux a top priority</A>
+</B>(<A HREF="http://www.news.com/">CNET News.Com</A>, 7 April 1998).
+
+<P>Berdasarkan sejarah, korporasi besar telah menjauhi perangkat lunak
+yang gratis karena asumsi yang tak berdasar bahwa apa pun yang gratis tidak
+mungkin tak membuang-buang uang. Kecenderungan yang banyak terjadi di antara
+beberapa korporasi adalah menggunakan sistem operasi yang cost-effective
+(efektif dilihat dari harganya). Hewlet-Packard menggunakan Linux sebagai
+ganti dari sistem operasi HP-UX, UNIX miliknya sendiri saat mengembangkan
+arsitektur prosessor PA-RISC-nya yang baru (<A HREF="http://www.ssc.com/lj/issue44/2355.html">cerita lengkap</A>).
+Schlumberger lebih memilih Linux daripada SCO untuk komputer
+<I>Point Of Sales</I>-nya.
+(<A HREF="http://www.ssc.com/lj/">Linux Journal</A>, November 1997, Issue 43, pp. 83-4)
+Ini menarik untuk dicatat bahwa <B><A HREF="http://www.sun.com">SunWorld On-Line</A></B>
+memberikan Linux berita yang positif dalam salah satu artikelnya,
+<B><A HREF="http://www.sun.com/sunworldonline/swol-01-1998/swol-01-linux.html">Linux
+lines up for the enterprise.</A></B>
+<P>Dalam bulan September 1998 <I>cover story </I>
+<A HREF="http://www.softwaremagazine.com/">Software Magazine</A> menyatakan
+seberapa jauh Linux telah diatur untuk masuk dengan diam-diam ke perusahaan
+di Amerika dan bagaimana hal itu bukanlah tentang menjauhi Linux:
+
+<BLOCKQUOTE>"Tim Payne, direktur dari pemasaran basisdata di Oracle, mengatakan
+banyak pelanggan perusahaannya telah membuat investasi besar di Linux.
+Saat Oracle mengumumkan dalam bulan Juli bahwa dia akan menyediakan 24
+jam dukungan untuk Oracle8 di atas Linux, dia berkata sekitar 300 pelanggan
+melakukan panggilan hari berikutnya bertanya tentang ketersediaan. 'Linux
+andal, telah terbukti, Linux jalan di atas komoditi kotak Intel, dan Linux
+benar-benar alternatif yang lebih murah daripada NT,' kata Payne. "Fakta
+bahwa anda akan dapat memperoleh kualitas <I>enterprise</I> dari Oracle
+untuk dijalankan dalam <I>platform</I> Linux akan membantu pelanggan untuk
+mengadopsi Linux.'
+<P>-- Ann Harrison,
+<B><A HREF="http://www.softwaremag.com/Sept98/sm098cv.htm">'
+In LINUX We . . .</A></B>,
+<A HREF="http://www.softwaremagazine.com/">Software Magazine</A>, Cover Story,
+September 1998.
+</BLOCKQUOTE>
+
+Semenjak sistem operasi-sistem operasi (seperti) ini bebas digunakan bahkan
+dalam lingkungan komersial, banyak ISP menjalankan Linux atau FreeBSD.
+NetBSD (hampir-hampir) akan jalan di atas platform apa pun : DEC Alpha,
+Motorolla 68k (Amiga, Atari, Mac, MVME, Sharp, Sun3), PowerPC, Intel, DEC
+VAX, Acorn RISC, MIPS (Sony NEWS, DECstation), dsb. OpenBSD secara primer
+difokuskan atas perbaikan dan keamanan. Linux adalah sistem operasi yang
+paling populer dan akan jalan dalam kisaran perangkat keras yang luas :
+Sun, Intel, DEC Alpha, PowerPC, PowerMac, dsb. Artikel Paul Krill baru-baru
+ini dalam <B><A HREF="http://www.infoworld.com/">InfoWorld</A></B>
+(<B><A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980710.whlinux.htm">
+Linux picking up steam</A></B> and
+<B><A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980715.ehlinux.htm">
+Linux supporters
+rally around freeware OS</A></B>) memfokuskan pada pertambahan dukungan untuk Linux
+dari vendor besar dan rencana mendatang untuk menambahkan fungsionalitas,
+sebagai contoh dukungan untuk prosesor Merced 64-bit dari Intel. Saat ini,
+Linux mungkin adalah sistem operasi yang mengalami pertumbuhan tercepat
+dalam pasar. Untuk informasi yang lebih jelas, lihatlah
+<B><A HREF="http://www.linuxresources.com">Linux
+Resources</A></B> atau
+<B><A HREF="http://www.redhat.com">Red Hat Software.</A></B>
+<P>Nicholas Petreley, editor-in-chief dari <I>NC World</I> dan kolumnis
+untuk <I>InfoWorld</I> dan <I>NT World Japan</I> menerangkan pertumbuhan
+Linux dan FreeBSD dalam departemen TI-nya :
+<UL>"Murid-murid sekolah kemarin mempelajari sistem UNIX terutama Linux
+dan FreeBSD. Hari ini mereka bekerja di departemen TI, dan banyak di antara
+mereka secara terbuka memusuhi Microsoft dan Windows NT. Sebagai hasilnya,
+Linux, BSD, Solaris dan bentuk-bentuk UNIX lainnya menemukan jalannya ke
+dalam departemen TI, baik secara terang-terangan maupun sembunyi-sembunyi."</UL>
+
+<UL>"Sebagai contoh, apakah anda yakin bahwa NT Server yang anda sambungkan
+bekerja ? Pekerja Sistem Informasi (SI) dalam banyak korporasi banyak yang
+secara sembunyi-sembunyi memasang server UNIX yang menyediakan layanan
+NT asli. Mengapa ambil resiko? Linux dan FreeBSD adalah gratis, sebagaimana
+SAMBA, software yang menyediakan layanan NT. Jadi departemen TI menghemat
+uang. Dan para manajer tak mungkin menemukan UNIX di balik layar, karena
+lebih sedikit orang yang akan mengeluh tentang downtime server."
+<P>"Lebih sedikit orang yang akan mengeluh, karena servernya lebih stabil
+daripada Windows NT. Linux, FreeBSD, dan BSDI UNIX melebihi unjuk kerja
+Windows NT dengan batas luas dari perangkat keras yang terbatas, dan di
+bawah beberapa kondisi dapat menunjukkan sebaik atau melebihi NT di atas
+perangkat keras yang terbaik. Sekali di belakang kemampuan skalabilitas,
+UNIX di atas Intel dapat menyusul dan mungkin dalam waktu singkat melebihi
+NT dalam jumlah prosessor yang dapat dipakai, dan bagaimana memanfaatkannya."
+<P>-- Nicholas Petreley,
+<A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">The
+new UNIX alters NT's orbit: The re-emergency of UNIX threatens to modify
+the future direction of NT</A>, <A HREF="http://www.ncworldmag.com/ncworld/">NC
+World</A>, April 1998.</UL>
+Bahkan <A HREF="http://www.economist.com/">The Economist</A>
+sekarang melaporkan kenaikan popularitas Linux:
+<BLOCKQUOTE>"Oracle, sebuah firma basisdata, berencana untuk menawarkan
+versi Linux dari beberapa perangkat lunaknya....Bahkan [meski] tanpa pengesahan,
+Linux telah mencapai ukuran yang sukses.&nbsp; Hanya dalam beberapa tahun,
+program itu telah mengalami evolusi dari sebuah 'mainan' <I>hacker </I>menjadi
+perangkat lunak yang, setidaknya <I>superior</I> di atas Windows NT."
+<P>-- Stephen Morley, Revenge of the hackers*
+<A HREF="http://www.economist.com/">The Economist</A>, July 11th
+- 17th 1998.
+<BR>* Hyperlink is gone. Can be purchased from The Economist via their
+online archive.</BLOCKQUOTE>
+<B><FONT SIZE=+1>
+<A NAME="fungsionalitas">Fungsionalitas
+</A></FONT></B>
+<P>Apa yang dapat anda harapkan dari Windows NT Server di luar kotak dan
+dari UNIX di luar kotak? NT dapat berkomunikasi dengan banyak tipe komputer
+yang berbeda. Demikian pula UNIX. NT dapat mengamankan data yang sensitif
+dan menjaga pengguna yang tak berhak untuk berada di luar jaringan. Demikian
+pula UNIX. Pada pokoknya, keduanya memenuhi persyaratan minimum untuk fungsi
+sistem operasi dalam lingkungan jaringan. Simpulkan secara ringkas, UNIX
+dapat mengerjakan apa pun yang NT dapat dan lebih lagi.
+<P>NT seringkali dipertimbangkan sebagai sistem operasi yang multi pengguna
+(multi-user), tetapi ini sangat menyesatkan. Sebuah server NT akan melakukan
+<I>validasi
+</I>seorang
+pengguna yang diberi kuasa (Authorized User), tetapi sekali seorang pengguna
+telah login ke jaringan NT, semua yang dapat dilakukannya adalah mengakses
+file dan pencetak. Pengguna NT tak dapat [meskipun] hanya menjalankan aplikasi
+<I>apa
+pun</I> di server NT (agar dapat mengambil keuntungan dari pemrosesan yang
+super cepat dari perangkat keras server). Pengguna NT hanya dapat menjalankan
+aplikasi-aplikasi tertentu yang telah ditulis dalam dua bagian, sebagai
+contoh aplikasi client/server. Saat pengguna login ke server UNIX, dia
+dapat menjalankan aplikasi <I>apa pun </I>(bila pengguna diberi kuasa untuk
+melakukannya juga), dengan demikian dapat mengurangi pembebanan proses
+dalam workstationnya. Ini juga termasuk aplikasi berbasiskan grafis, semenjak
+perangkat lunak X-server merupakan isu standar di atas semua sistem operasi
+UNIX.
+<P>Untuk kebanyakan bidang bisnis, e-mail menjadi kewajiban untuk berkomunikasi,
+dan banyak perusahaan menjalankan sistem e-mail internal/eksternal mereka
+sendiri. Dengan Windows NT, anda harus membeli perangkat lunak terpisah
+agar dapat men-setup server e-mail. Sistem operasi UNIX datang dengan program
+yang bernama <B><A HREF="http://www.sendmail.org">Sendmail</A></B>. Ada
+juga beberapa paket perangkat lunak program mail (atau <I>MTAs</I>, Mail
+Transport Agents) yang tersedia untuk UNIX, tetapi yang satu itu (Sendmail)
+adalah yang paling banyak digunakan, dan gratis lagi. Beberapa administrator
+UNIX merasa bahwa <B><A HREF="http://www.exim.org">exim</A> </B>dan <B><A HREF="http://www.qmail.org">qmail</A></B>
+adalah pilihan yang lebih baik, karena mereka tak sesukar sendmail dalam
+pengkonfigurasiannya. Baik exim maupun qmail, seperti sendmail, adalah
+bebas untuk digunakan, bahkan dalam lingkungan komersial sekalipun. Banyak
+perusahaan berbasis NT memakai <B><A HREF="http://www.microsoft.com/exchange/default.asp">
+Microsoft Exchange Server</A></B> sebagai
+MTA mereka. Ini adalah solusi mahal dengan kesuksesan yang terbatas dalam
+lingkungan usaha. <B>Microsoft Exchange Server Enterprise Edition - Akses
+untuk 25 client seharga US$3.549</B>. Jika anda punya lebih dari 25 pekerja,
+paket yang sama untuk <B>50 client seharga US$4.859</B> (Sumber:
+<B><A HREF="http://www.microsoft.com/exchange/55/gen/pricing.htm">Microsoft</A></B>).
+Untuk informasi lebih lanjut mengenai topik ini lihatlah
+<A HREF="http://www.unix-vs-nt.org/kirch/sendmail-exchange.html">Microsoft Exchange
+versus Sendmail: Views of Other MIS Professionals</A>.
+<P>Sejak Microsoft melihat NT sebagai alternatif untuk semua sistem operasi
+lainnya yang mampu mengakomodasi jaringan dalam pasaran, UNIX dan Novell
+disertakan, seseorang akan berasumsi bahwa NT akan datang dengan semua
+tool (alat bantu) yang dibutuhkan untuk menyelesaikan tugas-tugas dasar
+kebanyakan dengan baik meliputi: layanan file dan pencetak. Administrator
+jaringan/sistem mana pun tahu dari pengalaman bahwa ada dua hal penting
+yang harus dipertimbangkan saat men-setup sebuah server file atau penambahan
+sebuah pengguna jaringan baru: keamanan, sebagai contoh password dan perizinan
+pemakaian file (permission); dan quota untuk membatasi penggunaan disk
+pengguna dan grup baru atau yang telah ada. Walaupun NT menyediakan keamanan
+password dasar, dia hanya menyediakan keamanan tingkat-file jika anda memilih
+untuk memakai sistem file yang disebut NTFS. Beberapa departemen SIM enggan
+untuk menerapkan sistem file ini (setidaknya dalam mesin pengguna), karena
+mereka merasa, untuk memulihkan file dari masalah dengan disk dihambat
+dalam NTFS. Adalah rahasia umum bahwa disk yang diformat dengan tipe NTFS
+tak dapat dibaca oleh DOS, sebuah sistem operasi yang penting dalam pemulihan
+kembali setelah mengalami suatu masalah. Rune Knapstad menginformasikan
+pada saya ada sebuah utiliti untuk DOS yang dinamakan <A HREF="http://www.ntinternals.com/ntfs20.html">NTFSDOS</A>
+yang dapat me-mount partisi NTFS. Adalah menarik untuk dicatat, bahwa utiliti
+ini dibuat oleh pihak ketiga dan bukan buatan Microsoft. Lebih penting
+dalam isu ini, bahwa, <B>NT tidak menyediakan mekanisme apa pun untuk membatasi
+penggunaan disk oleh pengguna !</B> UNIX dan Novell, di pihak lain, menyediakan
+perangkat lunak untuk melakukan hal ini, kelihatannya [meliputi] pengendalian
+elementer. Microsoft telah mengumumkan, bagaimanapun juga, bahwa rilis
+NT Server 5.0 yang belum keluar akan menyediakan "kemampuan manajemen penyimpanan
+yang baru seperti disk quota..." (lihatlah rilis press mereka,
+<A HREF="http://www.microsoft.com/corpinfo/press/1997/sept97/winnt5pr.htm">Windows
+NT 5.0 Beta Delivered to Over 200,000 developers</A>).
+<P>Desain yang berhubungan dengan disk lainnya yang lemah dalam <I>suite</I>
+sistem operasi Microsoft adalah keantikan penggunaan dari "<I>drive letters</I>",
+sebagai contoh drive C:, drive D:, dsb. Skema ini menimbulkan kesan pembatasan
+perangkat lunak secara spesifik atas para administrator sistem dan pengguna.
+Ini tidak sesuai dengan lingkungan <I>client/server</I> dimana <I>network
+shares</I> dan <I>filesystems</I> direpresentasikan secara hirarkis dengan
+sesuatu yang bermakna bagi manusia. UNIX mengizinkan sistem file jaringan
+yang di<I>share</I> untuk di<I>mount</I> pada titik apa pun dalam sebuah
+struktur direktori. Sebuah <I>network share</I> dapat juga memisahkan banyak
+disk drive (atau bahkan mesin yang berbeda) dalam UNIX, jadi mengizinkan
+kepada administrator untuk merawat struktur direktori yang sudah ada dimana
+hal itu sudah dikenal baik oleh para penggunanya, disamping mengizinkan
+mereka untuk melakukan perluasan spasi disk yang tersedia di server, yang
+membuat beberapa sistem transparan untuk pengguna. Perbedaan tunggal ini
+antara UNIX dan Windows lebih jauh menggarisbawahi maksud asli dari desainer
+masing-masing: UNIX menggambarkan sebagai sebuah sistem operasi <I>client/server</I>
+untuk penggunaan profesional, dimana Windows dan turunannya (kroni-kroninya
+.... - Adhi) berangkat dari DOS, sebuah sistem operasi yang tidak pernah
+dimaksudkan untuk menjadi pemain dalam lingkungan <I>client/server</I>,
+apalagi menjadi server. Untuk informasi yang lebih detil dalam topik ini,
+silakan lihat artikel Nicholas Petreley's <B>
+<A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/np102896.htm">
+It will take less drive to make most PC operating systems work like Unix</A></B>.
+<P>Yang terakhir tapi bukanlah tidak penting, sistem operasi UNIX telah
+diperlengkapi dengan bahasa <I>scripting</I> (Bourne Shell, Korn Shell,
+C Shell, dan beberapa di antaranya Perl, hanya sedikit sekali yang disebutkan
+di sini) dan sebuah fasilitas <I>cron</I> untuk menjadualkan pekerjaan
+untuk dijalankan dalam interval yang tertentu (setiap n menit, setiap n
+jam, sekali dalam seminggu, sekali dalam sebulan, dsb). Penjadualan cron
+sangat mudah dikonfigurasi dan tak dibatasi untuk beberapa contoh di sini.
+Singkatnya, sebuah bahasa pemrograman <I>script</I> + <I>cron</I> = sebuah
+sumber daya yang kuat untuk administrasi sistem, dan hal seperti itu tak
+dapat ditemukan dalam Microsoft Windows NT Server 4.0. Sebuah hal yang
+besar bagi administrasi sistem UNIX adalah otomatisasi dan kustomisasi
+untuk kebutuhan situs yang spesifik melalui pemakaian dari alat bantu (tool)
+tersebut, dimana hal itu membuat dampak pengurangan biaya untuk perorangan.
+Sebagaimana yang ditunjuk oleh salah seorang pembaca, NT telah mempunyai
+"Scheduler" dan sebuah perintah "at", dan bahwa Perl telah tersedia pula
+untuk NT. Ya, itu benar, namun saya tidak merasakan bahwa keterbatasan
+lingkungan <I>scripting</I> cmd.exe milik NT dikombinasikan dengan "Scheduler"
+atau "at" dapat mulai mendekati fungsionalitas yang ditawarkan oleh <I>tools</I>
+dari UNIX yang telah saya sebutkan. Pembaca lainnya, Neil McKellar, menyediakan
+sebuah <A HREF="http://www.unix-vs-nt.org/feedback/neil_mckellar.job_scheduling.html">
+contoh yang bagus yang</A> mendukung pernyataan ini.
+<P>Menjalankan tugas yang diotomatiskan hanya berguna jikalau <I>script</I>/tugas/file-file
+<I>executable</I>
+dapat dijalankan tanpa campur tangan manusia. Sejauh ini, apa pun yang
+jalan di NT adalah berbasiskan GUI, jadi memerlukan interaksi dengan seorang
+administrator. Jika terlihat realistik, tipe-tipe otomatisasi tugas yang
+sedang dijalankan dalam banyak toko adalah rutin <I>site-specific</I> yang
+harus diprogram oleh seorang administrator sistem. Berdasarkan oleh pengalaman
+industri saya, sangat jarang sekali situs yang terlibat&nbsp; dimana Perl
+dipasangkan di atas server NT dan tidak ada administrator NT yang tahu
+hal pertama [yang harus diketahui] tentang Perl. Gaya yang mengendalikan
+dibelakang pembelian perangkat keras yang murah berlangsung antara tangan-dengan-tangan
+melalui kepraktisan dari pemilihan administrator NT termurah yang tersedia;
+lain lagi, ini NT mas ! , apa yang harus anda lakukan hanyalah <I>point</I>
+dan <I>click</I>.
+<P>Untuk meringkasnya, sekali anda melakukan login ke jaringan NT, semua
+yang anda dapat kerjakan adalah membaca file dan mencetak. Dalam lingkungan
+UNIX, sekali anda login ke server UNIX, anda <I>dapat menjadi </I>mesin
+itu sendiri dan mengerjakan apa pun yang ingin anda kerjakan seolah-olah
+anda duduk di hadapan server UNIX itu sendiri. Dengan NT, jangan merencanakan
+untuk dapat men-setup server e-mail dengan perangkat lunak 'at hand'. Anda
+membutuhkan untuk membeli perangkat lunak server mail yang mahal seperti
+Microsoft Exchange Server secara terpisah. Apabila server NT seharusnya
+berfungsi sebagai server file - apa yang benar-benar dapat anda lakukan
+dengannya ? - jangan merencanakan untuk dapat mencegah pengguna untuk meng-crash
+server melalui pengisian file-file dengan data mereka.
+<P>Kemudahan konfigurasi dan dapat mengkonfigurasi sebuah server tanpa
+menyebabkan waktu down (downtime) adalah aspek lain fungsionalitas :
+<UL>"Beberapa versi dari UNIX (Linux, sebagai contoh) mendukung modul perangkat
+yang dapat dimuat. Ini berarti anda dapat melakukan boot pada Linux dan
+mengkonfigurasi ulang dukungan untuk perangkat keras dan perangkat lunak
+secara 'on the fly' (tanpa harus mematikan server - Adhi). Sebagai contoh,
+anda dapat mem-boot Linux tanpa dukungan SCSI yang telah anda pasang. Anda
+secara mudah dapat memuat dukungan untuk kartu SCSI tersebut saat anda
+menginginkan untuk mengakses salah sebuah ata lebih di antaranya pada perangkat
+yang terkoneksi dengan SCSI tersebut, seperti disk optik atau tape backup.
+Anda dapat melakukan unload kembali saat anda selesai. Anda dapat juga
+dengan bebas memuat dan meng-unload dukungan untuk kartu suara (sound card),
+kartu jaringan (network card) -- bahkan sistem file seperti HPFS, FAT,
+VFAT, dan lainnya (driver untuk NTFS sedang dikerjakan)."
+<P>"UNIX apa pun dengan dukungan modul yang dapat dimuat secara alami,
+lebih wajar bagi lingkungan server karena hampir semua pengubahan konfigurasi
+tak memerlukan restart sistem."
+<P>"Windows NT bahkan tidak cukup dekat. Perubahan yang tak penting dalam
+konfigurasi bahkan mensyaratkan atau meminta shutdown dan reboot agar pergantiannya
+tersebut mempunyai efek. Mengganti alamat IP dari gateway standar ...dan
+anda harus melakukan booting ulang agar berefek. Bahkan anda tak dapat
+mengganti tipe modem yang anda gunakan untuk melakukan dial-up untuk koneksi
+secara PPP tanpa me-reboot untuk mengupdate sistemnya. Tak ada batasan-batasan
+seperti ini dalam UNIX."
+<P>-- Nicholas Petreley, <A HREF="http://www.ncworldmag.com/ncworld/ncw-04-1998/ncw-04-nextten.html">The
+new UNIX alter NT's orbit: The re-emergency of UNIX threatens to modify
+the future direction of NT</A>, <A HREF="http://www.ncworldmag.com/ncworld/">NC
+World</A>, April 1998.</UL>
+Saat NT datang dengan fungsionalitas jaringan yang lebih mutakhir, terlihat
+bahwa Microsoft NT Server 4.0 Enterprise Edition tak dapat menangani sehebat
+sistem operasi UNIX komersial yang lebih dewasa. Sekalipun bukan hal yang
+mendasar untuk unjuk kerja jaringan, komputasi 64-bit ada hari ini, dengan
+sistem operasi UNIX (sebagai lawan dari sistem operasi NT yang 32-bit).
+D.H. Brown Associates Inc, melaporkan hasil analisis mereka sebagai berikut
+(kutipan berikut dengan tabel dan tiga gambar menyertai tabelnya adalah
+dari halaman web dari site Digital Equipment Corporation berjudul
+<A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">AIX
+4.3 Leaps To 64-Bits In Dead Heat With Digital UNIX 4.0</A>):
+<UL>AIX 4.3 memimpin dalam kemampuan jaringan Internet/Intranet dengan
+menyediakan perluasan set TCP/IP dan menambahkan 'harga' dengan bundel
+server Notes. Digital UNIX datang dengan tempat kedua dengan kapabilitas
+keamanan jaringan yang kuat, dibundelkan tidak hanya kapabilitas browser
+untuk Web tetapi juga alat bantu perawatan web (Web-Authoring Tools), dengan
+Navigator Gold, dan perluasan TCP/IP yang solid. Bagaimana pun kekurangan
+Digital UNIX adalah dalam kemampuan NFS seperti CacheFS dan AutoFS. IRIX
+6.4 menempati tempat ketiga, membundelkan CacheFS dan AutoFS, dan keamanan
+jaringan sekuat Digital UNIX. Tetapi kekurangan IRIX adalah dalam fasilitas
+pewaktu jaringan (NTP) dan kapabilitas TCP/IP, seperti IPv6 dan IPSec.
+Sun mengikuti di tempat berikutnya, dengan dukungan yang bagus dalam fungsi
+NFS dan susunan perluasan TCP/IP yang kedua. Namun, Sun mengandalkan server
+webnya sendiri, daripada memakai kepunyaan Netscape, Microsoft atau Apache,
+dan kekurangan dalam alat bantu perawatan web sebaik layanan penting seperti
+layanan direktori NDS-nya Novell. HP menyediakan dukungan Internet yang
+kuat dalam HP-UX, didukung oleh pertunjukan baiknya dalam fungsi protokol
+Internet yang lebih maju, serta keamanan jaringan, pada saat tertinggal
+di belakang, dukungan untuk kapabilitas NFS yang lebih maju. HP-UX, sejalan
+dengan AIX, juga mengumumkan kepemimpinan mereka dalam dukungan NDS. Untuk
+Microsoft Windows NT 4.0, menyediakan dukungan Internet/intranet yang kesemuanya
+mendapat nilai rata-rata "Good". NT tertinggal di belakang vendor yang
+mendukung UNIX karena dukungan yang minim dalam layanan direktori, keamanan
+jaringan, NFS, dan sedikit sekali perluasan TCP/IP. Microsoft sebagian
+besar telah memfokuskan untuk menambahkan nilai tambah bundelnya dengan
+produk server web dan meningkatkan Java Virtual Machine-nya.</UL>
+
+<CENTER><TABLE BORDER >
+<TR>
+<TD WIDTH="226"></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>HP-UX 11.0</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Solaris 2.6</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>AIX 4.3</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Irix 6.4</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Digital UNIX 4.0d</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>NTS 4.0/EE</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><B><FONT COLOR="#000000"><FONT SIZE=-1>Perluasan</FONT></FONT></B></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IPSec</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IPv6</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RSVP</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Partial</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IP Multiplexing</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>IP Multicast</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Sebagian</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><B><FONT COLOR="#000000"><FONT SIZE=-1>Optimisasi Unjuk
+Kerja</FONT></FONT></B></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+
+<TD WIDTH="62"></TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Telnet dalam kernel</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Kernel Sockets</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>TCP Large Windows</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Zero Copy TCP/Hardware
+Checksum</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Path MTU Discovery</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>OpenShortestPathFirst
+(OSPF)</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RTP: Real Time Protocol</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>RTCP: Real Time
+Control Protocol</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="226"><I><FONT COLOR="#000000"><FONT SIZE=-1>Parallelized TCP/IP</FONT></FONT></I></TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Ya</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Ya</FONT></FONT></CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya&nbsp;</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER>Ya</CENTER>
+</TD>
+
+<TD WIDTH="62">
+<CENTER><FONT COLOR="#000000"><FONT SIZE=-1>Tidak</FONT></FONT></CENTER>
+</TD>
+</TR>
+</TABLE></CENTER>
+
+<CENTER>
+<H3>
+<A NAME="graphs">
+KEMAMPUAN JARINGAN INTERNET/INTRANET</H3></CENTER>
+</A>
+
+<CENTER>
+<IMG SRC="/assets/AIX43_f.gif" HEIGHT=149 WIDTH=576></CENTER>
+
+<CENTER>
+<H3>
+KEANDALAN DAN SKALABILITAS</H3></CENTER>
+
+<CENTER><IMG SRC="/assets/AIX43_h.gif" HEIGHT=149 WIDTH=576></CENTER>
+
+<CENTER>
+<H3>
+MANAJEMEN SISTEM</H3></CENTER>
+
+<CENTER><IMG SRC="/assets/AIX43_j.gif" HEIGHT=149 WIDTH=576>
+<P>Copyright Digital Equipment Corporation 1995-1998. All Rights Reserved.
+<BR>Lihat juga artikel D. H. Brown's tentang <B>
+<A HREF="http://www.dhbrown.com/pdfs/osscorecard.html">
+Operating System Scorecard
+page</A></B> untuk perbandingan secara grafis dari sistem operasi
+yang diperbandingkan di atas.
+</CENTER>
+
+<P><B><FONT SIZE=+1>
+<A NAME="keandalan">Keandalan
+</A>
+</FONT></B>
+<P>Pada masa kini, keandalan lebih penting daripada kecepatan. Meskipun
+unjuk kerja adalah sebagian besar sebuah fungsi dari platform perangkat
+keras (lihat bagian berikutnya), adalah dalam daerah <I>keandalan</I> bahwa
+pilihan dari sistem operasi mempunyai pengaruh yang terbesar. Bahkan saat
+sebuah sistem operasi menawarkan fungsionalitas yang lebih, yaitu dia lebih
+'scalable', dan menawarkan kemudahan yang lebih besar dari manajemen sistem,
+apa kebaikan dari keuntungan-keuntungan ini adalah saat sebuah server memproses
+transaksi finansial real-time terganggu oleh crash yang sesekali dalam
+downtime yang tak dapat diterima ? Analogi mudahnya, mobil yang ekonomis
+dengan akal yang banyak [untuk UNIX], dan penampilan [mobil] sport yang
+sesekali terhenti dalam lalu lintas, bila tak dapat dikatakan secara rutin
+masuk bengkel, dapat mewakili gambaran dari Windows NT.
+
+<P><A NAME="stabilitas">
+Seseorang seringkali mendengar tentang Windows NT Server</A> direferensikan
+kepadanya sebagai sistem operasi yang "stabil", tetapi secara umum yang
+ini tidaklah akurat. Bila ini yang terjadi, kita tidaklah perlu membaca
+artikel
+<B><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub5.html">
+NT Lies: Lie 5 - NT is robust and crash-proof</A></B>,
+<B><A HREF="http://www.gcn.com/gcn/1998/July13/cov2.htm">Software glitches
+leave Navy Smart Ship dead in water</A></B>&nbsp; (Gregory Slabodkin,
+<A HREF="http://www.gcn.com/">Government
+Computer News</A>, 7-13-98) <B><A HREF="http://www.zdnet.com/pcweek/opinion/0330/30coff.html">Corporate
+IT needs an engine never quits</A></B> (Peter Coffee, PC Week 30 Maret
+98) atau <B><A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">We
+do not have a failure to communicate</A></B> (Peter Coffee, PC Week 13
+April 98). Saat pengarang dua artikel itu menarik perhatian dengan pertanyaan,
+"Apa yang anda pakai saat kegagalan adalah bukan pilihan ?" dia menyerang
+dengan "tiga kali sejumlah balasan e-mail yang bersemangat secara umum."
+Sehubungan dengan balasan e-mail-e-mail ini, dia menyatakan :
+<UL>"Terutama, saya tak menerima pesan tunggal dari siapa pun yang mendapatkan
+posisi bahwa Windows NT adalah cukup baik. Sama sekali berlawanan : Beberapa
+pesan mengekspresikan sebuah harapan yang sabar bahwa Windows NT 5.0 akan
+membuat kejutan, dibebani dengan layanan-layanan tambahan yang belum matang
+tetapi tanpa [tercapainya] keandalan kelas-korporasi dalam fungsi dasarnya."
+<P>"Saya mendengar dari seorang pembaca yang mengatakan bahwa pada site-nya,
+Linux di atas 486 melampaui unjuk kerja Windows NT di atas Pentium 200
+Mhz, dan dia mempunyai mesin Linux yang terus berjalan tanpa interupsi
+[bahkan] semenjak sebelum Windows NT 4.0 dirilis."
+<P>"Saya juga mendengar dari site kalangan pengusaha, di mana Linux dipertimbangkan
+sebagai pilihan yang telah terbukti, dengan aksesbilitas source-code (kode
+program/kode sumber) yang lebih berharga daripada keuntungan yang kurang
+dapat dipercaya dari dukungan vendor tradisional. Yang lainnya berjanji,
+suatu hari, Linux memberikan banyak pengguna sekarang--dalam harga yang
+murah."
+<P>-- Peter Coffee, <A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">We
+do not have a failure to communicate</A>, <A HREF="http://www.zdnet.com/pcweek/">PC
+Week,</A> 13 April 98.</UL>
+<A NAME="ms-summit">Memang</A>, Windows NT adalah perkembangan yang besar yang melampaui Windows
+3.1 atau Windows 95, tetapi ia masih menempuh jalan yang panjang sebelum
+ia dapat mencapai tingkat stabilitas yang ditawarkan oleh (bahkan) sistem
+operasi UNIX <B><A HREF="http://www.opensource.org/">Open Source</A></B>.
+Saat melawan Solaris dari Sun Microsystem,
+tak ada yang dapat diperbandingkan dalam keseluruhan aspek. Baru-baru ini
+dalam Microsoft Global Summit, jurnalis
+<A HREF="http://www.crn.com/">Computer Reseller News</A> Barbara
+Darrow dan Stuart Glascock mewawancarai beberapa pengunjung:
+<BLOCKQUOTE>"Kami mempunyai kotak Solaris yang tak pernah di-<I>reboot</I>
+dalam dua tahun ini," kata James Domengeaux, presiden dari Comspace.com,
+sebuah <I>reseller</I> web berbasiskan Houston. Dalam perbandingan, server
+NT seringkali [perlu] <I>reboot</I>, ujarnya. "Itu adalah sebuah masalah,
+khususnya dalam <I>e-commerce</I> jika anda berbicara mengenai transaksi
+per detik, karena banyak permintaan akan lolos/hilang" katanya lagi.
+<P>-- Barbara Darrow and Stuart Glascock,
+<B><A HREF="http://www.techweb.com/wire/story/TWB19980728S0004">
+Microsoft Admits NT Trails Solaris</A></B>,
+<A HREF="http://www.crn.com/">Computer Reseller News</A>,
+28 July 1998.
+</BLOCKQUOTE>
+Kekurangan Windows NT dalam stabilitas adalah isu yang sudah umum, manajer-manajer
+cenderung menggunakannya secara berhati-hati, seperti dilaporkan oleh seorang
+profesional TI :
+<UL>"'Saya tahu tiga perusahaan yang secara diam-diam memasang lebih dan
+lebih lagi [sistem operasi] UNIX . . . karena ongkos yang dikeluarkan untuk
+NT, atau secara sederhana dikatakan karena NT mati terlalu sering,' kata
+Peter Flynn, seorang konsultan di Cork, Irlandia. NT diketahui crash lebih
+sering dalam perasaan beberapa manajer TI. Penyebab khasnya adalah violations
+(pemaksaan) akses memori dan kesalahan I/O."
+<P>"Perusahaan-perusahaan ini tak ingin membicarakan keputusannya 'karena
+tekanan dari atas,' ujar Flynn. 'Ethos hanya-beli-Microsoft telah mengambil
+alih hanya-beli-IBM, dan manajer yang memutuskan [melawan nasihat dari
+teknolog] untuk menggunakan NT daripada UNIX sekarang tak bersedia kehilangan
+muka,' dia menambahkan."
+<P>-- Mark Gibbs, <A HREF="http://www.nwfusion.com/intranet/0330linux.html">Lookin'
+into Linux</A>, <A HREF="http://www.nwfusion.com/">Network World</A>, 30
+Maret 1998.</UL>
+Profesional SI mana pun yang telah bekerja dalam lingkungan Windows NT
+telah mengakrabi pengetahuan dari "Blue Screen of Death" yang jahat, sebuah
+situasi di mana jendela desktop normal benar-benar menghilang dan tergantikan
+dengan sebuah layar yang penuh nomer heksadesimal dengan latar belakang
+berwarna biru. Metode yang <I>hanya</I> bisa dilakukan untuk memulihkan
+situasi ini adalah melakukan booting ulang mesinnya. Apa yang menyebabkan
+"layar biru" adalah bervariasi. Dalam pengalaman saya sendiri, apa yang
+dituliskan di bawah ini dapat menyebabkan keadaan tersebut :
+<UL>
+<LI>
+Pada saat baik IPX/SPX dan TCP/IP protokol digunakan dan teknisi menambahkan
+sebuah mesin dengan alamat IP statik pada subnet yang berbeda;</LI>
+
+<LI>
+Saat beberapa aplikasi Visual Basic 16-bit <I>tidak</I> dijalankan dalam
+"spasi memori yang terpisah." NT tidak menjalankannya dalam memori yang
+terpisah dalam keadaan biasa. Ini adalah konfigurasi <I>manual</I> yang
+harus diset untuk setiap dan semua aplikasi 16-bit pada mesin tersebut.</LI>
+
+<LI>
+Merk dan modul memori tertentu atau cache akan menyebabkan hal ini, bahkan
+walaupun perangkat keras yang sama berjalan dengan baik di bawah sistem
+operasi yang lain, seperti Windows 95.</LI>
+</UL>
+Dalam beberapa situasi, Linux juga akan mengeluh tentang perangkat kerasnya.
+Saya secara pribadi tidak berpengalaman dalam hal ini kecuali memasang
+Linux di atas perangkat keras yang sangat bervariasi, tetapi hal itu mungkin.
+Hal itu timbul saat seseorang melakukan kompilasi kernel pada sebuah mesin
+yang mempunyai memori yang buruk. Untuk informasi lebih lanjut, lihat
+<A HREF="http://www.bitwizard.nl/sig11/">Signal
+11</A>. Daftar BSOD dalam NT tersebut belumlah lengkap. Dalam faktanya, Tim
+Newsham, seorang pengembang perangkat lunak untuk platform Windows maupun
+UNIX, menemukan daftar singkat ini sangat menyesatkan :
+<UL>Dalam bagian BSOD anda menyebutkan sedikit sekali penyebab yang dapat
+menyebabkan BSOD. Saya berpikir daftar (yang sedikit) tersebut menyesatkan
+pembaca. Ada <I>banyak sekali</I> cara yang menyebabkan sistem NT menjadi
+crash, di mana dengan mencantumkan sedikit di antaranya, anda kelihatannya
+memberikan kesan yang salah. Yang lebih berbahaya adalah fakta bahwa kasus
+anda kebanyakan melibatkan seseorang yang ada di console (layar) mengerjakan
+sesuatu yang BURUK untuk menyebabkan crash. Banyak cara untuk membuat crash
+sistem NT yang terjadi secara tidak sengaja hari demi hari sistem tersebut
+beroperasi (memang, meninggalkan sistem terlalu lama saat menjalankan aplikasi-aplikasi
+dengan jumlah tak terhitung dapat, menyebabkan crash yang aneh dengan sedikit
+petunjuk yang menyebabkannya). Tambahan lagi pengguna yang menaruh dendam
+dapat memicu crash karena implementasi yang bermutu rendah dalam modul
+perangkat lunak seperti program <I>login</I> (LSA) di stack TCP/IP-nya.</UL>
+BSOD dapat merupakan peristiwa biasa dalam lingkungan komputasi dan seringkali
+sukar untuk melakukan troubleshooting terhadapnya karena laporan kesalahan
+yang tersembunyi atau tidak ada. Sebagai tambahan, NT terutama, mudah terkena
+serangan virus atas perangkat keras berbasis Intel. Microsoft meneruskan
+untuk menulis menulis sistem operasinya seperti sistem operasi yang membaca
+Master Boot Record dari harddisk. Artinya, sebuah server NT dapat menjadi
+crash karena sebuah virus yang dibuat 10 (sepuluh) tahun yang lalu untuk
+komputer-komputer yang menjalankan MS-DOS. Siapa pun yang merencanakan
+untuk memanfaatkan sebuah server NT pada sebuah misi dalam lingkungan yang
+kritis seharusnya mempertimbangkan fakta ini. Saya secara pribadi secara
+tak sengaja menemukan virus MBR dalam lingkungan korporasi yang menjalankan
+Windows NT 4.0 (tanpa klien Windows 95!), dan efeknya merusakkan. Sebagai
+tambahan untuk uraian ini. banyak virus yang akan menginfeksi sistem operasi
+Windows tetapi tidak mempunyai efek apa pun sama sekali pada sistem operasi
+UNIX karena banyak virus seringkali mensyaratkan lingkungan MS Windows
+untuk mendukung perusakan yang mereka lakukan.
+<P>Sebuah situasi dalam kehidupan nyata yang melibatkan keandalan NT dilaporkan
+oleh manajer departemen Sistem Informasi Percetakan Universitas Nebraska,
+Quinn P. Coldiron, yang menulis demikian :
+<UL>Hidup sesudah memindahkan Cats [sebuah sistem pengisian pesanan dan
+inventori] ke NT adalah sebuah mimpi buruk. Sistemnya selalu crash dua
+atau tiga kali sehari tanpa alasan yang dapat saya temukan. Saat itu saya
+menelpon Microsoft dan Cats secara konstan, tetapi tak seorang pun dapat
+mengatasinya. Microsoft menyuruh saya untuk menerapkan Service Packs #1
+melalui tiga dan sedikit HotFixes, yang membantu, tetapi masih tetap crash,
+setidaknya dua kali seminggu dengan "Blue Screen of Death" yang jahat.
+Sesudah beberapa minggu dan habis sekitar $1.500 untuk dukungan telepon
+dari Microsoft, dukungan teknis melaporkan pada saya bahwa saya sebaiknya
+mencari paket perangkat lunak yang lebih baik daripada The Cat's Pajamas.
+Ini bukanlah solusi yang saya cari, karena ini paket yang dapat diubah
+ukuran persentasinya untuk mencetak ukuran nationwide yang sedang berjalan.
+Kemudian saya memaksa kembali kepada server Novell untuk menangani produksinya
+sampai saya dapat memikirkan sesuatu hingga saya mengerti . . . Empatbelas
+bulan kemudian, kami menjalankan Linux sebagai server kami.</UL>
+Situasi yang sama pada UNIX untuk "Blue Screen of Death" selanjutnya akan
+disebut dengan "kernel panic". Ini dengan jelas kentara, sejak saya mendengar
+dan membaca tentangnya, tetapi saya tak pernah menyaksikannya sendiri selama
+karir profesional saya. Meskipun saya yakin bahwa server UNIX kadang-kadang
+dapat crash, tetapi situasi tersebut merupakan peristiwa yang sangat jarang
+terjadi. Jika dan saat server UNIX crash, hampir selalu terjadi karena
+kegagalan perangkat lunak dari beberapa port (gerbang). Perangkat lunak
+apa pun yang menyebabkan masalah dalam lingkungan UNIX secara umum membuat
+dirinya sendiri diketahui setelah waktu tertentu, kadangkala dalam bentuk
+penurunan berangsur-angsur unjuk kerja sistem secara keseluruhan, memberikan
+kepada administrator waktu yang lebih dari cukup untuk menelusuri masalahnya,
+membetulkannya, dan menghentikan/menghidupkan ulang <I>proses
+</I>(sangat
+jarang yang melakukannya untuk keseluruhan mesinnya!) yang menyebabkan
+masalah tersebut. Secara umum, server UNIX hanya berhenti pada saat masalah-masalah
+ini terjadi :
+<UL>
+<LI>
+Karena kegagalan perangkat keras, sebagai contoh harddisknya fails;</LI>
+
+<LI>
+Upgrade perangkat keras harus dilaksanakan;</LI>
+
+<LI>
+Kekosongan daya listrik yang lama sekali dan sumber daya suplai listrik
+cadangan telah habis.</LI>
+
+<LI>
+Kernelnya sedang diupgrade.</LI>
+
+<LI>
+Sebuah kernel versi beta sedang dites (tidak direkomendasikan untuk lingkungan
+produksi)</LI>
+</UL>
+Bila tak sebuah pun dari situasi tersebut terjadi, maka waktu hidup sistem
+UNIX dapat mencapai tahunan. NT, bagaimanapun, tak dapat membual tentang
+panjangnya periode waktu dari layanan yang tak terinterupsi. Bahkan saat
+seseorang dapat mengurangi BSOD, NT dirintangi oleh desainnya sendiri dan
+memakai file konfigurasi biner <I>proprietary</I> yang sukar-untuk-dibuat-ulang,
+sebagai contoh, registry NT. Bacalah tentang&nbsp;
+<A HREF="http://www.unix-vs-nt.org/kirch/massive-nt-failure.html">
+massive NT failure</A> yang
+menyebabkan lebih dari 10.000 mesin NT dikembalikan&nbsp; karena tidak
+berguna untuk tugas apa pun yang memerlukan sumber daya jaringan.&nbsp;
+<HR WIDTH="100%">
+
+<P><B><FONT SIZE=+1>
+<A NAME="manajemen">
+Manajemen Sistem
+</A>
+</FONT></B>
+<P>Pendapat bahwa Windows NT lebih mudah untuk diatur karena GUI-nya (antarmuka
+pengguna grafis tunjuk-dan-klik) tidak terbukti. Keuntungannya, bila ada,
+antara GUI dibandingkan dengan CLI (command line interface - antarmuka
+perintah baris - Adhi, sebagai contoh mengetikkan perintah secara manual
+lewat keyboard) adalah dapat dipertanyakan. Asumsi pertama bahwa Windows
+NT mempunyai keuntungan dibandingkan dengan UNIX karena GUI-nya. Ini adalah
+keliru. Sistem UNIX mempunyai GUI sebaik Windows (lihatlah <B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html#Ease of administration">contoh
+grafis</A></B> ini).
+<BLOCKQUOTE>
+<UL>"NT mempunyai antarmuka pengguna yang lama dinikmati oleh seorang pengguna
+yang intuitif untuk mengatur sistem tunggal, kebanyakan bermanfaat dari
+kefamiliaran istimewa yang merupakan bagian GUI lihat-dan-rasakan Windows
+yang diadopsi oleh NT. Namun, begitu pengguna-pengguna mulai memanfaatkan
+sejumlah besar server, dan servernya secara geografis tersebar, beberapa
+dari arsitektur NT yang kurang memuaskan untuk manajemen sistem menjadi
+lebih kentara, secara utama berasal dari desainnya, sebagai sistem berpengguna
+tunggal. Desain multi pengguna UNIX mendukung akses jarak jauh dalam tingkatan
+yang jamak, termasuk kemampuan untuk login dengan sesi karakter, lewat
+telnet, untuk menyunting file-file konfigurasi, menjalankan tool-tool GUI
+melalui jaringan yang mendukung Sistem X-Window, dan sekarang melalui tool
+manajemen sistem versi Java. NT saat ini tak memiliki sebuah kemampuan
+pun dari beberapa seperti yang telah disebut di atas. Lebih jauh lagi,
+manajemen jarak jauh (remote management) NT melambangkan keterlibatan baik
+pemasangan seorang pakar lokal yang Microsoft harapkan akan menjadi lebih
+mudah karena volume [penyebaran] NT yang luas dan kesamaan untuk mengutamakan
+versi Windows atau mengandalkan atas produk-produk sistem manajemen berlapis
+dari Microsoft atau pihak ketiga. Keduanya bukan pilihan, sekalipun, agak
+sesuai dengan efisiensi untuk mengatur distribusi sistem UNIX."
+<BR>-- Dikutip dari: <A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">An
+In-Depth Analysis of Five Commercial UNIX Operating Systems and Windows
+NT Server 4.0 (Enterprise Edition) </A>oleh D.H. Brown Associates, Inc.</UL>
+</BLOCKQUOTE>
+
+<P>Lihat juga: <B>
+<A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub9.html">
+NT Lies: Lie 9 - Zero administration is here.</A></B>
+
+<HR WIDTH="100%">
+<P><B><FONT SIZE=+1>
+<A NAME="kinerja">Unjuk Kerja/Kinerja
+</A>
+</FONT></B>
+<P>Kekuatan proses kebanyakan merupakan fungsi perangkat keras komputer,
+bukanlah perangkat lunaknya. Semenjak banyak sistem UNIX komersial hanya
+berjalan di atas workstation atau server yang high-end, akan menjadi tidak
+masuk akal untuk membandingkan <A HREF="http://www.rs6000.ibm.com/hardware/largescale/index.html">IBM
+SP2</A> atau sebuah <A HREF="http://www.sun.com/servers/ultra_enterprise/10000/spec.html">Sun
+Entreprise 10000</A> atau sebuah <A HREF="http://www.sun.com/servers/enterprise/450/;$sessionid$DSWFMQYAABX5HAMW0Sun Enterprise 450</A>
+dengan produk Compaq atau Dell apa pun juga. UNIX
+telah melegenda menjadi sebuah sistem operasi untuk perangkat keras yang
+high-end. Untuk mengatakan bahwa UNIX melampaui mesin berbasis NT dalam
+perangkat keras yang berbeda akan menjadi tidak adil bagi Microsoft. Dengan
+kata lain, Microsoft pasti berkurang, bukannya bertambah, untuk jumlah
+arsitektur perangkat lunak yang dia dukung. NT for MIPS telah dihentikan
+karena kekurangan pelanggan dan dukungan PowerPC hanyalah kecil saja. NT,
+sekarang menyusut ke dalam arsitektur x86 dan Alpha saja yang akan tetap
+menjadi "server untuk orang miskin" sebagaimana secara umum diyakini oleh
+bisnis TI.
+<P>Kekurangandalan NT hanya dilebihi oleh kekurangannya dalam skalabilitas.
+Skalabilitas yang <I>superior</I> yang diperoleh oleh sistem operasi UNIX
+komersial pada masing-masing pernagkat kerasnya adalah alasan mengapa perusahaan
+besar dengan kebutuhan kapasitas komputasi yang tinggi tak dapat berpindah
+ke NT bahkan jika mereka inginkan hal itu. Direktur Riset
+<B><A HREF="http://www.gartner.com/">GartnerGroup</A></B>,
+Mary Hubley, menyebutkan dalam artikelnya&nbsp; <B>
+<A HREF="http://www.gartner.com/public/static/datapro/industry/indnews6.html">NT and UNIX: Irresistible
+Force vs. Immovable Object</A> </B>(January 1998) dimana persepsi positif masyarakat
+yang berlebihan dari kapabilitas NT utamanya [hanya] berbasiskan atas pemasaran
+yang berlebih-lebihan:
+<BLOCKQUOTE>"Banyak orang percaya bahwa NT lebih mudah digunakan daripada
+fakta sebenarnya, <I>scale</I> lebih baik daripada yang sebenarnya NT lakukan,
+dan cukup kuat untuk mengerjakan apa yang UNIX dapat kerjakan. Tetapi sebagian
+besar persepsi ini terjadi karena pemasaran yang hebat dari Microsoft,
+dan ini bukanlah hal yang [sesungguhnya] nyata."</BLOCKQUOTE>
+Jikalau <I>file sharing</I> Windows berkinerja tinggi adalah kepentingan
+tertinggi, orang harus mempertimbangkan pemilihan konfigurasi server yang
+telah memecahkan rekor dunia untuk beberapa layanan, sebuah mesin SGI yang
+menjalankan IRIX:
+<BLOCKQUOTE>"Samba 2.0 telah dibenchmark menggunakan <I>suite</I> benchmarking
+Ziff-Davis NetBench (R) sebagai server Windows tercepat di dunia, mencapai
+kinerja <I>fileserving</I> 193 megabit per detik di atas sebuah server
+Silicon Graphics (R) Origin 200 (R) dengan komputer klien Windows sebanyak
+60."
+<P>
+<B><A HREF="http://lwn.net/1999/0121/samba.html">
+Samba Team merilis Samba 2.0: World's Fastest Windows Server Software</A></B>
+sebagaimana yang telah mereka kirimkan pada hari Sabtu, 16 Jan 1999 16:08:38
++1100 untuk para penerima melalui Samba Announcement Mailing List (samba-announce@samba.org)
+dengan versi HTML di-<I>host</I> oleh <B><A HREF="http://lwn.net/">
+Linux Weekly News</A></B>.</BLOCKQUOTE>
+Pengumuman tersebut juga membuka pikiran akan suatu fakta yang penting
+mengenai interoperabilitas dengan domain Windows NT:
+<BLOCKQUOTE>"<I>Feature</I> dari Samba 2.0, [yang merupakan] implementasi
+pertama non-Microsoft untuk protokol otentikasi domain Windows NT, mengizinkan
+sebuah server Samba 2.0 untuk diintegrasikan ke dalam sebuah domain Windows
+NT yang telah ada."</BLOCKQUOTE>
+Untuk informasi lebih lanjut, silakan kunjungi satu dari banyak
+<A HREF="http://samba.org/">situs Web
+Samba</A> yang terletak di 20 negara yang berbeda.
+<P>Artikel Ann Harrison menyediakan sebuah artikel mengenai <I>testimonial</I>
+dari Southwestern Bell berkenaan dengan bagaimana Linux mengalahkan NT:
+<BLOCKQUOTE>"Randy Kessell, manajer dari analisis teknik untuk pusat operasi
+Southwestern Bell , ....menambahkan bahwa perusahaannya sedang berpikir
+untuk mengganti server jaringan mereka dengan Linux. 'Tes pendahuluan kami
+menunjukkan bahwa solusi Linux mengalahkan solusi NT,' kata Kessell. 'Linux
+lebih cepat.'
+<P>-- Ann Harrison,
+<B><A HREF="http://www.softwaremag.com/Sept98/sm098cv.htm">In LINUX We . . .</A></B>,
+<A HREF="http://www.softwaremagazine.com/">Software Magazine</A>, Cover Story,
+September 1998.</BLOCKQUOTE>
+<A HREF="http://www.ugraf.com/">European MikroGraf Corporation</A> telah mempublikasikan hasil perbandingan
+kinerja UNIX vs NT mereka dan menerangkan bagaimana:
+<BLOCKQUOTE>"Beberapa waktu dalam sebulan, pelanggan yang ada dalam industri
+percetakan dan <I>prepress</I> menanyakan kepada kami <I>platform</I> server
+apakah yang seharusnya mereka pakai. Unix atau Windows NT. Windows NT mungkin
+dapat diterima untuk operasi hari-ke-hari pada bisnis menengah, namun tak
+dapat menangani beban kerja yang pada umumnya ditaruh di atas server oleh
+para penerbit."</BLOCKQUOTE>
+Hal yang menarik tentang
+<B><A HREF="http://www.ugraf.com/unix-nt/jt/unix-nt.nob.html">UNIX vs NT comparison</A></B> dari MikroGraf adalah perangkat
+keras yang sama dipergunakan dalam dua dari empat tes, sebuah komputer
+Digital Model 2100: satu dengan Digital UNIX sebagai sistem operasinya,
+dan lagi dengan Windows NT pada perangkat keras yang sama.
+<P>Untuk lebih adilnya, seorang sebaiknya membandingkan unjuk kerja server
+NT dengan Linux atau FreeBSD, karena tiga sistem operasi tersebut dapat
+berjalan dalam perangkat keras yang sama. Sayang sekali, analisi obyektif
+dengan jujur untuk unjuk kerja harus berbasiskan benchmark, tetapi hal
+demikian tidaklah berguna banyak serta pada umumnya difokuskan hanya pada
+area tertentu seperti kinerja Web:
+<A HREF="http://www.calderasystems.com/news/features/971222.keylabs.html">
+Caldera OpenLinux vs. Windows NT: WebBench
+Performance Test</A>. Permufakatan secara umum di antara profesional TI adalah,
+bagaimanapun juga, bahwa Linux dan FreeBSD secara jauh melampaui NT. Mempertimbangkan
+bahwa kernel-kernel UNIX dapat dikompilasi secara kustom untuk berisikan
+hanya perangkat lunak yang benar-benar dibutuhkan oleh administrator, sehingga
+Linux dan FreeBSD dapat berfungsi lebih efisien daripada NT. Bagian yang
+tak terpisahkan, sistem operasi apa pun yang mensyaratkan sumber daya yang
+lebih sedikit akan melampaui sistem operasi yang lebih <I>gendut </I>seperti
+NT. UNIX tidak mensyaratkan GUI untuk berfungsi. NT harus. Siapa pun tahu
+bahwa grafis mensyaratkan jumlah spasi harddisk dan memori yang tak masuk
+akal. Hal yang sama terjadi pada file-file sound, yang kelihatannya begitu
+penting untuk [disertakan dalam] sistem operasi kepunyaan Microsoft.
+<P>Benchmark yang dilaksanakan pada sistem operasi UNIX yang serupa menggunakan
+perangkat keras yang sama adalah lebih berarti. <A HREF="http://www.tdl.com/~netex/mb/mb.html">NetExpress</A>,
+sebuah pengecer dari perangkat keras berbasiskan x86 di Internet, yang
+mempunyai sistem "didesain untuk ilmuwan, teknisi, dan industri telekomunikasi,"
+menunjukkan bahwa hasil-hasil yang telah dicapai oleh sistem operasi yang
+wajar adalah demikian :
+<P>
+<HR WIDTH="92%">
+<UL><B><FONT SIZE=-1>Byte UNIX Benchmark 3.2 untuk perbandingan Sistem
+Operasi :</FONT></B>
+<P><FONT SIZE=-1>Dalam tambahan kami menyajikan hasil-hasil Byte UNIX Benchmark
+3.2 untuk membandingkan kecepatan relatif dari tiga SO klon UNIX yang terkenal.
+Pengujian kami jalankan di atas mesin Pentium 133 Mhz dengan 32 MB RAM,
+chip set Triton-II 430HX dan controller SCSI BusLogic</FONT> :</UL>
+
+<CENTER><TABLE BORDER >
+<TR>
+<TH ALIGN=LEFT BGCOLOR="#0000FF"><B><FONT COLOR="#FFFFFF">System</FONT></B></TH>
+
+<TH BGCOLOR="#0000FF"><B><FONT COLOR="#FFFFFF">Bytemarks</FONT></B></TH>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Linux di atas sebuah Pentium 133 Mhz&nbsp;</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>12.2</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>BSD di atas sebuah Pentium 133 MHz&nbsp;</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>9.8</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris 2.5 di atas sebuah Pentium 133 MHz&nbsp;</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>6.2</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris di atas sebuah Sun Sparc-II Ultra 167 MHz System</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>13.7</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris 2.5 di atas sebuah Orion Pentium Pro 200 MHz</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>13.5</FONT></TD>
+</TR>
+</TABLE></CENTER>
+
+<UL><FONT SIZE=-1>Dari hasil-hasil tersebut kita dapat melihat bahwa Linux
+adalah sistem operasi yang sangat efisien. Skor untuk Linux di atas Pentium
+133 hampir secepat Solaris 2.5 di atas Ultra Sparc atau sebuah 200 Mhz
+Pentium Pro!!!</FONT></UL>
+
+<CENTER><I><FONT SIZE=-1>Copyright (C)1996 Net Express All Right Reserved.</FONT></I></CENTER>
+
+<HR WIDTH="92%">
+<P>
+<A NAME="kickass">
+Mungkin</A> sebuah contoh dari keuntungan unjuk kerja yang orang harapkan
+untuk ditemukan saat memilih sebuah sistem operasi UNIX berkenaan dengan
+server web
+<A HREF="http://www.opensource.org/">Open Source Apache</A>, dapat ditemukan dalam sebuah artikel oleh Sean
+Fulton yang muncul dalam INTERNETWEEK pada 5 Mei 1997, <B>
+<A HREF="http://www.techweb.com/se/directlink.cgi?CWK19970505S0103">Towers
+of Power -- We test five muscular Web servers aimed at high-end intranet
+applications</A></B>. Untuk NT, hasil pengujiannya sangat buruk :
+<UL>"Telenet System Solutions menghasilkan kejutan yang terbanyak selama
+pengujian kami, dengan sebuah mesin berbasiskan BSDI, sistem CPU tunggal
+yang menyamai dan dalam beberapa kasus mengungguli mesin CPU ganda yang
+menjalankan Windows NT."
+<P>"Faktor yang membedakan di sini adalah SO BSDI 3.0 termuat dalam mesin
+dan perangkat lunak server HTTP Apache. Semua mesin CPU ganda menjalankan
+Windows NT 4.0 dengan Microsoft's Internet Information Server 2.0."</UL>
+Pada saat berbicara tentang unjuk kerja server web, IBM kembali memperoleh
+predikat server Web tercepat dengan diperkenalkannya mikroprosesornya yang
+terbaru, yaitu PowerPC RS64-II 262 Mhz.
+<BLOCKQUOTE>"Prosesor baru akan membuat IBM S70 satu dari server Web tercepat
+di dunia saat dipakai dalam konfigurasi tertentu, menurut benchmark tertentu
+yang dipilih oleh IBM . Dalam 12-jalan/cara konfigurasi, S70 mengantarkan
+kinerja SPECweb96 pada 9081 operasi per detik, yang membuatnya menjadi
+sistem pertama yang melampaui angka 9000," menurut IBM.
+<P>-- James Niccolai,
+<B><A HREF="http://www.infoworld.com/cgi-bin/displayStory.pl?980812.ecrs6000.htm">
+New chip to debut in IBM's RS/6000 Model S70</A></B>,
+<A HREF="http://www.infoworld.com/">InfoWorld
+Electric</A>, 12 August 1998.</BLOCKQUOTE>
+
+<P>Untuk kekuatan tingkat-<I>enterprise</I>, <I>clustering</I> dengan Linux
+dapat menghasilkan hasil yang menakjubkan pada harga yang murah. Dalam laporan
+baru-baru ini Michael Stutz, Proyek Beowulf NASA mengeset sebuah contoh
+potensi dari sistem operasi UNIX <A HREF="http://www.opensource.org/">Open Source</A>
+seperti Linux dalam area <I>supercomputing</I>:
+
+<BLOCKQUOTE>
+<UL>"Masuk ke dalam
+<A HREF="http://www.beowulf.org/">Beowulf</A>, sebuah sistem yang memakai arsitektur proses-paralel
+dan mesin <I>off-the-shelf</I> yang menjalankan sistem operasi Linux yang
+tersedia secara <I>free</I>. Satu mesin adalah <I>node</I> server dan mendistribusikan
+sebuah tugas pemrosesan ke semua mesin lainnya, yaitu <I>node</I> klien."
+<P>"Harga perangkat lunak total untuk CCD's 24 - <I>node</I> Beowulf <I>cluster</I>
+adalah US $ 57.000 -- sebagaimana diperbandingkan kepada <I>supercomputer</I>
+komersial hari ini, yang berharga di antara $ 10 juta dana $ 30 juta. <I>Cluster</I>
+tersebut memberikan <I>throughput </I>2.4 GB per detik, yang berarti bahwa
+sebuah harddisk sebesar 200 GB dapat di<I>scan</I> hanya dalam waktu 20
+detik. Pada saat membutuhkan lima sampai tujuh minggu untuk menganalisis
+kejadian dari beberapa penyusup dalam kasus <I>hacker</I> Israel baru-baru
+ini, Talleur mengatakan hanya membutuhkan beberapa jam saja dengan Beowulf."
+<P>"Proyek Beowulf dikembangkan di NASA oleh Thomas Sterling dan Donald
+Becker pada musim panas tahun 1994; hari ini, setiap orang dapat membeli
+CD-ROM Beowulf -- Red Hat Software's
+<A HREF="http://www.redhat.com/product.phtml/EX1000/">Extreme</A> Linux package -- untuk $ 29
+saja."
+<P>-- Michael Stutz,
+<B><A HREF="http://www.wired.com/news/news/technology/story/14450.html">
+NASA Greets Beowulf</A></B>,
+<A HREF="http://www.wired.com/news/">Wired News</A>, 17 August 1998.</UL>
+</BLOCKQUOTE>
+
+<HR WIDTH="100%">
+<P><B><FONT SIZE=+2>
+<A NAME="keamanan">Keamanan
+</A>
+</FONT></B>
+<P>Topik ini terlalu luas dan kompleks untuk disertakan dalam ruang lingkup
+artikel ini. Kemanan, bagaimanapun juga sangat penting. Kaitan-kaitan di
+bawah ini adalah permulaan yang bagus untuk membandingkan kelemahan keamanan
+dari beberapa sistem operasi yang bervariasi:
+
+<UL>
+<LI>
+<A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/980713np.htm">
+Probing into C2 security claims: Is NT as secure as Microsoft has said it is?
+</A><BR>
+<LI>
+<A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub2.html">
+NT Lies: Lie 2 - NT is less secure than UNIX</A><BR>
+(Keamanan yang sesungguhnya berarti memutuskan server dari jaringan
+dan menguncinya erat-erat!)
+<LI><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub4.html">
+NT Lies: Lie 4 - NT Meets Military Standards</A>
+<LI><A HREF="http://www.byte.com/art/9711/sec6/art3.htm">
+A BYTE article on Windows NT security problems</A>
+<LI><A HREF="http://www.iss.net/vd/bill_stout/NThacks/ntfsdos.htm">
+NT secured filesystem (NTFS) can be read from Linux,
+bypassing filesystem security.</A>
+<LI><A HREF="http://www.iss.net/vd/bill_stout/ntexploits.htm">
+Known NT Exploits</A>
+<LI><A HREF="http://www.it.kth.se/~rom/ntsec.html">
+NT Security - Frequently Asked Questions version 0.41</A>
+<LI><A HREF="http://afcert.csap.af.mil/vulnerabilities.html">
+AFCERT - Security Issues for various operating systems</A>
+</UL>
+
+<HR WIDTH="100%">
+<CENTER>
+<P><BLINK>Klik <A HREF="ID-unix-vs-nt2.html">di sini</A> untuk menuju bagian
+selanjutnya dari artikel ini.</BLINK></CENTER>
+</div>
+</BODY>
+</HTML>

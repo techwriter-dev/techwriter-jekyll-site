@@ -1,0 +1,439 @@
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=big5">
+   <META NAME="description" CONTENT="UNIX versus Windows NT -Information every manager should know when planning a corporate network or the purchase of server hardware.">
+   <META NAME="keywords" CONTENT="NT vs UNIX, UNIX vs NT, NT vs. UNIX,UNIX vs. NT, nt versus unix, unix versus nt, IIS, apache, sendmail,exchange server, microsoft, smp, aix, hp-ux, digital unix, solaris,freebsd, bsdi, linux, windows nt, corporate network, mail servers,operating systems, cost effective solutions, mission criticaloperations, sendmail, apache, iis, system administration, microsoft">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.01 [tw] (Win95; I) [Netscape]">
+   <TITLE>當Microsoft Windows NT Server 4.0 對上 UNIX</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" leftmargin="50" TEXT=#0000FF>
+<CENTER><A HREF=http://www.okstation.com><IMG SRC=okstation-roadsign.gif border=0></A></CENTER>
+<HR>
+<CENTER>
+<A HREF=unix-nt-01.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-03.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+<A NAME="reliability"></A>
+<CENTER><H3>可信度</H3></CENTER>
+在今天的世界,  可信度通常比速度更重要.
+雖然效能是硬體平台的主要功能(請見下一節),
+在<I>可信度</I>上, 所選擇的作業系統影響較深遠.
+即使作業系統提供更多功能,  更可完成度,  並提供很多簡易的系統管理,
+這些功能有什麼好?
+尤其當這個主機需要處理即時的金融交易,  卻被不可接受的弊病 -
+高度頻繁的當機瘟疫所侵擾.
+而這個經常在服務處, 交通繁忙地區, 街頭小巷經常被看到的東西正是在說Windows NT.
+
+<P><A NAME="stability"><CENTER><H4>穩定性</H4></A></CENTER>
+
+<P>大家聽到關於Windows NT Server時,  通常意指是個"穩定"的作業系統, 
+但這不完全正確. 若是如此, 那麼我們不需要在此讀本文及像
+<A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub5.html">
+NT謊言: 謊言5 - NT是建全的並且經得起當機</A></B>, <B>
+<A HREF="http://www.gcn.com/gcn/1998/July13/cov2.htm">
+軟體故障使海軍最先進的戰艦死在水中</A></B>
+(Gregory Slabodkin, <A HREF="http://www.gcn.com/">政府電腦新聞</A>, 7-13-98),
+<B><A HREF="http://www.zdnet.com/pcweek/opinion/0330/30coff.html">Corporate IT needs an engine that never quits</A></B> (Peter Coffee,  PC Week 3-30-98)
+或<B><A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">We do not have a failure to communicate</A></B> (Peter Coffee,  PC Week 04-13-98).
+這幾篇文章.
+
+當這兩篇文章的作者提出這個問題時,  "當錯誤不是個選擇時, 您會用什麼?"
+他痛斥地說: "三倍於這些一向大量的e-mail回涵."
+
+聽一聽他所說的這一些回涵:
+
+<BLOCKQUOTE>"值得注意的事,  我從未聽說過有人由Windows NT是足夠好的出發點來發表意見.
+相反地: 好幾個訊息是認命地期待Windows NT 5.0會蹣跚漫步到門口前, 
+外帶一些使負荷加重的,  不成熟的add-on services, 
+但功能無法達到有公司級的可信度.
+
+<P>"我聽過一個讀者說到他的站,  Linux在486上跑得跑得比Windows NT在200MHz Pentium還快, 
+而且他有一台Linux機器,  在Windows NT 4.0出現之前就開始跑,  到現在還沒有關過機.
+
+<P>"我還聽說過許多企業級的站說,  "Linux是極值得考慮的選擇",  連同原始碼都送你, 
+遠勝那些疑心重重的傳統廠商, 支援遠遠超越傳統廠商.
+還有許多其它的承諾,  Linux同時也給許多使用者一個合理的價格 - 免費.
+
+<P>-- Peter Coffee,  <A HREF="http://www.zdnet.com/pcweek/opinion/0413/13coff.html">We
+do not have a failure to communicate</A>,  <A HREF="http://www.zdnet.com/pcweek/">PC
+Week</A>,  4-13-98.</BLOCKQUOTE>
+的確,  Windows NT是超越Windows 3.1及Windows 95,  有著重大的改善, 
+但要到達UNIX系統所能達到的穩定性,  還有很長的路要走, 
+甚至是與免費的UNIX系統相比.
+
+<P>Windows NT缺乏穩定性很有名,  不過經手的經理人員通常傾向低調處理
+,  一個IT專家說:
+<BLOCKQUOTE>"'我知道有三家公司靜靜地,  將越來越多的東西放到UNIX上 . . .
+在NT上的損失,  僅僅是NT當掉就損失極多, ' 在Cork,  Ireland的一位顧問
+Peter Flynn如此地說, 
+許多IT管理人員都嘗過NT當機率的頻繁.
+典型的原因都是記憶體存取錯誤及I/O錯誤.
+
+<P>"這些公司對他們的錯誤決定,  都不肯低頭,  '因為上層的壓力'Flynn說.
+'這種buy-Microsoft-only的風氣,  是由buy-IBM-only替換而來, 
+而做使用NT而不是UNIX系統的決定的經理[反對技術人員意見的決定],  都不願意丟臉'他說
+
+<P>-- Mark Gibbs,  <A HREF="http://www.nwfusion.com/intranet/0330linux.html">Lookin'
+into Linux</A>,  <A HREF="http://www.nwfusion.com/">Network World</A>,  March
+30,  1998.</BLOCKQUOTE>
+
+<P>請見: <B>
+<A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub9.html">
+NT謊言: 謊言9 - 零管理程式在此.</A></B>
+
+
+<A NAME="bsod"></A>
+<TABLE WIDTH=100%>
+<TR><TD BGCOLOR=#0000FF><CENTER>
+&nbsp;<br>
+<FONT COLOR=#FFFFFF>致命藍幕,  Blue Screen Of Death,  BSOD</FONT><br>
+&nbsp;
+</CENTER></TD></TR>
+</TABLE>
+<P>任何在Windows NT環境工作過的IS專家,  都對惡名昭彰的"致命藍幕"非常熟悉.
+(譯注: 什麼叫做致命藍幕? 您的Windows不是常常當掉嗎?
+當掉的時候,  螢幕是不是藍色底,  帶一些字在上面呢?)
+<P><I>唯一</I>的恢復辦法是關機重開.
+什麼是導致NT"藍幕"的變因?
+
+在我的經驗中,  以下因素會導致"致命藍幕":
+<UL>
+<LI>當IPX/SPX及TCP/IP協定同時運作時,  而技術人員在不同的子網路上, 
+放一個固定IP的機器上去;</LI>
+
+<LI>
+當有些16-bit Visual Basic程式<I>沒有</I>在"separate memory space"狀況下執行.
+NT內定設定,  是不會將他們執行於"separate memory space".
+這個要<I>手動地</I>設定每一個要在NT上執行的16-bits軟體;</LI>
+
+<LI>
+某些特定場牌的記憶體模組或快取記憶體會導致"藍幕", 
+甚至是同樣的硬體條件,  其它作業系統可以跑得很好的狀況下.
+</LI>
+</UL>
+這張清單根本無法寫完,  太多了. 事實上,  Tim Newsham, 
+一位同時在Windows及UNIX上開發軟體者,  認為這個短短的清單,  會起很大的誤導的作用:
+
+<BLOCKQUOTE>在這個BSOD(譯注:致命藍幕)一節你僅提到少數幾個BSOD會發生的狀況.
+我想這個短短的清單會誤導讀者.
+實在有太多的狀況會導致NT系統當機,  就這麼列幾個,  你會給讀者錯誤的印象.
+更危險的,  是你可能會導致人家做了一些錯事,  而導致當機.
+有太多的狀況會導致NT當機,  有許多日常在做的事, 
+一個不小心就會導致NT系統當機.
+(的確,  放這個系統去跑,  有上萬個程式會導致怪異的當機法, 
+而卻只有極其微小的跡象).
+
+另外懷有惡意的使用者,  也會透過一些劣質軟體模組, 
+如如login程式(LSA)或是tcp/ip堆疊,  來扳下NT的死刑電椅開關.</BLOCKQUOTE>
+
+這個"致命藍幕"變成了電腦環境裡,  最常光顧的地方.
+而且也是最難以處理的地方,  因為這些錯誤,  若不是編了碼就是毫無錯誤訊息報告, 
+根本無法追查.
+
+<P>除此以外,  NT在Intel-based硬體上,  有被病毒攻擊的'僻好'.
+
+<P>在Intel硬體上的作業系統,  必須要從硬碟中開始啟動,  例如NT Server.
+其Master Boot Record(MBR, 譯注:硬碟真正啟動的區域)必成該作業系統的死角.
+
+<P>Linux,  以及其它Intel-based的UNIX作業系統, 
+可由軟碟中載入壓縮的核心,  如此可避免這個問題.
+
+<P>這個意思是,  NT Server理論上來說, 
+會因為遭到10年前所寫的MS-DOS病毒所攻擊而垮掉.
+
+任何要在NT Server上,  來部暑其網路的人,  要謹慎考慮這一點.
+
+我個人在Windows NT 4.0(沒有任何的Windows 95存在)的公司網路環境下, 
+遭遇過MBR病毒攻擊,  而其效應是非常破壞性的.
+
+<P>除此以外,  大部份會導致Windows系統失效的病毒, 
+無法影響UNIX作業系統,  因為它們需要MS Windows的環境,  來造成他們的摧毀性的破壞.
+
+<P>在實際的例子中,  捲入NT可信度的受害者的之一, 
+University of Nebraska Press的Information Systems Department manager, 
+Quinn P. Coldiron,  他寫說, 
+<BLOCKQUOTE>我的生活在Cats(一種庫存軟體)移植到NT以後變成一場夢魘.
+該系統每日當機兩到三次,  毫無理由可尋.
+我持續打電話到Microsoft及Cats,  但沒人曉得是怎麼回事.
+Microsoft叫我申請Service Packs,  從第一次到第三次,  有點幫助, 
+不過它還是每周兩次,  當機在聲名狼藉的"致命藍幕".
+
+在許多周後及大約$1500.00的電話服務費耗去後, 
+技術支援告訴我,  應該找一套比The Cat's Pajamas好一點的軟體.
+
+但這明顯的並不是我所要找的解決方案,  因為這套軟體是本行業國際通用的軟體, 
+所以我被迫去用舊的Novell主機,  回到原點,  直到我能找出一點其它的點子. . . .
+十四個月後,  我們用Linux當我們的主機.</BLOCKQUOTE>
+
+<p>相對於"致命藍幕",  在UNIX下,  被稱為"核心抓狂"(Kernel Panic)
+它的確存在,  我聽過也讀過,  可是在我的職業生涯中確沒有見過(譯注:
+Kernel Panic其實會在"超載"很重的主機上發生, 例如您的網站主機是
+Pentium 200單CPU, 而每日確有50,000 Hits, 經常瀏灠人數維持在同時30人以上.
+另外, 例如Samba Server若超載, 也會發生問題. 解決的方式, 是將Kernel中
+Thread的最大數量增加, 會使這種現象減少. 其他還有各種會發生Kernel Panic的問題,
+一般專業的公司會考慮到這個上限而事先規劃好, 因此遇到這種問題的機會不多.
+一般預算很低的用戶, 例如OK STATION這個站, 才比較容易遇到這種問題.
+另外, 當您超載時, 其實應當是您的Server設備昇級的時候,
+或是增加Server來提供您的服務的時候.)
+雖然我確定UNIX主機確實有時候會垮掉,  這確是非常罕見的情形.
+當UNIX主機垮掉,  幾乎都是因為硬體失效或損毀這一類.
+在UNIX環境下,  任何軟體導致的問題通常會在一段時間內讓人知道, 
+有時會以逐步降低效能的型式出現, 
+這給系統管理者一個緩衝時間來追蹤出問題,  修正, 
+停止/重新開始導致問題的<I>行程</I>(很少是整個機器!).
+通常,  UNIX主機僅在以下狀況停住:
+<UL>
+<LI>由於硬體損毀,  例如,  硬碟;</LI>
+<LI>硬體昇級;</LI>
+<LI>電源供應中斷並且備用電力耗盡;</LI>
+<LI>核心需要更新.</LI>
+</UL>
+如果以上所述沒有發生,  那麼UNIX系統上機時間可用年來計算.
+NT可不敢吹噓可達這麼久不中斷的服務.
+
+即使您可以消除"致命藍幕, "
+NT被它自己的設計所阻礙, 
+並使用難以重建的獨有binary設定檔案,  例如,  NT registry.
+
+讀一讀關於<A HREF="http://www.kirch.net/unix-nt/massive-nt-failure.html">NT的巨大錯誤</A>
+導致超過10, 000 NT機器不能使用任何關於網路資源的文章.
+(註: 該錯誤發生於1998年二月,  造成超過一千萬美金的損失,  10K NT的電腦不能使用網路.)
+<HR -1><A NAME="management"></A>
+<center><H3>系統管理</H3></center>
+有一種說法說Windows NT比較容易管理,  是因為其圖型界面, 
+這是毫無根據的.
+圖型界面好過命令列這個好處(若真是好處的話)是很令人質疑的.
+其先決假設為Windows NT,  因為其GUI界面而勝過UNIX.
+這絕對是錯的. 因為UNIX系統也有GUI界面,  而且功能遠勝過Windows.
+(請見<B><A HREF="http://citv.unl.edu/linux/LinuxPresentation.html#Ease ofadministration">graphic example</A></B>).
+<BLOCKQUOTE>"NT有著直覺式的使用者界面以管理整個系統, 
+許多Windows look-and-feel的界面都是借NT GUI而來的.
+不論如何,  當使用者開始部署大量的伺服器時,  及根本不需要圖型界面功能的伺服器時, 
+許多的Windows NT的架構上的缺點,  便一一展現出來.
+例如系統管理上就非常明顯,  因為Windows NT,  事實上, 
+其架構是設計給單一使用者來用的.
+UNIX的多使用者的設計,  支援許多等級的遠端存取功能, 
+包括透過telnet login到遠端主機,  修改設定檔, 
+在X-Windows下執行遠端的圖型界面工具,  及現在的Java版本系統管理工具.
+
+<P>以上所述的功能,  NT現在一樣都沒有. 其次NT遠端管理經常要牽涉到其它支援廠商的軟體, 
+而微軟希望您去向這些支援廠商購買.
+而這些原本該有的功能,  幾乎都是由UNIX系統中轉錄過來, 或是修改而來的."
+<BR>-- 擷自: <A HREF="http://www.unix.digital.com/unix/v4/dhbrown/AIX43.htm">對於五種商業UNIX系統及Windows
+NT 4.0企業版的深入分析 (An In-Depth Analysis of Five Commercial UNIX Operating
+Systems and Windows NT Server 4.0 (Enterprise Edition) by D.H. Brown Associates, 
+Inc.)</A></BLOCKQUOTE>
+
+<HR -1><A NAME="performance"></A>
+<CENTER><H3>效能</H3></CENTER>
+電腦處理計算能力,  大體上是基於電腦硬體多過於作業系統.
+
+<P>既然大部份商業UNIX系統只在高檔工作站或伺服器上跑, 
+將<A HREF="http://www.rs6000.ibm.com/hardware/largescale/index.html">IBM SP2</A>
+跟<A HREF="http://www.sun.com/servers/ultra_enterprise/10000/spec.html">Sun Enterprise 10000</A>
+及其它Compaq或Dell產品相比當然是有點可笑的.
+
+<P>UNIX從有史來就是都用高檔硬體的作業系統.
+說UNIX效能高於NT,  基於不同機器所得結果,  對微軟來說是不公平的.
+另一方面,  微軟減少,  而非增加,  所支援硬體架構的支援.
+
+<P>NT在MIPS上持續減少,  因為沒有客戶願意購買,  而PowerPC的支援則一直在最低限度.
+
+NT,  現在一直降到只在x86及Alpha架構上,  還有一些"窮人伺服器".
+而且通常是指一些IT公司.
+
+<P>NT的缺乏穩定性,  僅被其可完成度的缺乏所超過.
+
+<P>在商業UNIX上所能達到的高完成度,  在其各別的硬體上, 
+可達大公司需要高能運算的需求.
+即使該公司願意換到NT上,  NT也無法達成的該目標.
+
+<P>Mary Hubley,  Research Director <B><A HREF="http://www.gartner.com/">GartnerGroup</A></B>, 
+在其文章提到
+<B><A HREF="http://www.gartner.com/public/static/datapro/industry/indnews6.html">
+NT and UNIX: 無抵禦能力 vs. 不可搖憾的巨物</A></B> (January 1998)
+說道大眾對NT能力的高估,  基本上是基於誇大不實的行銷:
+
+<BLOCKQUOTE>"很多人相信NT比實際上容易使用, 可達比實際上更高的效能, 並且強大到
+能達到任何UNIX系統能達到的目標.
+但這些認知僅僅不過是因為Microsoft強大的行銷能力, 而非事實.</BLOCKQUOTE>
+<A HREF="http://www.ugraf.com/">European MikroGraf Corporation</A>
+在其站上出版了自己的版本
+<B><A HREF="http://www.ugraf.com/unix-nt/jt/unix-nt.nob.html">UNIX vs NT</A></B>
+效能評比並解釋為何:
+<BLOCKQUOTE>"每個月有好幾次, 在印刷或印前工業的顧客會問那一種平台可以用: Unix或Windows NT.
+Windows NT可能在每日平平運作的公司可接受, 但無法處理出版商放在伺服器上大量資料的負載.</BLOCKQUOTE>
+最有趣的事, 關於MikroGraf的<A HREF="http://www.ugraf.com/unix-nt/jt/unix-nt.nob.html">UNIX vs NT comparison</A>
+提及相同的硬體Digital Model 2100, 在四種測試中使用兩次:
+一次用Digital UNIX做為作業系統, 另一次為Windows NT在相同的硬體上.
+
+<P>為公平起見,  應該要測試比較NT Server的效能及Linux或FreeBSD, 
+因為這三種作業系統都跑在相同的硬體上,  Intel, 
+最常見的NT硬體.
+
+<P>不幸的,  真正客觀分析的效能要基於benchmarks, 但這些並非充足而且通常僅專注在特別領域, 
+像網站伺服器效能:
+<A HREF="http://www.caldera.com/newsletter/march98/mar98p2.html">Caldera
+OpenLinux vs. Windows NT: WebBench Performance Test</A>.
+一般IT專家的都同意是Linux及FreeBSD大大超過NT.
+
+<P>考慮了UNIX系統核心可由系統管理人員根據所使用的軟體重新編譯過.
+Linux及FreeBSD自然可運作得比NT更有效率.
+
+<P>自然地, 任何需要較少資源的作業系統效能會勝過一個<I>膨脹的</I>作業系統, 諸如NT.
+UNIX不需要圖形介面來達到這些功能.
+
+<P>NT需要.大家都曉得圖形需要不可思議大量的硬碟空間及記憶體.
+同樣的如音效檔, 也需要不可思議大量的硬碟空間及記憶體.
+而這竟然看起來對Microsoft作業系統非常重要.
+
+<P>Benchmarks顯示出在類似的UNIX作業系統使用相同的硬體是非常有意義的.
+<A HREF="http://www.tdl.com/~netex/mb/mb.html">Net Express</A>, 
+是個Internet x86-based硬體的零售商,  其系統"為科學家,  工程師及通訊工業所設計的, "
+顯示了什麼樣作業系統達到的什麼結果:
+<BLOCKQUOTE>
+<HR>
+<H4>
+<FONT SIZE=-1>Byte UNIX Benchmark 3.2 for OS Comparison:</FONT></H4>
+<FONT SIZE=-1>此外, 我們向您展示以下的Byte UNIX Benchmark 3.2比較結果. 測試是在Pentium
+133MHz+32MB RAM+Triton-II 430HX chip set+BusLogic SCSI controller下進行的:</FONT>
+<CENTER><TABLE BORDER >
+<TR>
+<TH ALIGN=LEFT BGCOLOR="#0000FF"><B><FONT COLOR="#FFFFFF">System</FONT></B></TH>
+
+<TH BGCOLOR="#0000FF"><B><FONT COLOR="#FFFFFF">Bytemarks</FONT></B></TH>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Linux on a Pentium 133MHz　</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>12.2</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>BSD on a Pentium 133MHz　</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>9.8</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris 2.5 on a Pentium 133MHz　</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>6.2</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris on a Sun Sparc-II Ultra 167MHz System　</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>13.7</FONT></TD>
+</TR>
+
+<TR>
+<TD><FONT SIZE=-1>Solaris 2.5 on an Orion Pentium Pro 200MHz　</FONT></TD>
+
+<TD ALIGN=CENTER><FONT SIZE=-1>13.5</FONT></TD>
+</TR>
+</TABLE></CENTER>
+<FONT SIZE=-1>從這些結果我們可以看出Linux是個不可思議快速的作業系統. Linux在Pentium
+133上的速度近於Solaris 2.5在167MHz Sparc Ultra, 或200MHz Pentium Pro!!!
+表現真是突出!</FONT>
+<CENTER><I><FONT SIZE=-1>Copyright � 1996 Net Express All Rights Reserved.</FONT></I></CENTER>
+
+<HR -1></BLOCKQUOTE>
+<A NAME="KickAss"></A>
+關於在UNIX上效能的優越的例子, 可用免費的Apache Web Server與UNIX搭配.
+您可在Sean Fulton,  INTERNETWEEK,  May 5,  1997, 
+<B><A HREF="http://www.techweb.com/se/directlink.cgi?CWK19970505S0103">能源之塔 -- 我們測試了五種優良的網站伺服器</A></B>.
+上面找到很好的例子.
+
+在NT方面,  測試結果非常糟:
+<BLOCKQUOTE>"在我們的測試中, Telenet系統解決方案產生了令人驚訝的結果
+以BSDi-powered,  single-CPU系統竟然在許多方面表現超過Windows NT在雙CPU上的執行效能.
+
+<P>
+"在此, 差別的因素為BSDi 3.0 OS,  single-CPU及Apache HTTP server.
+
+所有的雙CPU都是跑Windows NT 4.0及Microsoft的Internet Information Server 2.0.
+</BLOCKQUOTE>
+在網站伺服器效能方面,  Ariel Faigon指出SGI配合IRIX保持目前的世界記錄:
+<BLOCKQUOTE>"在April 1998,  最佳的SPECWeb結果是每秒7214人次
+在8棵CPU的Silicon Graphics Origin 2000伺服器執行IRIX 6.5及Netscape網站伺服器.
+
+<P>詳情請見SGI的<B><A HREF="http://www.sgi.com/newsroom/press_releases/1998/april/performance.shtml">press release.</A></B>
+
+<P>"對比中,  NT最好的數字為每秒1878, 在4顆CPU的Hewlett-Packard NetServer LXr Pro 6/200
+及Microsoft IIS.</BLOCKQUOTE>
+一般公認,  以下的例子必然是最不科學的方式來測定Linux與NT的效能差別, 
+但Richard Betel的資料卻給大家有點現實世界中的概念:
+<BLOCKQUOTE>
+兩個月前, 我曾經安裝過distributed.net RC5破解程式.
+
+每一台有點"空閒"時間的主機都安裝上去了.
+
+包括了兩台設備完全相同的機器: Dual-Pentium II 300MHz,  128MB RAM.
+
+其中一個跑NT,  有個沒有作用的exchange server
+(我們計畫要提供該服務,  但此時,  它<I>完全</I>沒有執行), 
+另一個跑Linux(我們整個期間都有在用. 它是個Samba server,  而且我們將所有東西編譯進去).
+
+Linux以1.8倍的速度勝過NT.</BLOCKQUOTE>
+
+<HR -1><A NAME="security"></A>
+<CENTER><H3>安全</H3></CENTER>
+這個主題太廣泛複雜, 很難以完整的說出在那一篇文章有完整的討論這個主題. 安全是無論如何地重要的.
+Jim Mohr在他的文章裡<A HREF="http://www.jimmo.com/Debate/intro.html">The
+Great Linux-vs-NT Debate</A><B><A HREF="http://www.jimmo.com/Debate/security.html">security</A></B>.
+指出了許多有趣的事實. 以下的鏈結也都是不錯的開始點, 來比較各種系統在安全上的弱點::
+<UL>
+<LI><A HREF="http://www.infoworld.com/cgi-bin/displayNew.pl?/petrel/980713np.htm">
+Probing into C2 security claims: NT真的像Microsoft所說的那麼安全嗎?</A></LI>
+
+<LI><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub2.html">
+NT謊言: 謊言2 - NT比UNIX更安全</A></LI>
+(真正的安全意味將整的伺服器從網路中拿掉, 然後鎖起來!)
+
+<LI><A HREF="http://www.zdnet.com/pccomp/features/fea0797/nt/sub4.html">
+NT謊言: 謊言4 - NT符合軍隊標準</A></LI>
+
+<LI>
+<A HREF="http://www.byte.com/art/9711/sec6/art3.htm">A BYTE article on
+Windows NT security problems</A></LI>
+
+<LI>
+<A HREF="http://www.secnet.com/ntinfo/linuxntf.htm">NT secured filesystem
+(NTFS) can be read from Linux,  bypassing filesystem security.</A></LI>
+
+<LI>
+<A HREF="http://www.secnet.com/ntinfo/">Known NT Exploits</A></LI>
+
+<LI>
+<A HREF="http://www.it.kth.se/~rom/ntsec.html">NT Security - Frequently
+Asked Questions version 0.41</A></LI>
+
+<LI>
+<A HREF="http://afcert.csap.af.mil/os.html">AFCERT - Security Issues for
+various operating systems</A></LI>
+</UL>
+<B>一個有趣的觀察:</B>
+
+<P>在May 11,  1998, <A HREF="http://www.discovery.com/">Discovery Channel</A>
+播放了一個節目<B>National Security Agency</B>做為"Discovery Signature Series."的一部份.
+該節目標題為"美國最嚴密的單位以高科技巫術揭露其他人的秘密." 最引人注意的是, 該節目從始至終, 所有工作站均有一個標記<B><A HREF="http://www.sun.com/">Sun
+Microsystems</A></B>, 不只是在解密電腦房, 而且在所有其他任務的房間內都有.
+在一個NSA製造其微晶片的區域內,  螢幕上所顯示的是一個大大的"X",  "X"是X-Window系統, 在所有UNIX系統上被廣泛的使用.
+在節目的結尾, 終於看見一台桌上型電腦執行著DOS的程式. 整個節目, 只看見有一台工作站有Intel的標記.
+而且不是用來做解密工作用的. 它在做一些初步的辨視工作, 但由其視窗的邊框可看出, 不是執行M$
+Windows作業系統.
+
+<hr>
+<CENTER>
+<A HREF=unix-nt-01.html><IMG SRC=back.gif border=0></a>
+<A HREF=unix-nt.html><IMG SRC=home.gif border=0></a>
+<A HREF=unix-nt-03.html><IMG SRC=next.gif border=0></a>
+</CENTER>
+<HR>
+</BODY>
+</HTML>
+
