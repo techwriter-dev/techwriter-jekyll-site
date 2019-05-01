@@ -1,0 +1,5 @@
+= Portfolio
+:page-layout: page
+
+* link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development] -- 34 pages, circa 11,500 words link:/assets/Best-Practices-of-Web-Development.pdf[PDF]
+* link:/nt-vs-unix/en.html[Microsoft Windows NT Server 4.0 versus UNIX] -- 40 pages, circa 16,700 words
