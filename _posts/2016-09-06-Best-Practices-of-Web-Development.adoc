@@ -1387,11 +1387,9 @@ In addition to the explicit Acceptance Criteria provided by ticket authors in Pi
 * *Write your test scenario.* If your story type is listed as a _Feature_, the very first thing you should do before writing any code is plan out how you will test it based on the link:#acceptance_criteria[Acceptance Criteria].
 This should be the very first comment in any new ticket of type _Feature_.
 A typical test scenario might look like this:
-
-'''
-
-=== Sample Test Scenario
-
++
+.Sample Test Scenario
+****
  . Navigate to test page http://test.our-domain-name.com/projects/10852/mto,
 logged in as username: `richardburton`
 +
@@ -1407,15 +1405,14 @@ with a checkbox next to each one. If not, terminate test and report
 FAILED.
 . Check one of the vendors and then click on kbd:[Invite].
 . The modal should disappear and the page should show a message in
-read text should appear above the table: "`You have successfully invited 1 vendor(s).`" If not, terminate test and report FAILED on step 6.
-. In the "`Vendor Name`" column you should be able to find the newly invited vendor`'s name listed. If not, terminate test and report FAILED on step 7.
-. In the "`Date Invited`" column you should be able to find today`'s date listed on the same row as the name of the newly invited vendor. If not, terminate test and report FAILED on step 8.
-. If "`Date Invited`" is in a format inappropriate for the locale of the user, for example, the user`'s language is `en_US` and the date is not in _mm/dd/yyyy_ format, terminate test and report FAILED on step 9.
+read text should appear above the table: "`You have successfully invited 1 vendor(s).`" If not, terminate test and report `FAILED` on step 6.
+. In the "`Vendor Name`" column you should be able to find the newly invited vendor`'s name listed. If not, terminate test and report `FAILED` on step 7.
+. In the "`Date Invited`" column you should be able to find today`'s date listed on the same row as the name of the newly invited vendor. If not, terminate test and report `FAILED` on step 8.
+. If "`Date Invited`" is in a format inappropriate for the locale of the user, for example, the user`'s language is `en_US` and the date is not in _mm/dd/yyyy_ format, terminate test and report `FAILED` on step 9.
 . In the "`Invited By`" column you should be able to find "`Richard Burton`" listed on the same row as the name of the newly invited vendor.
-If not, terminate test and report FAILED on step 10.
-. Report PASSED test.
-
-''''
+If not, terminate test and report `FAILED` on step 10.
+. Report `PASSED`.
+****
 
 * *Ownership of a ticket* should be clear. Notify team members if you plan to hand it off to another developer.
 Be _specific_ in your requests for assistance. Write a new comment in PT with @NameOfPerson you are asking for assistance and choose one of these templates:
