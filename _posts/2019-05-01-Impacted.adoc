@@ -1,0 +1,19 @@
+= “Impacted” is for Wisdom Teeth, Not for Your Quarterly Pep Rally
+John Kirch <techwriter.dev@pm.me>
+:layout: post
+:icons: font
+:imagesdir: /assets
+:sectlinks: true
+:experimental: true
+
+The word _impact_, both as  noun, for example, _Susan's team made a positive_ impact _on our 2019 quarterly earnings_, as well as a verb, _About half of our team was negatively_ impacted _by the February layoff_, has made significant inroads into the 20^th^ century usage of the words _effect_ (noun) and _affect_ (verb).
+
+One theory is that 21^st^ century Americans have become so challenged by the simple rules governing the correct usage of _effect_ versus _affect_, that throwing in the towel and just replacing them both permanently with _impact_ is the only logical choice.
+
+.Chicago Manual of Style, 17^th^ Edition, 5.250 Good usage versus common usage, Glossary of Problematic Words and Phrases:
+image:Impacted-CMoS.png[]
+
+This incorrect usage of _impact_ is classified as "`hyperbolic.`"
+image:hyperbolic-definition.png[]
+
+So, if you are given to hyperbole, or exaggeration in general, then by all means, continue with your usage of _impact/impacted_ to further promote this cliché of American speech and behavior, about which the British often remark when relating their observations and impressions of Americans and their culture.
