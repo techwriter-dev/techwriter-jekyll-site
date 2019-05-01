@@ -2,7 +2,7 @@
 John Kirch <techwriter.dev@pm.me>
 :layout: post
 :icons: font
-:imagesdir: assets
+:imagesdir: /assets
 :sectlinks: true
 :experimental: true
 :toc: left
