@@ -1,5 +1,68 @@
 = Portfolio
+:imagesdir: assets
 :page-layout: page
 
-* link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development] -- 34 pages, circa 11,500 words link:/assets/Best-Practices-of-Web-Development.pdf[PDF]
-* link:/nt-vs-unix/en.html[Microsoft Windows NT Server 4.0 versus UNIX] -- 40 pages, circa 16,700 words
+* *link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development]* -- 34 pages, circa 11,500 words, link:/assets/Best-Practices-of-Web-Development.pdf[PDF]
+* *link:/nt-vs-unix/en.html[Microsoft Windows NT Server 4.0 versus UNIX]* -- 40 pages, circa 16,700 words +
+Although this self-published white paper from 1998 is not an example of technical documentation, it does showcase my ability to take a technical topic, do investigative research, and organize my research into captivating prose. +
+Despite the length of the document, it was extremely popular with IT professionals.
+After experiencing the https://en.wikipedia.org/wiki/Slashdot_effect[Slashdot effect] it later appeared in print -- https://en.wikipedia.org/wiki/AUUG[AUUGN] 19, no. 3 (August 1998), pages 12–27 -- and was translated into multiple languages by volunteers:
+link:/nt-vs-unix/cn/[Chinese],
+Croatian,
+link:/nt-vs-unix/cz.html[Czech],
+link:/nt-vs-unix/fr.html[French],
+link:/nt-vs-unix/de.html[German],
+http://www.diff.org/diff/sei/unixVsNT1.shtml[Italian],
+link:/nt-vs-unix/[Indonesian],
+link:/nt-vs-unix/[Japanese],
+link:/nt-vs-unix/[Korean],
+link:/nt-vs-unix/[Portuguese],
+link:/nt-vs-unix/[Russian], and
+Spanish. +
+Its success was driven mainly by fulfilling the need for a systematic comparison and contrast of the prevailing server operating systems at that time, which surprisingly enough, had not been attempted on this level by any tech-savvy journalists.
++
+****
+----
+-----Original Message-----
+From:   Distributed COM-Based Code [mailto:DCOM@LISTSERV.MSN.COM] On Behalf Of Box, \
+                Don
+Sent:   Tuesday, June 02, 1998 7:22 PM
+To:     DCOM@LISTSERV.MSN.COM
+Subject:        Re: Windows NT 4.0 versus Unix, first objective report...
+
+Wow, thanks! I have been waiting for some objective person to finally
+compare these two systems after all of these years. Now I can finally make
+an informed decision. Bye bye NT, hello Amiga.
+
+Seriously, what does this have to do with COM?
+
+DB
+http://www.develop.com/dbox
+
+
+> -----Original Message-----
+> From: Bill Cutler [mailto:dcomgod@HOTMAIL.COM]
+> Sent: Tuesday, June 02, 1998 5:00 PM
+> To: DCOM@LISTSERV.MSN.COM
+> Subject: Windows NT 4.0 versus Unix, first objective report...
+>
+>
+> http://www.kirch.net/unix-nt.html
+>
+>
+> ______________________________________________________
+> Get Your Private, Free Email at http://www.hotmail.com
+>
+----
+(https://marc.info/?l=ms-dcom&m=103440499812693&w=2[Link to this thread])
+****
+Over two decades later there are individuals, with whom I have never communicated, who feel compelled to preserve this historical document: +
+** Leif Erlingsson: (English) http://www.lege.com/unix-nt/[http://www.lege.com/unix-nt/]
+** Linux Focus: (English) http://www.linuxfocus.org/English/May1998/article41.html[http://www.linuxfocus.org/English/May1998/article41.html]
+** A Turkish site mirroring some content from Linux Focus: (English) http://web.deu.edu.tr/doc/gazete/English/May1998/article41.html[http://web.deu.edu.tr/doc/gazete/English/May1998/article41.html]
+** A website in India: (English) http://linux.math.tifr.res.in/linux_vs_nt.html[http://linux.math.tifr.res.in/linux_vs_nt.html]
+** Oliver Maul in Bavaria: (German) http://www.42.nu/%7Eoli/unix-nt/index.html[http://www.42.nu/~Eoli/unix-nt/index.html]
+** Diff.org, an Italian website: (Italian) http://www.diff.org/diff/sei/unixVsNT1.shtml[http://www.diff.org/diff/sei/unixVsNT1.shtml]
+** So-net, a Japanese website: (Japanese) http://www014.upp.so-net.ne.jp/m-and-o/translation/kirch.net/unix-nt.j.html[http://www014.upp.so-net.ne.jp/m-and-o/translation/kirch.net/unix-nt.j.html]
+
+image:AUUGN_Cover_vol19,nr3,Aug1998.png[]
