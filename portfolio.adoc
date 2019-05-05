@@ -2,9 +2,12 @@
 :imagesdir: assets
 :page-layout: page
 
-* *link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development]* -- 34 pages, circa 11,500 words, link:/assets/Best-Practices-of-Web-Development.pdf[PDF]
+* *link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development]* -- 34 pages, circa 11,500 words, link:/assets/Best-Practices-of-Web-Development.pdf[PDF] +
+This document was inspired by my experience as Perl/PHP developer on a team of web developers at http://mnl.com/about_us/[Media Net Link].
+What started out as a training document evolved into a comprehensive set of best practices.
+The version presented here has been heavily edited since its debut in 2016, rendering it less specific to any single work environment or industry.
 * *link:/nt-vs-unix/en.html[Microsoft Windows NT Server 4.0 versus UNIX]* -- 40 pages, circa 16,700 words +
-Although this self-published white paper from 1998 is not an example of technical documentation, it does showcase my ability to take a technical topic, do investigative research, and organize my research into captivating prose. +
+Although this self-published white paper from 1998 is not an example of technical documentation, it does showcase my ability to take a technical topic, carry out investigative research, and organize my findings into captivating prose. +
 Despite the length of the document, it was extremely popular with IT professionals.
 After experiencing the https://en.wikipedia.org/wiki/Slashdot_effect[Slashdot effect] it later appeared in print -- https://en.wikipedia.org/wiki/AUUG[AUUGN] 19, no. 3 (August 1998), pages 12–27 -- and was translated into multiple languages by volunteers:
 link:/nt-vs-unix/cn/[Chinese],
