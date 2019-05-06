@@ -16,11 +16,11 @@ link:/nt-vs-unix/cz.html[Czech],
 link:/nt-vs-unix/fr.html[French],
 link:/nt-vs-unix/de.html[German],
 http://www.diff.org/diff/sei/unixVsNT1.shtml[Italian],
-link:/nt-vs-unix/[Indonesian],
-link:/nt-vs-unix/[Japanese],
-link:/nt-vs-unix/[Korean],
-link:/nt-vs-unix/[Portuguese],
-link:/nt-vs-unix/[Russian], and
+link:/nt-vs-unix/id.html[Indonesian],
+link:/nt-vs-unix/jp.html[Japanese],
+link:/nt-vs-unix/kr.html[Korean],
+link:/nt-vs-unix/pt.html[Portuguese],
+link:/nt-vs-unix/ru.html[Russian], and
 Spanish. +
 Its success was driven mainly by fulfilling the need for a systematic comparison and contrast of the prevailing server operating systems at that time, which surprisingly enough, had not been attempted on this level by any tech-savvy journalists.
 +
