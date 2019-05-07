@@ -1,6 +1,7 @@
 = Methodology
-John Kirch <jrkirch@pm.me>
-:layout: post
+:page-description: Two Competing Methodologies: 1) Lean, markup-based plain text documents tracked in Git easily exported as HTML, PDF, XML, epub. 2) Proprietary, expensive, DTP WYSIWYG software with more features for graphic designers and typesetters than for writers.
+:page-layout: page
+:page-permalink: /methodology
 :imagesdir: assets
 :experimental: true
 

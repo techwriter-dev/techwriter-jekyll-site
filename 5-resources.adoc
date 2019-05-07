@@ -1,9 +1,12 @@
 = Resources
+:page-description: Resources for Technical Writers who practice the new, lightweight, markup-based, agile workflow that places more emphasis on writing actual content instead of wasting time on figuring out text formatting and layout issues.
 :page-layout: page
+:page-permalink: /resources
 :stem: latexmath
 
 == Technical Writing
 
+* http://hydepress.github.io/jekyll[Jekyll Documentation] (Book Edition)
 * https://asciidoctor.org/[Asciidoctor]: A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, DocBook and more.
 ** https://asciidoctor.org/docs/asciidoc-writers-guide/[AsciiDoc Writer’s Guide]
 ** https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/[AsciiDoc Syntax Quick Reference]
