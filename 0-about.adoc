@@ -3,6 +3,7 @@
 :page-layout: page
 :page-permalink: /about
 :imagesdir: assets
+:stem: latexmath
 :experimental: true
 
 == Purpose of this Site

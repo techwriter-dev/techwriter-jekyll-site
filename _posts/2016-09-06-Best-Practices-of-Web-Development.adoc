@@ -1,14 +1,14 @@
 = Best Practices of Web Development
 John Kirch <techwriter.dev@pm.me>
-:layout: post
+:page-layout: post
 :icons: font
 :imagesdir: /assets
 :sectlinks: true
 :experimental: true
 :toc: left
 // Uncomment the next 2 lines when exporting to PDF
-// :source-highlighter: rouge
-// :imagesdir: ../assets
+//:source-highlighter: rouge
+//:imagesdir: ../assets
 
 == Who Needs This?
 
@@ -52,8 +52,7 @@ ____
 
 [quote, Jon Skeet]
 ____
-In theory, I believe any file is a valid Windows-1252 file, as it maps
-every possible byte to a character.
+In theory, I believe any file is a valid Windows-1252 file, as it maps every possible byte to a character.
 Now there are certainly characteristics which would strongly suggest that it`'s UTF-8 — if it starts with the UTF-8 BOM, for example — but they wouldn`'t be definitive. <<skeet>>
 ____
 
@@ -140,7 +139,7 @@ If these criteria match, then set them up as a column of type `ENUM`, for exampl
 
 * All code should be thoroughly documented _before_ it is written.
 The standard commenting style recognized by *Doxygen* should be used.
-
++
 [source,php]
 ----
 require_once 'Solr.php';
@@ -216,10 +215,8 @@ image:DoxygenSampleOutput.png[]
 
 === Application Flow Documentation
 
-* In accordance with the best practice of writing the documentation
-before writing a single line of code, here is an example of how that
-might unfold:
-
+* In accordance with the best practice of writing the documentation before writing a single line of code, here is an example of how that might unfold:
++
 [source,php]
 ----
 /*    Script to showcase the power of the Framework
@@ -250,7 +247,7 @@ might unfold:
 */
 ----
 * Once the application flow has been documented in the form of code comments, the process of inserting the actual code becomes a trivial pursuit:
-
++
 [source,php]
 ----
 // Focus our demo on Change Orders with Project ID = 5926
@@ -410,13 +407,12 @@ for instance, `finalize_bid.php`
 Configure your editor or http://en.wikipedia.org/wiki/Integrated_development_environment[IDE] as follows:
 
 * **UNIX line endings**: `\n`, _not_ Windows `\r\n`.
-* **Indentation**: The debate over (hard) `TABS` versus _soft tabs_ (4
-spaces), is anything but new. Each has its pros and cons. But, to be more mainstream and "compatible" with the majority of web development teams and the languages they typically use, _soft tabs_ seems to get the popular vote. Consequently, all new code should contain only _soft tabs_.
-* **Display Whitespace**: In
-https://www.jetbrains.com/phpstorm/documentation/[PhpStorm] this can be
-turned on via [File] [Settings] [Editor] [General] [Appearance]. Trailing whitespace is like an unmade bed. If your IDE has setting to automatically remove trailing whitespace, make sure it is activated.
-* **Encoding**: `UTF-8`, _not_ `ISO-8859-1`, and most certainly never
-`Windows-1252`
+* **Indentation**: The debate over (hard) `TABS` versus _soft tabs_ (4 spaces), is anything but new. Each has its pros and cons. But, to be more mainstream and "compatible" with the majority of web development teams and the languages they typically use, _soft tabs_ seems to get the popular vote. Consequently, all new code should contain only _soft tabs_.
+* **Display Whitespace**:
+In https://www.jetbrains.com/phpstorm/documentation/[PhpStorm] this can be
+turned on via [File] [Settings] [Editor] [General] [Appearance].
+Trailing whitespace is like an unmade bed. If your IDE has setting to automatically remove trailing whitespace, make sure it is activated.
+* **Encoding**: `UTF-8`, _not_ `ISO-8859-1`, and most certainly never `Windows-1252`
 
 === HTML Entities
 
@@ -633,10 +629,8 @@ public function assoc($where=null,
 public function duplicates($rec_to_add)
 ----
 
-These methods require you to set certain public and/or protected
-variable names in the PHP class defining the MySQL table in order to
-function properly. The most commonly used special purposed, database-centric
-PHP variables are:
+These methods require you to set certain public and/or protected variable names in the PHP class defining the MySQL table in order to function properly.
+The most commonly used special purposed, database-centric PHP variables are:
 
 `$id`, `$active`, `$pk`, `$table`, `$index_column`, `$name_column`, `$shortname_column`, `$active_column`,                         `$has_active_column`, `$modified_column`, `$delimiter`, `$join_tables`, `$parent_fk_colmn`, `$child_class`,
 `$data_type` (an array of _key_-_value_ pairs: _public variable name_ `=>` _data type_),
@@ -647,9 +641,8 @@ PHP variables are:
 _combined_, must be unique),
 `$joined` (a complex array of arrays defining table joins).
 
-* Specialized Public (or Protected) Variables with reserved functions
-within our PHP framework, for example:
-
+* Specialized Public (or Protected) Variables with reserved functions within our PHP framework, for example:
++
 [source,php]
 ----
 public $id;
@@ -716,9 +709,8 @@ protected $joined = array(
 );
 ----
 * It is requirement of our PHP framework that the _minimal_ `__construct` method be
-this boiler plate code, where `$id` represents the value of the PRIMARY
-KEY of a row in the table:
-
+this boiler plate code, where `$id` represents the value of the PRIMARY KEY of a row in the table:
++
 [source,php]
 ----
 function __construct($id=null) {
@@ -730,7 +722,7 @@ function __construct($id=null) {
 ----
 
 * In the case of table with a _unique_ name column, the protected or public variable `$name_column` should be set to the name of that column in the schema, and the following boiler plate `__construct` method should include the `elseif` block which facilitates the optional instantiation of an object using a value in that name column:
-
++
 [source,php]
 ----
 function __construct($id=null) {
@@ -744,7 +736,7 @@ function __construct($id=null) {
 ----
 
 * Use the following boiler plate `__construct` method if the class representing a MySQL database table should have the option to join related tables:
-
++
 [source,php]
 ----
 function __construct($id=null,$join_tables=null) {
@@ -760,10 +752,24 @@ function __construct($id=null,$join_tables=null) {
 ----
 
 * Any additional input arguments should be in second (or third, if `$join_tables` is present) position, i.e. in _last_ or _final_ position:
++
+[source,php]
+----
+function __construct($id=null,$user=null) {
+    parent::__construct();
+    if ($id && is_numeric($id)){
+        $this->byId($id);
+    } elseif (strlen($id)) {
+        $this->byName($id);
+    }
+    if ($user instanceof User)
+        $this->user = $user;
+}
+----
 
 == Leverage the Framework
 
-* To build upon the concepts touched upon in the link:#_designing-php-classes-to-represent-mysql-database-tables[PHP DB Classes] section, and to demonstrate the actual execution of the code sample from the previous section on link:#_application-flow-documentation[Application Flow Documentation], the efficiency of the using our PHP framework classes and methods shines here.
+To build upon the concepts touched upon in the link:#_designing-php-classes-to-represent-mysql-database-tables[PHP DB Classes] section, and to demonstrate the actual execution of the code sample from the previous section on link:#_application-flow-documentation[Application Flow Documentation], the efficiency of the using our PHP framework classes and methods shines here.
 
 [source,php]
 ----
@@ -798,7 +804,8 @@ foreach ($change_orders as $co_id) {
 }
 ----
 
-Defining the `public $data_type` array for certain DB columns that store currency values, percent values, and numeric values in the `Change_Order` and `Change_Order_Item` classes respectively, defining the `Change_Order` class to be the `$child_class` of the `Project` class, defining the `Change_Order_Item` class to be the `$child_class` of the `Change_Order` class, along with the use of the `Core` methods `children()` and `valuesOf($column_names,$format=[0 or 1])` was pivotal in demonstrating the true power of the framework. +
+Defining the `public $data_type` array for certain DB columns that store currency values, percent values, and numeric values in the `Change_Order` and `Change_Order_Item` classes respectively, defining the `Change_Order` class to be the `$child_class` of the `Project` class, defining the `Change_Order_Item` class to be the `$child_class` of the `Change_Order` class, along with the use of the `Core` methods `children()` and `valuesOf($column_names,$format=[0 or 1])` was pivotal in demonstrating the true power of the framework.
+
 Once these tools are put into play, there is hardly a need for writing SQL queries or to format percent values, dollar amounts, or date/time formats coming out of the database:
 
 ----
@@ -813,16 +820,14 @@ Once these tools are put into play, there is hardly a need for writing SQL queri
 
 == Using Git _Wisely_
 
-Revision control systems like CVS, SVN, Git, or Hg play a major role in
-collaborative software development.
+Revision control systems like CVS, SVN, Git, or Hg play a major role in collaborative software development.
 Curiously enough, they are even used by non-software developers who need to refine text documents through several iterations of revision and by individual software developers working in their own silo apart from any collaborative projects.
 The benefits of being able to go back to previous versions of your code, back to a "`last known working configuration,`" or to fork off a new branch and "`take a walk on the wild side`" with your application without having to destroy a stable working version are enormous.
 The power of new tools like SVN, Git, or Hg are, however, like a double-edged sword: if not careful, you may end up hurting yourself or your fellow co-developers.
 With Git`'s distributed RCS design, a lot of that danger has been mitigated, however, when used unwisely or carelessly, there is still a possibility of shooting oneself in the foot.
 These best practices should be effective in avoiding those pitfalls:
 
-* **_Know_ which branch you currently have checked out**. `git branch`
-should be easy to find in your Linux (or OS X) command line history.
+* **_Know_ which branch you currently have checked out**. `git branch` should be easy to find in your Linux (or OS X) command line history.
 If you already started work and made changes with the wrong branch checked out, there is way to resolve this problem for each of two possible situations:
 . **The code is new**, i.e. a new file that is not yet being tracked
 in Git: +
@@ -847,43 +852,31 @@ At any rate, once you have your branch in a good working state, make a backup of
 * *Do only* `git pull` *and hit* kbd:[Return] now that our Git `config` files in our sandboxes have been rewritten to _always_ pull from the correct remote branch _automatically_.
 *Do not specify the remote repository and branch.*
 This is dangerous and very prone to user error:
-
++
 [WARNING]
 ====
-`git pull origin <__branch__>` must be the _same_ branch name as the
-one you currently have checked out, otherwise you will be _merging_
-changes from the wrong branch into your current branch, a change that
-unfortunately is very time consuming to rectify if a backup — as
-described immediately above — has not been created.
+`git pull origin <__branch__>` must be the _same_ branch name as the one you currently have checked out, otherwise you will be _merging_ changes from the wrong branch into your current branch, a change that unfortunately is very time consuming to rectify if a backup -- as described immediately above -- has not been created.
 ====
-
-* *When composing a comment for a commit, write as much detail as you
-can.* Comments like "`fixed some stuff`" are counterproductive and help no
-one, including yourself when you eventually have to go back and maintain
-that code later on.
-* **Always include the correctly formatted Pivotal Tracker ID in your
-Git comments**, for example `[#74894116]`
++
+* *When composing a comment for a commit, write as much detail as you can.*
+Comments like "`fixed some stuff`" are counterproductive and help no one, including yourself when you eventually have to go back and maintain that code later on.
+* **Always include the correctly formatted Pivotal Tracker ID in your Git comments**, for example `[#74894116]`
 * Which is better?
 Fewer commits with maybe hundreds of lines of new or changed code?
 Or, several commits, each containing only related code changes?
 It depends:
 
-.  **For _new_ tools or features that have not yet been released**,
-ever, for which you will will be using `git add` to get them into Git,
-*bundle them all up into a single commit.* If you`'ve already been doing
-incremental commits in your sandbox Git repository, that is great. It is in
-itself a "`best practice.`"
+.  **For _new_ tools or features that have not yet been released**, ever, for which you will will be using `git add` to get them into Git, *bundle them all up into a single commit.*
+If you`'ve already been doing incremental commits in your sandbox Git repository, that is great.
+It is in itself a "`best practice.`"
 Just use `git log` to count how many of these incremental commits you have made.
 For example, you just made 12 commits, now you can perform an interactive _rebase_ to roll them into a single commit: +
  `git rebase -i HEAD~12` +
  during which you will be thrown into `vi` to edit all the lines except the first line (the oldest commit) and change the command in the first column to be a single letter "`s`" which stands for "`squash.`"
 After saving this with kbd:[Esc] `:wq`, you will once again be thrown into `vi` to edit the comments, which if your original comments were good, all you will need to do is remove some empty lines and Git hints/labels inserted by Git Rebase, otherwise you`'ll need to compose a comprehensive set of comments from scratch.
 After saving the comments with kbd:[Esc] `:wq`, the interactive _git rebase_ process should be complete.
-.  *For all other situations, bug fixes, updates, upgrades, and minor
-new features to existing tools,* the best practice is to have a 1-to-1
-relationship between each single fix, update, minor new feature and its
-commit. In other words, do _not_ bundle unrelated features, updates, or
-bug fixes into a larger commit.
+. *For all other situations, bug fixes, updates, upgrades, and minor new features to existing tools,* the best practice is to have a 1-to-1 relationship between each single fix, update, minor new feature and its commit.
+In other words, do _not_ bundle unrelated features, updates, or bug fixes into a larger commit.
 If one ever has to back out of a code update because it is not working as planned, then it will be much easier to remove a single "`unsuccessful feature`" by itself than to have to remove, for instance, a _combined_ commit of "`unsuccessful feature`" + "`successful bug fix`" since this will require re-editing the code to put the "`successful bug fix`" back into the codebase, and then making a new separate commit for the "`successful bug fix.`"
 *In short, for most situations, frequent, single-topic commits are the best practice.* <<hayes>>
 * Before you commit changes, _know_ what you are really committing: `git diff`
@@ -906,7 +899,7 @@ git add filename.php        # substitute filename.php with the real filename of 
 git commit -m '[#74894116] Enabled Directors access to comment on RFI'
 git push all
 ----
-
++
 * *Merge Conflicts* and How to resolve them +
 +
 Git inserts 3 lines of demarcation in each source code file, in which the changelog has found conflicts that cannot be resolved by standard logic. In these cases human intervention is required.
@@ -1105,10 +1098,10 @@ SELECT `user_id`,`username`,`password`,`user_hash`,`name`,
 SET FOREIGN_KEY_CHECKS=1;
 ----
 +
-.  *Changes to the data only:* the most common situation is the addition or changes to data in common lookup tables used mainly for normalizing data, i.e. tables to which form data submitted by users is never stored.
+. *Changes to the data only:* the most common situation is the addition or changes to data in common lookup tables used mainly for normalizing data, i.e. tables to which form data submitted by users is never stored.
 This is perhaps the easiest to write because `mysqldump` generates the SQL for you.
 It just needs to be sanitized in order for real changes to the table data to be recognized as such by Git, for instance, these types of nonessential additions to the SQL by `mysqldump` need removal:
-
++
 [source,sql]
 ----
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -1209,7 +1202,7 @@ Fast-forward
 ----
 +
 . *Implementation of a DBRC script* involves invoking the `load_sql` script which accepts two arguments: _script_name_ and _recipient_database_name_
-
++
 [source,terminal]
 ----
 ./load_sql create_i18n_tables.sql db_named_foo
@@ -1226,12 +1219,12 @@ Elapsed Time: .460401884 seconds
 
 * *Pull changes from the sql repository _before_ you do any type of design work.*
 If you see changes, load them. This will save yourself some headache and grief later on.
-* *Notify the entire team if you are planning to update/add data to any common look-up tables.*
+* *Notify the team if you are planning to update or add data to any common look-up tables.*
 It will be impossible for Git to merge MySQL data dumps due to the `PRIMARY KEY` values being using in the SQL inserts within the dump.
 Thus, communicate your estimated delivery time in case others plan to work with the same data, such as `i18n_language`.
 The _only_ way to manage this kind of situation is to take turns and go through the entire workflow after each data update.
 This example shows what multiple developers can collaborate on adding new translations to the `i18n` tables:
-
++
 [source,terminal]
 ----
 $ cd ~/sql
@@ -1243,18 +1236,15 @@ $ git add create_i18n_tables.sql   # Tell Git you want to commit this changed fi
 $ git commit -m "Added new data"   # Commit the change with an appropriate, detailed comment about what you did and why you did it
 $ git push                         # Push the changes
 ----
-
++
 [IMPORTANT]
 ====
 Whenever you push changes to a Git Repository shared by the entire team, make sure to send us a chat message indicating which repository, branch, and some details about what changes you have pushed.
 ====
-
-And alternative would be to use `db_test` as a central database – as
-opposed to using one`'s sandbox database – for highly volatile tables
-that need frequent changes by multiple developers. This still, however,
-does not alleviate the need for generating the DBRC sql script used to
-track changes. It simply reduces the chance of merge conflicts when
-developers fail to communicate their plans or work collaboratively.
++
+An alternative would be to use `db_test` as a central database -- as opposed to using one`'s sandbox database -- for highly volatile tables that need frequent changes by multiple developers.
+This still, however, does not alleviate the need for generating the DBRC SQL script used to track changes.
+It simply reduces the chance of merge conflicts when developers fail to communicate their plans or work collaboratively.
 
 == Agile, Scrum and Project Management
 
@@ -1264,8 +1254,7 @@ If they are unhappy, you will be unhappy.
 
 Whichever methodology a team chooses to implement (http://en.wikipedia.org/wiki/Scrum_(development)[Scrum], http://en.wikipedia.org/wiki/Kanban[Kanban], http://en.wikipedia.org/wiki/Scrum_(software_development)#Scrum-ban[Scrum-ban], etc.) it is important for all team members to understand the process, the policies entailed, and to be consistent in the implementation of them.
 
-Once the standard length of a sprint has been chosen, roles assigned, and education of the entire team on the theory of your specific agile methodology has been completed, the next step is finding some software that will be essential to tracking stories, tasks, ownership, and the various levels
-of "`state`".
+Once the standard length of a sprint has been chosen, roles assigned, and education of the entire team on the theory of your specific agile methodology has been completed, the next step is finding some software that will be essential to tracking stories, tasks, ownership, and the various levels of "`state`".
 After trying on http://www.agilofortrac.com/[Agilo trac], https://www.atlassian.com/software/jira[JIRA], http://www.pivotaltracker.com/why-tracker/how-it-works[Pivotal Tracker], and https://www.planbox.com/tour/[Planbox] for size, we finally decided Pivotal Tracker was a keeper.
 
 === Roles and Functions
@@ -1373,23 +1362,23 @@ Always assume you will need to state the obvious.
 * *Every Ticket needs _clear_ acceptance criteria* written for it, placed in the ticket description field (normally at the end of the description) with an appropriate heading.
 Here is a example taken from a ticket in Pivotal Tracker:
 +
-''''
+****
 *Acceptance Criteria:* +
-In addition to the functional requirements stated above, it is important that the display function always return some text, since every page has to have content without any blanks/missing text, and there will be times when a translation is not yet available, so the method will need to account for this condition by failing over to a the source content language, English, and the default locale, `en_US`.
+In addition to the functional requirements stated above, it is important that the display function always return some text, since every page has to have content without any blanks/missing text, and there will be times when a translation is not yet available, so the method will need to account for this condition by failing over to a the source c
+****
 +
-''''
-
 [WARNING]
 ====
 In addition to the explicit Acceptance Criteria provided by ticket authors in Pivotal Tracker, _any single violation of any best practice mentioned in this document is sufficient reason for the tester/approver to *reject* a ticket_.
 ====
 
-* *Write your test scenario.* If your story type is listed as a _Feature_, the very first thing you should do before writing any code is plan out how you will test it based on the link:#acceptance_criteria[Acceptance Criteria].
+* *Write your test scenario.* If your story type is listed as a _Feature_, the very first thing you should do before writing any code is plan out how you will test it based on the *Acceptance Criteria*.
 This should be the very first comment in any new ticket of type _Feature_.
 A typical test scenario might look like this:
 +
-.Sample Test Scenario
 ****
+*Sample Test Scenario*
+
  . Navigate to test page http://test.our-domain-name.com/projects/10852/mto,
 logged in as username: `richardburton`
 +
@@ -1413,7 +1402,7 @@ read text should appear above the table: "`You have successfully invited 1 vendo
 If not, terminate test and report `FAILED` on step 10.
 . Report `PASSED`.
 ****
-
++
 * *Ownership of a ticket* should be clear. Notify team members if you plan to hand it off to another developer.
 Be _specific_ in your requests for assistance. Write a new comment in PT with @NameOfPerson you are asking for assistance and choose one of these templates:
 
