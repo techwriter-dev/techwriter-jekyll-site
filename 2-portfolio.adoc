@@ -1,6 +1,8 @@
 = Portfolio
-:imagesdir: assets
+:page-description: Portfolio of John Kirch, technical writer and web developer. Samples of "Best Practices of Web Development" and "Microsoft Windows NT Server 4.0 versus UNIX".
 :page-layout: page
+:page-permalink: /portfolio
+:imagesdir: assets
 
 * *link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development]* -- 34 pages, circa 11,500 words, link:/assets/Best-Practices-of-Web-Development.pdf[PDF] +
 This document was inspired by my experience as Perl/PHP developer on a team of web developers at http://mnl.com/about_us/[Media Net Link].

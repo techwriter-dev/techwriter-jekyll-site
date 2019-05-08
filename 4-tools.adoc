@@ -1,5 +1,7 @@
 = Tools
-John Kirch <jrkirch@pm.me>
+:page-description: Tools for Technical Writers who practice the new, lightweight, markup-based, agile workflow that places more emphasis on writing actual content instead of wasting time on figuring out text formatting and layout issues.
+:page-layout: page
+:page-permalink: /tools
 :imagesdir: assets
 :experimental: true
 
