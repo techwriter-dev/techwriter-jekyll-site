@@ -1265,7 +1265,7 @@ Anyone can test the product.
 A scrum team is technically comprised of only three roles: scrum master, product owner, and the development team.
 The stakeholder role is part of scrum, but stakeholders are not part of the scrum team.
 It is common practice, however, that software development organizations using scrum will assign a specific role or function to each member of the _development team_ usually dependent on each individuals area of technical expertise.
-Scrum "`development teams are cross-functional, with all of the skills as a team necessary to create a product increment.`" #wikipedia:scrum[[wikipedia:scrum]]
+Scrum "`development teams are cross-functional, with all of the skills as a team necessary to create a product increment.`" <<wikipedia>>
 
 === QA Analyst within Scrum
 
@@ -1363,8 +1363,8 @@ Always assume you will need to state the obvious.
 Here is a example taken from a ticket in Pivotal Tracker:
 +
 ****
-*Acceptance Criteria:* +
-In addition to the functional requirements stated above, it is important that the display function always return some text, since every page has to have content without any blanks/missing text, and there will be times when a translation is not yet available, so the method will need to account for this condition by failing over to a the source c
+*Acceptance Criteria* +
+In addition to the functional requirements stated above, it is important that the display function always return some text, since every page has to have content without any blanks/missing text, and there will be times when a translation is not yet available, so the method will need to account for this condition by failing over to the source language and locale, which is `en_US` by default.
 ****
 +
 [WARNING]
@@ -1420,7 +1420,7 @@ Once clarified, get back on the task(s) and revert the status of the ticket back
 The button should then change back to kbd:[Finish] i.e. the next _pending_ status.
 * Click on kbd:[Finish] when you are finished writing your code and you have thoroughly tested it.
 * Use Git to pull any new changes into your sandbox`'s repository.
-* Push your completed work to the "`Test`" repository.* +
+* Push your completed work to the "`Test`" repository. +
 * Click on kbd:[Deliver]
 
 .The Various Story States in Pivotal Tracker
