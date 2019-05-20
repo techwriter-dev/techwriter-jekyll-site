@@ -42,7 +42,7 @@ Otherwise, follow the link for details on how to set up this footer override.
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML-full"> </script>
 ----
 +
-. Create a Stem block with your TeX equation or other LaTeX-specific text. Remember to use the `++++` delimiter to enclose mutliple lines of LaTeX content.
+. Create a Stem block with your TeX equation or other LaTeX-specific text. Remember to use the block delimiter \++++++ to enclose mutliple lines of stem:[\LaTeX{}] content.
 +
 [source,termninal]
 ----
