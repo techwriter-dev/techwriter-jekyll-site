@@ -24,8 +24,7 @@ Major areas of expertise:
 == Professional Experience
 
 === Gap Inc, Corporate Headquarters, San Francisco, CA. (Jul 2009 - Feb 2019) +
-
-`(100% remote since January 2015)`
+[maroon]#*(100% remote since January 2015)*#
 
 Despite having four different titles/positions and nine different supervisors over an almost 10 year career at Gap Inc, there was one constant: continuously contributing back-end web application code for the "`CPM Toolbox,`" an integrated suite of web applications for managing construction projects.
 These contributions relative to the team as a whole are best visualized in this link:assets/GitHubCommits_CPM-Toolbox_20090726-20190222.png[GitHub graph].
