@@ -4,37 +4,38 @@
 :page-permalink: /cv
 :sectlinks: true
 Created with Asciidoctor PDF
-v2.1.3, 2019-05-07
+v2.1.5, 2019-05-19
 
 == Experience Synopsis
-With almost 40 years of experience in various IT roles requiring excellent analytical skills I have a proven track record of focusing on my employers`' goals and how to best achieve those goals _in addition to_ following process and completing tasks on a storyboard.
+Decades of experience in various IT roles requiring excellent analytical skills has resulted in a proven track record of focusing on employers`' goals and how to best achieve those goals _in addition to_ following process and completing tasks on a storyboard.
 
 Major areas of expertise:
 
 . *Language*, both natural and machine/programming languages, their grammar, syntax, morphology, and semantics.
 * English and German composition, especially in my roles where the focus was on the creation of publications and technical documentation.
 * Using programming languages to store/retrieve/display/analyze data for human consumption.
-* Being one of the few remaining Americans who know what a relative pronoun is and when to use it. Having excellent command of English grammar rules such that I cringe every time I hear the nominative case (_I_) misused for the objective case (_me_), for example, _The test would be simple for **you or I**._
-(_Chicago Manual of Style 17_, https://www.chicagomanualofstyle.org/book/ed17/part2/ch05/psec037.html[ 5.37: Nominative case misused for objective ])
+* Excellent command of English grammar rules such that listening to others speak often results in the thought, "`How many Americans know what a relative pronoun is and when to use it?`"
 . *Logic* and sound reasoning embodied in an *analytical thought* process. Analytical thinking has been associated with https://blog.mindvalley.com/analytical-thinking-skills/[a number of different skills], some of which are:
-* _Problem solving:_ I have never encountered a software bug or design issue that I could not solve.
-* _Creativity:_ The analytical mind quite often thinks in visual terms. Being able to recognize patterns in anything and everything allows me to quickly visualize data and create database schemata that most accurately mimic the structure found in real life.
-* _Organization:_ The logical grouping of different but related topics when writing a paper, article or documentation necessitates organizing the structure of any document first as an outline.
+* _Problem solving:_ Never encountered a software bug or design issue that could not be traced back to a root cause or alleviated via an alternative design strategy.
+* _Creativity:_ The analytical mind quite often thinks in visual terms. Being able to recognize patterns in anything and everything allows one to quickly visualize data and create database schemata that most accurately mimic the structure or relationships found in real world processes.
+* _Organization:_ The logical grouping of different but related topics when writing a paper, article or documentation necessitates organizing the structure of a document first as an outline, a best practice which is a strict requirement for any serious writer.
 * _Communication:_ Getting a _clear, concise and unambiguous_ message across to readers using terse language and terminology appropriate to the subject matter, is the primary goal of any analytically oriented technical writer.
 
 == Professional Experience
 
 === Gap Inc, Corporate Headquarters, San Francisco, CA. (Jul 2009 - Feb 2019) +
 
-*(100% remote since January 2015)*
+`(100% remote since January 2015)`
 
-Despite having four different titles/positions and nine different supervisors over my almost 10 year career at Gap Inc, there was one constant: I never stopped writing web application code for the "`CPM Toolbox,`" an integrated suite of web applications for managing construction projects. Nothing confirms my contributions to this project better than this link:/assets/GitHubCommits_CPM-Toolbox_20090726-20190222.png[GitHub graph].
+Despite having four different titles/positions and nine different supervisors over an almost 10 year career at Gap Inc, there was one constant: continuously contributing back-end web application code for the "`CPM Toolbox,`" an integrated suite of web applications for managing construction projects.
+These contributions relative to the team as a whole are best visualized in this link:assets/GitHubCommits_CPM-Toolbox_20090726-20190222.png[GitHub graph].
 
 ==== Software Engineer III (Jul 2016 - Feb 2019)
+* Created a comprehensive set of technical documentation targeted at our developers for the Materials and Visual Merchandise Procurement tool within our suite of web applications.
+* Extended existing APIs and created new APIs to facilitate rapid application development.
 * Oversaw the technical design of new web applications within the scope of an Agile Development environment.
 * Provided technical guidance and training to web application developers.
 * Designed data models for new and existing web applications.
-* Extended existing APIs and created new APIs to facilitate rapid application development.
 * Reviewed code and provided feedback for application developers.
 * Created training materials for application developers in the form of videos and online documentation that provided real life code samples along with the results of those code examples in real time.
 * Created migration scripts for migrating highly normalized relational data to NoSQL (MongoDB) for certain web applications that have historically suffered under the relational data model.
@@ -42,15 +43,15 @@ Despite having four different titles/positions and nine different supervisors ov
 * Planned and administered server configurations for both database and web servers.
 * Designed, deployed and monitored our own security model at the network, host, server and application levels.
 * Wrote and maintained shell scripts for automated deployment of new features to our production, staging, training, and multiple test environments when specific Git branches`' commits are pushed to specific repositories.
-* Created a comprehensive set of technical documentation targeted at our developers for the Materials and Visual Merchandise Procurement tool within our suite of web applications.
 
 ==== Manager / Technical Lead (Oct 2011 - Jul 2016)
-* Managed a team of web developers and function as the Product Owner within the scope of Scrum.
-* Met with stakeholders and assisted them in composing new user stories and prioritizing them.
-* Created and maintained a custom object-oriented PHP framework that will ensure backwards compatibility with our legacy suite of web applications.
-* Use `doxygen` to create API documentation of our PHP code.
+
+* Used `doxygen` to create API documentation of our PHP code.
 * Created a "`Best Practices of Web Development`" link:/2016/09/06/Best-Practices-of-Web-Development.html[document] for our developers to reference.
-* Mentored my team of web developers in best coding practices, database design, (AWS) cloud-based system administration, and getting the best out of `Git`.
+* Met with stakeholders and assisted them in composing new user stories and prioritizing them.
+* Mentored a team of web developers in best coding practices, database design, (AWS) cloud-based system administration, and how to effectively use Git.
+* Managed a team of web developers and functioned as the Product Owner within the scope of Scrum.
+* Created and maintained a custom object-oriented PHP framework that will ensure backwards compatibility with our legacy suite of web applications.
 
 ==== Web Developer / Technical Lead (Jan 2010 - Oct 2011)
 * Senior web architect for a large, in-house B2B suite of web applications linking suppliers, consolidators, architects, and general contractors with our construction project management staff to manage the construction operations of 1,500+ stores in the US and Canada.
@@ -92,8 +93,12 @@ Despite having four different titles/positions and nine different supervisors ov
 
 === UNIX (Solaris) Consultant at the Texas Department of Human Services, Austin, TX (Sep 1997 - Jan 1998)
 * Worked through two consulting agencies (https://www.appliedis.com/[Applied Information Sciences, Inc.] and https://www.geologics.com/[GeoLogics Corporation])
-* For GeoLogics I was part of a team that was deploying https://en.wikipedia.org/wiki/CA_Harvest_Software_Change_Manager[CCC/Harvest] (was later acquired by CA), an SCM client/server system that was to be used in preparation for the Y2K event.
-* For Applied Information Sciences I single-handedly wrote a scheduler in `sybperl` to automate the execution of several `sybperl` scripts that needed to run at various times of the month (some by specific weekdays, others by day of the month) many of which with dependencies, for example, script _y_ is only launched on successful completion of script _x_, otherwise run script _z_, etc. No test environment was available. This had to be developed in the production environment. If it did not work, thousands of Texans on welfare would not receive their benefits. It worked the first time without any complications.
+* Was part of the GeoLogics team that was tasked with deploying https://en.wikipedia.org/wiki/CA_Harvest_Software_Change_Manager[CCC/Harvest] (was later acquired by CA), an SCM client/server system that was to be used in preparation for the Y2K event.
+* Single-handedly wrote a scheduler in `sybperl` as a consultant working through Applied Information Sciences to automate the execution of several `sybperl` scripts that had to be run at various times of the month (some by specific weekdays, others by day of the month) many of which with dependencies, for example, script _y_ is only launched on successful completion of script _x_, otherwise run script _z_, etc.
+No test environment was available.
+This had to be developed in the production environment.
+If it did not work, thousands of Texans on welfare would not receive their benefits.
+It worked the first time without any complications.
 
 === Desktop Support Specialist at IXC Communications*, Austin, TX (Dec 1996 - May 1997)
 * Provided support to over 100 users on Windows NT, Solaris, and Novell networks.
@@ -108,21 +113,31 @@ Despite having four different titles/positions and nine different supervisors ov
 === R&D FORTRAN Programmer at Chevron Geosciences Company, Houston, TX (Dec 1979 - Dec 1984)
 * Data processing of geophysical data (first 6 months on the job).
 * Systems support for mainframe issues on jobs submitted from Calgary (for about 4 months).
-* Served as a FORTRAN programmer in R&D for testing new algorithms where I worked closely with Chevron's Chief Geophysicist, Roger Judson.
+* Served as a FORTRAN programmer testing new experimental algorithms in R&D, a small team of five engineers, which included Chevron's Chief Geophysicist, Roger Judson, and two other senior geophysicists.
 
 === Summer Internship at Fairfield Industries, 10052 Harwin Dr, Houston, TX (Jun 1979 - Nov 1979)
-* This internship was offered to me while I was touring the various Houston-based oil exploration companies as part of the link:#_honors-and-awards[SEG Special Award] I received at the 29^th^ International Science and Engineering Fair.
-* Coded geometry for 1/4 millisecond, high resolution, marine seismic data.
+* This internship was offered while touring the various Houston-based oil exploration companies as part of the link:#_honors-and-awards[SEG Special Award] received at the 29^th^ International Science and Engineering Fair.
+* Coded geometry for &frac14; millisecond, high resolution, marine seismic data.
 
 == Education, Training and Certifications
 * https://www.coursera.org/account/accomplishments/verify/PMZE8V3JHTDP[Machine Learning], Stanford taught by Andrew Ng, 07/13/2017.
 * CELTA: University of Cambridge Certificate in TEFL, https://passthecelta.com/faq/how-is-the-celta-graded/[Pass (Grade B)], awarded 01/17/2005. Center Number US072, Accreditation Number 100/2664/2, Certificate Number ccpf214887.
 * BA, University of Texas at Austin, Austin, TX, Summer 1996, Major: German, GPA 3.916
-* _Zwischenprüfung_, Universität Siegen, Siegen, Germany. Master`'s program. Major: Medieval German Literature and Linguistics. Minor: in English Literature and Linguistics.
+* _Zwischenprüfung_, Universität Siegen, Siegen, Germany. Master`'s program. Major: Medieval German Literature and Linguistics. Minor: English Literature and Linguistics.
 
 == Publications
 * Kirch, John. "`Microsoft Windows NT Server 4.0 versus UNIX.`" _AUUGN_ (the journal of the Australian Unix Users`' Group) 19, no. 3 (August 1998): 12–27. +
-The popularity of the online version, from which the _AUUGN_ print edition was derived, was so enormous that volunteers translated it into Chinese, Croatian, Czech, French, German, Indonesia, Japanese, Korean, Portuguese, Russian, and Spanish.
+The popularity of the
+link:nt-vs-unix/en.html[online version], from which the _AUUGN_ print edition was derived, was so enormous that volunteers translated it into
+link:nt-vs-unix/cn[Chinese], Croatian,
+link:nt-vs-unix/cz.html[Czech],
+link:nt-vs-unix/fr.html[French],
+link:nt-vs-unix/de.html[German],
+link:nt-vs-unix/id.html[Indonesian],
+link:nt-vs-unix/jp.html[Japanese],
+link:nt-vs-unix/kr.html[Korean],
+link:nt-vs-unix/pt.html[Portuguese],
+link:nt-vs-unix/ru.html[Russian], and Spanish.
 * Zalan, S.E., Roger Judson, and John Kirch. "`Optimal Use of Iterative Stacking.`" Paper presented at the Intercompany Geophysical Conference by Chevron Geosciences Company, Incline Village, NV, October 21–26, 1984.
 
 == Honors and Awards
@@ -136,4 +151,4 @@ One of only two recipients awarded a 5-day tour of various seismic exploration c
 Was offered a summer internship at Fairfield Industries.
 * **28^th^ International Science & Engineering Fair, Cleveland, OH. May 1977** +
 **Special Award** from the https://seg.org[SEG] +
-One of only two recipients awarded a 5-day tour of various seismic exploration companies in Houston, including Seiscom-Delta Corporation and a chance to spend an afternoon with https://en.wikipedia.org/wiki/Robert_E%2E_Sheriff[Robert E. Sheriff] who inscribed to me a copy of his https://library.seg.org/doi/book/10.1190/1.9781560802969[_Encyclopedic Dictionary of Exploration Geophysics_], Society of Exploration Geophysicists, 1973.
+One of only two recipients awarded a 5-day tour of various seismic exploration companies in Houston, including Seiscom-Delta Corporation and a chance to spend an afternoon with https://en.wikipedia.org/wiki/Robert_E%2E_Sheriff[Robert E. Sheriff] who inscribed a copy of his https://library.seg.org/doi/book/10.1190/1.9781560802969[_Encyclopedic Dictionary of Exploration Geophysics_], Society of Exploration Geophysicists, 1973.
