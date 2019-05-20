@@ -3,6 +3,7 @@
 :page-layout: page
 :page-permalink: /cv
 :sectlinks: true
+:toc: left
 Created with Asciidoctor PDF
 v2.1.5, 2019-05-19
 
