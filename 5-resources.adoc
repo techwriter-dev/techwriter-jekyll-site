@@ -10,7 +10,7 @@
 ** https://idratherbewriting.com/learnapidoc/docendpoints.html[Documenting API Endpoints]
 ** Examples of API Documentation Styles
 *** https://developers.files.com/[*Files.com*], the _Users_ resource:  https://developers.files.com/#the-user-object[User Object], `GET` https://developers.files.com/#search-users[Search], `POST` https://developers.files.com/#create-a-user[Create]
-*** https://developers.files.com/[*SparkPost.com*], Metrics API: `GET` https://developers.sparkpost.com/api/metrics/#metrics-get-metrics-summary[Summary], Transmissions endpoint: `POST` https://developers.sparkpost.com/api/transmissions/#transmissions-post-send-inline-content[Send Inline Content]
+*** https://developers.sparkpost.com/[*SparkPost.com*], Metrics API: `GET` https://developers.sparkpost.com/api/metrics/#metrics-get-metrics-summary[Summary], Transmissions endpoint: `POST` https://developers.sparkpost.com/api/transmissions/#transmissions-post-send-inline-content[Send Inline Content]
 * *CLI-based Application Documentation*, style examples
 ** https://nxlog.com[*NXLog*], _Community Edition Reference Manual_: https://nxlog.co/docs/nxlog-ce/nxlog-reference-manual.html#lang_expressions[Lanuage Expressions]
 ** https://nxlog.com[*NXLog*], _User Guide_, *Man Pages*: https://nxlog.co/documentation/nxlog-user-guide/nxlog-processor-8.html[nxlog-processor(8)]
