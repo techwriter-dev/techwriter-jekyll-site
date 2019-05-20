@@ -50,7 +50,7 @@ $ atom _includes/footer.html
 +
 . Replace the the entire `<ul>` block with this:
 +
-[source,javascript]
+[source,html]
 ----
 <ul class="contact-list">
   <li class="p-name">
