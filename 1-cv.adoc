@@ -15,7 +15,7 @@ Major areas of expertise:
 . *Language*, both natural and machine/programming languages, their grammar, syntax, morphology, and semantics.
 * English and German composition, especially in my roles where the focus was on the creation of publications and technical documentation.
 * Using programming languages to store/retrieve/display/analyze data for human consumption.
-* Excellent command of English grammar rules such that listening to others speak often results in the thought, "`How many Americans know what a relative pronoun is and when to use it?`"
+* Excellent command of English grammar rules such that listening to others speak often results in the thought, "`How many Americans know what a https://dictionary.cambridge.org/grammar/british-grammar/pronouns/relative-pronouns[relative pronoun] is and when to use it?`"
 . *Logic* and sound reasoning embodied in an *analytical thought* process. Analytical thinking has been associated with https://blog.mindvalley.com/analytical-thinking-skills/[a number of different skills], some of which are:
 * _Problem solving:_ Never encountered a software bug or design issue that could not be traced back to a root cause or alleviated via an alternative design strategy.
 * _Creativity:_ The analytical mind quite often thinks in visual terms. Being able to recognize patterns in anything and everything allows one to quickly visualize data and create database schemata that most accurately mimic the structure or relationships found in real world processes.
