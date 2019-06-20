@@ -18,8 +18,3 @@ Fellow professionals who find themselves anywhere on the spectrum between "`tech
 I am currently in the process of adding "`How-To`'s`" for all the technical situations I have found myself in over the years.
 
 The bulk of my future posts will be centered around my specific area of expertise: using MongoDB in a PHP environment and migrating highly normalized relational data with complex joins to more sane, single-collection, single-query, MongoDB document schemata with multi-dimensional, nested arrays that perfectly match the real world model: what application developers still have to create in their application code manually (with the relational model), because SQL cannot deliver tree-like data structures.
-
-=== In Case Your Company`'s Needs Match My Experience and Skills
-Any company seeking my services as a technical writer will find alongside my link:/cv[résumé] a limited but ever-increasing portfolio of my work.
-
-If you are looking for someone with Adobe InDesign, Visio, Microsoft Office, or Confluence experience who can't tell Java from JavaScript, then maybe you are actually looking for a "`graphic designer`" (or in the case of Visio, maybe a project/product manager) instead. I do API documentation of code written by software developers, not glossy marketing brochures.
