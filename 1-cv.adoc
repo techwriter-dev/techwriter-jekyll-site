@@ -51,7 +51,7 @@ These contributions relative to the team as a whole are best visualized in this 
 * Met with stakeholders and assisted them in composing new user stories and prioritizing them.
 * Mentored a team of web developers in best coding practices, database design, (AWS) cloud-based system administration, and how to effectively use Git.
 * Managed a team of web developers and functioned as the Product Owner within the scope of Scrum.
-* Created and maintained a custom object-oriented PHP framework that will ensure backwards compatibility with our legacy suite of web applications.
+* Created and maintained a custom object-oriented PHP framework that would ensure backwards compatibility with our legacy suite of web applications.
 
 ==== Web Developer / Technical Lead (Jan 2010 - Oct 2011)
 * Senior web architect for a large, in-house B2B suite of web applications linking suppliers, consolidators, architects, and general contractors with our construction project management staff to manage the construction operations of 1,500+ stores in the US and Canada.
@@ -117,7 +117,7 @@ It worked the first time without any complications.
 
 === Summer Internship at Fairfield Industries, 10052 Harwin Dr, Houston, TX (Jun 1979 - Nov 1979)
 * This internship was offered while touring the various Houston-based oil exploration companies as part of the link:#_honors-and-awards[SEG Special Award] received at the 29^th^ International Science and Engineering Fair.
-* Coded geometry for &frac14; millisecond, high resolution, marine seismic data.
+* Coded geometry for ¼ millisecond, high resolution, marine seismic data.
 
 == Education, Training and Certifications
 * https://www.coursera.org/account/accomplishments/verify/PMZE8V3JHTDP[Machine Learning], Stanford taught by Andrew Ng, 07/13/2017.
