@@ -19,7 +19,7 @@ The https://github.com/pear/MDB2[pear/MDB2 package] is being leveraged to create
 The following code was a singular effort on my part to achieve this goal.
 What is presented here is a subset of the original.
 
-Shortly after creating the first working version of this ORM I write a link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development] document in which I provided link:/2016/09/06/Best-Practices-of-Web-Development.html#_designing-php-classes-to-represent-mysql-database-tables[usage examples] of this framework.
+Shortly after creating the first working version of this ORM I wrote a link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development] document in which I provided link:/2016/09/06/Best-Practices-of-Web-Development.html#_designing-php-classes-to-represent-mysql-database-tables[usage examples] of this custom "`framework.`"
 
 == The Core class
 
