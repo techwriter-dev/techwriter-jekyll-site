@@ -4,6 +4,10 @@
 :page-permalink: /portfolio
 :imagesdir: assets
 
+
+* As a PHP developer with almost 20 years of experience, my preference for back-end development can be seen in these examples:
+ ** *link:2009/11/05/SQL-Query-Examples.html[SQL Queries]*
+ ** *link:2012/06/15/Custom-ORM.html[Custom ORM]*
 * *link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development]* -- 34 pages, circa 11,500 words, link:/assets/Best-Practices-of-Web-Development.pdf[PDF] +
 This document was inspired by my experience as Perl/PHP developer on a team of web developers at http://mnl.com/about_us/[Media Net Link].
 What started out as a training document evolved into a comprehensive set of best practices.

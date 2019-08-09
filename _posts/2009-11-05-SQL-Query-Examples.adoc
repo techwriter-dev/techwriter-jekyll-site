@@ -1,0 +1,162 @@
+= SQL Query Examples
+John Kirch <techwriter.dev@pm.me>
+:page-layout: post
+:icons: font
+:imagesdir: /assets
+:sectlinks: true
+:experimental: true
+:toc: left
+// Uncomment the next 2 lines when exporting to PDF
+//:source-highlighter: rouge
+//:imagesdir: ../assets
+
+It was these types of situations that paved the way for NoSQL databases.
+
+=== Query for accessing the most recent version of an RFP
+
+[source,sql]
+----
+SELECT  r.*,
+        r.created AS created_date,
+        lg.action_date AS approved_date,
+        st.status,
+        st.type AS status_type,
+        s.store_name,
+        s.store_number,
+        p.name AS project_name,
+        CONCAT('00000',p.reps_project_id) AS reps_id,
+        p.scope,
+        d.division,
+        p.format,
+        s.total_imporoved_sqft AS sqft,
+        p.comments AS project_comments,
+        uc.name AS creator,
+        upcf.name AS reviewer,
+        usrpm.name AS approver
+FROM    ae_rfp r
+            INNER JOIN (
+                SELECT project_id,
+                       rfp_number,
+                       MAX(version) AS highest_version
+                FROM   ae_rfp
+                GROUP BY rfp_number, project_id
+            ) rhv ON (
+                     r.project_id = rhv.project_id
+                AND  r.rfp_number = rhv.rfp_number
+                AND  r.version = rhv.highest_version
+            )
+                INNER JOIN ae_rfp_status st ON (
+                    r.status_id = st.rfp_status_id
+                )
+                    INNER JOIN projects p ON (
+                        p.project_id = r.project_id
+                    )
+                        INNER JOIN project_resources prsrm ON(
+                            p.project_id = prsrm.project_id
+                        )
+                            INNER JOIN project_resources prpcf ON(
+                                p.project_id = prpcf.project_id
+                            )
+                                INNER JOIN stores s ON (
+                                    s.store_id = p.store_id
+                                )
+                                    INNER JOIN divisions d on (
+                                        s.division_id = d.division_id
+                                    )
+                                        INNER JOIN users uc ON (
+                                            r.creator_id=uc.user_id
+                                        )
+                                            RIGHT JOIN resources rssrpm ON (
+                                                    prsrm.resource_id = rssrpm.resource_id
+                                                AND rssrpm.type='A&E Sr. Manager'
+                                            )
+                                            RIGHT JOIN resources rspcf ON (
+                                                    prpcf.resource_id = rspcf.resource_id
+                                                AND rspcf.type='Plan Check Firm'
+                                            )
+                                            LEFT JOIN users usrpm ON (
+                                                usrpm.user_id = rssrpm.user_id
+                                            )
+                                            LEFT JOIN users upcf ON (
+                                                upcf.user_id = rspcf.user_id
+                                            )
+                                            LEFT JOIN ae_rfp_log lg ON (
+                                                    lg.rfp_id = r.rfp_id
+                                                AND lg.action_id = 4
+                                            )
+    WHERE r.active=1
+----
+
+=== Query to compute dashboard statistics for open procurement orders
+
+[source,sql]
+----
+SELECT p.project_id,
+       p.reps_project_id as reps_id,
+       p.name as project_name,
+       b.brand,
+       s.store_number,
+       x.orders_count,
+       y.orders_count AS action_required,
+       cw.consolidator_id,
+       c.consolidator,
+       inv.invited_count
+FROM   project_user_role pur
+    INNER JOIN projects p ON (
+            pur.project_id = p.project_id
+        AND p.active_project=1
+        AND pur.role_id = 13
+        AND pur.user_id = :user_id
+    )
+    LEFT JOIN (
+        SELECT project_id,
+               COUNT(*) AS orders_count
+        FROM   mto
+        WHERE  active = 1 AND type = :type
+        GROUP BY project_id
+    ) x ON (x.project_id = p.project_id)
+    LEFT JOIN (
+        SELECT project_id,
+               status_id,
+               COUNT(*) AS orders_count
+        FROM   mto
+        WHERE  active = 1
+        AND    type = :type
+        AND    status_id NOT IN (2,6)
+        GROUP BY project_id
+    ) y ON (y.project_id = p.project_id)
+    LEFT JOIN (
+        SELECT  project_id,
+                COUNT(*) AS invited_count
+        FROM    mto_invited
+        WHERE   $is_ofi
+        GROUP BY project_id
+    ) inv ON (inv.project_id = p.project_id)
+        INNER JOIN project_schedule ps ON (
+                ps.project_id = p.project_id
+            AND task_id = :sed_task_id
+            AND ps.date > CURDATE()
+        )
+            INNER JOIN stores s ON s.store_id = p.store_id
+                INNER JOIN brand b ON (s.brand_id = b.id)
+                LEFT JOIN consolidator_warehouse_store cws ON (
+                        cws.store_id = s.store_id
+                    AND cws.active = 1
+                )
+                LEFT JOIN consolidator_warehouse cw ON cws.consolidator_warehouse_id = cw.id
+                LEFT JOIN consolidator c ON cw.consolidator_id = c.id
+----
+
+https://github.com/pear/MDB2[pear/MDB2] supports https://mdb2-tutorials.blogspot.com/2008/01/mdb2-sql-abstraction.html[named binds] having the syntax of `:string` which is what `:user_id`, `:type`, and `:sed_task_id` are functioning as in this query.
+The query SQL is stored as a string in `$sql`.
+The keys in the `$binds` associative array represent the _Named Binds_.
+The native MDB2 https://pear.php.net/package/MDB2/docs/2.5.0b5/MDB2/MDB2_Extended.html#methodgetAssoc[getAssoc] method returns an array of rows from the database where the key of each element (row) is a `project_id`, the primary key for the MySQL `projects` table.
+
+[source,php]
+----
+$binds = array(
+    'user_id'     => $user->id,
+    'type'        => $type,
+    'sed_task_id' => $this->sed_task_id
+);
+$projects = $this->db->getAssoc($sql,null,$binds);
