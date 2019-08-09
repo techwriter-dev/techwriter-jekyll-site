@@ -1,0 +1,979 @@
+= Custom ORM
+John Kirch <techwriter.dev@pm.me>
+:page-layout: post
+:icons: font
+:imagesdir: /assets
+:sectlinks: true
+:experimental: true
+:toc: left
+// Uncomment the next 2 lines when exporting to PDF
+//:source-highlighter: rouge
+//:imagesdir: ../assets
+
+== History of development
+
+In early 2010, after assessing the amount of work needed to restructure and refactor our existing suite of plain vanilla PHP applications to work with modern frameworks like Symfony, CodeIgniter, or Yii, it was decided that the gradual introduction of a custom ORM loosely based on the way Yii handled models was the best solution.
+The major roadblock for rapid development had always been getting data in and out of MySQL, so focusing on a working ORM was the logical starting point.
+The https://github.com/pear/MDB2[pear/MDB2 package] is being leveraged to create the MySQL connection object `$GLOBALS['db']`.
+
+The following code was a singular effort on my part to achieve this goal.
+What is presented here is a subset of the original.
+
+Shortly after creating the first working version of this ORM I write a link:/2016/09/06/Best-Practices-of-Web-Development.html[Best Practices of Web Development] document in which I provided link:/2016/09/06/Best-Practices-of-Web-Development.html#_designing-php-classes-to-represent-mysql-database-tables[usage examples] of this framework.
+
+== The Core class
+
+[source,php]
+----
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'].'/config/config.php';
+require_once 'Numbers/Words.php';
+require_once 'CustomDateTime.php';
+require_once 'Currency.php';
+require_once 'User.php';
+require_once 'View.php';
+
+class Core {
+    public $no_pk;
+    public $active_column;
+    public $modified_column;
+    public $site_domain;
+    public $docroot;
+    public $debug;
+    public $cli;
+    public $newline;
+    public $options = array(
+        'currency' => 'USD',
+        'language' => 'en_US',
+        'js_locale' => 'en-US',
+    );
+    protected $db;
+    protected $cookie_domain;
+
+    function __construct() {
+        $this->db = $GLOBALS['db'];
+        $this->site_domain = $GLOBALS['site_domain'];
+        $this->docroot = $GLOBALS['docroot'];
+        $this->production = $GLOBALS['production'];
+        $this->cli = isset($GLOBALS['cli']) ? $GLOBALS['cli'] : 0;
+        $this->cookie_domain = $GLOBALS['cookie_domain'];
+        if (!isSet($this->active_column) || !$this->active_column) {
+            $this->active_column = 'active';
+        }
+        if (!isSet($this->modified_column) || !$this->modified_column) {
+            $this->modified_column = 'modified';
+        }
+        $this->newline = $this->cli ? "\n" : "<br />\n";
+    }
+
+    public function byId($id,$join_tables=null,$options=null) {
+        $joins = null;
+        $options = $this->setDefault($options,$this->options);
+        // Get global options/defaults for i18n
+        foreach ($options as $k=>$v) {
+            $$k = $v;
+        }
+        if ($id) {
+            if (!count($this->order_by)) {
+                $column = $this->table . '.' . $this->pk;
+                $this->order_by = array($column => 'DESC');
+            }
+            if (!$join_tables) {
+                $sql = "SELECT * FROM $this->table WHERE $this->pk = ?";
+            } else {
+                $sql = "SELECT $this->table.* \n ";
+                foreach ($this->joined as $fk_class=>$join) {
+                    $active = null;
+                    $columns = array();
+                    $fk_column = null;
+                    $pk_column = null;
+                    foreach ($join as $k=>$v) {
+                        $$k = $v;
+                    }
+                    $db_obj = new $fk_class();
+                    if ($class) {
+                        $this_db_obj = new $class();
+                        $table = $this_db_obj->table;
+                    } else {
+                        $table = $this->table;
+                    }
+                    foreach ($columns as $column) {
+                        $as = isset($db_obj->column_aliases[$column]) ?
+                            ' AS '.$db_obj->column_aliases[$column] : null;
+                        $sql .= "  , $db_obj->table.$column $as \n ";
+                    }
+                    $active = $active ? " \n  AND $db_obj->table.active = 1) \n " : ") \n ";
+                    if ($fk_column) {
+                        $joins .= "  $type JOIN $db_obj->table ON ($table.$fk_column = $db_obj->table.$db_obj->pk$active";
+                    } else {
+                        $joins .= "  $type JOIN $db_obj->table ON ($table.$this->pk = $db_obj->table.$pk_column$active";
+                    }
+                }
+                $sql .= "FROM $this->table $joins WHERE $this->table.$this->pk = ?";
+            }
+            $row = $this->db->getRow($sql,null,array($id));
+            if (count($this->upgraded_column_names))
+                $row = $this->upgradeColumns($row);
+            if (count($this->column_aliases)) {
+                foreach ($this->column_aliases as $standard=>$alias) {
+                    $row[$alias] = $row[$standard];
+                }
+            }
+            if ($row) {
+                $currency = null;
+                /*    Currency needs to be set immediately since the order of
+                    key=>values in $row does not guarantee that the value for
+                    "currency", e.g. 'USD','GBP', etc., will be available for
+                    those public variables that have a data_type of 'currency'
+                    if we simply iterate through the array waiting to get its
+                    value.
+                */
+                if (isset($row['currency_id']))
+                    $currency = $row['currency_id'];
+                if (isset($row['currency']))
+                    $currency = $row['currency'];
+
+                foreach ($row as $k=>$v) {
+                    if (    isset($this->data_type[$k])
+                        &&     ($this->data_type[$k] == 'date' || $this->data_type[$k] == 'datetime')
+                    ) {
+                        // Check to see if this is a valid date or datetime string
+                        if (empty($v)) {
+                            $this->{$k} = $v;
+                        } else {
+                            $cpm_dto = new CustomDateTime($v);
+                            $this->{$k} = $cpm_dto->is_valid ? $cpm_dto : $v;
+                        }
+                    } elseif (isset($this->data_type[$k]) && $this->data_type[$k] == 'percent') {
+                        $this->{$k} = new Percent($v);
+                    } elseif (isset($this->data_type[$k]) && $this->data_type[$k] == 'currency') {
+                        $this->{$k} = new Currency($v,$currency);
+                    } else {
+                        $this->{$k} = $v;
+                    }
+                }
+                if ($this->child_class) {
+                    $child_obj = new $this->child_class();
+                    $where = array($child_obj->parent_fk_column => $id);
+                    $this->num_children = $child_obj->rowCount($where);
+                }
+            }
+        }
+    }
+
+    public function byName($name,$join_tables=null) {
+        if ($name) {
+            $name = trim($name);
+            $sql = "
+                SELECT $this->pk FROM $this->table WHERE $this->name_column=?";
+            $id = $this->db->getOne($sql,null,array($name));
+            if ($id) {
+                $this->byId($id,$join_tables);
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    public function byWhere($where=null,
+                            $order_by=null,
+                            $return_scalar_for_single_row=1,
+                            $limit=0,
+                            $offset=0)
+    {
+        $results = null;
+        $join_tables = $this->setDefault($this->join_tables,null);
+        $limit = is_integer($limit) && $limit > 0 ? " LIMIT $limit" : null;
+        $offset = is_integer($offset) && $offset > 0 ? " OFFSET $offset" : null;
+        if ($this->table && is_array($where)) {
+            $where = $this->makeWhere($where);
+            $order_by = $this->orderBy($order_by);
+            $sql = "SELECT $this->pk FROM $this->table WHERE $where $order_by $limit $offset";
+            $results = $this->db->getCol($sql);
+
+            if ($this->debug) {
+                $this->dump(
+                    array(
+                        'sql' => $sql,
+                        'results' => $results,
+                    )
+                );
+            }
+            if (count($results) == 1 && $return_scalar_for_single_row) {
+                if ($results[0])
+                    $this->byId($results[0],$join_tables);
+                $results = $results[0];
+            }
+        }
+        return $results;
+    }
+
+
+    public function byProject($project_id,$most_recent=0){
+        $where = array(
+            'project_id' => $project_id
+        );
+        $id = null;
+        $result = $this->byWhere($where);
+        if (is_array($result)) {
+            if ($most_recent) {
+                $id = array_pop($result);
+            }
+        } elseif ($result) {
+            $id = $result;
+        }
+        if ($id) {
+            return $this->byId($id);
+        } else {
+            return $result;
+        }
+    }
+
+
+    public function mostRecent($where) {
+        if (count($where)) {
+            return $this->byWhere(
+                $where,
+                $order_by = array($this->pk => 'DESC'),
+                $return_scalar_for_single_row = 1,
+                $limit = 1,
+                $offset = 0);
+        }
+    }
+
+    public function count($where) {
+        $joins = null;
+        if ($where) {
+            $where = $this->makeWhere($where);
+            if (!$this->join_tables) {
+                $sql = "SELECT COUNT(*) FROM $this->table WHERE $where";
+            } else {
+                $sql = "SELECT COUNT(*) ";
+                foreach ($this->joined as $fk_class=>$join) {
+                    $active = null;
+                    $columns = array();
+                    foreach ($join as $k=>$v) {
+                        $$k = $v;
+                    }
+                    $db_obj = new $fk_class();
+                    if ($class) {
+                        $this_db_obj = new $class();
+                        $table = $this_db_obj->table;
+                    } else {
+                        $table = $this->table;
+                    }
+                    $active = $active ? " \n  AND $db_obj->table.active = 1) \n " : ") \n ";
+                    $joins .= "  $type JOIN $db_obj->table ON ($table.$fk_column = $db_obj->table.$db_obj->pk$active";
+                }
+
+                $sql .= "FROM $this->table $joins WHERE $where";
+            }
+            return $this->db->getOne($sql);
+        }
+    }
+
+    public function children($parent_id=null,$child_class=null,$order_by=null) {
+        $parent_id = $this->setDefault($parent_id,$this->id);
+        $class = $this->setDefault($child_class,$this->child_class);
+        if ($class) {
+            $child_object = new $class();
+            $where = array($child_object->parent_fk_column => $parent_id);
+            if ($child_object->has_active_column)
+                $where[$child_object->active_column] = 1;
+            return $child_object->byWhere($where,$order_by,0);
+        } else {
+            return null;
+        }
+    }
+
+    public function hasChildren() {
+        $children = $this->children();
+        return count($children);
+    }
+
+    public function valuesOf($array_of_keys,$formatted=null) {
+        if ($this->table && is_array($array_of_keys) && count($array_of_keys)) {
+            $row = array();
+            foreach ($array_of_keys as $key) {
+                $display = null;
+                $data_type = $this->dataType($key);
+                if ($formatted) {
+                    if ($data_type == 'date' && $this->$key instanceOf CustomDateTime) {
+                        $display = $this->$key->us_date;
+                    } elseif ($data_type == 'datetime' && $this->$key instanceOf CustomDateTime) {
+                        $display = $this->$key->us_datetime;
+                    } elseif ($data_type == 'currency' && $this->$key instanceOf Currency) {
+                        $display = $this->$key->formatted;
+                    } elseif ($data_type == 'percent' && $this->$key instanceOf Percent) {
+                        $display = $this->$key->rate_display;
+                    } elseif ($data_type == 'number') {
+                        $view = new View();
+                        $display = $view->number($this->$key);
+                    } else {
+                        $display = $this->$key;
+                    }
+                } else {
+                    if ($data_type == 'date' && $this->$key instanceOf CustomDateTime) {
+                        $display = $this->$key->date_only;
+                    } elseif ($data_type == 'datetime' && $this->$key instanceOf CustomDateTime) {
+                        $display = $this->$key->date;
+                    } elseif ($data_type == 'currency' && $this->$key instanceOf Currency) {
+                        $display = $this->$key->value;
+                    } elseif ($data_type == 'percent' && $this->$key instanceOf Percent) {
+                        $display = $this->$key->decimal_rate;
+                    } elseif ($data_type == 'number') {
+                        $display = $this->$key;
+                    } else {
+                        $display = $this->$key;
+                    }
+                }
+                $row[$key] = $display;
+            }
+            return $row;
+        }
+    }
+
+    public function rowCount($where) {
+        if ($this->table && $where) {
+            $where = $this->makeWhere($where);
+            $sql = "SELECT COUNT(*) FROM {$this->table} WHERE $where";
+            return $this->db->getOne($sql);
+        }
+    }
+
+    public function lowestFreePk($min_pk=0) {
+        if ($this->table && !$this->no_pk) {
+            $last_pk = $min_pk;
+            $pks = $this->db->getCol("SELECT {$this->pk} FROM {$this->table} ORDER BY {$this->pk}");
+            foreach ($pks as $pk) {
+                if (($pk - $last_pk) > 1)
+                    return $last_pk + 1;
+                $last_pk = $pk;
+            }
+            return $last_pk++;
+        }
+    }
+
+    public function maxValue($column=null) {
+        if ($this->table && $column) {
+            return $this->db->getOne("SELECT MAX($column) FROM {$this->table}");
+        }
+    }
+
+    public function groupBy($group_by_id=null,$order_by=null) {
+        if (    $this->table
+            &&    $this->group_by
+            &&    $group_by_id
+        ) {
+            $this->setDefault($order_by,$this->order_by);
+            $order_by = $this->orderBy($order_by);
+            $active = $this->has_active_column ? ' AND active=1' : null;
+            $sql = "SELECT * FROM $this->table WHERE $this->group_by = ? $active $order_by";
+            if ($this->pk) {
+                return $this->db->getAssoc($sql,null,array($group_by_id));
+            } else {
+                return $this->db->getAll($sql,null,array($group_by_id));
+            }
+        }
+    }
+
+    public function manyIdsToOne($group_by_id) {
+        if (    $this->table
+            &&    $this->group_by
+            &&    $this->many_column
+            &&    ($group_by_id && is_numeric($group_by_id))
+        ) {
+
+            $where = array($this->group_by => $group_by_id);
+            if ($this->active_column) {
+                $where[$this->active_column] = 1;
+            }
+            $where = $this->makeWhere($where);
+            $sql = "
+                SELECT $this->many_column
+                FROM   $this->table
+                WHERE  $where
+                ORDER BY $this->many_column";
+            return $this->db->getCol($sql);
+        }
+    }
+
+    public function updateManyToOne($group_by_id,$new_values) {
+        if (   $this->table
+            && $this->group_by
+            && $this->many_column
+            && ($group_by_id && is_numeric($group_by_id))
+            && (is_array($new_values) && count($new_values))
+        ) {
+            $add = array();
+            $delete = array();
+            $unchanged = array();
+            $old_values = $this->manyIdsToOne($group_by_id);
+            foreach ($new_values as $new_id) {
+                if (in_array($new_id,$old_values)) {
+                    $unchanged[$new_id] = 1;
+                } else {
+                    $add[] = $new_id;
+                    $new_rec = array(
+                        $this->group_by => $group_by_id,
+                        $this->many_column => $new_id,
+                    );
+                    if ($this->active_column)
+                        $new_rec[$this->active_column] = 1;
+                    $this->add($new_rec);
+                }
+            }
+            foreach ($old_values as $old_id) {
+                if (in_array($old_id,$new_values)) {
+                    $unchanged[$old_id] = 1;
+                } else {
+                    $delete[] = $old_id;
+                    $where = array(
+                        $this->group_by => $group_by_id,
+                        $this->many_column => $old_id,
+                    );
+                    if ($this->active_column)
+                        $where[$this->active_column] = 1;
+                    $this->delete($where);
+                }
+            }
+            $unchanged = array_keys($unchanged);
+            asort($add);
+            asort($delete);
+            asort($unchanged);
+            $log =  array(
+                'add'       => $add,
+                'delete'    => $delete,
+                'unchanged' => $unchanged,
+            );
+            return $log;
+        }
+    }
+
+    public function names($name_column=null,$case=null,$where=null,$order_by=null) {
+        $index_column = $this->setDefault($this->index_column,$this->pk);
+        $name_column = $this->setDefault($name_column,$this->name_column);
+        $order_by = $this->setDefault($order_by,$this->order_by);
+        $order_by = count($order_by) ? $this->orderBy($order_by) : ' ORDER BY '.$this->name_column;
+
+        if ($this->table) {
+            if ($this->has_active_column) {
+                $where['active'] = 1;
+            }
+            $where = count($where) ? $this->makeWhere($where) : 1;
+            $sql = "SELECT $name_column
+                    FROM   $this->table
+                    WHERE  $where
+                    $order_by";
+            if (strtolower($case) == 'upper')
+                $sql = "SELECT UPPER($name_column)
+                        FROM   $this->table
+                        WHERE  $where
+                        $order_by";
+            if (strtolower($case) == 'lower')
+                $sql = "SELECT    LOWER($name_column)
+                        FROM    $this->table
+                        WHERE    $where
+                        $order_by";
+            return $this->db->getCol($sql);
+        }
+    }
+
+    public function idName($name_column=null,$case=null,$where=null,$order_by=null) {
+        $index_column = $this->setDefault($this->index_column,$this->pk);
+        $name_column = $this->setDefault($name_column,$this->name_column);
+        $order_by = $this->setDefault($order_by,$this->order_by);
+        $order_by = count($order_by) ? $this->orderBy($order_by) : ' ORDER BY '.$this->name_column;
+
+        if ($this->table) {
+            if ($this->has_active_column) {
+                $where['active'] = 1;
+            }
+            $where = count($where) ? $this->makeWhere($where) : 1;
+            $sql = "SELECT $index_column,$name_column
+                    FROM   $this->table
+                    WHERE  $where
+                    $order_by";
+            if (strtolower($case) == 'upper')
+                $sql = "SELECT $index_column,UPPER($name_column)
+                        FROM   $this->table
+                        WHERE  $where
+                        $order_by";
+            if (strtolower($case) == 'lower')
+                $sql = "SELECT $index_column,LOWER($name_column)
+                        FROM   $this->table
+                        WHERE  $where
+                        $order_by";
+            return $this->db->getAssoc($sql);
+        }
+    }
+
+    public function nameId($name_column=null,$case=null,$where=null) {
+        $index_column = $this->setDefault($this->index_column,$this->pk);
+        $name_column = $this->setDefault($name_column,$this->name_column);
+        if ($this->table) {
+            if ($this->has_active_column) {
+                $where['active'] = 1;
+            }
+            $where = count($where) ? $this->makeWhere($where) : 1;
+            $sql = "SELECT $name_column,$index_column FROM $this->table WHERE $where";
+            if (strtolower($case) == 'upper')
+                $sql = "SELECT UPPER($name_column),
+                               $index_column
+                        FROM   $this->table
+                        WHERE  $where";
+            if (strtolower($case) == 'lower')
+                $sql = "SELECT LOWER($name_column),
+                               $index_column
+                        FROM   $this->table
+                        WHERE  $where";
+            return $this->db->getAssoc($sql);
+        }
+    }
+
+    public function listOfNames($ids=null,$name_column=null,$case=null,$delimiter=null) {
+        $name_column = $this->setDefault($name_column,$this->name_column);
+        $delimiter = $this->setDefault($delimiter,$this->delimiter);
+        $delimiter = $delimiter ? $delimiter : ', ';
+        if ($this->table && is_array($ids) && count($ids)) {
+            $names = array();
+            if (is_array($ids) && count($ids)) {
+                $idx = $this->idName($name_column,$case);
+                foreach ($ids as $id) {
+                    $names[] = $idx[$id];
+                }
+                return implode($delimiter,$names);
+            }
+        }
+    }
+
+    public function listOfShortNames($ids) {
+        return $this->listOfNames($ids,$this->shortname_column,$this->shortname_case);
+    }
+
+    public function allIds($active=1) {
+        if ($this->table) {
+            $where_active = $this->has_active_column && $active == 1 ? 'WHERE active=1' : null;
+            return $this->db->getCol("SELECT $this->pk FROM $this->table $where_active ORDER BY $this->pk");
+        }
+    }
+
+    public function allRecords($active=1) {
+        if ($this->table) {
+            $where_active = $this->has_active_column && $active == 1 ? 'WHERE active=1' : null;
+            return $this->db->getAll("SELECT * FROM $this->table $where_active");
+        }
+    }
+
+    public function assoc($where=null,
+                        $order_by=null,
+                        $limit=0,
+                        $offset=0)
+    {
+        $results = null;
+        $limit = is_integer($limit) && $limit > 0 ? " LIMIT $limit" : null;
+        $offset = is_integer($offset) && $offset > 0 ? " OFFSET $offset" : null;
+        if ($this->table) {
+            $where  = is_array($where) && count($where) ? ' WHERE '. $this->makeWhere($where) : null;
+            $order_by  = is_array($order_by)  && count($order_by) ? $this->orderBy($order_by) : null;
+            $sql = "SELECT * FROM $this->table $where $order_by $limit $offset";
+            $results = $this->db->getAssoc($sql);
+        }
+        return $results;
+    }
+
+    public function duplicates($rec_to_add) {
+        if ($this->table && is_array($rec_to_add) && count($rec_to_add)) {
+            $where = array();
+            foreach ($this->unique as $column) {
+                if (isset($rec_to_add[$column])) {
+                    $where[$column] = $rec_to_add[$column];
+                }
+            }
+            $where['active'] = $this->setDefault($where['active'],1);
+            $where = $this->makeWhere($where);
+            $sql = "SELECT {$this->pk} FROM {$this->table} WHERE $where";
+            return $this->db->getCol($sql);
+        }
+    }
+
+    public function dbQuote($x) {
+        if (is_numeric($x)) {
+            return $x;
+        } else {
+            return $this->db->quote($x);
+        }
+    }
+
+    public function dbColumns() {
+        $columns = $this->db->listTableFields($this->table);
+        if (is_array($columns)) {
+            $this->pk = array_shift($columns);
+            $this->columns = $columns;
+        } else {
+            $this->pk = null;
+            $this->columns = array();
+        }
+    }
+
+    public function add($data) {
+        $this->dbColumns();
+        ## create new primary key if not given
+        if (!$this->no_pk) {
+            $new_id = $this->db->getBeforeID($this->table);
+        }
+        $has_active_column = isSet($this->active_column)
+            && $this->active_column
+            && in_array($this->active_column,$this->columns) ? true : false;
+        if ($has_active_column || $this->has_active_column) {
+            $data[$this->active_column] = isset($data[$this->active_column]) ?
+                $data[$this->active_column] : 1;
+        }
+        $has_modified_column = isSet($this->modified_column)
+            && $this->modified_column
+            && in_array($this->modified_column,$this->columns) ? true : false;
+        if ($has_modified_column) {
+            $data[$this->modified_column] = $this->now();
+        }
+        $data = $this->setEmptyStringsToNull($data);
+        $clause = $this->makeWhere($data);
+        $exists = $this->db->getOne("SELECT COUNT(*) FROM $this->table WHERE $clause");
+        if ($exists) {
+            if (!$this->no_pk) {
+                $id = $this->db->getOne("SELECT $this->pk FROM $this->table WHERE $clause");
+                return $id;
+            } else {
+                return 0;
+            }
+        }
+
+        $r = $this->db->autoExecute($this->table, $data, MDB2_AUTOQUERY_INSERT);
+        if (PEAR::isError($r)) {
+            return 0;
+        }
+        if ($this->no_pk) {
+            $new_id = 1;
+        } else {
+            $new_id = $this->db->getAfterID($new_id,$this->table);
+        }
+        return $new_id;
+    }
+
+    public function update($new_values,$where=null) {
+        if ($this->table) {
+            $this->dbColumns();
+        } else {
+            return 0;
+        }
+        $where = $this->setDefault($where,$this->id);
+        $id = $where == $this->id ? $this->id : false;
+        $where = $this->makeWhere($where);
+        if (in_array($this->modified_column,$this->columns))
+            $new_values[$this->modified_column] = $this->now();
+        $result = $this->db->autoExecute($this->table,$new_values,MDB2_AUTOQUERY_UPDATE,$where);
+        if ($result && $id) {
+            foreach ($new_values as $c=>$v)
+                $this->$c = $v;
+        }
+        return $result;
+    }
+
+    public function delete($val=null) {
+        $val = $this->setDefault($val,$this->id);
+        if ($val) {
+            $where = $this->makeWhere($val);
+            return $this->db->autoExecute($this->table,null,MDB2_AUTOQUERY_DELETE,$where);
+        } else {
+            return 0;
+        }
+    }
+
+    public function columnSum($column,$where=null) {
+        if (!count($this->columns))
+            $this->dbColumns();
+        if (strlen($column) && in_array($column,$this->columns)) {
+            $where_clause = count($where) ? ' WHERE '. $this->makeWhere($where) : null;
+            return $this->db->getOne("SELECT SUM($column) FROM $this->table $where_clause");
+        } else {
+            return null;
+        }
+    }
+
+    public function deactivate($val=null) {
+        if (is_null($val)) {
+            if ($this->table && $this->id) {
+                $val = $this->id;
+            } else {
+                return null;
+            }
+        }
+        $this->dbColumns();
+        if (!in_array($this->active_column,$this->columns))
+            return null;
+        if (!is_array($val) && $this->pk && is_numeric($val)) {
+            $val = array(
+                $this->pk => $val,
+                $this->active_column => 1,
+            );
+        } else {
+            $val[$this->active_column] = 1;
+        }
+        $where = $this->makeWhere($val);
+        $deactivate = array($this->active_column => 0);
+        if (in_array($this->modified_column,$this->columns))
+            $deactivate[$this->modified_column] = $this->now();
+        $this->{$this->active_column} = 0;
+        return $this->db->autoExecute($this->table,$deactivate,MDB2_AUTOQUERY_UPDATE,$where);
+    }
+
+    public function sqlInList($an_array) {
+        return join(',', array_map(array($this, "dbQuote"), $an_array));
+    }
+
+    public function makeWhere($val=null) {
+        if (!is_array($val)) $val = array($this->pk => $val);
+        $w = array();
+        $comparison_operators = array('<','>','<=','>=','!=','LIKE');
+        foreach ($val as $k => $v) {
+            preg_match('~([\S]+)\s(.*)$~',$k,$match);
+            $key = isset($match[1]) ? $match[1] : null;
+            $comparison_operator = isset($match[2]) ? $match[2] : null;
+            if ($key && $comparison_operator) {
+                $comparison_operator = trim($comparison_operator);
+                $comparison_operator = $comparison_operator == '!' ? '!=' : $comparison_operator;
+                if ($comparison_operator == strtolower('within the last')) {
+                    $ts = new Time_Span($v);
+                    $w[] = $key .' > (DATE_SUB( NOW(), INTERVAL '. $ts->mysql ." )) \n";
+                } elseif (in_array($comparison_operator,$comparison_operators)) {
+                    if ($comparison_operator == '!=' && is_null($v)) {
+                        $w[] = $key ." IS NOT NULL \n";
+                    } elseif ($comparison_operator == '!=' && is_array($v)) {
+                        $w[] = "$key NOT IN (" . $this->sqlInList($v) . ") \n";
+                    } else {
+                        $value = is_float($v) ? $v : $this->db->quote($v);
+                        $w[] = $key .' '. $comparison_operator .' '. $value ." \n";
+                    }
+                }
+            } else {
+                if (is_array($v)) {
+                    $w[] = "$k IN (" . $this->sqlInList($v) . ") \n";
+                } else {
+                    if (is_null($v))
+                        $w[] = $k ." IS NULL \n";
+                    elseif (is_float($v))
+                        $w[] = $k . " = $v \n";
+                    else
+                        $w[] = $k . ' = '. $this->db->quote($v) ." \n";
+                }
+            }
+        }
+        return join(' AND ', $w);
+    }
+
+    public function orderBy ($array=null) {
+        $array = $this->setDefault($array,$this->order_by);
+        $order_by = null;
+        $order_bys = array();
+        if (is_array($array) && count($array)) {
+            foreach ($array as $col=>$order) {
+                if (is_numeric($order)) {
+                    $order = $order ? ' DESC': null;
+                } else {
+                    $order = $order && strtoupper($order) == 'DESC' ? ' DESC' : null;
+                }
+                array_push($order_bys,$col.$order);
+            }
+            $order_by = ' ORDER BY '.implode(',',$order_bys);
+        }
+        return $order_by;
+    }
+
+    /*
+    * for fields that shouldn't have empty string values cleanup now
+    */
+    private function setEmptyStringsToNull($rec) {
+        if (!isSet($this->no_empty_string_columns) ||
+                !$this->no_empty_string_columns)
+            return $rec;
+
+        foreach ($this->no_empty_string_columns as $col) {
+            if (isSet($rec[$col]) && !strLen($rec[$col])) {
+                $rec[$col] = null;
+            }
+        }
+        return $rec;
+    }
+
+    public function removeDuplicates($group_by_value=null,$show_log=null) {
+        if ($this->table && count($this->unique)) {
+            $class = get_class($this);
+            $unique_columns = implode(',',$this->unique);
+            if ($this->group_by && $group_by_value) {
+                $where = 'WHERE '. $this->group_by .'=' . $this->db->quote($group_by_value);
+            } else {
+                $where = null;
+            }
+            $sql = "SELECT {$this->pk},$unique_columns FROM {$this->table} $where ORDER BY {$this->pk}";
+            $rows = $this->db->getAssoc($sql);
+
+            if ($this->has_active_column) {
+                $deactivate = array($this->active_column => 0);
+                foreach ($rows as $id=>$r) {
+                    if (isset($r[$this->active_column]) && !$r[$this->active_column])
+                        unset($rows[$id]);
+                }
+                $remove = $this->arrayRmDups($rows);
+
+                foreach($remove as $id) {
+                    $obj = new $class($id);
+                    $result = $obj->update($deactivate);
+                    if ($result)
+                        $removed++;
+                    if ($show_log)
+                        echo "Deactivated $id <br />";
+                }
+            } else {
+                $remove = $this->arrayRmDups($rows);
+
+                foreach($remove as $id) {
+                    $obj = new $class($id);
+                    $result = $obj->delete();
+                    if ($result)
+                        $removed++;
+                    if ($show_log)
+                        echo "Deleted $id <br />";
+                }
+            }
+            return $removed;
+        }
+    }
+
+    public function recentOnly($array,$group_by,$uts) {
+        $uts_array = array();
+        $group_by_array = array();
+        $rendered = array();
+        foreach ($array as $id=>$r) {
+            $uts_array[$id] = $r[$uts];
+        }
+        asort($uts_array);
+        foreach ($uts_array as $id=>$uts_value) {
+            $group_by_array[$array[$id][$group_by]] = $id;
+        }
+        $ids = array_values($group_by_array);
+        foreach ($ids as $id) {
+            $rendered[$id] = $array[$id];
+        }
+        return $rendered;
+    }
+
+    public function isPseudoBoolean($scalar) {
+        $valid_values = array(0,1);
+        if (in_array($scalar,$valid_values))
+            return 1;
+        return 0;
+    }
+
+    public function boolval($x) {
+        if (is_bool($x)) {
+            return $x;
+        } elseif (empty($x)) {
+            return false;
+        } elseif (is_string($x)) {
+            $x = strtolower($x);
+            $false = array('false','f','null','no','n','off');
+            if (in_array($x,$false)) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            $result = $x ? true : false;
+            return $result;
+        }
+    }
+
+    public function bool2int($bool) {
+        if (! is_bool($bool))
+            $bool = $this->boolval($bool);
+        $int = $bool ? 1 : 0;
+        return $int;
+    }
+
+    public function float2Decimal($value, $precision=2) {
+        $multiplier = pow(10, $precision);
+        return floor($value * $multiplier) / $multiplier;
+    }
+
+    public function isValidSHA1($sha1) {
+        $result = 0;
+        if ($sha1) {
+            preg_match('~[^\w\d]+~',$sha1,$match1);
+            preg_match('~[G-Zg-z]+~',$sha1,$match2);
+            $length = strlen($sha1);
+            if (    $length == 40
+                &&    count($match1) == 0
+                &&    count($match2) == 0
+            )
+                $result = 1;
+        }
+        return $result;
+    }
+
+    public function now() {
+        return date('Y-m-d H:i:s');
+    }
+
+    public function today() {
+        return date('Y-m-d');
+    }
+
+    public function dateTimeStringsToCustomDateTimeObjects(&$array=null) {
+        if (is_array($array) && count($array)) {
+        // Convert date/datetime strings to CustomDateTime objects per the current class definition
+        // i.e. this is dependent upon the contents of $this->data_type in the current object
+        foreach ($array as $key=>$value) {
+            if (    isset($this->data_type[$key])
+                &&    (    $this->data_type[$key] == 'date'
+                    ||    $this->data_type[$key] == 'datetime'
+                    )
+            ) {
+                if ($value) {
+                    if (is_string($value)) {
+                        $array[$key] = new CustomDateTime($value);
+                    } elseif ($value instanceof CustomDateTime) {
+                        continue;
+                    }
+                } else {
+                    // If it was NULL, or zero-length string, it has no reason being here
+                    unset($array[$key]);
+                }
+            }
+        }
+    }
+
+    public function setDefault($var,$default) {
+        if (isset($var))
+            return $var;
+        return $default;
+    }
+
+    public function dataType($column=null) {
+        $data_type = null;
+        if ($column) {
+            if (is_array($this->data_type) && count($this->data_type)) {
+                $data_type = $this->data_type;
+            } else {
+                $data_type = array();
+            }
+            if ($column && isset($data_type[$column])) {
+                $data_type = $data_type[$column];
+            }
+        }
+        return $data_type;
+    }
+
+}
+?>
+----
+
+===
