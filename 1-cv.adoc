@@ -24,6 +24,17 @@ Major areas of expertise:
 
 == Professional Experience
 
+
+=== Sr. Technical Writer at Files.com (Jun 2019 - Jul 2019)
+[maroon]#*(A 100% remote position)*#
+
+Files.com is actually the main product of Action Verb LLC, a remote-only employer with no physical presence. Its circa 15 employees are spread across multiple states.
+
+* Created technical documentation using Markdown, Git, and Jekyll.
+* Analyzed technical issues reported by customers and gave recommendations to customer support staff.
+* Learned the importance of reading ALL Glassdoor reviews about a company before accepting a job offer.
+  The CEO created and filled 2 senior technical writer positions in June 2019 and then eliminated both positions abruptly, without any warning on 30 July 2019 for reasons that were vague.
+
 === Gap Inc, Corporate Headquarters, San Francisco, CA. (Jul 2009 - Feb 2019) +
 [maroon]#*(100% remote since January 2015)*#
 
